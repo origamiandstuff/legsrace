@@ -66,6 +66,7 @@ server = require('http').createServer((req, res) => {
             res.writeHead(200, { 'Content-Type': mimeSet[ fileToGet.split('.').pop() ] || 'text/html' });
             return fs.createReadStream(fileToGet).pipe(res);
     }
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.writeHead(200);
     res.end(resStr);
 });
