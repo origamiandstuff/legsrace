@@ -1,3 +1,12 @@
+/*jslint node: true */
+/*jshint -W061 */
+/*global goog, Map, let */
+//"use strict";
+// General requires
+require('google-closure-library');
+goog.require('goog.structs.PriorityQueue');
+goog.require('goog.structs.QuadTree');
+
 let pickFromChanceSet = set => {
     while (Array.isArray(set)) {
         set = set[ran.chooseChance(...set.map(e => e[0]))][1];

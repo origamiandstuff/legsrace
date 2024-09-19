@@ -1,3 +1,12 @@
+/*jslint node: true */
+/*jshint -W061 */
+/*global goog, Map, let */
+//"use strict";
+// General requires
+require('google-closure-library');
+goog.require('goog.structs.PriorityQueue');
+goog.require('goog.structs.QuadTree');
+
 // Thanks to Damocles
 // https://discord.com/channels/366661839620407297/508125275675164673/1114907447195349074
 

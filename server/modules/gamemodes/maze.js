@@ -1,3 +1,12 @@
+/*jslint node: true */
+/*jshint -W061 */
+/*global goog, Map, let */
+//"use strict";
+// General requires
+require('google-closure-library');
+goog.require('goog.structs.PriorityQueue');
+goog.require('goog.structs.QuadTree');
+
 let checkMazeForBlocks = (initX, initY, size, maze) => {
         for (let x = 0; x < size; x++) {
             for (let y = 0; y < size; y++) {
