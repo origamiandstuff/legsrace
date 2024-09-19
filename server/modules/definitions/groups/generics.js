@@ -211,7 +211,6 @@ Class.drone = {
     LABEL: "Drone",
     TYPE: "drone",
     ACCEPTS_SCORE: false,
-    DANGER: 2,
     CONTROL_RANGE: 0,
     SHAPE: 3,
     MOTION_TYPE: "chase",
