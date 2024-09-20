@@ -45,9 +45,11 @@ server = require('http').createServer((req, res) => {
             res.writeHead(200, { 'Content-Type': mimeSet[ fileToGet.split('.').pop() ] || 'text/html' });
             return fs.createReadStream(fileToGet).pipe(res);
     }
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.writeHead(200);
-    res.end(resStr);
+    if (resStr) {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.writeHead(200, { 'Content-Type': 'application/json' });  // Assuming JSON response here
+            return res.end(resStr);  // End the response after writing content
+        }
 });
 server.on('upgrade', (req, socket, head) => wsServer.handleUpgrade(req, socket, head, ws => sockets.connect(ws, req)));
 server.listen(Config.port, () => console.log("[WEB SERVER] Server listening on port", Config.port));
