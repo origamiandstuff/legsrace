@@ -10,7 +10,7 @@ module.exports = {
 
     // How often to update the list of the entities that players can see.
     // Has effects of when entities are activated.
-    visibleListInterval: 250,
+    visibleListInterval: 1000,
 
     // How long (in ms) a socket can be disconnected without their player dying.
     maxHeartbeatInterval: 300000,
