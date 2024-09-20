@@ -3,7 +3,7 @@ module.exports = {
 
     // Game server domain.
     // If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    host: "stealth-humane-diamond.glitch.me",
+    host: "",
 
     // Which port to run the web server on.
     port: 8080,
