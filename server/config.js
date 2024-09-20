@@ -3,7 +3,7 @@ module.exports = {
 
     // Game server domain.
     // If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    host: "",
+    host: 'aps-plus-plus-server.glitch.me',
 
     // Which port to run the web server on.
     port: 8080,
@@ -20,6 +20,9 @@ module.exports = {
 
     // Log speed loop warnings
     LOGS: true,
+  
+    // The domain of the client
+    CLIENT_ADDRESS: 'aps-plus-plus-client.glitch.me',
 
     // The \modules\setup\gamemodeconfigs\ files to load.
     // To change specific things about specific gamemodes (such as team count for tdm), edit their config file in \modules\setup\gamemodeconfigs\.
