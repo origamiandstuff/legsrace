@@ -40,15 +40,15 @@ server = require('http').createServer((req, res) => {
             break;
         default:
             res.writeHead(302, { Location: Config.CLIENT_ADDRESS});
-        break;
+        return res.end();
             //return the file
             res.writeHead(200, { 'Content-Type': mimeSet[ fileToGet.split('.').pop() ] || 'text/html' });
             return fs.createReadStream(fileToGet).pipe(res);
     }
     if (resStr) {
             res.setHeader("Access-Control-Allow-Origin", "*");
-            res.writeHead(200, { 'Content-Type': 'application/json' });  // Assuming JSON response here
-            return res.end(resStr);  // End the response after writing content
+            res.writeHead(200);
+            return res.end(resStr);
         }
 });
 server.on('upgrade', (req, socket, head) => wsServer.handleUpgrade(req, socket, head, ws => sockets.connect(ws, req)));

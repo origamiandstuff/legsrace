@@ -1,12 +1,3 @@
-/*jslint node: true */
-/*jshint -W061 */
-/*global goog, Map, let */
-//"use strict";
-// General requires
-require('google-closure-library');
-goog.require('goog.structs.PriorityQueue');
-goog.require('goog.structs.QuadTree');
-
 let calculatePoints = wave => 5 + wave * 3;
 // Each wave has a certain amount of "points" that it can spend on bosses, calculated above.
 // Each boss costs an amount of points.
