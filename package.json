@@ -13,13 +13,6 @@
   "dependencies": {
     "google-closure-library": "^20220502.0.0",
     "node-fetch": "^3.2.8",
-    "express": "latest",
-    "express-ws": "latest",
-    "express-minify": "latest",
-    "cors": "latest",
-    "forwarded-for": "latest",
-    "javascript-obfuscator": "latest",
-    "uglify-js": "latest",
     "ws": "^8.13.0",
     "discord.js": "^14.15.3",
     "web-streams-polyfill": "^4.0.0"
