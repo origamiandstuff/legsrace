@@ -1,3 +1,11 @@
+/*jslint node: true */
+/*jshint -W061 */
+/*global goog, Map, let */
+//"use strict";
+// General requires
+require('google-closure-library');
+goog.require('goog.structs.PriorityQueue');
+goog.require('goog.structs.QuadTree');
 let compressMovementOffsets = [
         { x: 1, y: 0},
         { x: 1, y: 1},

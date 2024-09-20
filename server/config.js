@@ -19,7 +19,7 @@ module.exports = {
     flattenDefintions: false,
 
     // Log speed loop warnings
-    LOGS: true,
+    LOGS: false, // just dont
   
     // The domain of the client
     CLIENT_ADDRESS: 'aps-plus-plus-client.glitch.me',
@@ -68,7 +68,7 @@ module.exports = {
     MESSAGE_DISPLAY_TIME: 10_000,
 
     // How long you have to wait to respawn in seconds.
-    RESPAWN_TIMEOUT: 0,
+    RESPAWN_TIMEOUT: 3,
     
 
 
@@ -78,7 +78,7 @@ module.exports = {
     runSpeed: 1.5,
 
     // Where the bullet spawns, where 1 is fully outside the barrel and -1 is fully inside the barrel, and 0 is halfway between.
-    bulletSpawnOffset: -1,
+    bulletSpawnOffset: -0.9,
 
     // General damage multiplier everytime damage is dealt.
     DAMAGE_CONSTANT: 0.5,
@@ -122,7 +122,7 @@ module.exports = {
     LEVEL_CHEAT_CAP: 45,
 
     // Amount of player-bots to spawn.
-    BOTS: 0,
+    BOTS: 5,
 
     // How much XP player-bots get per second until they reach LEVEL_CAP.
     BOT_XP: 125,
@@ -157,23 +157,23 @@ module.exports = {
     // NOTE: Disabling it decreases lagness, also very useful if you don't need foods to be spawned.
     ENABLE_FOOD: true,
 
-    FOOD_CAP: 3, // Max normal food per normal tile.
-    FOOD_SPAWN_CHANCE: 0.875, // Likeliness of normal food spawn attempts succeeding.
-    FOOD_SPAWN_COOLDOWN: 30, // Cooldown (in game ticks) of food spawn attempts being made.
+    FOOD_CAP: 2, // Max normal food per normal tile.
+    FOOD_SPAWN_CHANCE: 0.2, // Likeliness of normal food spawn attempts succeeding.
+    FOOD_SPAWN_COOLDOWN: 900, // Cooldown (in game ticks) of food spawn attempts being made.
 
-    FOOD_CAP_NEST: 3, // Max nest food per nest tile.
-    FOOD_SPAWN_CHANCE_NEST: 0.25, // Likeliness of nest food spawn attempts succeeding.
-    FOOD_SPAWN_COOLDOWN_NEST: 45, // Cooldown (in game ticks) of nest food spawn attempts being made.
+    FOOD_CAP_NEST: 1, // Max nest food per nest tile.
+    FOOD_SPAWN_CHANCE_NEST: 0.4, // Likeliness of nest food spawn attempts succeeding.
+    FOOD_SPAWN_COOLDOWN_NEST: 1350, // Cooldown (in game ticks) of nest food spawn attempts being made.
 
     ENEMY_CAP_NEST: 1, // Max nest enemies per nest tile.
-    ENEMY_SPAWN_CHANCE_NEST: 0.9, // Likeliness of nest enemies spawn attempts succeeding.
-    ENEMY_SPAWN_COOLDOWN_NEST: 60, // Cooldown (in game ticks) of nest enemies spawn attempts being made.
+    ENEMY_SPAWN_CHANCE_NEST: 0.5, // Likeliness of nest enemies spawn attempts succeeding.
+    ENEMY_SPAWN_COOLDOWN_NEST: 1800, // Cooldown (in game ticks) of nest enemies spawn attempts being made.
 
     // Cooldown (in seconds) of boss spawns being announced.
-    BOSS_SPAWN_COOLDOWN: 60,
+    BOSS_SPAWN_COOLDOWN: 180,
     // The delay (in seconds) between the boss spawns being announced and the bosses actually spawning.
     // NOTE: The spawn message (ex. "A strange trembling...") takes half as long to appear than the boss.
-    BOSS_SPAWN_DURATION: 5,
+    BOSS_SPAWN_DURATION: 10,
 
     // The possible food types that can spawn.
     FOOD_TYPES: [

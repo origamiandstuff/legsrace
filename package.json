@@ -3,10 +3,26 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "start": "node --optimize-for-size --no-lazy --gc_interval=120 server/index"
+    "startOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 server/index",
+    "restartOnSaveOptimized": "node --optimize-for-size --no-lazy --gc_interval=120 --watch server/index",
+    "start": "node server/index",
+    "restartOnSave": "node --watch server/index",
+    "host": "node standaloneClient/index",
+    "build": "node standaloneClient/build minify"
   },
   "dependencies": {
-    "ws": "^8.13.0"
+    "google-closure-library": "^20220502.0.0",
+    "node-fetch": "^3.2.8",
+    "express": "latest",
+    "express-ws": "latest",
+    "express-minify": "latest",
+    "cors": "latest",
+    "forwarded-for": "latest",
+    "javascript-obfuscator": "latest",
+    "uglify-js": "latest",
+    "ws": "^8.13.0",
+    "discord.js": "^14.15.3",
+    "web-streams-polyfill": "^4.0.0"
   },
   "engines": {
     "node": ">=16.x"
