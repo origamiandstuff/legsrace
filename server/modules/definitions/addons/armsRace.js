@@ -10,15 +10,12 @@ Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin 
 Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
 Class.basic.UPGRADES_TIER_2.push('single');
 
-//addon shit
-Class.legsrace = {
-	PARENT: "basic",
-	LABEL: "Arms race",
-}
   // Branches
 Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
 
 // Tanks
+
+// Menu
 
 // Singles
 Class.duo = {
