@@ -12,7 +12,7 @@ Events.on('chatMessage', ({ message, socket, preventDefault, setMessage }) => {
 
 	// Here we block out some very bad and banned word by replacing it with asterisks,
 	// then we set the message that will be seen by others to that filtered message.
-  let bannedWords = ['']
+  let bannedWords = ['nigger', 'nigga', 'faggot', 'tranny', 'dyke', 'sieg heil', 'blowjob', 'boobs', 'boobies', '']
   function checkMessage(message) {
     bannedWords.forEach(word => {
         const regex = new RegExp(word, 'gi');
