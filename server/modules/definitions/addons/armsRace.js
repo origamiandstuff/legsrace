@@ -166,10 +166,10 @@ Class.hognose = {
         {
 
             POSITION: {
-                LENGTH: 2,
+                LENGTH: 4,
                 WIDTH: 8,
                 ASPECT: -1,
-                X: 13,
+                X: 17,
                 Y: 0,
                 ANGLE: 0,
                 DELAY: 0},
