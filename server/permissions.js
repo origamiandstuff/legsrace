@@ -17,4 +17,8 @@ module.exports = [
     name: "Beta Tester",
     note: "Beta Testing Permissions"
   },
+  {
+    key: '',
+    disco
+  }
 ];
