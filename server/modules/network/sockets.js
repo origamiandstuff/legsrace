@@ -125,10 +125,10 @@ function incoming(message, socket) {
                 socket.kick("Ill-sized key request.");
                 return 1;
             }
-            /*if (socket.status.verified) {
+            if (socket.status.verified) {
                 socket.kick("Duplicate verification attempt.");
                 return 1;
-            }*/
+            }
             socket.talk("w", true);
             if (m.length === 1) {
                 let key = m[0].toString().trim();

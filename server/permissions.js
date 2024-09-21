@@ -16,5 +16,7 @@ module.exports = [
     note: "Beta Testing Permissions"
   },
   {
+    key: '',
+    nameColor: "#fffff"
   },
 ];

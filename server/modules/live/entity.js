@@ -1869,7 +1869,7 @@ class Entity extends EventEmitter {
                     }
                 }
                 break;
-            case "desmos":
+            case "sidewind":
                 this.damp = 0;
                 let save = {
                     x: this.master.x,
@@ -1968,7 +1968,6 @@ class Entity extends EventEmitter {
                 }
                 this.facing = util.interpolateAngle(this.facing, angleToTarget, Math.min(1, 1 / (slowness * Math.min(1, angleDiff))));
                 break;
-        }
             case "desmos":
                 this.damp = 0;
                 let save = {
