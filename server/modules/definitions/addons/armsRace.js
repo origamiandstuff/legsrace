@@ -7,8 +7,8 @@ const g = require('../gunvals.js')
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin => assassin !== 'single');
-Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos' && basic !== 'smasher');
-Class.basic.UPGRADES_TIER_2.push('single', 'smasher');
+Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
+Class.basic.UPGRADES_TIER_2.push('single');
 
 
 // Functions
