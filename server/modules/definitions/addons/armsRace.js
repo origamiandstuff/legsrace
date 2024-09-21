@@ -15,9 +15,23 @@ Class.addons.UPGRADES_TIER_0.push('armsRace');
 // Branches
 
 Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
-// Singles
+// Single Branch
 Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
-// Smashers B
+// Smasher Branch
+
+// Trapper Branch
+
+// Pounder Branch
+
+// Director Branch
+
+// Flank Guard Branch
+
+// Machine Gun Branch
+
+// Sniper Branch
+
+// Twin Branch
 
 // Tanks
 
@@ -223,5 +237,15 @@ Class.hognose = {
         },
     ],
 }
+
+// Directors
+
+// Flank Guards
+
+// Machine Guns
+
+// Snipers
+
+// Twins
 
 console.log('[Arms Race Addon] Loaded Arms Race.')
