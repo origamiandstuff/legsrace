@@ -16,6 +16,52 @@ Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
 // Tanks
 
 // Menu
+Class.armsRace = {
+    PARENT: "genericTank",
+    LABEL: "Arms Race Menu",
+    BODY: {
+        SHIELD: 1000,
+        REGEN: 10,
+        HEALTH: 100,
+        DAMAGE: 10,
+        DENSITY: 20,
+        FOV: 2,
+    },
+    SKILL_CAP: Array(10).fill(dfltskl),
+    IGNORED_BY_AI: true,
+    RESET_CHILDREN: true,
+    ACCEPTS_SCORE: true,
+    CAN_BE_ON_LEADERBOARD: true,
+    CAN_GO_OUTSIDE_ROOM: false,
+    IS_IMMUNE_TO_TILES: false,
+    DRAW_HEALTH: true,
+    ARENA_CLOSER: true,
+    INVISIBLE: [0, 0],
+    ALPHA: [0, 1],
+    HITS_OWN_TYPE: "hardOnlyTanks",
+    NECRO: false,
+    SHAPE: [
+        [-1, -0.8],
+        [-0.8, -1],
+        [0.8, -1],
+        [1, -0.8],
+        [0.2, 0],
+        [1, 0.8],
+        [0.8, 1],
+        [-0.8, 1],
+        [-1, 0.8],
+    ],
+    GUNS: [
+        {
+            POSITION: [18, 10, -1.4, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.op]),
+                TYPE: "developerBullet"
+            }
+        }
+    ],
+  UPGRADES_TIER_0: ['hognose']
+}
 
 // Singles
 Class.duo = {
@@ -81,8 +127,10 @@ Class.ternion = {
             SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.single]),
             TYPE: "bullet"
         },
-        POSITION: [5.5, 8, -1.8, 6.5, 0, 0, 0]
-    }, 3)
+    }, 3),
+  GUNS: weaponArray({
+    POSITION: [5.5, 8, -1.8, 6.5, 0, 0, 0],
+  }, 3)
 }
 
 Class.avian = makeBird('single', 'Avian');
