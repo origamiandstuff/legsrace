@@ -12,7 +12,15 @@ Events.on('chatMessage', ({ message, socket, preventDefault, setMessage }) => {
 
 	// Here we block out some very bad and banned word by replacing it with asterisks,
 	// then we set the message that will be seen by others to that filtered message.
-	setMessage(message.replaceAll('someverybadandbannedword', '************************'));
+  let bannedWords = ['']
+  function checkMessage(message) {
+    bannedWords.forEach(word => {
+        const regex = new RegExp(word, 'gi');
+        message = message.replace(regex, '******');
+    });
+    return message;
+  }
+	setMessage(checkMessage(message));
 
 	// They are allowed to spam ANYTHING they want INFINITELY.
 	if (perms && perms.allowSpam) return;
