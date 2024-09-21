@@ -15,6 +15,7 @@ Class.addons.UPGRADES_TIER_0.push('armsRace');
   // Branches
 Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
 
+
 // Tanks
 
 // Menu
@@ -139,9 +140,42 @@ Class.avian = makeBird('single', 'Avian');
 Class.custodian = makeGuard('single', 'Custodian')
 Class.assistant = makeOver('single', 'Assistant', {count: 1, independent: true, cycle: false})
 Class.autoSingle = makeAuto('single');
+//launchers and also helo notwz dont leak my info
+Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", {type: "pillboxTurret", reload: 0.6});
+Class.inception = {
+    PARENT: "genericTank",
+    LABEL: "Launcher",
+    DANGER: 6,
+    BODY: {
+        FOV: base.FOV * 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [10, 9, 1, 9, 0, 0, 0],
+        },
+        {
+            POSITION: [17, 13, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher]),
+                TYPE: "inceptionMissile",
+                STAT_CALCULATOR: "sustained",
+            },
+        },
+        {
+
+            POSITION: {
+                LENGTH: 4,
+                WIDTH: 8,
+                ASPECT: -1,
+                X: 17,
+                Y: 0,
+                ANGLE: 0,
+                DELAY: 0},
+
+        },
+    ],
+}
 //Sidewinders
-
-
 Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {type: "pillboxTurret", reload: 0.6});
 Class.hognose = {
     PARENT: "genericTank",
@@ -177,5 +211,7 @@ Class.hognose = {
         },
     ],
 }
+//upgrades
+Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
 
 console.log('[Arms Race Addon] Loaded Arms Race.')
