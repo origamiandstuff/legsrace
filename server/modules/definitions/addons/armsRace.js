@@ -1,4 +1,4 @@
-const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray } = require('../facilitators.js');
+const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, addBackGunner } = require('../facilitators.js');
 const { base, statnames, dfltskl, smshskl } = require('../constants.js');
 const g = require('../gunvals.js')
 
@@ -216,13 +216,21 @@ Class.hognose = {
 
 // Directors
 
+
 // Flank Guards
+
 
 // Machine Guns
 
+
 // Snipers
 
+// Assassins
+Class.buttbuttin = addBackGunner('assassin', 'Buttbuttin');
+Class.hitman = makeOver('assassin', 'Hitman', {count: 1, independent: true, cycle: false});
+
 // Twins
+
 
 
 // Branches
