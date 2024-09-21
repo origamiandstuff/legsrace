@@ -12,9 +12,12 @@ Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic 
 Class.basic.UPGRADES_TIER_2.push('single');
 Class.addons.UPGRADES_TIER_0.push('armsRace');
 
-  // Branches
-Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
+// Branches
 
+Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
+// Singles
+Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
+// Smashers B
 
 // Tanks
 
@@ -65,7 +68,6 @@ Class.armsRace = {
     ],
   UPGRADES_TIER_0: ['hognose']
 }
-
 // Singles
 Class.duo = {
   PARENT: 'genericTank',
@@ -140,6 +142,15 @@ Class.avian = makeBird('single', 'Avian');
 Class.custodian = makeGuard('single', 'Custodian');
 Class.assistant = makeOver('single', 'Assistant', {count: 1, independent: true, cycle: false});
 Class.autoSingle = makeAuto('single');
+
+// Smashers 
+
+
+// Trappers
+
+
+// Pounders
+
 // Launchers
 
 Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", {type: "pillboxTurret", reload: 0.6});
@@ -212,7 +223,5 @@ Class.hognose = {
         },
     ],
 }
-//upgrades
-Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
 
 console.log('[Arms Race Addon] Loaded Arms Race.')
