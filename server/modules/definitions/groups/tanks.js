@@ -3767,6 +3767,42 @@ Class.paramedic = {
     STAT_NAMES: statnames.heal,
 }
 
+Class.rocketeerMissile = {
+    PARENT: "missile",
+    GUNS: [
+        {
+            POSITION: [16.5, 10, 1.5, 0, 0, 180, 3],
+            PROPERTIES: {
+                AUTOFIRE: true,
+                SHOOT_SETTINGS: combineStats([g.basic, g.missileTrail, g.rocketeerMissileTrail]),
+                TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
+                STAT_CALCULATOR: "thruster",
+            },
+        },
+    ],
+}
+Class.rocketeer = {
+    PARENT: "genericTank",
+    LABEL: "Rocketeer",
+    BODY: {
+        FOV: 1.15 * base.FOV,
+    },
+    DANGER: 7,
+    GUNS: [
+        {
+            POSITION: [10, 12.5, -0.7, 10, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher, g.rocketeer]),
+                TYPE: "rocketeerMissile",
+                STAT_CALCULATOR: "sustained",
+            },
+        },
+        {
+            POSITION: [17, 18, 0.65, 0, 0, 0, 0],
+        },
+    ],
+}
+
 // Bird tanks
 Class.falcon = makeBird("assassin", "Falcon")
 Class.vulture = makeBird({
