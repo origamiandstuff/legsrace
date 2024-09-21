@@ -12,29 +12,6 @@ Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic 
 Class.basic.UPGRADES_TIER_2.push('single');
 Class.addons.UPGRADES_TIER_0.push('armsRace');
 
-// Branches
-
-Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
-// Single Branch
-Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
-// Smasher Branch
-
-// Trapper Branch
-
-// Pounder Branch
-
-// Director Branch
-
-// Flank Guard Branch
-
-// Machine Gun Branch
-
-// Sniper Branch
-
-// Twin Branch
-
-// Tanks
-
 // Menu
 Class.armsRace = {
     PARENT: "genericTank",
@@ -80,7 +57,6 @@ Class.armsRace = {
             }
         }
     ],
-  UPGRADES_TIER_0: ['hognose']
 }
 // Singles
 Class.duo = {
@@ -247,5 +223,30 @@ Class.hognose = {
 // Snipers
 
 // Twins
+
+
+// Branches
+
+Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
+// Single Branch
+Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'avian', 'custodian', 'assistant', 'autoSingle'];
+// Smasher Branch
+
+// Trapper Branch
+
+// Pounder Branch
+
+// Director Branch
+
+// Flank Guard Branch
+
+// Machine Gun Branch
+
+// Sniper Branch
+
+// Twin Branch
+
+// Tanks
+
 
 console.log('[Arms Race Addon] Loaded Arms Race.')
