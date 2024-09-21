@@ -165,7 +165,14 @@ Class.hognose = {
         },
         {
 
-            POSITION: [2, 8, 8.5, 14, 0, 0, 0],
+            POSITION: {
+                LENGTH: 2,
+                WIDTH: 8,
+                ASPECT: 0,
+                X: 13,
+                Y: 0,
+                ANGLE: 0,
+                DELAY: 0},
 
         },
     ],
