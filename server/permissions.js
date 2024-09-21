@@ -1,11 +1,20 @@
 module.exports = [
-    {
-        "key": process.env.TOKEN_1,
-        "discordID": '1259609457378459692',
-        "nameColor": '#0292f2',
-        "class": 'developer',
-        "infiniteLevelUp": true,
-        "name": "phosphorus9273",
-        "note": 'Developer Permissions'
-    },
-]
+  {
+    key: process.env.developer,
+    discordID: "0",
+    nameColor: "#0292f2",
+    class: "developer",
+    infiniteLevelUp: true,
+    name: "Developer",
+    note: "Developer Permissions",
+  },
+  {
+    key: process.env.betaTester,
+    discordID: "0",
+    nameColor: "#fffff",
+    class: "betaTester",
+    infiniteLevelUp: true,
+    name: "Beta Tester",
+    note: "Beta Testing Permissions"
+  },
+];
