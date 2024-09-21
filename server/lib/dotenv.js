@@ -1,5 +1,4 @@
 //This module parses .env file data
-// hello
 if (typeof Object.fromEntries !== 'function') {
     console.log("\nUpdate your Node.js, it's hella outdated.\n");
     Object.fromEntries = entries => {
