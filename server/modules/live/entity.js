@@ -1969,6 +1969,106 @@ class Entity extends EventEmitter {
                 this.facing = util.interpolateAngle(this.facing, angleToTarget, Math.min(1, 1 / (slowness * Math.min(1, angleDiff))));
                 break;
         }
+            case "desmos":
+                this.damp = 0;
+                let save = {
+                    x: this.master.x,
+                    y: this.master.y,
+                };
+                let target = {
+                    x: this.master.x + this.master.control.target.x,
+                    y: this.master.y + this.master.control.target.y,
+                };
+                let amount = (util.getDistance(target, save) / 100) | 0;
+                if (this.waveReversed == null) this.waveReversed = this.master.control.alt ? -1 : 1;
+                if (this.waveAngle == null) {
+                    this.waveAngle = this.master.facing;
+                    this.velocity.x = ((5 + this.velocity.length * (amount + 2)) * Math.cos(this.waveAngle)) / 7;
+                    this.velocity.y = ((5 + this.velocity.length * (amount + 2)) * Math.sin(this.waveAngle)) / 7;
+                }
+                let waveX = this.maxSpeed * 5 * Math.cos((this.RANGE - this.range) / (this.motionTypeArgs.period ?? 4) * 2);
+                let waveY = (this.motionTypeArgs.amplitude ?? 15) * Math.cos((this.RANGE - this.range) / (this.motionTypeArgs.period ?? 4)) * this.waveReversed * (this.motionTypeArgs.invert ? -1 : 1);
+                this.x += Math.cos(this.waveAngle) * waveX - Math.sin(this.waveAngle) * waveY;
+                this.y += Math.sin(this.waveAngle) * waveX + Math.cos(this.waveAngle) * waveY;
+                break;
+        }
+        this.accel.x += engine.x * this.control.power;
+        this.accel.y += engine.y * this.control.power;
+    }
+    reset(keepPlayerController = true) {
+        this.controllers = keepPlayerController ? [this.controllers.filter(con => con instanceof ioTypes.listenToPlayer)[0]] : [];
+    }
+    face() {
+        let t = this.control.target,
+            oldFacing = this.facing;
+        switch (this.facingType) {
+            case "turnWithSpeed":
+                this.facing += ((this.velocity.length / 90) * Math.PI) / Config.runSpeed;
+                break;
+            case "autospin":
+                this.facing += (this.facingTypeArgs.speed ?? 0.02) / Config.runSpeed;
+                break;
+            case "spin":
+                this.facing += (this.facingTypeArgs.speed ?? 0.05) / Config.runSpeed;
+                break;
+            case "fastspin":
+                this.facing += (this.facingTypeArgs.speed ?? 0.1) / Config.runSpeed;
+                break;
+            case "veryfastspin":
+                this.facing += (this.facingTypeArgs.speed ?? 1) / Config.runSpeed;
+                break;
+            case "withMotion":
+                this.facing = this.velocity.direction;
+                break;
+            case "smoothWithMotion":
+            case "looseWithMotion":
+                this.facing = util.interpolateAngle(this.facing, this.velocity.direction, Config.runSpeed / (this.facingTypeArgs.speed ?? 4));
+                break;
+            case "withTarget":
+            case "toTarget":
+                let reverse = this.reverseTargetWithTank ? 1 : this.reverseTank;
+                this.facing = Math.atan2(t.y * reverse, t.x * reverse);
+                break;
+            case "locksFacing":
+                if (!this.control.alt) this.facing = Math.atan2(t.y, t.x);
+                break;
+            case "looseWithTarget":
+            case "looseToTarget":
+            case "smoothToTarget":
+                this.facing = util.interpolateAngle(this.facing, Math.atan2(t.y, t.x), Config.runSpeed / (this.facingTypeArgs.speed ?? 4));
+                break;
+            case "noFacing":
+                this.facing = this.facingTypeArgs.angle ?? 0;
+                break;
+            case "bound":
+                let angleToTarget, angleDiff = 3,
+                    reduceIndependence = false,
+                    slowness = this.settings.mirrorMasterAngle ? 1 : (this.facingTypeArgs.slowness ?? 4) / Config.runSpeed;
+                if (this.control.main) {
+                    angleToTarget = Math.atan2(t.y, t.x);
+                    angleDiff = Math.abs(util.angleDifference(angleToTarget, this.firingArc[0]));
+                    if (angleDiff >= this.firingArc[1]) {
+                        angleToTarget = this.firingArc[0];
+                        reduceIndependence = true;
+                    }
+                } else {
+                    angleToTarget = this.firingArc[0];
+                    reduceIndependence = true;
+                }
+                if (reduceIndependence) {
+                    this.perceptionAngleIndependence -= 0.3 / Config.runSpeed;
+                    if (this.perceptionAngleIndependence < 0) {
+                        this.perceptionAngleIndependence = 0;
+                    }
+                } else {
+                    this.perceptionAngleIndependence += 0.3 / Config.runSpeed;
+                    if (this.perceptionAngleIndependence > 1) {
+                        this.perceptionAngleIndependence = 1;
+                    }
+                }
+                this.facing = util.interpolateAngle(this.facing, angleToTarget, Math.min(1, 1 / (slowness * Math.min(1, angleDiff))));
+                break;
+        }
         this.facing += this.turnAngle;
         // Loop
         if (this.facingLocked) {
