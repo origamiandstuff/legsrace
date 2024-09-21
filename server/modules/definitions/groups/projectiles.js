@@ -227,20 +227,6 @@ Class.protoHive = {
 Class.snake = {
     PARENT: "bullet",
 }
-Class.rocketeerMissile = {
-    PARENT: "missile",
-    GUNS: [
-        {
-            POSITION: [16.5, 10, 1.5, 0, 0, 180, 3],
-            PROPERTIES: {
-                AUTOFIRE: true,
-                SHOOT_SETTINGS: combineStats([g.basic, g.missileTrail, g.rocketeerMissileTrail]),
-                TYPE: ["bullet", { PERSISTS_AFTER_DEATH: true }],
-                STAT_CALCULATOR: "thruster",
-            },
-        },
-    ],
-}
 Class.sentinelMissile = {
     PARENT: "bullet",
     LABEL: "Missile",

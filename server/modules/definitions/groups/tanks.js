@@ -2648,28 +2648,6 @@ Class.swarmer = {
         },
     ],
 }
-Class.rocketeer = {
-    PARENT: "genericTank",
-    LABEL: "Rocketeer",
-    BODY: {
-        FOV: 1.15 * base.FOV,
-    },
-    DANGER: 7,
-    GUNS: [
-        {
-            POSITION: [10, 12.5, -0.7, 10, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher, g.rocketeer]),
-                TYPE: "rocketeerMissile",
-                STAT_CALCULATOR: "sustained",
-            },
-        },
-        {
-            POSITION: [17, 18, 0.65, 0, 0, 0, 0],
-        },
-    ],
-}
-
 // Trapper upgrades
 Class.builder = {
     PARENT: "genericTank",
@@ -3941,7 +3919,7 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
         Class.pounder.UPGRADES_TIER_3 = ["shotgun", "eagle"]
         Class.destroyer.UPGRADES_TIER_3 = ["conqueror", "annihilator", "hybrid", "construct"]
         Class.artillery.UPGRADES_TIER_3 = ["mortar", "ordnance", "beekeeper", "fieldGun"]
-        Class.launcher.UPGRADES_TIER_3 = ["skimmer", "twister", "swarmer", "rocketeer", "fieldGun"]
+        Class.launcher.UPGRADES_TIER_3 = ["skimmer", "twister", "swarmer", "fieldGun"]
 
     Class.trapper.UPGRADES_TIER_2 = ["builder", "triTrapper", "trapGuard"]
         Class.trapper.UPGRADES_TIER_3 = ["barricade", "overtrapper"]
