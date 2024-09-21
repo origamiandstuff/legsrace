@@ -589,19 +589,6 @@ Class.pillboxTurret = makeTurret({
         },
     ],
 }, {independent: true, extraStats: []})
-Class.hognoseTurret = makeTurret({
-    HAS_NO_RECOIL: true,
-    GUNS: [
-        {
-            POSITION: [22, 11, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.minionGun, g.turret, g.power, g.autoTurret, { reload: 0.6, density: 0.1, }]),
-                TYPE: "bullet",
-                WAIT_TO_CYCLE: true
-            },
-        },
-    ],
-}, {independent: true, extraStats: []})
 Class.autoSmasherMissileTurret = makeTurret({
     HAS_NO_RECOIL: true,
     GUNS: [
