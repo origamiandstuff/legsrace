@@ -10,8 +10,12 @@ Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin 
 Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
 Class.basic.UPGRADES_TIER_2.push('single');
 
-// Branches
-
+//addon shit
+Class.legsrace = {
+	PARENT: "basic",
+	LABEL: "Arms race",
+}
+  // Branches
 Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
 
 // Tanks
@@ -114,10 +118,12 @@ Class.hognose = {
         },
         {
 
-            POSITION: [2, 11, -0.5, 14, 0, 0, 0],
+            POSITION: [2, 8, 8.5, 14, 0, 0, 0],
 
         },
     ],
 }
+
+Class.addons.UPGRADES_TIER_0.push("legsrace");
 
 console.log('[Arms Race Addon] Loaded Arms Race.')
