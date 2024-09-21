@@ -91,7 +91,7 @@ Class.autoSingle = makeAuto('single');
 //Sidewinders
 
 
-Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {type: "pillboxTurret"});
+Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {type: "pilboxTurret", reload: 0.6});
 Class.hognose = {
     PARENT: "genericTank",
     LABEL: "Hognose",
