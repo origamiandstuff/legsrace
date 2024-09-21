@@ -8,11 +8,11 @@ const g = require('../gunvals.js')
 // Removes single from assassin branch.
 Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin => assassin !== 'single');
 Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
-Class.basic.UPGRADES_TIER_1.push('single');
+Class.basic.UPGRADES_TIER_2.push('single');
 
 // Branches
 
-
+Class.single.UPGRADES_TIER_3 = ['duo','autoSingle'];
 
 // Tanks
 
@@ -44,13 +44,11 @@ Class.duo = {
                 TYPE: "bullet"
             }
         },
-        {
-            POSITION: [5.5, 8, 5.5, 6.5, 0, 0, 0]
-        },
-        {
-            POSITION: [5.5, 8, 5.5, 6.5, 0, 0, 0]
-        }
     ],
   
 };
+
+Class.autoSingle = makeAuto('single');
+
+
 console.log('[Arms Race Addon] Loaded Arms Race.')

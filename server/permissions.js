@@ -1,39 +1,11 @@
 module.exports = [
     {
         "key": process.env.TOKEN_1,
-        "discordID": "0",
-        "nameColor": "#ffffff",
-        "class": "developer",
+        "discordID": '1259609457378459692',
+        "nameColor": '#0292f2',
+        "class": 'developer',
         "infiniteLevelUp": true,
-        "name": "unnamed#0000",
-        "note": "note here"
-    },
-    {
-        "key": process.env.TOKEN_2,
-        "discordID": "0",
-        "nameColor": "#ffffff",
-        "class": "developer",
-        "infiniteLevelUp": true,
-        "name": "unnamed#0000",
-        "note": "note here"
-    },
-    {
-        "key": process.env.TOKEN_3,
-        "discordID": "0",
-        "nameColor": "#ffffff",
-        "class": "developer",
-        "infiniteLevelUp": true,
-        "name": "unnamed#0000",
-        "note": "note here"
-    },
-    {
-        "key": process.env.TOKEN_4,
-        "discordID": "0",
-        "nameColor": "#ffffff",
-        "class": "developer",
-        "infiniteLevelUp": true,
-        "name": "unnamed#0000",
-        "note": "note here",
-        "administrator": true,
+        "name": "phosphorus9273",
+        "note": 'Developer Permissions'
     },
 ]
