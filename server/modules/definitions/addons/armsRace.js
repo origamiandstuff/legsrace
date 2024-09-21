@@ -227,8 +227,8 @@ Class.hognose = {
 
 // Assassins
 Class.buttbuttin = addBackGunner('assassin', 'Buttbuttin');
-Class.hitman = makeOver('assassin', 'Hitman', {count: 1, independent: true, cycle: false});
-Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {isTurret: true, danger: 7, label: "Sniper-3", count: 3})
+Class.hitman = makeOver('assassin', 'Hitman', {count: 1, independent: !0, cycle: !1});
+Class.sniper3 = makeRadialAuto('sniperAutoTankGun', { isTurret: !0, danger: 7, label: 'Sniper-3' ,count:3 }),Class.sniper3.BODY.FOV = 1.2;
 // Twins
 
 
