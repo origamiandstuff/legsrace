@@ -5,7 +5,6 @@ module.exports = [
     nameColor: "#0292f2",
     class: "developer",
     infiniteLevelUp: true,
-    name: "Developer",
     note: "Developer Permissions",
   },
   {
@@ -14,11 +13,8 @@ module.exports = [
     nameColor: "#fffff",
     class: "betaTester",
     infiniteLevelUp: true,
-    name: "Beta Tester",
     note: "Beta Testing Permissions"
   },
   {
-    key: '',
-    disco
-  }
+  },
 ];
