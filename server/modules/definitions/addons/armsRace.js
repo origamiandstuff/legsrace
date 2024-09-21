@@ -6,9 +6,11 @@ const g = require('../gunvals.js')
 
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
+// Adds the Arms Race menu to the Addons menu
 Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin => assassin !== 'single');
 Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
 Class.basic.UPGRADES_TIER_2.push('single');
+Class.addons.UPGRADES_TIER_0.push('armsRace');
 
   // Branches
 Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'autoSingle'];
@@ -140,7 +142,7 @@ Class.autoSingle = makeAuto('single');
 //Sidewinders
 
 
-Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {type: "pilboxTurret", reload: 0.6});
+Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {type: "pillboxTurret", reload: 0.6});
 Class.hognose = {
     PARENT: "genericTank",
     LABEL: "Hognose",
@@ -168,7 +170,5 @@ Class.hognose = {
         },
     ],
 }
-
-Class.addons.UPGRADES_TIER_0.push("legsrace");
 
 console.log('[Arms Race Addon] Loaded Arms Race.')
