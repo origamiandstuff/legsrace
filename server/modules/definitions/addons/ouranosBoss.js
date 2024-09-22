@@ -13,9 +13,14 @@ const {
 const { base, statnames, dfltskl, smshskl } = require("../constants.js");
 const g = require("../gunvals.js");
 
-return console.log('[Uranus Boss] Disabled by default.') // just make the boss like normal, it doesnt have any real difference ex
+//return console.log('[Uranus Boss] Disabled by default.'); //qhar
 
-// URANUS TURRETS
+Class.extraBosses = {
+    PARENT: "bosses",
+    LABEL: "Extra bosses"
+}
+
+// OURANUS TURRETS
 Class.triLayerTrapper = {
     PARENT: "genericTank",
     GUNS: [
@@ -84,18 +89,20 @@ Class.ascendant = {
 };
 
 // Ascendants
-let uranos = new LayeredBoss(null, "Uranos", "ascendant", 11, "veryLightGrey", "triLayerTrapperTurret", 6, 5.5);
-uranos.addLayer({turret: {
+let ouranos = new LayeredBoss(null, "Ouranos", "ascendant", 11, "veryLightGrey", "triLayerTrapperTurret", 6, 5.5);
+ouranos.addLayer({turret: {
     POSITION: [6.5, 9, 0, null, 160, 0],
     TYPE: "kronosSkimmerTurret",
 }});
-uranos.addLayer({turret: {
+ouranos.addLayer({turret: {
     POSITION: [6.5, 9, 0, null, 160, 0],
     TYPE: ["carrierTurret", {GUN_STAT_SCALE: g.battleship}],
 }}, true, 4);
-uranos.addLayer({turret: {
+ouranos.addLayer({turret: {
     POSITION: [8.5, 9, 0, null, 160, 0],
     TYPE: ["tripletTurret", {GUN_STAT_SCALE: {health: 1.15, damage: 1.1, resist: 1.3, speed: 1.1, maxSpeed: 0.9}}],
 }}, true, 4);
 
-console.log('[Uranus Boss] Loaded Uranus Boss')
+Class.addons.UPGRADES_TIER_0.push('ouranos');
+
+console.log('[Uranus Boss] Loaded Ouranus Boss');
