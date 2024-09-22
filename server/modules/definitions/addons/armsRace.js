@@ -499,8 +499,37 @@ Class.overbuilder = makeOver('builder', 'Overbuilder', {
   independent: !0,
   cycle: !1,
 });
+// Warks
+Class.wark = {
+    PARENT: "genericTank",
+    LABEL: "Wark",
+    STAT_NAMES: statnames.trap, 
+    GUNS: [
+        {
+            POSITION: [14, 8, 1, 0, 5.5, 5, 0],
+        },
+        {
+            POSITION: [3, 9, 1.5, 14, 5.5, 5, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.twin]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+        {
+            POSITION: [14, 8, 1, 0, -5.5, 355, 0],
+        },
+        {
+            POSITION: [3, 9, 1.5, 14, -5.5, 355, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.twin]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+      ]
+}
 // Trap Guards
-Class.trapGuard = makeGuard('basic', 'Trap Guard')
 Class.triTrapGuard = {
     PARENT: "genericTank",
     LABEL: "Tri-Trap Guard",
@@ -508,7 +537,7 @@ Class.triTrapGuard = {
     GUNS: [
       {
             POSITION: {
-                LENGTH: 18,
+                LENGTH: 20,
                 WIDTH: 8,
                 ASPECT: 1,
                 X: 0,
@@ -749,7 +778,7 @@ Class.single.UPGRADES_TIER_3 = ["duo", "sharpshooter", "avian", "custodian", "as
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech', 'trapGuard']);
+Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech', 'wark']);
  Class.trapGuard.UPGRADES_TIER_3 = ["triTrapGuard"];
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
