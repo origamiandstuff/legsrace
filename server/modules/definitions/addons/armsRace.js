@@ -175,7 +175,7 @@ Class.autoSingle = makeAuto("single");
 // Smashers
 // Trappers
 // Mechs
-/*Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
+Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.mech = {
     PARENT: "genericTank",
     LABEL: "Mech",
@@ -183,7 +183,7 @@ Class.mech = {
     STAT_NAMES: statnames.mixed,
     GUNS: [
     	{
-        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	POSITION: [4, 10, 1.7, 13, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.trap]),
             	TYPE: "autoTrap",
@@ -191,7 +191,7 @@ Class.mech = {
         	},
     	}, 
       {
-            POSITION: [4, 14, 1, 8, 0, 0, 0],
+            POSITION: [2, 14, 0, 8, 0, 0, 0],
       },
     ]
 }
@@ -202,14 +202,14 @@ Class.operator = {
     STAT_NAMES: statnames.mixed,
     GUNS: [
     	{
-        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	POSITION: [20, 10, 1, 0, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.basic]),
             	TYPE: "bullet",
         	},
     	},
     	{
-        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	POSITION: [4, 10, 1.7, 13, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.trap]),
             	TYPE: "autoTrap",
@@ -217,10 +217,10 @@ Class.operator = {
         	},
     	}, 
       {
-            POSITION: [4, 14, 1, 8, 0, 0, 0],
+            POSITION: [2, 14, 0, 8, 0, 0, 0],
       },
     ]
-}*/
+}
 // Pens
 Class.pen = {
     PARENT: "genericTank",
@@ -279,7 +279,7 @@ Class.delayer = makeOver("stall", "Delayer", {
 });
 Class.hurdle = {
     PARENT: "genericTank",
-    LABEL: "Stall",
+    LABEL: "Hurdle",
     DANGER: 6,
     STAT_NAMES: statnames.mixed,
     GUNS: [
@@ -655,12 +655,15 @@ Class.single.UPGRADES_TIER_3 = [
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push(['pen', 'mech']);
+Class.trapper.UPGRADES_TIER_2.push(['pen']);
+Class.trapper.UPGRADES_TIER_2.push(['mech']);
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
-   Class.stall.UPGRADES_TIER_3 = ["cubicle"];
+   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
 // Trapper branch tanks from normal tanks
   Class.fortress.UPGRADES_TIER_3 = ["corral"];
+  Class.engineer.UPGRADES_TIER_3 = ["cubicle"];
+  Class.builder.UPGRADES_TIER_3 = ["stall"];
 // Pounder Branch
 
 // Director Branch
