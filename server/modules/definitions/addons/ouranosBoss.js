@@ -9,12 +9,13 @@ const {
   weaponArray,
   addBackGunner,
   dereference,
+  makeTurret,
+  LayeredBoss,
 } = require("../facilitators.js");
 const { base, statnames, dfltskl, smshskl } = require("../constants.js");
 const g = require("../gunvals.js");
 
 //return console.log('[Uranus Boss] Disabled by default.'); //qhar
-
 Class.extraBosses = {
     PARENT: "bosses",
     LABEL: "Extra bosses"
@@ -25,6 +26,12 @@ Class.triLayerTrapper = {
     PARENT: "genericTank",
     GUNS: [
         {
+            POSITION: {
+                LENGTH: 15,
+                WIDTH: 7
+            },
+            PROPERTIES:
+        }, {
             POSITION: {
                 LENGTH: 15,
                 WIDTH: 7
@@ -70,6 +77,7 @@ Class.triLayerTrapper = {
     ]
 }
 Class.triLayerTrapperTurret = makeTurret('triLayerTrapper', {canRepel: true, limitFov: true, color: 'mirror', extraStats: [{speed: 1.3, maxSpeed: 1.3}]})
+//boss itself
 Class.ascendant = {
     PARENT: "miniboss",
     LABEL: "Ascendant",
