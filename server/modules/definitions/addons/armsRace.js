@@ -27,7 +27,7 @@ Class.basic.UPGRADES_TIER_2.push("single");
 
 const makeFighter = (type, name = -1) => {
   type = ensureIsClass(type);
-  let output = dereference(type);
+  let output  = dereference(type);
   let cannons = [
     {
       POSITION: [16, 8, 1, 0, -1, 90, 0],
