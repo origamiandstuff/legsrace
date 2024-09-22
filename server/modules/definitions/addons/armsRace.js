@@ -535,7 +535,7 @@ Class.warkwark = {
     PARENT: "genericTank",
     LABEL: "Wark",
     STAT_NAMES: statnames.trap, 
-    GUNS: weapon{
+    GUNS: weaponArray({
             POSITION: [14, 8, 1, 0, 5.5, 5, 0],
             POSITION: [3, 9, 1.5, 14, 5.5, 5, 0],
             PROPERTIES: {
@@ -550,7 +550,7 @@ Class.warkwark = {
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
             },
-        }
+        })
 }
           
 // Trap Guards
