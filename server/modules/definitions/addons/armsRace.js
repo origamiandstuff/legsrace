@@ -200,30 +200,7 @@ Class.pen = {
     	}
     ]
 }
-Class.operator = {
-    PARENT: "genericTank",
-    LABEL: "Operator",
-    DANGER: 6,
-    STAT_NAMES: statnames.mixed,
-    GUNS: [
-    	{
-        	POSITION: [20, 8, 1, 0, 0, 0, 0],
-        	PROPERTIES: {
-            	SHOOT_SETTINGS: combineStats([g.basic]),
-            	TYPE: "bullet",
-        	},
-    	},
-    	{
-        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
-        	PROPERTIES: {
-            	SHOOT_SETTINGS: combineStats([g.trap]),
-            	TYPE: "trap",
-            	STAT_CALCULATOR: 'trap',
-        	},
-    	}
-    ]
-}
-
+Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.stall = {
     PARENT: "genericTank",
     LABEL: "Stall",
