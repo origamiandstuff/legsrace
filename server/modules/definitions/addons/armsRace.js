@@ -228,6 +228,7 @@ Class.operator = {
       },
     ]
 }
+Class.overMech = makeOver('mech', 'Overmech');
 // Pens
 Class.pen = {
     PARENT: "genericTank",
@@ -281,8 +282,8 @@ Class.stall = {
 Class.autoStall = makeAuto('stall');
 Class.delayer = makeOver("stall", "Delayer", {
   count: 1,
-  independent: true,
-  cycle: false,
+  independent: !0,
+  cycle: !1,
 });
 Class.hurdle = {
     PARENT: "genericTank",
@@ -477,10 +478,14 @@ Class.autoPen = makeAuto('pen');
 Class.cockatiel = makeBird('pen', 'Cockatiel');
 Class.interner = makeOver("pen", "Interner", {
   count: 1,
-  independent: true,
-  cycle: false,
+  independent: !0,
+  cycle: !1,
 });
-
+Class.ovepen = makeOver('pen', 'Overpen', {
+  count: 2,
+  independent: !1,
+  cycle: !1
+});
 // Builders
 
 Class.fashioner = makeOver('builder', { count : 1, independent: true, cycle: false })
@@ -489,7 +494,11 @@ Class.autoEngineer = makeAuto('engineer');
 Class.autoConstruct = makeAuto('construct');
 Class.autoBoomer = makeAuto('boomer');
 Class.megaAutoBuilder = makeAuto('builder', { type: 'megaAutoTurret' });
-
+Class.overbuilder = makeOver('builder', 'Overbuilder', {
+  count: 1,
+  independent: !0,
+  cycle: !1,
+});
 // Pounders
 
 // Launchers
@@ -644,7 +653,7 @@ Class.peregrine = makeBird("ranger", "Peregrine");
 Class.owl = makeBird("stalker", "Owl");
 Class.autoFalcon = makeAuto("falcon");
 Class.harpy = addBackGunner("falcon", "Harpy");
-Class.merlin = makeBird("assassin", "Merlin", { super: true });
+Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 
 // Twins
 
