@@ -27,8 +27,9 @@ Class.triLayerTrapper = {
     GUNS: [
         {
             POSITION: {
-                LENGTH: 15,
-                WIDTH: 7
+                LENGTH: 40,
+                WIDTH: 3, 
+                ASPECT: -3
             },
             PROPERTIES: {
                 COLOR: 'black'
@@ -36,15 +37,15 @@ Class.triLayerTrapper = {
         }, {
             POSITION: {
                 LENGTH: 15,
-                WIDTH: 7
+                WIDTH: 10
             }
         },
         {
             POSITION: {
                 LENGTH: 3,
-                WIDTH: 7,
-                ASPECT: 5,
-                X: 15
+                WIDTH: 10,
+                ASPECT: 3,
+                X: 16
             },
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap]),
@@ -54,8 +55,8 @@ Class.triLayerTrapper = {
         }, {
             POSITION: {
                 LENGTH: 4,
-                WIDTH: 7.5,
-                ASPECT: 4.2,
+                WIDTH: 10.5,
+                ASPECT: 1.2,
                 X: 17
             },
             PROPERTIES: {
@@ -67,7 +68,7 @@ Class.triLayerTrapper = {
             POSITION: {
                 LENGTH: 5,
                 WIDTH: 7,
-                ASPECT: 5,
+                ASPECT: 2,
                 X: 12
             },
             PROPERTIES: {

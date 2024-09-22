@@ -1,5 +1,5 @@
 // Define mocking up functions
-function getMockup(e, positionInfo) {
+/*function getMockup(e, positionInfo) {
     let turretsAndProps = e.turrets.concat(e.props);
     return {
         index: e.index,
@@ -55,6 +55,70 @@ function getMockup(e, positionInfo) {
             return out;
         }),
     };
+}*/
+
+function getMockup(e, positionInfo) {
+    const turretsAndProps = e.turrets.concat(e.props);
+    
+    // Pre-calculate common values
+    const roundedValues = (value) => Number(value.toFixed(2)); // Round to 2 decimal places
+    const roundedArray = (arr) => arr.map(roundedValues);
+    const roundedObject = (obj) => Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, roundedValues(v)]));
+
+    return {
+        index: roundedValues(e.index),
+        name: roundedValues(e.label),
+        upgradeName: roundedValues(e.upgradeLabel),
+        upgradeTooltip: roundedValues(e.upgradeTooltip),
+        x: roundedValues(e.x),
+        y: roundedValues(e.y),
+        color: e.color.compiled,
+        strokeWidth: roundedValues(e.strokeWidth),
+        upgradeColor: e.upgradeColor,
+        glow: roundedValues(e.glow),
+        borderless: roundedValues(e.borderless),
+        drawFill: roundedValues(e.drawFill),
+        shape: e.shapeData,
+        imageInterpolation: e.imageInterpolation,
+        size: roundedValues(e.size),
+        realSize: roundedValues(e.realSize),
+        facing: roundedValues(e.facing),
+        mirrorMasterAngle: roundedValues(e.settings.mirrorMasterAngle),
+        layer: roundedValues(e.layer),
+        statnames: roundedValues(e.settings.skillNames),
+        position: positionInfo,
+        rerootUpgradeTree: roundedValues(e.rerootUpgradeTree),
+        className: roundedValues(e.className),
+        upgrades: roundedArray(e.upgrades.map(r => ({
+            tier: roundedValues(r.tier),
+            index: roundedValues(r.index)
+        }))),
+        guns: roundedArray(e.guns.map(function(gun) {
+            return {
+                offset: roundedValues(gun.offset),
+                direction: roundedValues(gun.offsetDirection),
+                length: roundedValues(gun.length),
+                width: roundedValues(gun.width),
+                aspect: roundedValues(gun.aspect),
+                angle: roundedValues(gun.angle),
+                color: gun.color.compiled,
+                strokeWidth: roundedValues(gun.strokeWidth),
+                alpha: roundedValues(gun.alpha),
+                borderless: roundedValues(gun.borderless),
+                drawFill: roundedValues(gun.drawFill),
+                drawAbove: roundedValues(gun.drawAbove),
+            };
+        })),
+        turrets: roundedArray(turretsAndProps.map(function(t) {
+            let out = getMockup(t, {});
+            out.sizeFactor = roundedValues(t.bound.size);
+            out.offset = roundedValues(t.bound.offset);
+            out.direction = roundedValues(t.bound.direction);
+            out.layer = roundedValues(t.bound.layer);
+            out.angle = roundedValues(t.bound.angle);
+            return out;
+        })),
+    };
 }
 
 let endPoints;
@@ -94,6 +158,38 @@ function checkIfOnLine(endpoint1, endpoint2, checkPoint) {
     // Check point is on the line with a small margin
     return Math.abs(checkPoint[1] - predictedY) <= 1e-5;
 }
+
+/*function getDimensions(entity) {
+    // Begin processing from the main body
+    endPoints = [];
+    sizeEntity(entity);
+
+    // Convert to useful info
+    endPoints.sort((a, b) => (b[0] ** 2 + b[1] ** 2 - a[0] ** 2 - a[1] ** 2));
+    let point1 = getFurthestFrom(0, 0),
+        point2 = getFurthestFrom(...point1);
+    
+    // Repeat selecting the second point until at least one of the first two points is off the centerline
+    while ((point1[0] == 0 && point2[0] == 0 || point1[1] == 0 && point2[1] == 0) && entity.shape != 4) {
+        point2 = getFurthestFrom(...point1);
+    }
+
+    let avgX = (point1[0] + point2[0]) / 2,
+        avgY = (point1[1] + point2[1]) / 2,
+        point3 = getFurthestFrom(avgX, avgY);
+    
+    // Repeat selecting the third point until it's actually different from the other points and it's not collinear with them
+    while (checkIfSamePoint(point3, point1) || checkIfSamePoint(point3, point2) || checkIfOnLine(point1, point2, point3)) {
+        point3 = getFurthestFrom(avgX, avgY);
+    }
+    
+    let {x, y, r} = constructCircumcirle(point1, point2, point3);
+
+    return {
+        axis: r * 2,
+        middle: {x, y},
+    };
+}*/
 
 function getDimensions(entity) {
     // Begin processing from the main body
@@ -207,7 +303,7 @@ function sizeEntity(entity, x = 0, y = 0, angle = 0, scale = 1) {
     }
 }
 
-console.log("Started loading mockups...");
+/*console.log("Started loading mockups...");
 let mockupsLoadStartTime = performance.now();
 
 let mockupData = [];
@@ -248,7 +344,59 @@ console.log("Mockups generated in " + util.rounder(mockupsLoadEndTime - mockupsL
 console.log("Server loaded in " + util.rounder(mockupsLoadEndTime, 4) + " milliseconds.\n");
 mockupsLoaded = true;
 
+let mockupJsonData = JSON.stringify(mockupData);*/
+
+console.log("Started loading mockups...");
+let mockupsLoadStartTime = performance.now();
+
+let mockupData = [];
+let entitiesToProcess = [];
+
+Object.keys(Class).forEach((k) => {
+    try {
+        if (!Class.hasOwnProperty(k)) return;
+        
+        let type = Class[k];
+        let entity = new Entity({ x: 0, y: 0 });
+        entity.define(type);
+        entity.className = k;
+        entity.name = type.LABEL;
+
+        let mockup = {
+            body: entity.camera(true),
+            position: getDimensions(entity)
+        };
+
+        type.mockup = {
+            ...mockup,
+            body: {
+                ...mockup.body,
+                position: mockup.position
+            }
+        };
+
+        mockupData.push(getMockup(entity, mockup.position));
+        entitiesToProcess.push(entity);
+    } catch (error) {
+        console.error(`Error generating mockup for ${k}:`, error.message);
+        console.error('Type details:', JSON.stringify(Class[k]));
+    }
+});
+
+entitiesToProcess.forEach(entity => {
+    entity.destroy();
+});
+
+purgeEntities();
+
+let mockupsLoadEndTime = performance.now();
+console.log("Finished compiling " + mockupData.length + " classes into mockups.");
+console.log("Mockups generated in " + util.rounder(mockupsLoadEndTime - mockupsLoadStartTime, 3) + " milliseconds.\n");
+console.log("Server loaded in " + util.rounder(mockupsLoadEndTime, 4) + " milliseconds.\n");
+mockupsLoaded = true;
+
 let mockupJsonData = JSON.stringify(mockupData);
+
 
 module.exports = {
     mockupJsonData
