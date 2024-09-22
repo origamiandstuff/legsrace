@@ -500,9 +500,10 @@ Class.overbuilder = makeOver('builder', 'Overbuilder', {
   cycle: !1,
 });
 // Trap Guards
-Class.trapGuard = {
+Class.trapGuard = makeGuard('basic', 'Trap Guard')
+Class.triTrapGuard = {
     PARENT: "genericTank",
-    LABEL: "Trap Guard",
+    LABEL: "Tri-Trap Guard",
     STAT_NAMES: statnames.mixed,
     GUNS: [
       {
@@ -540,7 +541,47 @@ Class.trapGuard = {
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap"
             }
-        }
+        }, {
+            POSITION: {
+                LENGTH: 13,
+                WIDTH: 7,
+                ANGLE: 90
+            }
+        },
+        {
+            POSITION: {
+                LENGTH: 3,
+                WIDTH: 7,
+                ASPECT: 1.7,
+                X: 13, 
+                ANGLE: 90
+            },
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap"
+            }
+        }, {
+            POSITION: {
+                LENGTH: 13,
+                WIDTH: 7,
+                ANGLE: 270
+            }
+        },
+        {
+            POSITION: {
+                LENGTH: 3,
+                WIDTH: 7,
+                ASPECT: 1.7,
+                X: 13, 
+                ANGLE: 270
+            },
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap"
+            }
+        }, 
     ]
 }
 // Pounders
@@ -704,18 +745,12 @@ Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 // Branches
 
 // Single Branch
-Class.single.UPGRADES_TIER_3 = [
-  "duo",
-  "sharpshooter",
-  "avian",
-  "custodian",
-  "assistant",
-  "autoSingle",
-];
+Class.single.UPGRADES_TIER_3 = ["duo", "sharpshooter", "avian", "custodian", "assistant", "autoSingle"];
 // Smasher Branch
 
 // Trapper Branch
 Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech', 'trapGuard']);
+ Class.trapGuard.UPGRADES_TIER_3 = ["triTrapGuard"];
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
