@@ -173,7 +173,10 @@ Class.assistant = makeOver("single", "Assistant", {
 Class.autoSingle = makeAuto("single");
 
 // Smashers
+
+
 // Trappers
+
 // Mechs
 Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.mech = {
@@ -183,10 +186,36 @@ Class.mech = {
     STAT_NAMES: statnames.mixed,
     GUNS: [
       {
-        	POSITION: [15, 9, 1, 0, 0, 0, 0],
+        	POSITION: [15, 8, 1, 0, 0, 0, 0],
     	},
     	{
-        	POSITION: [3, 7, 1.7, 15, 0, 0, 0],
+        	POSITION: [3, 9, 1.7, 15, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "autoTrap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}, 
+      {
+            POSITION: [4, 12, 1, 8, 0, 0, 0],
+      },
+    ]
+}
+Class.operator = {
+    PARENT: "genericTank",
+    LABEL: "Operator",
+    DANGER: 7,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+      {
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+          PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4.5, 8, 1.7, 15, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.trap]),
             	TYPE: "autoTrap",
@@ -632,14 +661,13 @@ Class.single.UPGRADES_TIER_3 = [
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push(['pen']);
-Class.trapper.UPGRADES_TIER_2.push(['mech']);
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', /*'operator'*/];
+Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech']);
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
-   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
-// Trapper branch tanks from normal tanks
+  Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
   Class.fortress.UPGRADES_TIER_3 = ["corral"];
-  Class.engineer.UPGRADES_TIER_3 = ["cubicle"];
+  Class.engineer.UPGRADES_TIER_3 = ["cubicle", 'autoEngineer'];
+  Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct'];
   Class.builder.UPGRADES_TIER_3 = ["stall"];
 // Pounder Branch
 
