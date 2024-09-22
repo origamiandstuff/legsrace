@@ -167,8 +167,8 @@ Class.avian = makeBird("single", "Avian");
 Class.custodian = makeGuard("single", "Custodian");
 Class.assistant = makeOver("single", "Assistant", {
   count: 1,
-  independent: true,
-  cycle: false,
+  independent: !0,
+  cycle: !1,
 });
 Class.autoSingle = makeAuto("single");
 
@@ -499,6 +499,50 @@ Class.overbuilder = makeOver('builder', 'Overbuilder', {
   independent: !0,
   cycle: !1,
 });
+// Trap Guards
+Class.trapGuard = {
+    PARENT: "genericTank",
+    LABEL: "Trap Guard",
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+      {
+            POSITION: {
+                LENGTH: 18,
+                WIDTH: 8,
+                ASPECT: 1,
+                X: 0,
+                Y: 0,
+                ANGLE: 0,
+                DELAY: 0
+            },
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic]),
+                TYPE: "bullet",
+            }
+        },
+        {
+            POSITION: {
+                LENGTH: 13,
+                WIDTH: 7,
+                ANGLE: 180
+            }
+        },
+        {
+            POSITION: {
+                LENGTH: 3,
+                WIDTH: 7,
+                ASPECT: 1.7,
+                X: 13, 
+                ANGLE: 180
+            },
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap"
+            }
+        }
+    ]
+}
 // Pounders
 
 // Launchers
@@ -671,7 +715,7 @@ Class.single.UPGRADES_TIER_3 = [
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech']);
+Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech', 'trapGuard']);
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
