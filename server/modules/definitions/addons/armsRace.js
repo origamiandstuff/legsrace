@@ -176,7 +176,8 @@ Class.autoSingle = makeAuto("single");
 
 
 // Trappers
-
+// chargers
+Class.chargerTrapDeco = makeDeco(5)
 // Mechs
 Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.mech = {
@@ -215,7 +216,7 @@ Class.operator = {
         	},
     	},
     	{
-        	POSITION: [4.5, 8, 1.7, 15, 0, 0, 0],
+        	POSITION: [2.8, 8, 1.7, 15, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.trap]),
             	TYPE: "autoTrap",
