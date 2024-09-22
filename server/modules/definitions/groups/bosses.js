@@ -1083,6 +1083,23 @@ Class.eternal = {
         DAMAGE: 18,
     },
 };
+Class.ascendant = {
+    PARENT: "miniboss",
+    LABEL: "Ascendant",
+    SKILL: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+    VALUE: 4e6,
+    SHAPE: 11,
+    SIZE: 90,
+    CONTROLLERS: [["minion", {orbit: 300}]],
+    BODY: {
+        FOV: 1,
+        HEALTH: 3000,
+        SHIELD: 150,
+        REGEN: base.REGEN * 0.1,
+        SPEED: base.SPEED * 0.15,
+        DAMAGE: 18,
+    },
+};
 
 // Terrestrials
 let ares = new LayeredBoss(null, "Ares", "terrestrial", 7, "purple", "terrestrialTrapTurret", 7, 5.5);
