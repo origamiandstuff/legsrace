@@ -223,10 +223,9 @@ Class.chargerTrap = {
 }
 
 Class.charger = {
-    PARENT: "genericTank", // phosphorus when will i show you my shit
-    LABEL: "Charger", // origami youre a 
-    DANGER: 6, //pls talk in amocord istead pls
-    GUNS: [ //no like with this code
+    PARENT: "genericTank", // 
+    LABEL: "Charger", // 
+    GUNS: [ // 
       {
           POSITION: [2, 12, 1.1, 18, 0, 0, 0],
           PROPERTIES: {
