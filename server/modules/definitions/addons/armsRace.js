@@ -177,42 +177,64 @@ Class.assistant = makeOver("single", "Assistant", {
 Class.autoSingle = makeAuto("single");
 
 // Smashers
-
+//oh wait i think i know i wanted to make the thing use only 2 guns
 // Trappers
+
+// Pen
 Class.pen = {
-  PARENT: "genericTank",
-  LABEL: "Pen",
-  DANGER: 6,
-  STAT_NAMES: statnames.trap,
-  GUNS: [
-    {
-      POSITION: [20, 8, 1, 0, 0, 0, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.basic]),
-        TYPE: "bullet",
-      },
-    },
-    {
-      
-    },
-    // yes you did, i was editing it and you deleted it
-    //what i didnt delete shit
-    {
-      POSITION: [3,]
-      POSITION: {
-        LENGTH: 3,
-        WIDTH: 7,
-        ASPECT: 1.7,
-        X: 15,
-      },
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.trap]),
-        TYPE: "trap",
-        STAT_CALCULATOR: "trap",
-      },
-    },
-  ],
-};
+    PARENT: "genericTank",
+    LABEL: "Pen",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}
+    ]
+}
+
+Class.tripen = {
+    PARENT: "genericTank",
+    LABEL: "Tri-Pen",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: weaponArray([
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}
+    ]
+}, 3),
+Class.autoPen = makeAuto('pen');
+Class.cockatiel = makeBird('pen', 'Cockatiel');
+Class.interner = makeOver("pen", "Interner", {
+  count: 1,
+  independent: true,
+  cycle: false,
+});
 
 // Pounders
 
