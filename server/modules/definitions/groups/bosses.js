@@ -1083,23 +1083,6 @@ Class.eternal = {
         DAMAGE: 18,
     },
 };
-Class.ascendant = {
-    PARENT: "miniboss",
-    LABEL: "Ascendant",
-    SKILL: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
-    VALUE: 4e6,
-    SHAPE: 11,
-    SIZE: 90,
-    CONTROLLERS: [["minion", {orbit: 300}]],
-    BODY: {
-        FOV: 1,
-        HEALTH: 9000,
-        SHIELD: 450,
-        REGEN: base.REGEN * 0.3,
-        SPEED: base.SPEED * 0.1,
-        DAMAGE: 30,
-    },
-};
 
 // Terrestrials
 let ares = new LayeredBoss(null, "Ares", "terrestrial", 7, "purple", "terrestrialTrapTurret", 7, 5.5);
@@ -1346,20 +1329,6 @@ odin.addLayer({turret: {
     POSITION: [8, 9, 0, null, 160, 0],
     TYPE: "gunnerCruiserTurret",
 }}, true, 4.5);
-// Ascendants
-let uranos = new LayeredBoss(null, "Uranos", "ascendant", 11, "veryLightGrey", "triLayerTrapperTurret", 6, 5.5);
-uranos.addLayer({turret: {
-    POSITION: [6.5, 9, 0, null, 160, 0],
-    TYPE: "kronosSkimmerTurret",
-}});
-uranos.addLayer({turret: {
-    POSITION: [6.5, 9, 0, null, 160, 0],
-    TYPE: ["carrierTurret", {GUN_STAT_SCALE: g.battleship}],
-}}, true, 4);
-uranos.addLayer({turret: {
-    POSITION: [8.5, 9, 0, null, 160, 0],
-    TYPE: ["tripletTurret", {GUN_STAT_SCALE: {health: 1.15, damage: 1.1, resist: 1.3, speed: 1.1, maxSpeed: 0.9}}],
-}}, true, 4);
 
 // Developer Bosses
 Class.taureonCoreBase = {
