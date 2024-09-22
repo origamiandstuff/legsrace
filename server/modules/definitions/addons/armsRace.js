@@ -228,16 +228,16 @@ Class.chargerTrap = {
 }
 
 Class.charger = {
-    PARENT: "genericTank", // our s
-    LABEL: "Charger", // which server
-    DANGER: 6, // 
+    PARENT: "genericTank", // i wonder when [OHISHORYS] will come online...
+    LABEL: "Charger", // notwz teach us our way
+    DANGER: 6, //wanna take a look at the f
     STAT_NAMES: statnames.trapper,
     GUNS: [
       {
           POSITION: [2, 12, 1.1, 18, 0, 0, 0],
           PROPERTIES: {
-              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap,]),
-              TYPE: "setTrap",
+              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, {}]),
+              TYPE: ['chargerTrap'],
               STAT_CALCULATOR: "block"
           }
       }
