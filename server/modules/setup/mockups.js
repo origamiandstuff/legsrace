@@ -211,7 +211,7 @@ console.log("Started loading mockups...");
 let mockupsLoadStartTime = performance.now();
 
 let mockupData = [];
-/*for (let k in Class) {
+for (let k in Class) {
     try {
         if (!Class.hasOwnProperty(k)) continue;
         let type = Class[k];
@@ -240,124 +240,6 @@ let mockupData = [];
 }
 
 // Remove them
-purgeEntities();
-
-let mockupsLoadEndTime = performance.now();
-console.log("Finished compiling " + mockupData.length + " classes into mockups.");
-console.log("Mockups generated in " + util.rounder(mockupsLoadEndTime - mockupsLoadStartTime, 3) + " milliseconds.\n");
-console.log("Server loaded in " + util.rounder(mockupsLoadEndTime, 4) + " milliseconds.\n");
-mockupsLoaded = true;
-
-let mockupJsonData = JSON.stringify(mockupData);
-
-module.exports = {
-    mockupJsonData
-};*/
-
-for (const className in Class) {
-    const type = Class[className];
-    if (!type.hasOwnProperty('LABEL')) {
-        console.warn(`Missing LABEL property for ${className}`);
-        continue;
-    }
-
-    const label = type.LABEL;
-
-    const mockup = {
-        body: {},
-        position: {}
-    };
-
-    // Generate mockup data without creating full entities
-    const guns = type.guns?.map(gun => ({
-        offset: gun.offset,
-        direction: gun.offsetDirection,
-        length: gun.length,
-        width: gun.width,
-        aspect: gun.aspect,
-        angle: gun.angle,
-        color: gun.color.compiled,
-        strokeWidth: gun.strokeWidth,
-        alpha: gun.alpha,
-        borderless: gun.borderless,
-        drawFill: gun.drawFill,
-        drawAbove: gun.drawAbove,
-    })) ?? [];
-
-    const turretsAndProps = type.turrets?.concat(type.props) || [];
-
-    const upgradedGuns = type.upgrades?.map(upgrade => ({
-        tier: upgrade.tier,
-        index: upgrade.index
-    })) ?? [];
-
-    const upgradedTurrets = turretsAndProps.map(turret => ({
-        index: turret.index,
-        upgradeName: type.upgradeLabel,
-        upgradeTooltip: type.upgradeTooltip,
-        x: turret.x,
-        y: turret.y,
-        color: turret.color.compiled,
-        strokeWidth: turret.strokeWidth,
-        upgradeColor: type.upgradeColor,
-        glow: turret.glow,
-        borderless: turret.borderless,
-        drawFill: turret.drawFill,
-        shape: turret.shapeData,
-        imageInterpolation: turret.imageInterpolation,
-        size: turret.size,
-        realSize: turret.realSize,
-        facing: turret.facing,
-        mirrorMasterAngle: type.settings.mirrorMasterAngle,
-        layer: turret.layer,
-        statnames: type.settings.skillNames,
-        position: { x: turret.x, y: turret.y },
-        rerootUpgradeTree: turret.rerootUpgradeTree,
-        className: className,
-        upgrades: upgradedGuns,
-        guns: guns,
-    }));
-
-    mockupData.push({
-        index: type.index,
-        name: label,
-        upgradeName: type.upgradeLabel,
-        upgradeTooltip: type.upgradeTooltip,
-        x: type.x,
-        y: type.y,
-        color: type.color,
-        strokeWidth: type.strokeWidth,
-        upgradeColor: type.upgradeColor,
-        glow: type.glow,
-        borderless: type.borderless,
-        drawFill: type.drawFill,
-        shape: type.shapeData,
-        imageInterpolation: type.imageInterpolation,
-        size: type.size,
-        realSize: type.realSize,
-        facing: type.facing,
-        mirrorMasterAngle: type.settings.mirrorMasterAngle,
-        layer: type.layer,
-        statnames: type.settings.skillNames,
-        position: { x: type.x, y: type.y },
-        rerootUpgradeTree: type.rerootUpgradeTree,
-        className: className,
-        upgrades: upgradedGuns,
-        guns: guns,
-        turrets: upgradedTurrets,
-    });
-
-    // Only create the full entity if absolutely necessary
-    if (type.debugMode) {
-        const fullEntity = new Entity({ x: 0, y: 0 });
-        fullEntity.define(type);
-        fullEntity.className = className;
-        fullEntity.name = label;
-        fullEntity.camera(true);
-        fullEntity.destroy();
-    }
-}
-
 purgeEntities();
 
 let mockupsLoadEndTime = performance.now();

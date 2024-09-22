@@ -30,7 +30,9 @@ Class.triLayerTrapper = {
                 LENGTH: 15,
                 WIDTH: 7
             },
-            PROPERTIES:
+            PROPERTIES: {
+                COLOR: 'black'
+            }
         }, {
             POSITION: {
                 LENGTH: 15,
