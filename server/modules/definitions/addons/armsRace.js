@@ -204,8 +204,28 @@ Class.autoSingle = makeAuto("single");
 
 
 // Trappers
-// chargers
-Class.chargerTrapDeco = makeDeco(5)
+// Chargers
+// doesnt it just shoot out traps, make it use hexa or septa trapper
+Class.chargerTrapDeco = makeDeco(5);//uhh it shoots 5 traps
+Class.launchBS = {
+    
+}
+Class.chargerTrap = {
+    PARENT: "setTrap",
+    ON: [{
+      event: "death",
+      handler: ({body}) => {
+      /*let trap = new Entity(body);
+      trap.define(Class.trap);*/
+      let trap = new Entity(body).define(Class.launchBS);
+}
+    }],
+    TURRETS: [{
+      POSITION: [0, 0, 0, 0, 0, 0],
+      TYPE: "chargerTrapDeco",
+    }
+    ]
+}
 // Mechs
 Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.mech = {
