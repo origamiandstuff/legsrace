@@ -229,6 +229,11 @@ Class.hawker = {
         }
     ]
 }
+Class.peregrine = makeBird('ranger', 'Peregrine');
+Class.owl = makeBird('stalker', 'Owl');
+Class.autoFalcon = makeAuto('falcon');
+Class.harpy = addBackGunner('falcon', 'Harpy');
+Class.merlin = makeBird('assassin', 'Merlin', { super: true });
 
 // Twins
 
@@ -236,7 +241,6 @@ Class.hawker = {
 
 // Branches
 
-Class.armsRace.UPGRADES_TIER_0 = ['inception', 'hognose'];
 // Single Branch
 Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'avian', 'custodian', 'assistant', 'autoSingle'];
 // Smasher Branch
