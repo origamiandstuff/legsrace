@@ -2707,7 +2707,7 @@ Class.trapGuard = makeGuard({
 })
 
 // Builder upgrades
-Class.construct = { // it's "construct" and not "constructor" because "constructor" breaks things
+Class.construct = {
     PARENT: "genericTank",
     LABEL: "Constructor",
     STAT_NAMES: statnames.trap,
@@ -2729,7 +2729,7 @@ Class.construct = { // it's "construct" and not "constructor" because "construct
             }
         }
     ]
-}
+}  // can you make coop?
 Class.engineer = {
     PARENT: "genericTank",
     DANGER: 7,

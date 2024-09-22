@@ -201,6 +201,137 @@ Class.pen = {
     ]
 }
 
+Class.stall = {
+    PARENT: "genericTank",
+    LABEL: "Stall",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+          POSITION: [18, 12, 1, 0, 0, 0, 0],
+      },
+      {
+          POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+          PROPERTIES: {
+              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+              TYPE: "setTrap",
+              STAT_CALCULATOR: "block"
+          }
+      }
+    ]
+}
+
+Class.hurdle = {
+    PARENT: "genericTank",
+    LABEL: "Stall",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+          POSITION: [18, 12, 1, 0, 0, 0, 0],
+      },
+      {
+          POSITION: [18, 18, 1, 0, 0, 0, 0],
+      },
+      {
+          POSITION: [2, 18, 1.2, 18, 0, 0, 0],
+          PROPERTIES: {
+              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.construct]),
+              TYPE: "setTrap",
+              STAT_CALCULATOR: "block"
+          }
+      }
+    ]
+}
+
+Class.cubicle = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Cubicle",
+    STAT_NAMES: statnames.trap,
+    BODY: {
+        SPEED: 0.75 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+          	POSITION: [20, 8, 1, 0, 0, 0, 0],
+          	PROPERTIES: {
+              	SHOOT_SETTINGS: combineStats([g.basic]),
+              	TYPE: "bullet",
+        },
+    	  },
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 14, 1, 15.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "pillbox",
+                SYNCS_SKILLS: true,
+                DESTROY_OLDEST_CHILD: true,
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+        },
+    ],
+}
+
+Class.fender = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Fender",
+    STAT_NAMES: statnames.trap,
+    BODY: {
+        SPEED: 0.75 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+          	POSITION: [20, 8, 1, 0, 0, 0, 0],
+          	PROPERTIES: {
+              	SHOOT_SETTINGS: combineStats([g.basic]),
+              	TYPE: "bullet",
+        },
+    	  },
+        {
+            POSITION: [5, 10, 1, 13, 0, 0, 0],
+        },
+        {
+            POSITION: [6, 10, -1.5, 7, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 10, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.boomerang]),
+                TYPE: "boomerang",
+                STAT_CALCULATOR: "block"
+            },
+        },
+    ],
+}
+
 Class.tripen = {
     PARENT: "genericTank",
     LABEL: "Tri-Pen",
@@ -436,10 +567,12 @@ Class.single.UPGRADES_TIER_3 = [
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push('pen');
-Class.pen.UPGRADES_TIER_3 = ["tripen"];
-Class.tripen.UPGRADES_TIER_3 = ["coral"];
-
+Class.trapper.UPGRADES_TIER_2.push(['pen']);
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall'];
+  Class.tripen.UPGRADES_TIER_3 = ["coral"];
+  Class.stall.UPGRADES_TIER_3 = ["cubicle"];
+// Trapper branch tanks from normal tanks
+  Class.fortress.UPGRADES_TIER_3 = ["coral"];
 // Pounder Branch
 
 // Director Branch
