@@ -1,343 +1,392 @@
-const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, addBackGunner, dereference } = require('../facilitators.js');
-const { base, statnames, dfltskl, smshskl } = require('../constants.js');
-const g = require('../gunvals.js')
+const {
+  combineStats,
+  makeAuto,
+  makeOver,
+  makeDeco,
+  makeGuard,
+  makeBird,
+  makeRadialAuto,
+  weaponArray,
+  addBackGunner,
+  dereference,
+} = require("../facilitators.js");
+const { base, statnames, dfltskl, smshskl } = require("../constants.js");
+const g = require("../gunvals.js");
 
 //return console.log('[Arms Race Addon] Disabled by default.');
 
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 // Adds the Arms Race menu to the Addons menu
-Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin => assassin !== 'single');
-Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
-Class.basic.UPGRADES_TIER_2.push('single');
+Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(
+  (assassin) => assassin !== "single"
+);
+Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(
+  (basic) => basic !== "desmos"
+);
+Class.basic.UPGRADES_TIER_2.push("single");
 
 // Functions
 
 const makeFighter = (type, name = -1) => {
-    type = ensureIsClass(type);
-    let output = dereference(type);
-    let cannons = [{
-        POSITION: [16, 8, 1, 0, -1, 90, 0],
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
-            TYPE: "bullet",
-            LABEL: "Side",
-        },
-    }, {
-        POSITION: [16, 8, 1, 0, 1, -90, 0],
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
-            TYPE: "bullet",
-            LABEL: "Side",
-        },
-    }];
-    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-    output.LABEL = name == -1 ? "Fighter " + type.LABEL : name;
-    return output;
-}
+  type = ensureIsClass(type);
+  let output = dereference(type);
+  let cannons = [
+    {
+      POSITION: [16, 8, 1, 0, -1, 90, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.flankGuard,
+          g.triAngle,
+          g.triAngleFront,
+        ]),
+        TYPE: "bullet",
+        LABEL: "Side",
+      },
+    },
+    {
+      POSITION: [16, 8, 1, 0, 1, -90, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.flankGuard,
+          g.triAngle,
+          g.triAngleFront,
+        ]),
+        TYPE: "bullet",
+        LABEL: "Side",
+      },
+    },
+  ];
+  output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+  output.LABEL = name == -1 ? "Fighter " + type.LABEL : name;
+  return output;
+};
 
 const makeSurfer = (type, name = -1) => {
-    type = ensureIsClass(type);
-    let output = dereference(type);
-    let cannons = [{
-            POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm]),
-                TYPE: "autoswarm",
-                STAT_CALCULATOR: gunCalcNames.swarm,
-            },
-        },
-        {
-            POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm]),
-                TYPE: "autoswarm",
-                STAT_CALCULATOR: gunCalcNames.swarm,
-            },
-        }];
-    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-    output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
-    return output;
-}
+  type = ensureIsClass(type);
+  let output = dereference(type);
+  let cannons = [
+    {
+      POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.swarm]),
+        TYPE: "autoswarm",
+      },
+    },
+    {
+      POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.swarm]),
+        TYPE: "autoswarm",
+      },
+    },
+  ];
+  output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+  output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+  return output;
+};
 
 // Tanks
 
 // Singles
 Class.duo = {
-  PARENT: 'genericTank',
-  LABEL: 'Duo',
+  PARENT: "genericTank",
+  LABEL: "Duo",
   DANGER: 7,
   GUNS: [
-        {
-            POSITION: {
-                LENGTH: 20,
-                WIDTH: 8,
-                Y: 5.5
-            },
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.single]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: {
-                LENGTH: 20,
-                WIDTH: 8,
-                Y: -5.5,
-                DELAY: 0.5
-            },
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.single]),
-                TYPE: "bullet"
-            }
-        },
-    ],
-  
+    {
+      POSITION: {
+        LENGTH: 20,
+        WIDTH: 8,
+        Y: 5.5,
+      },
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.single]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      POSITION: {
+        LENGTH: 20,
+        WIDTH: 8,
+        Y: -5.5,
+        DELAY: 0.5,
+      },
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.single]),
+        TYPE: "bullet",
+      },
+    },
+  ],
 };
 
 Class.sharpshooter = {
-    PARENT: "genericTank",
-    LABEL: "Sharpshooter",
-    DANGER: 7,
-    GUNS: [
-        {
-            POSITION: [24, 8, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.single, g.sniper]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [5.5, 8, -1.8, 6.5, 0, 0, 0]
-        }
-    ]
-}
-Class.ternion = {
-    PARENT: "genericTank",
-    LABEL: "Ternion",
-    DANGER: 7,
-    BODY: {
-        SPEED: 1.1 * base.SPEED
+  PARENT: "genericTank",
+  LABEL: "Sharpshooter",
+  DANGER: 7,
+  GUNS: [
+    {
+      POSITION: [24, 8, 1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.single, g.sniper]),
+        TYPE: "bullet",
+      },
     },
-    GUNS: weaponArray({
-        POSITION: {
-            LENGTH: 18,
-            WIDTH: 8
-        },
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.single]),
-            TYPE: "bullet"
-        },
-    }, 3),
-  GUNS: weaponArray({
-    POSITION: [5.5, 8, -1.8, 6.5, 0, 0, 0],
-  }, 3)
-}
+    {
+      POSITION: [5.5, 8, -1.8, 6.5, 0, 0, 0],
+    },
+  ],
+};
+Class.ternion = {
+  PARENT: "genericTank",
+  LABEL: "Ternion",
+  DANGER: 7,
+  BODY: {
+    SPEED: 1.1 * base.SPEED,
+  },
+  GUNS: weaponArray(
+    {
+      POSITION: {
+        LENGTH: 18,
+        WIDTH: 8,
+      },
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.single]),
+        TYPE: "bullet",
+      },
+    },
+    3
+  ),
+  GUNS: weaponArray(
+    {
+      POSITION: [5.5, 8, -1.8, 6.5, 0, 0, 0],
+    },
+    3
+  ),
+};
 
-Class.avian = makeBird('single', 'Avian');
-Class.custodian = makeGuard('single', 'Custodian');
-Class.assistant = makeOver('single', 'Assistant', {count: 1, independent: true, cycle: false});
-Class.autoSingle = makeAuto('single');
+Class.avian = makeBird("single", "Avian");
+Class.custodian = makeGuard("single", "Custodian");
+Class.assistant = makeOver("single", "Assistant", {
+  count: 1,
+  independent: true,
+  cycle: false,
+});
+Class.autoSingle = makeAuto("single");
 
-// Smashers 
-
+// Smashers
 
 // Trappers
 Class.pen = {
-    PARENT: "genericTank",
-    LABEL: "Pen",
-    DANGER: 6, 
-    STAT_NAMES: statnames.trap,
-    GUNS: [
-      {
-            POSITION: {
-                LENGTH: 18,
-                WIDTH: 8,
-                ASPECT: 1,
-                X: 0,
-                Y: 0,
-                ANGLE: 0,
-                DELAY: 0
-            },
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic]),
-                TYPE: "bullet",
-            },
-        }, {
-            POSITION: {
-                LENGTH: 15,
-                WIDTH: 7
-            }
-        },
-        {
-            POSITION: {
-                LENGTH: 3,
-                WIDTH: 7,
-                ASPECT: 1.7,
-                X: 15
-            },
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap]),
-                TYPE: "trap",
-                STAT_CALCULATOR: "trap"
-            }
-        }
-        }
-    ]
-}
+  PARENT: "genericTank",
+  LABEL: "Pen",
+  DANGER: 6,
+  STAT_NAMES: statnames.trap,
+  GUNS: [
+    {
+      POSITION: [20, 8, 1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic]),
+        TYPE: "bullet",
+      },
+    },
+    {
+      
+    },
+    // yes you did, i was editing it and you deleted it
+    //what i didnt delete shit
+    {
+      POSITION: [3,]
+      POSITION: {
+        LENGTH: 3,
+        WIDTH: 7,
+        ASPECT: 1.7,
+        X: 15,
+      },
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.trap]),
+        TYPE: "trap",
+        STAT_CALCULATOR: "trap",
+      },
+    },
+  ],
+};
 
 // Pounders
 
 // Launchers
 
-Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", {type: "pillboxTurret", reload: 0.6});
+Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", {
+  type: "pillboxTurret",
+  reload: 0.6,
+});
 Class.inception = {
-    PARENT: "genericTank",
-    LABEL: "Inception",
-    DANGER: 6,
-    BODY: {
-        FOV: base.FOV * 1.1,
+  PARENT: "genericTank",
+  LABEL: "Inception",
+  DANGER: 6,
+  BODY: {
+    FOV: base.FOV * 1.1,
+  },
+  GUNS: [
+    {
+      POSITION: [10, 9, 1, 9, 0, 0, 0],
     },
-    GUNS: [
-        {
-            POSITION: [10, 9, 1, 9, 0, 0, 0],
-        },
-        {
-            POSITION: [17, 13, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher]),
-                TYPE: "inceptionMissile",
-                STAT_CALCULATOR: "sustained",
-            },
-        },
-        {
+    {
+      POSITION: [17, 13, 1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher]),
+        TYPE: "inceptionMissile",
+        STAT_CALCULATOR: "sustained",
+      },
+    },
+    {
+      POSITION: {
+        LENGTH: 4,
+        WIDTH: 8,
+        ASPECT: -1,
+        X: 17,
+        Y: 0,
+        ANGLE: 0,
+        DELAY: 0,
+      },
+    },
+  ],
+};
 
-            POSITION: {
-                LENGTH: 4,
-                WIDTH: 8,
-                ASPECT: -1,
-                X: 17,
-                Y: 0,
-                ANGLE: 0,
-                DELAY: 0},
-
-        },
-    ],
-}
-
-Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {type: "pillboxTurret", reload: 0.6});
+Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {
+  type: "pillboxTurret",
+  reload: 0.6,
+});
 Class.hognose = {
-    PARENT: "genericTank",
-    LABEL: "Hognose",
-    DANGER: 7,
-    BODY: {
-        SPEED: 0.8 * base.SPEED,
-        FOV: 1.3 * base.FOV,
+  PARENT: "genericTank",
+  LABEL: "Hognose",
+  DANGER: 7,
+  BODY: {
+    SPEED: 0.8 * base.SPEED,
+    FOV: 1.3 * base.FOV,
+  },
+  GUNS: [
+    {
+      POSITION: [10, 11, -0.5, 14, 0, 0, 0],
     },
-    GUNS: [
-        {
-            POSITION: [10, 11, -0.5, 14, 0, 0, 0],
-        },
-        {
-            POSITION: [21, 12, -1.1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewinder]),
-                TYPE: "hognoseMissile",
-                STAT_CALCULATOR: "sustained",
-            },
-        },
-        {
-
-            POSITION: {
-                LENGTH: 4,
-                WIDTH: 8,
-                ASPECT: -1,
-                X: 17,
-                Y: 0,
-                ANGLE: 0,
-                DELAY: 0},
-
-        },
-    ],
-}
+    {
+      POSITION: [21, 12, -1.1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([
+          g.basic,
+          g.sniper,
+          g.hunter,
+          g.sidewinder,
+        ]),
+        TYPE: "hognoseMissile",
+        STAT_CALCULATOR: "sustained",
+      },
+    },
+    {
+      POSITION: {
+        LENGTH: 4,
+        WIDTH: 8,
+        ASPECT: -1,
+        X: 17,
+        Y: 0,
+        ANGLE: 0,
+        DELAY: 0,
+      },
+    },
+  ],
+};
 
 // Directors
 
-
 // Flank Guards
 
-
 // Machine Guns
-
 
 // Snipers
 
 // Assassins
-Class.buttbuttin = addBackGunner('assassin', 'Buttbuttin');
-Class.hitman = makeOver('assassin', 'Hitman', {count: 1, independent: !0, cycle: !1});
-Class.sniper3 = makeRadialAuto('sniperAutoTankGun', { isTurret: !0, body: { FOV: 1.2 }, danger: 7, label: 'Sniper-3' ,count:3 });
+Class.buttbuttin = addBackGunner("assassin", "Buttbuttin");
+Class.hitman = makeOver("assassin", "Hitman", {
+  count: 1,
+  independent: !0,
+  cycle: !1,
+});
+Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {
+  isTurret: !0,
+  body: { FOV: 1.2 },
+  danger: 7,
+  label: "Sniper-3",
+  count: 3,
+});
 
 // Rangers
-Class.autoRanger = makeAuto('ranger');
+Class.autoRanger = makeAuto("ranger");
 Class.vindicator = {
-    PARENT: "genericTank",
-    LABEL: "Vindicator",
-    DANGER: 7,
-    BODY: {
-        SPEED: 0.8 * base.SPEED,
-        FOV: 1.8 * base.FOV,
+  PARENT: "genericTank",
+  LABEL: "Vindicator",
+  DANGER: 7,
+  BODY: {
+    SPEED: 0.8 * base.SPEED,
+    FOV: 1.8 * base.FOV,
+  },
+  GUNS: [
+    {
+      POSITION: [35, 8, 1, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.assassin]),
+        TYPE: "bullet",
+      },
     },
-    GUNS: [
-        {
-            POSITION: [35, 8, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.assassin]),
-                TYPE: "bullet",
-            },
-        },
-        {
-            POSITION: [5, 8, -1.4, 8, 0, 0, 0],
-        },
-    ],
-}
+    {
+      POSITION: [5, 8, -1.4, 8, 0, 0, 0],
+    },
+  ],
+};
 Class.hawker = {
-    PARENT: "genericTank",
-    DANGER: 7,
-    LABEL: "Hawker",
-    BODY: {
-        SPEED: 0.85 * base.SPEED,
-        FOV: 1.35 * base.FOV
+  PARENT: "genericTank",
+  DANGER: 7,
+  LABEL: "Hawker",
+  BODY: {
+    SPEED: 0.85 * base.SPEED,
+    FOV: 1.35 * base.FOV,
+  },
+  INVISIBLE: [0.08, 0.03],
+  TOOLTIP: "Stay still to turn invisible.",
+  GUNS: [
+    {
+      POSITION: [32, 8, -1.8, 0, 0, 0, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.assassin]),
+        TYPE: "bullet",
+      },
     },
-    INVISIBLE: [0.08, 0.03],
-    TOOLTIP: "Stay still to turn invisible.",
-    GUNS: [
-        {
-            POSITION: [32, 8, -1.8, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.assassin]),
-                TYPE: "bullet"
-            }
-        }
-    ]
-}
-Class.peregrine = makeBird('ranger', 'Peregrine');
-Class.owl = makeBird('stalker', 'Owl');
-Class.autoFalcon = makeAuto('falcon');
-Class.harpy = addBackGunner('falcon', 'Harpy');
-Class.merlin = makeBird('assassin', 'Merlin', { super: true });
+  ],
+};
+Class.peregrine = makeBird("ranger", "Peregrine");
+Class.owl = makeBird("stalker", "Owl");
+Class.autoFalcon = makeAuto("falcon");
+Class.harpy = addBackGunner("falcon", "Harpy");
+Class.merlin = makeBird("assassin", "Merlin", { super: true });
 
 // Twins
-
-
 
 // Branches
 
 // Single Branch
-Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'avian', 'custodian', 'assistant', 'autoSingle'];
+Class.single.UPGRADES_TIER_3 = [
+  "duo",
+  "sharpshooter",
+  "avian",
+  "custodian",
+  "assistant",
+  "autoSingle",
+];
 // Smasher Branch
 
 // Trapper Branch
-
+Class.trapper.UPGRADES_TIER_3 = ["pen"];
 // Pounder Branch
 
 // Director Branch
@@ -352,5 +401,4 @@ Class.single.UPGRADES_TIER_3 = ['duo', 'sharpshooter', 'avian', 'custodian', 'as
 
 // Tanks
 
-
-console.log('[Arms Race Addon] Loaded Arms Race.')
+console.log("[Arms Race Addon] Loaded Arms Race.");
