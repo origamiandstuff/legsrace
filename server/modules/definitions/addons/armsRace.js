@@ -18,12 +18,8 @@ const g = require("../gunvals.js");
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 // Adds the Arms Race menu to the Addons menu
-Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(
-  (assassin) => assassin !== "single"
-);
-Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(
-  (basic) => basic !== "desmos"
-);
+Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter((assassin) => assassin !== "single");
+Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter((basic) => basic !== "desmos");
 Class.basic.UPGRADES_TIER_2.push("single");
 
 // Functions
@@ -235,7 +231,7 @@ Class.coral = {
     STAT_NAMES: statnames.mixed,
     GUNS: weaponArray([
       {
-            POSITION: [7, 7.5, 7, 0, 4, 60, 0],
+            POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
@@ -440,9 +436,10 @@ Class.single.UPGRADES_TIER_3 = [
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push = ["pen"];
-    Class.pen.UPGRADES_TIER_3 = ["tripen"];
-        Class.tripen.UPGRADES_TIER_3 = ["coral"];
+Class.trapper.UPGRADES_TIER_2.push('pen');
+Class.pen.UPGRADES_TIER_3 = ["tripen"];
+Class.tripen.UPGRADES_TIER_3 = ["coral"];
+
 // Pounder Branch
 
 // Director Branch
