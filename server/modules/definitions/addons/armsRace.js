@@ -200,6 +200,29 @@ Class.pen = {
     	}
     ]
 }
+Class.operator = {
+    PARENT: "genericTank",
+    LABEL: "Operator",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}
+    ]
+}
 
 Class.stall = {
     PARENT: "genericTank",
@@ -227,7 +250,12 @@ Class.stall = {
       }
     ]
 }
-
+Class.autoStall = makeAuto('stall');
+Class.delayer = makeOver("stall", "Delayer", {
+  count: 1,
+  independent: true,
+  cycle: false,
+});
 Class.hurdle = {
     PARENT: "genericTank",
     LABEL: "Stall",
@@ -298,6 +326,36 @@ Class.cubicle = {
     ],
 }
 
+Class.incarcerator = {
+    PARENT: "genericTank",
+    LABEL: "Incarcerator",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+      {
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 180, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 180, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}
+    ]
+}
 Class.fender = {
     PARENT: "genericTank",
     DANGER: 7,
@@ -394,6 +452,15 @@ Class.interner = makeOver("pen", "Interner", {
   independent: true,
   cycle: false,
 });
+
+// Builders
+
+Class.fashioner = makeOver('builder', { count : 1, independent: true, cycle: false })
+Class.autoFashioner = makeAuto('fashioner');
+Class.autoEngineer = makeAuto('engineer');
+Class.autoConstruct = makeAuto('construct');
+Class.autoBoomer = makeAuto('boomer');
+Class.megaAutoBuilder = makeAuto('builder', { type: 'megaAutoTurret' });
 
 // Pounders
 
@@ -568,7 +635,7 @@ Class.single.UPGRADES_TIER_3 = [
 
 // Trapper Branch
 Class.trapper.UPGRADES_TIER_2.push(['pen']);
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall'];
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator'];
   Class.tripen.UPGRADES_TIER_3 = ["coral"];
   Class.stall.UPGRADES_TIER_3 = ["cubicle"];
 // Trapper branch tanks from normal tanks

@@ -329,7 +329,7 @@ exports.makeAuto = (type, name = -1, options = {}) => {
         output.TURRETS = [...type.TURRETS, autogun];
     }
     if (name == -1) {
-        output.LABEL = "Auto-" + type.LABEL;
+        if (options.type)
     } else {
         output.LABEL = name;
     }
