@@ -182,8 +182,11 @@ Class.mech = {
     DANGER: 7,
     STAT_NAMES: statnames.mixed,
     GUNS: [
+      {
+        	POSITION: [15, 10, 1, 0, 0, 0, 0],
+    	},
     	{
-        	POSITION: [4, 10, 1.7, 13, 0, 0, 0],
+        	POSITION: [4, 10, 1.7, 15, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.trap]),
             	TYPE: "autoTrap",
@@ -191,7 +194,7 @@ Class.mech = {
         	},
     	}, 
       {
-            POSITION: [2, 14, 0, 8, 0, 0, 0],
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
       },
     ]
 }
@@ -209,7 +212,7 @@ Class.operator = {
         	},
     	},
     	{
-        	POSITION: [4, 10, 1.7, 13, 0, 0, 0],
+        	POSITION: [4, 10, 1.7, 15, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.trap]),
             	TYPE: "autoTrap",
@@ -217,7 +220,7 @@ Class.operator = {
         	},
     	}, 
       {
-            POSITION: [2, 14, 0, 8, 0, 0, 0],
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
       },
     ]
 }
