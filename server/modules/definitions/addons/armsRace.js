@@ -226,17 +226,17 @@ Class.chargerTrap = {
     }
     ]
 }
-//no like on death, the block/setTrap makes (Class.launchBS which then shoots then dies)
+
 Class.charger = {
-    PARENT: "genericTank",
-    LABEL: "Charger",  // 
-    DANGER: 6,         // doxxing is leaki
+    PARENT: "genericTank", // our s
+    LABEL: "Charger", // which server
+    DANGER: 6, // 
     STAT_NAMES: statnames.trapper,
     GUNS: [
       {
           POSITION: [2, 12, 1.1, 18, 0, 0, 0],
           PROPERTIES: {
-              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap,]),
               TYPE: "setTrap",
               STAT_CALCULATOR: "block"
           }
