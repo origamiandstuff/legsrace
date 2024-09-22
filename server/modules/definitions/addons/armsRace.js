@@ -634,7 +634,7 @@ Class.single.UPGRADES_TIER_3 = [
 // Trapper Branch
 Class.trapper.UPGRADES_TIER_2.push(['pen']);
 Class.trapper.UPGRADES_TIER_2.push(['mech']);
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', /*'operator'*/];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
    Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
 // Trapper branch tanks from normal tanks
