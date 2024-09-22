@@ -1347,16 +1347,16 @@ odin.addLayer({turret: {
     TYPE: "gunnerCruiserTurret",
 }}, true, 4.5);
 // Ascendants
-let kronos = new LayeredBoss(null, "Uranos", "ascendant", 11, "veryLightGrey", "baseTrapTurret", 6, 5.5);
-kronos.addLayer({turret: {
+let uranos = new LayeredBoss(null, "Uranos", "ascendant", 11, "veryLightGrey", "triLayerTrapperTurret", 6, 5.5);
+uranos.addLayer({turret: {
     POSITION: [6.5, 9, 0, null, 160, 0],
     TYPE: "kronosSkimmerTurret",
 }});
-kronos.addLayer({turret: {
+uranos.addLayer({turret: {
     POSITION: [6.5, 9, 0, null, 160, 0],
     TYPE: ["carrierTurret", {GUN_STAT_SCALE: g.battleship}],
 }}, true, 4);
-kronos.addLayer({turret: {
+uranos.addLayer({turret: {
     POSITION: [8.5, 9, 0, null, 160, 0],
     TYPE: ["tripletTurret", {GUN_STAT_SCALE: {health: 1.15, damage: 1.1, resist: 1.3, speed: 1.1, maxSpeed: 0.9}}],
 }}, true, 4);
