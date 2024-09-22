@@ -85,7 +85,8 @@ const makeSurfer = (type, name = -1) => {
   return output;
 };
 
-// Turrets
+// Turrets, Traps, Bullets etc..
+
 Class.sniperAutoTankGun = makeTurret({
     GUNS: [
         {
@@ -205,8 +206,7 @@ Class.autoSingle = makeAuto("single");
 
 // Trappers
 // Chargers
-// doesnt it just shoot out traps, make it use hexa or septa trapper
-Class.chargerTrapDeco = makeDeco(5);//uhh it shoots 5 traps
+Class.chargerTrapDeco = makeDeco(5);
 Class.launchBS = {
     
 }
@@ -217,7 +217,7 @@ Class.chargerTrap = {
       handler: ({body}) => {
       /*let trap = new Entity(body);
       trap.define(Class.trap);*/
-      let trap = new Entity(body).define(Class.launchBS);
+      let trap = new Entity(body).define(Class.hexaTrapper);//qhar
 }
     }],
     TURRETS: [{
@@ -226,6 +226,24 @@ Class.chargerTrap = {
     }
     ]
 }
+//no like on death, the block/setTrap makes (Class.launchBS which then shoots then dies)
+Class.charger = {
+    PARENT: "genericTank",
+    LABEL: "Charger",  // 
+    DANGER: 6,         // doxxing is leaki
+    STAT_NAMES: statnames.trapper,
+    GUNS: [
+      {
+          POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+          PROPERTIES: {
+              SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+              TYPE: "setTrap",
+              STAT_CALCULATOR: "block"
+          }
+      }
+    ]
+}
+
 // Mechs
 Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.mech = {
