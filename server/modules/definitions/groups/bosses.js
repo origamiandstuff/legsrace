@@ -1093,11 +1093,11 @@ Class.ascendant = {
     CONTROLLERS: [["minion", {orbit: 300}]],
     BODY: {
         FOV: 1,
-        HEALTH: 3000,
-        SHIELD: 150,
-        REGEN: base.REGEN * 0.1,
-        SPEED: base.SPEED * 0.15,
-        DAMAGE: 18,
+        HEALTH: 9000,
+        SHIELD: 450,
+        REGEN: base.REGEN * 0.3,
+        SPEED: base.SPEED * 0.1,
+        DAMAGE: 30,
     },
 };
 
