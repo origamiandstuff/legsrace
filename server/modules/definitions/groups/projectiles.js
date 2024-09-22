@@ -605,6 +605,7 @@ Class.unsetPillbox = {
         },
     ],
 }
+Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.legionaryPillbox = {
     PARENT: "unsetTrap",
     LABEL: "Pillbox",

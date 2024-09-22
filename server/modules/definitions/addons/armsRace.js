@@ -173,10 +173,55 @@ Class.assistant = makeOver("single", "Assistant", {
 Class.autoSingle = makeAuto("single");
 
 // Smashers
-//oh wait i think i know i wanted to make the thing use only 2 guns
 // Trappers
-
-// Pen
+// Mechs
+Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
+Class.mech = {
+    PARENT: "genericTank",
+    LABEL: "Mech",
+    DANGER: 7,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "autoTrap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}, 
+      {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+      },
+    ]
+}
+Class.operator = {
+    PARENT: "genericTank",
+    LABEL: "Operator",
+    DANGER: 7,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "autoTrap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}, 
+      {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+      },
+    ]
+}
+// Pens
 Class.pen = {
     PARENT: "genericTank",
     LABEL: "Pen",
@@ -200,7 +245,6 @@ Class.pen = {
     	}
     ]
 }
-Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
 Class.stall = {
     PARENT: "genericTank",
     LABEL: "Stall",
@@ -240,7 +284,7 @@ Class.hurdle = {
     STAT_NAMES: statnames.mixed,
     GUNS: [
     	{
-        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	POSITION: [24, 8, 1, 0, 0, 0, 0],
         	PROPERTIES: {
             	SHOOT_SETTINGS: combineStats([g.basic]),
             	TYPE: "bullet",
@@ -274,7 +318,7 @@ Class.cubicle = {
     },
     GUNS: [
         {
-          	POSITION: [20, 8, 1, 0, 0, 0, 0],
+          	POSITION: [24, 8, 1, 0, 0, 0, 0],
           	PROPERTIES: {
               	SHOOT_SETTINGS: combineStats([g.basic]),
               	TYPE: "bullet",
@@ -390,9 +434,9 @@ Class.tripen = {
     	}
     ], 3),
 }
-Class.coral = {
+Class.corral = {
     PARENT: "genericTank",
-    LABEL: "Coral",
+    LABEL: "Corral",
     DANGER: 6,
     STAT_NAMES: statnames.mixed,
     GUNS: weaponArray([
