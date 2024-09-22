@@ -1,4 +1,4 @@
-const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, addBackGunner } = require('../facilitators.js');
+const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, addBackGunner, dereference } = require('../facilitators.js');
 const { base, statnames, dfltskl, smshskl } = require('../constants.js');
 const g = require('../gunvals.js')
 
@@ -11,6 +11,56 @@ Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(assassin 
 Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter(basic => basic !== 'desmos');
 Class.basic.UPGRADES_TIER_2.push('single');
 
+// Functions
+
+const makeFighter = (type, name = -1) => {
+    type = ensureIsClass(type);
+    let output = dereference(type);
+    let cannons = [{
+        POSITION: [16, 8, 1, 0, -1, 90, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
+            TYPE: "bullet",
+            LABEL: "Side",
+        },
+    }, {
+        POSITION: [16, 8, 1, 0, 1, -90, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
+            TYPE: "bullet",
+            LABEL: "Side",
+        },
+    }];
+    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+    output.LABEL = name == -1 ? "Fighter " + type.LABEL : name;
+    return output;
+}
+
+const makeSurfer = (type, name = -1) => {
+    type = ensureIsClass(type);
+    let output = dereference(type);
+    let cannons = [{
+            POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "autoswarm",
+                STAT_CALCULATOR: gunCalcNames.swarm,
+            },
+        },
+        {
+            POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "autoswarm",
+                STAT_CALCULATOR: gunCalcNames.swarm,
+            },
+        }];
+    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+    output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+    return output;
+}
+
+// Tanks
 
 // Singles
 Class.duo = {
@@ -93,7 +143,48 @@ Class.autoSingle = makeAuto('single');
 
 
 // Trappers
-
+Class.pen = {
+    PARENT: "genericTank",
+    LABEL: "Pen",
+    DANGER: 6, 
+    STAT_NAMES: statnames.trap,
+    GUNS: [
+      {
+            POSITION: {
+                LENGTH: 18,
+                WIDTH: 8,
+                ASPECT: 1,
+                X: 0,
+                Y: 0,
+                ANGLE: 0,
+                DELAY: 0
+            },
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic]),
+                TYPE: "bullet",
+            },
+        }, {
+            POSITION: {
+                LENGTH: 15,
+                WIDTH: 7
+            }
+        },
+        {
+            POSITION: {
+                LENGTH: 3,
+                WIDTH: 7,
+                ASPECT: 1.7,
+                X: 15
+            },
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap"
+            }
+        }
+        }
+    ]
+}
 
 // Pounders
 
