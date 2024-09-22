@@ -202,14 +202,9 @@ Class.assistant = makeOver("single", "Assistant", {
 Class.autoSingle = makeAuto("single");
 
 // Smashers
-
-
+//wait lemme see what charger does for now
 // Trappers
-// Chargers
-Class.chargerTrapDeco = makeDeco(5);
-Class.launchBS = {
-    
-}
+// ChargersClass.chargerTrapDeco = makeDeco(5)
 Class.chargerTrap = {
     PARENT: "setTrap",
     ON: [{
@@ -228,11 +223,10 @@ Class.chargerTrap = {
 }
 
 Class.charger = {
-    PARENT: "genericTank", // i wonder when [OHISHORYS] will come online...
-    LABEL: "Charger", // notwz teach us our way
-    DANGER: 6, //wanna take a look at the f
-    STAT_NAMES: statnames.trapper,
-    GUNS: [
+    PARENT: "genericTank", // phosphorus when will i show you my shit
+    LABEL: "Charger", // origami youre a 
+    DANGER: 6, //pls talk in amocord istead pls
+    GUNS: [ //no like with this code
       {
           POSITION: [2, 12, 1.1, 18, 0, 0, 0],
           PROPERTIES: {
@@ -243,10 +237,9 @@ Class.charger = {
       }
     ]
 }
-
 // Mechs
-Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
-Class.mech = {
+ass.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
+ass.mech = {
     PARENT: "genericTank",
     LABEL: "Mech",
     DANGER: 7,
@@ -346,12 +339,12 @@ Class.stall = {
     ]
 }
 Class.autoStall = makeAuto('stall');
-Class.delayer = makeOver("stall", "Delayer", {
+ass.delayer = makeOver("stall", "Delayer", {
   count: 1,
   independent: !0,
   cycle: !1,
 });
-Class.hurdle = {
+ass.hurdle = {
     PARENT: "genericTank",
     LABEL: "Hurdle",
     DANGER: 6,
@@ -485,7 +478,7 @@ Class.fender = {
     ],
 }
 
-Class.tripen = {
+ass.tripen = {
     PARENT: "genericTank",
     LABEL: "Tri-Pen",
     DANGER: 6,
@@ -508,7 +501,7 @@ Class.tripen = {
     	}
     ], 3),
 }
-Class.corral = {
+ass.corral = {
     PARENT: "genericTank",
     LABEL: "Corral",
     DANGER: 6,
@@ -540,9 +533,9 @@ Class.corral = {
     	}
     ], 3),
 }
-Class.autoPen = makeAuto('pen');
-Class.cockatiel = makeBird('pen', 'Cockatiel');
-Class.interner = makeOver("pen", "Interner", {
+ass.autoPen = makeAuto('pen');
+ass.cockatiel = makeBird('pen', 'Cockatiel');
+ass.interner = makeOver("pen", "Interner", {
   count: 1,
   independent: !0,
   cycle: !1,
