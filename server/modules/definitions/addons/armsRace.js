@@ -226,8 +226,40 @@ Class.tripen = {
             	STAT_CALCULATOR: 'trap',
         	},
     	}
-    ]
-}, 3),
+    ], 3),
+}
+Class.coral = {
+    PARENT: "genericTank",
+    LABEL: "Coral",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: weaponArray([
+      {
+            POSITION: [7, 7.5, 7, 0, 4, 60, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+            }
+      },
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}
+    ], 3),
+}
 Class.autoPen = makeAuto('pen');
 Class.cockatiel = makeBird('pen', 'Cockatiel');
 Class.interner = makeOver("pen", "Interner", {
@@ -408,7 +440,9 @@ Class.single.UPGRADES_TIER_3 = [
 // Smasher Branch
 
 // Trapper Branch
-Class.trapper.UPGRADES_TIER_3 = ["pen"];
+Class.trapper.UPGRADES_TIER_2.push = ["pen"];
+    Class.pen.UPGRADES_TIER_3 = ["tripen"];
+        Class.tripen.UPGRADES_TIER_3 = ["coral"];
 // Pounder Branch
 
 // Director Branch
