@@ -96,7 +96,7 @@ Class.sniper = {
         }
     ]
 }
-Class.machineGun = {
+ass.machineGun = {
     PARENT: "genericTank",
     LABEL: "Machine Gun",
     GUNS: [
@@ -114,7 +114,7 @@ Class.machineGun = {
         }
     ]
 }
-Class.flankGuard = {
+ass.flankGuard = {
     PARENT: "genericTank",
     LABEL: "Flank Guard",
     BODY: {
@@ -131,7 +131,7 @@ Class.flankGuard = {
         }
     }, 3)
 }
-Class.director = {
+ass.director = {
     PARENT: "genericTank",
     LABEL: "Director",
     STAT_NAMES: statnames.drone,
@@ -159,7 +159,7 @@ Class.director = {
         }
     ]
 }
-Class.pounder = {
+ass.pounder = {
     PARENT: "genericTank",
     LABEL: "Pounder",
     GUNS: [
@@ -175,7 +175,7 @@ Class.pounder = {
         }
     ]
 }
-Class.trapper = {
+ass.trapper = {
     PARENT: "genericTank",
     LABEL: "Trapper",
     STAT_NAMES: statnames.trap,
@@ -201,7 +201,7 @@ Class.trapper = {
         }
     ]
 }
-Class.desmos = {
+ass.desmos = {
     PARENT: "genericTank",
     LABEL: "Desmos",
     STAT_NAMES: statnames.desmos,
@@ -221,7 +221,7 @@ Class.desmos = {
         }
     ]
 }
-Class.smasher = {
+ass.smasher = {
     PARENT: "genericSmasher",
     LABEL: "Smasher",
     DANGER: 6,
@@ -232,7 +232,7 @@ Class.smasher = {
         }
     ]
 }
-Class.healer = {
+ass.healer = {
     PARENT: "genericTank",
     LABEL: "Healer",
     STAT_NAMES: statnames.heal,
@@ -265,7 +265,7 @@ Class.healer = {
 }
 
 // Twin upgrades
-Class.doubleTwin = {
+ass.doubleTwin = {
     PARENT: "genericTank",
     LABEL: "Double Twin",
     DANGER: 6,
@@ -286,7 +286,7 @@ Class.doubleTwin = {
         }
     ], 2)
 }
-Class.tripleShot = {
+ass.tripleShot = {
     PARENT: "genericTank",
     LABEL: "Triple Shot",
     DANGER: 6,

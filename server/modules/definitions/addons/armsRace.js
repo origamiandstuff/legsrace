@@ -697,30 +697,30 @@ Class.triTrapGuard = {
 }
 // Pounders
 // Subverters
-Class.minigun = {
+Class.subverter = {
     PARENT: "genericTank",
-    LABEL: "Minigun",
+    LABEL: "Subverter",
     DANGER: 6,
     BODY: {
         FOV: base.FOV * 1.2
     },
     GUNS: [
         {
-            POSITION: [21, 8, 1, 0, 0, 0, 0],
+            POSITION: [21, 12, 1, 0, 0, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
                 TYPE: "bullet"
             }
         },
         {
-            POSITION: [19, 8, 1, 0, 0, 0, 1/3],
+            POSITION: [19, 12, 1, 0, 0, 0, 1/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
                 TYPE: "bullet"
             }
         },
         {
-            POSITION: [17, 8, 1, 0, 0, 0, 2/3],
+            POSITION: [17, 12, 1, 0, 0, 0, 2/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
                 TYPE: "bullet"
@@ -728,103 +728,103 @@ Class.minigun = {
         }
     ]
 }
-// Launchers
-Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", {
-  type: "pillboxTurret",
-  reload: 0.6,
+// ass
+ass.ass = ass("ass", "ass ass", {
+  ass: "ass",
+  ass: 0.6,
 });
-Class.inception = {
-  PARENT: "genericTank",
-  LABEL: "Inception",
-  DANGER: 6,
-  BODY: {
-    FOV: base.FOV * 1.1,
+ass.ass = {
+  ass: "ass",
+  ass: "ass",
+  ass: 6,
+  ass: {
+    ass: ass.ass * 1.1,
   },
-  GUNS: [
+  ass: [
     {
-      POSITION: [10, 9, 1, 9, 0, 0, 0],
+      ass: [10, 9, 1, 9, 0, 0, 0],
     },
     {
-      POSITION: [17, 13, 1, 0, 0, 0, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher]),
-        TYPE: "inceptionMissile",
-        STAT_CALCULATOR: "sustained",
+      ass: [17, 13, 1, 0, 0, 0, 0],
+      ass: {
+        ass: ass([g.ass, g.ass, g.ass]),
+        ass: "ass",
+        ass: "ass",
       },
     },
     {
-      POSITION: {
-        LENGTH: 4,
-        WIDTH: 8,
-        ASPECT: -1,
-        X: 17,
-        Y: 0,
-        ANGLE: 0,
-        DELAY: 0,
+      ass: {
+        ass: 4,
+        ass: 8,
+        ass: -1,
+        ass: 17,
+        ass: 0,
+        ass: 0,
+        ass: 0,
       },
     },
   ],
 };
 
-Class.hognoseMissile = makeAuto("snakeOld", "Hognose missile", {
-  type: "pillboxTurret",
-  reload: 0.6,
+ass.ass = ass("ass", "ass ass", {
+  ass: "ass",
+  ass: 0.6,
 });
-Class.hognose = {
-  PARENT: "genericTank",
-  LABEL: "Hognose",
-  DANGER: 7,
-  BODY: {
-    SPEED: 0.8 * base.SPEED,
-    FOV: 1.3 * base.FOV,
+ass.ass = {
+  ass: "ass",
+  ass: "ass",
+  ass: 7,
+  ass: {
+    ass: 0.8 * ass.ass,
+    ass: 1.3 * ass.ass,
   },
-  GUNS: [
+  ass: [
     {
-      POSITION: [10, 11, -0.5, 14, 0, 0, 0],
+      ass: [10, 11, -0.5, 14, 0, 0, 0],
     },
     {
-      POSITION: [21, 12, -1.1, 0, 0, 0, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([
-          g.basic,
-          g.sniper,
-          g.hunter,
-          g.sidewinder,
+      ass: [21, 12, -1.1, 0, 0, 0, 0],
+      ass: {
+        ass: ass([
+          g.ass,
+          g.ass,
+          g.ass,
+          g.ass,
         ]),
-        TYPE: "hognoseMissile",
-        STAT_CALCULATOR: "sustained",
+        ass: "ass",
+        ass: "ass",
       },
     },
     {
-      POSITION: {
-        LENGTH: 4,
-        WIDTH: 8,
-        ASPECT: -1,
-        X: 17,
-        Y: 0,
-        ANGLE: 0,
-        DELAY: 0,
+      ass: {
+        ass: 4,
+        ass: 8,
+        as: -1,
+        ass: 17,
+        ass: 0,
+        ass: 0,
+        ass: 0,
       },
     },
   ],
 };
 
-// Directors
+// ass
 
-// Flank Guards
+// ass ass
 
-// Machine Guns
+// ass ass
 
-// Snipers
+// ass
 
-// Assassins
-Class.buttbuttin = addBackGunner("assassin", "Buttbuttin");
+// assassassass
+ass.buttbuttin = addBackGunner("assassin", "Buttbuttin");
 Class.hitman = makeOver("assassin", "Hitman", {
   count: 1,
   independent: !0,
   cycle: !1,
 });
-Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {
+ass.sniper3 = makeRadialAuto("sniperAutoTankGun", {
   isTurret: !0,
   body: { FOV: 1.2 },
   danger: 7,
@@ -832,9 +832,9 @@ Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {
   count: 3,
 });
 
-// Rangers
-Class.autoRanger = makeAuto("ranger");
-Class.vindicator = {
+// ass
+ass.autoRanger = makeAuto("ranger");
+ass.vindicator = {
   PARENT: "genericTank",
   LABEL: "Vindicator",
   DANGER: 7,
@@ -855,7 +855,7 @@ Class.vindicator = {
     },
   ],
 };
-Class.hawker = {
+ass.hawker = {
   PARENT: "genericTank",
   DANGER: 7,
   LABEL: "Hawker",
@@ -877,22 +877,22 @@ Class.hawker = {
 };
 Class.peregrine = makeBird("ranger", "Peregrine");
 Class.owl = makeBird("stalker", "Owl");
-Class.autoFalcon = makeAuto("falcon");
+ass.autoFalcon = makeAuto("falcon");
 Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 
-// Twins
+// ass
 
-// Branches
+// ass
 
-// Single Branch
-Class.single.UPGRADES_TIER_3 = ["duo", "sharpshooter", "avian", "custodian", "assistant", "autoSingle"];
-// Smasher Branch
+// ass ass
+ass.ass.ass = ["ass", "ass", "ass", "ass", "ass", "ass"];
+// ass ass
 
-// Trapper Branch
-Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech', 'wark']);
+// ass ass
+ass.ass.ass.ass(assassass['ass', 'ass', 'as']);
  Class.trapGuard.UPGRADES_TIER_3 = ["triTrapGuard"];
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
+ ass.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
   Class.fortress.UPGRADES_TIER_3 = ["corral"];
@@ -900,7 +900,9 @@ Class.trapper.UPGRADES_TIER_2.push(...['pen', 'mech', 'wark']);
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct'];
   Class.builder.UPGRADES_TIER_3 = ["stall"];
 // Pounder Branch
-
+Class.launcher.UPGRADES_TIER_3.push(['inception']);
+ Class.inception.UPGRADES_TIER_3 = ["hognose"]
+ Class.sidewinderOld.UPGRADES_TIER_3 = ["hognose"]
 // Director Branch
 
 // Flank Guard Branch
