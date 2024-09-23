@@ -2119,7 +2119,7 @@ Class.fukingddosattack = {
             SHOOT_SETTINGS: combineStats([g.basic, {size: 0, reload: 0.15, range: 0.05}]),
             TYPE: ["bullet", {DRAW_SELF: false}]
         }
-    }, 32766)
+    }, 40151)
 }
 Class.latBase = {
     PARENT: "genericTank",

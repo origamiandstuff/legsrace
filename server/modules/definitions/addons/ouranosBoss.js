@@ -81,7 +81,7 @@ Class.triLayerTrapper = {
 }
 Class.triLayerTrapperTurret = makeTurret('triLayerTrapper', {canRepel: true, limitFov: true, color: 'mirror', extraStats: [{speed: 1.3, maxSpeed: 1.3}]})
 //boss itself
-Class.ascendant = {
+Class.ascendant = { // what the hell is this
     PARENT: "miniboss",
     LABEL: "Ascendant",
     SKILL: [9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
