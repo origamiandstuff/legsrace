@@ -696,9 +696,39 @@ Class.triTrapGuard = {
     ]
 }
 // Pounders
-
+// Subverters
+Class.minigun = {
+    PARENT: "genericTank",
+    LABEL: "Minigun",
+    DANGER: 6,
+    BODY: {
+        FOV: base.FOV * 1.2
+    },
+    GUNS: [
+        {
+            POSITION: [21, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, 0, 0, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [17, 8, 1, 0, 0, 0, 2/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder]),
+                TYPE: "bullet"
+            }
+        }
+    ]
+}
 // Launchers
-
 Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", {
   type: "pillboxTurret",
   reload: 0.6,
