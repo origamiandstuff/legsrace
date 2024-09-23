@@ -210,7 +210,7 @@ function sizeEntity(entity, x = 0, y = 0, angle = 0, scale = 1) {
 console.log("Started loading mockups...");
 let mockupsLoadStartTime = performance.now();
 
-let mockupData = [];
+/*let mockupData = [];
 for (let k in Class) {
     try {
         if (!Class.hasOwnProperty(k)) continue;
@@ -242,7 +242,9 @@ for (let k in Class) {
 
 // Remove them
 purgeEntities();
-
+*/
+// i am so smart
+let reusableEntity=new Entity({x:0,y:0}),mockupData=[];Object.keys(Class).forEach((e=>{try{let t,r=Class[e];reusableEntity.define(r),reusableEntity.className=e,reusableEntity.name=r.LABEL,t=getDimensions(reusableEntity),r.mockup={body:reusableEntity.camera(!0),position:t},r.mockup.body.position=t,mockupData.push(getMockup(reusableEntity,t))}catch(t){util.error("[WARNING] An error has occured during mockup loading:"),util.error('When attempting to generate mockup "'+e+'":');for(let e in classType)util.error("\t"+e+": "+classType[e]);throw t}}));
 let mockupsLoadEndTime = performance.now();
 console.log("Finished compiling " + mockupData.length + " classes into mockups.");
 console.log("Mockups generated in " + util.rounder(mockupsLoadEndTime - mockupsLoadStartTime, 3) + " milliseconds.\n");
