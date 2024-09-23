@@ -697,6 +697,29 @@ Class.triTrapGuard = {
     ]
 }
 // Pounders
+// Launchers
+Class.inceptionMissile = makeAuto("minimissile", "Inception Missile", { type: 'pillboxTurret' })
+Class.inception = {
+    PARENT: "genericTank",
+    LABEL: "Inception",
+    DANGER: 7,
+    BODY: {
+        FOV: base.FOV * 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [10, 9, 1, 9, 0, 0, 0],
+        },
+        {
+            POSITION: [17, 13, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.launcher]),
+                TYPE: "inceptionMissile",
+                STAT_CALCULATOR: "sustained",
+            },
+        },
+    ],
+}
 // Hunters
 Class.seriemas = makeBird("hunter", "Seriemas");
 // Subverters
