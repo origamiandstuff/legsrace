@@ -723,7 +723,7 @@ Class.inception = {
         },
     ],
 }
-Class.hognoseMissile = makeAuto("snakeOld", "Hognose Missile", { type: 'pillboxTurret' })
+Class.hognoseMissile = makeAuto("snake", "Hognose Missile", { type: 'pillboxTurret' })
 Class.hognose = {
     PARENT: "genericTank",
     LABEL: "Hognose",
@@ -853,14 +853,15 @@ Class.trapper.UPGRADES_TIER_2.push(...['pen'])
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
   Class.builder.UPGRADES_TIER_3 = ["stall"]
 // Pounder Branch
-Class.launcher.UPGRADES_TIER_3.push(...['inception', 'sidewinderOld'])
- Class.inception.UPGRADES_TIER_3 = ['hognose']
-if (Class && Class.sidewinderOld) {
-    if (!Array.isArray(Class.sidewinderOld.UPGRADES_TIER_3)) {
-        Class.sidewinderOld.UPGRADES_TIER_3 = [];
-    }
-    Class.sidewinderOld.UPGRADES_TIER_3.push('hognose');
+Class.launcher.UPGRADES_TIER_3.push(...['inception', 'sidewinder'])
+if (!Array.isArray(Class.inception.UPGRADES_TIER_3)) {
+    Class.inception.UPGRADES_TIER_3 = [];
 }
+ Class.inception.UPGRADES_TIER_3.push(...['hognose'])
+if (!Array.isArray(Class.sidewinder.UPGRADES_TIER_3)) {
+    Class.sidewinder.UPGRADES_TIER_3 = [];
+}
+ Class.sidewinder.UPGRADES_TIER_3.push(...['hognose'])
 // Director Branch
 
 // Flank Guard Branch
