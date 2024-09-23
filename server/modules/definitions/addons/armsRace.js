@@ -855,7 +855,12 @@ Class.trapper.UPGRADES_TIER_2.push(...['pen'])
 // Pounder Branch
 Class.launcher.UPGRADES_TIER_3.push(...['inception', 'sidewinderOld'])
  Class.inception.UPGRADES_TIER_3 = ['hognose']
- Class.sidewinderOld.UPGRADES_TIER_3.push(...['hognose'])
+if (Class && Class.sidewinderOld) {
+    if (!Array.isArray(Class.sidewinderOld.UPGRADES_TIER_3)) {
+        Class.sidewinderOld.UPGRADES_TIER_3 = [];
+    }
+    Class.sidewinderOld.UPGRADES_TIER_3.push('hognose');
+}
 // Director Branch
 
 // Flank Guard Branch
