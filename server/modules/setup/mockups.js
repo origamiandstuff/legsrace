@@ -57,6 +57,7 @@ function getMockup(e, positionInfo) {
     };
 }
 
+
 let endPoints;
 function getFurthestFrom(x, y) {
     let furthestDistance = 0,
