@@ -793,22 +793,19 @@ Class.owl = makeBird("stalker", "Owl");
 Class.autoFalcon = makeAuto("falcon");
 Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
-/*Class.fashioner = makeOver("builder", "Fashioner", {count: 1, independent: true, cycle: false})
-Class.fashioner.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.2, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
-Class.autoFashioner = makeAuto("fashioner")
-Class.autoFashioner.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.225, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
-*/
 // Trapper branch
 Class.trapper.UPGRADES_TIER_2.push(...['pen'])
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
-  Class.tripen.UPGRADES_TIER_3 = ["corral"];
-  Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
-  Class.fortress.UPGRADES_TIER_3 = ["corral"];
-  Class.engineer.UPGRADES_TIER_3 = ["cubicle", 'autoEngineer'];
-  Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct'];
-  Class.builder.UPGRADES_TIER_3 = ["stall"];
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
+  Class.tripen.UPGRADES_TIER_3 = ["corral"]
+  Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
+  Class.fortress.UPGRADES_TIER_3 = ["corral"]
+  Class.engineer.UPGRADES_TIER_3 = ["cubicle", 'autoEngineer']
+  Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
+  Class.builder.UPGRADES_TIER_3 = ["stall"]
 // Pounder Branch
-
+Class.launcher.UPGRADES_TIER_3.push(...['inception', 'sidewinderOld'])
+ Class.inception.UPGRADES_TIER_3 = ['hognose']
+ Class.sidewinderOld.UPGRADES_TIER_3.push(...['hognose'])
 // Director Branch
 
 // Flank Guard Branch
