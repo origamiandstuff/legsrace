@@ -698,7 +698,7 @@ Class.triTrapGuard = {
 }
 // Pounders
 // Hunters
-Class.seriemas = makeBird("hunter", "Seriemas")
+Class.seriemas = makeBird("hunter", "Seriemas");
 // Subverters
 Class.subverter = {
     PARENT: "genericTank",
@@ -797,6 +797,7 @@ Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.2, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
 Class.autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner = makeAuto("fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood")
 Class.autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.225, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
+*/
 // Trapper branc  //ima eat
 Class.trapper.UPGRADES_TIER_2.push(.['pen'])
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
@@ -806,7 +807,7 @@ Class.trapper.UPGRADES_TIER_2.push(.['pen'])
   Class.engineer.UPGRADES_TIER_3 = ["cubicle", 'autoEngineer'];
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct'];
   Class.builder.UPGRADES_TIER_3 = ["stall", "fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood"];//keep it
-  Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood.UPGRADES_TIER_4 = ["autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner"]
+ // Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood.UPGRADES_TIER_4 = ["autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner"]
 // Pounder Branch
 // Director Branch
 
