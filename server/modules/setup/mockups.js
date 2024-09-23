@@ -210,7 +210,7 @@ function sizeEntity(entity, x = 0, y = 0, angle = 0, scale = 1) {
 console.log("Started loading mockups...");
 let mockupsLoadStartTime = performance.now();
 
-/*let mockupData = [];
+let mockupData = [];
 for (let k in Class) {
     try {
         if (!Class.hasOwnProperty(k)) continue;
@@ -241,9 +241,7 @@ for (let k in Class) {
 }
 
 // Remove them
-purgeEntities();*/
-
-let entityPool=[],classProperties={},mockupData=new Set;for(let o in Class){if(!Class.hasOwnProperty(o))continue;let s=classProperties[o]||(classProperties[o]=Class[o]),t=entityPool.pop()||new Entity({x:0,y:0});const e={className:o,name:s.LABEL,camera:t.camera,position:getDimensions(t)};t.define(s),Object.assign(t,e),s.mockup={body:e.camera,position:e.position},s.mockup.body.position=s.mockup.position,mockupData.add(getMockup(t,s.mockup.position)),entityPool.push(t)}purgeEntities();
+purgeEntities();
 
 let mockupsLoadEndTime = performance.now();
 console.log("Finished compiling " + mockupData.length + " classes into mockups.");
