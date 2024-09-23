@@ -2110,6 +2110,17 @@ Class.latLeft = {
         },
     ]
 }
+Class.fukingddosattack = {
+    PARENT: 'genericTank',
+    LABEL: "temp",
+    GUNS: weaponArray({
+        POSITION: [60, 0.2, 0, 0, 0, 0, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic, {size: 0, reload: 0.15, range: 0.05}]),
+            TYPE: ["bullet", {DRAW_SELF: false}]
+        }
+    }, 32766)
+}
 Class.latBase = {
     PARENT: "genericTank",
     LABEL: "Tank Base",
@@ -2721,6 +2732,7 @@ Class.flace = {
     }],
     SKILL_CAP: [dfltskl, dfltskl, dfltskl, dfltskl, dfltskl, dfltskl, dfltskl, dfltskl, dfltskl, dfltskl],
 }
+
 
 Class.developer.UPGRADES_TIER_0 = ["tanks", "bosses", "spectator", "levels", "teams", "eggGenerator", "testing", "addons"]
     Class.tanks.UPGRADES_TIER_0 = ["basic", "unavailable", "arenaCloser", "dominators", "sanctuaries", "mothership", "baseProtector", "antiTankMachineGun"]
