@@ -878,15 +878,7 @@ Class.directorDrive = {
           TYPE: "overdriveDeco"
     }]
 }
-Class.stormProp = {
-    PARENT: "overdriveDeco",
-    LABEL: "Storm prop",
-    GUNS: [
-      {
-        POSITION: [7, 7.5, 0.6, 7, 4, 90, 0],
-      }
-    ]
-}
+
 
 
 
