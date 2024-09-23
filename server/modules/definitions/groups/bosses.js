@@ -1478,7 +1478,7 @@ class io_nearestDifferentMaster2 extends ioTypes.nearestDifferentMaster {
     }
 }
 ioTypes.nearestDifferentMaster2 = io_nearestDifferentMaster2;
-Class.toothlessBase = {
+/*Class.toothlessBase = {
     PARENT: "genericTank",
     LABEL: "NightFury",
 	UPGRADE_TOOLTIP: "A cute...",

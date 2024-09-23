@@ -2700,7 +2700,7 @@ Class.developer.UPGRADES_TIER_0 = ["tanks", "bosses", "spectator", "levels", "te
 	    Class.rammers.UPGRADES_TIER_0 = ["bob", "nemesis"]
         Class.terrestrials.UPGRADES_TIER_0 = ["ares", "gersemi", "ezekiel", "eris", "selene"]
         Class.celestials.UPGRADES_TIER_0 = ["paladin", "freyja", "zaphkiel", "nyx", "theia", "atlas", "rhea", "julius", "genghis", "napoleon"]
-        Class.eternals.UPGRADES_TIER_0 = ["odin", "kronos", "ouranos"]
+        Class.eternals.UPGRADES_TIER_0 = ["odin", "kronos"]
         Class.devBosses.UPGRADES_TIER_0 = []
 
     Class.testing.UPGRADES_TIER_0 = ["diamondShape", "miscTest", "mmaTest", "vulnturrettest", "onTest", "alphaGunTest", "strokeWidthTest", "testLayeredBoss", "tooltipTank", "turretLayerTesting", "bulletSpawnTest", "propTest", "weaponArrayTest", "radialAutoTest", "makeAutoTest", "imageShapeTest", "turretStatScaleTest", "auraBasic", "auraHealer", "weirdAutoBasic", "ghoster", "gunBenchmark", "switcheroo", "developer", "armyOfOne", "vanquisher", "mummifier"]

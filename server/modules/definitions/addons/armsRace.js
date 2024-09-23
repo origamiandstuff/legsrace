@@ -918,9 +918,9 @@ Class.directorDrive = {
 
 
 //stormrades/Branches
-// Trapper branch
-ClstormTurretPGRADES_TIER_2.pusStorm['pen'])
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'costormel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
+// Trapper branch: 'stormTurret'} // 
+    //Class.directorStorm  //okay byr
+     Class.pen.UPGRADES_TIER_3 = ['tripen', 'costormel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral"]
@@ -928,15 +928,15 @@ ClstormTurretPGRADES_TIER_2.pusStorm['pen'])
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
   Class.builder.UPGRADES_TIER_3 = ["stall"]
 // Pounder Branch
-Class.launcher.UPGRADES_TIER_3.push(...['inception', 'sidewinder'])
+Classtormuncher.UPGRADES_TIER_3.push(...['inception', 'sidewinder'])
 if (!Array.isArray(Class.inception.UPGRADES_TIER_3)) {
     Class.inception.UPGRADES_TIER_3 = [];
 }
  Class.inception.UPGRADES_TIER_3.push(...['hognose'])
 if (!Array.isArray(Class.sidewinder.UPGRADES_TIER_3)) {
-    Class.sidewinder.UPGRADES_TIER_3 = [];
+    Class.sidewinder.UstormProp3 = [];
 }
- Class.sidewinder.UPGRADES_TIER_3.push(...['hognose'])
+Class.sidewinder.UPGRADES_TIER_3.push(...['hognose'])
 // Director Branch
 
 // Flank Guard Branch
