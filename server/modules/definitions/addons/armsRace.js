@@ -718,8 +718,35 @@ Class.inception = {
                 STAT_CALCULATOR: "sustained",
             },
         },
+        {
+            POSITION: [3, 7.5, 1, 6, 0, 0, 0],
+        },
     ],
 }
+Class.hognoseMissile = makeAuto("snakeOld", "Hognose Missile", { type: 'pillboxTurret' })
+Class.hognose = {
+    PARENT: "genericTank",
+    LABEL: "Hognose",
+    DANGER: 7,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+        FOV: 1.3 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [10, 11, -0.5, 14, 0, 0, 0],
+        },
+        {
+            POSITION: [21, 12, -1.1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewinder]),
+                TYPE: "hognoseMissile",
+                STAT_CALCULATOR: "sustained",
+            },
+        },
+    ],
+}
+
 // Hunters
 Class.seriemas = makeBird("hunter", "Seriemas");
 // Subverters
