@@ -237,8 +237,8 @@ Class.charger = {
     ]
 }
 // Mechs
-ass.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
-ass.mech = {
+Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
+Class.mech = {
     PARENT: "genericTank",
     LABEL: "Mech",
     DANGER: 7,
@@ -338,12 +338,12 @@ Class.stall = {
     ]
 }
 Class.autoStall = makeAuto('stall');
-ass.delayer = makeOver("stall", "Delayer", {
+Class.delayer = makeOver("stall", "Delayer", {
   count: 1,
   independent: !0,
   cycle: !1,
 });
-ass.hurdle = {
+Class.hurdle = {
     PARENT: "genericTank",
     LABEL: "Hurdle",
     DANGER: 6,
@@ -477,7 +477,7 @@ Class.fender = {
     ],
 }
 
-ass.tripen = {
+Class.tripen = {
     PARENT: "genericTank",
     LABEL: "Tri-Pen",
     DANGER: 6,
@@ -500,7 +500,7 @@ ass.tripen = {
     	}
     ], 3),
 }
-ass.corral = {
+Class.corral = {
     PARENT: "genericTank",
     LABEL: "Corral",
     DANGER: 6,
@@ -532,9 +532,9 @@ ass.corral = {
     	}
     ], 3),
 }
-ass.autoPen = makeAuto('pen');
-ass.cockatiel = makeBird('pen', 'Cockatiel');
-ass.interner = makeOver("pen", "Interner", {
+Class.autoPen = makeAuto('pen');
+Class.cockatiel = makeBird('pen', 'Cockatiel');
+Class.interner = makeOver("pen", "Interner", {
   count: 1,
   independent: !0,
   cycle: !1,
@@ -728,97 +728,7 @@ Class.subverter = {
         }
     ]
 }
-// ass
-ass.ass = ass("ass", "ass ass", {
-  ass: "ass",
-  ass: 0.6,
-});
-ass.ass = {
-  ass: "ass",
-  ass: "ass",
-  ass: 6,
-  ass: {
-    ass: ass.ass * 1.1,
-  },
-  ass: [
-    {
-      ass: [10, 9, 1, 9, 0, 0, 0],
-    },
-    {
-      ass: [17, 13, 1, 0, 0, 0, 0],
-      ass: {
-        ass: ass([g.ass, g.ass, g.ass]),
-        ass: "ass",
-        ass: "ass",
-      },
-    },
-    {
-      ass: {
-        ass: 4,
-        ass: 8,
-        ass: -1,
-        ass: 17,
-        ass: 0,
-        ass: 0,
-        ass: 0,
-      },
-    },
-  ],
-};
-
-ass.ass = ass("ass", "ass ass", {
-  ass: "ass",
-  ass: 0.6,
-});
-ass.ass = {
-  ass: "ass",
-  ass: "ass",
-  ass: 7,
-  ass: {
-    ass: 0.8 * ass.ass,
-    ass: 1.3 * ass.ass,
-  },
-  ass: [
-    {
-      ass: [10, 11, -0.5, 14, 0, 0, 0],
-    },
-    {
-      ass: [21, 12, -1.1, 0, 0, 0, 0],
-      ass: {
-        ass: ass([
-          g.ass,
-          g.ass,
-          g.ass,
-          g.ass,
-        ]),
-        ass: "ass",
-        ass: "ass",
-      },
-    },
-    {
-      ass: {
-        ass: 4,
-        ass: 8,
-        as: -1,
-        ass: 17,
-        ass: 0,
-        ass: 0,
-        ass: 0,
-      },
-    },
-  ],
-};
-
-// ass
-
-// ass ass
-
-// ass ass
-
-// ass
-
-// assassassass
-ass.buttbuttin = addBackGunner("assassin", "Buttbuttin");
+Class.buttbuttin = addBackGunner("assassin", "Buttbuttin");
 Class.hitman = makeOver("assassin", "Hitman", {
   count: 1,
   independent: !0,
@@ -832,9 +742,9 @@ ass.sniper3 = makeRadialAuto("sniperAutoTankGun", {
   count: 3,
 });
 
-// ass
-ass.autoRanger = makeAuto("ranger");
-ass.vindicator = {
+// rangers
+Class.autoRanger = makeAuto("ranger");
+Class.vindicator = {
   PARENT: "genericTank",
   LABEL: "Vindicator",
   DANGER: 7,
@@ -855,7 +765,7 @@ ass.vindicator = {
     },
   ],
 };
-ass.hawker = {
+Class.hawker = {
   PARENT: "genericTank",
   DANGER: 7,
   LABEL: "Hawker",
@@ -877,22 +787,12 @@ ass.hawker = {
 };
 Class.peregrine = makeBird("ranger", "Peregrine");
 Class.owl = makeBird("stalker", "Owl");
-ass.autoFalcon = makeAuto("falcon");
+Class.autoFalcon = makeAuto("falcon");
 Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
-
-// ass
-
-// ass
-
-// ass ass
-ass.ass.ass = ["ass", "ass", "ass", "ass", "ass", "ass"];
-// ass ass
-
-// ass ass
-ass.ass.ass.ass(assassass['ass', 'ass', 'as']);
- Class.trapGuard.UPGRADES_TIER_3 = ["triTrapGuard"];
- ass.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
+// Trapper branch
+Class.trapper.UPGRADES_TIER_2.push(['pen'])
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
   Class.fortress.UPGRADES_TIER_3 = ["corral"];

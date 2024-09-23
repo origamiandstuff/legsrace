@@ -96,7 +96,7 @@ Class.sniper = {
         }
     ]
 }
-ass.machineGun = {
+Class.machineGun = {
     PARENT: "genericTank",
     LABEL: "Machine Gun",
     GUNS: [
@@ -114,7 +114,7 @@ ass.machineGun = {
         }
     ]
 }
-ass.flankGuard = {
+Class.flankGuard = {
     PARENT: "genericTank",
     LABEL: "Flank Guard",
     BODY: {
@@ -131,7 +131,7 @@ ass.flankGuard = {
         }
     }, 3)
 }
-ass.director = {
+Class.director = {
     PARENT: "genericTank",
     LABEL: "Director",
     STAT_NAMES: statnames.drone,
@@ -159,7 +159,7 @@ ass.director = {
         }
     ]
 }
-ass.pounder = {
+Class.pounder = {
     PARENT: "genericTank",
     LABEL: "Pounder",
     GUNS: [
@@ -175,7 +175,7 @@ ass.pounder = {
         }
     ]
 }
-ass.trapper = {
+Class.trapper = {
     PARENT: "genericTank",
     LABEL: "Trapper",
     STAT_NAMES: statnames.trap,
@@ -201,7 +201,7 @@ ass.trapper = {
         }
     ]
 }
-ass.desmos = {
+Class.desmos = {
     PARENT: "genericTank",
     LABEL: "Desmos",
     STAT_NAMES: statnames.desmos,
@@ -406,7 +406,7 @@ Class.hewnDouble = {
 }
 
 // Triple Shot upgrades
-Class.pentaShot = {
+ass.pentaShot = {
     PARENT: "genericTank",
     LABEL: "Penta Shot",
     DANGER: 7,
