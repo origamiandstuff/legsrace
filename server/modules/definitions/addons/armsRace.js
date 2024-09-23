@@ -796,7 +796,7 @@ Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythiso
 Class.autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner = makeAuto("fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood")
 Class.autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.225, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
 // Trapper branc  //ima eat
-Class.trapper.UPGRADES_TIER_2.push(['pen'])
+Class.trapper.UPGRADES_TIER_2.push(.['pen'])
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator'];
   Class.tripen.UPGRADES_TIER_3 = ["corral"];
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"];
