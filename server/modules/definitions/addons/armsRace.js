@@ -697,6 +697,8 @@ Class.triTrapGuard = {
     ]
 }
 // Pounders
+// Hunters
+Class.seriemas = makeBird("hunter", "Seriemas")
 // Subverters
 Class.subverter = {
     PARENT: "genericTank",
@@ -791,7 +793,7 @@ Class.owl = makeBird("stalker", "Owl");
 Class.autoFalcon = makeAuto("falcon");
 Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
-Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood = makeOver("builder", "Fashioner", {count: 1, independent: true, cycle: false})
+/*Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood = makeOver("builder", "Fashioner", {count: 1, independent: true, cycle: false})
 Class.fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.2, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
 Class.autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner = makeAuto("fashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngood")
 Class.autoFashionermybelovedtankilysomuchpleasemarrymepleaseomgfashionertankilythisongthistankissoodamngoodomgicantbelieveitissoodamngoodbutthistimeyouhaveanautoturretitsnotthatgoodbutmehwhateveryourestillfashioner.BODY = {SPEED: 1.1 * base.SPEED, FOV: 1.225, HEALTH: 1.05 * base.HEALTH, REGEN: 1.015*base.REGEN}
