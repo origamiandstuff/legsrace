@@ -221,7 +221,7 @@ Class.desmos = {
         }
     ]
 }
-ass.smasher = {
+Class.smasher = {
     PARENT: "genericSmasher",
     LABEL: "Smasher",
     DANGER: 6,
@@ -232,7 +232,7 @@ ass.smasher = {
         }
     ]
 }
-ass.healer = {
+Class.healer = {
     PARENT: "genericTank",
     LABEL: "Healer",
     STAT_NAMES: statnames.heal,
@@ -265,7 +265,7 @@ ass.healer = {
 }
 
 // Twin upgrades
-ass.doubleTwin = {
+Class.doubleTwin = {
     PARENT: "genericTank",
     LABEL: "Double Twin",
     DANGER: 6,
@@ -286,7 +286,7 @@ ass.doubleTwin = {
         }
     ], 2)
 }
-ass.tripleShot = {
+Class.tripleShot = {
     PARENT: "genericTank",
     LABEL: "Triple Shot",
     DANGER: 6,
@@ -406,7 +406,7 @@ Class.hewnDouble = {
 }
 
 // Triple Shot upgrades
-ass.pentaShot = {
+Class.pentaShot = {
     PARENT: "genericTank",
     LABEL: "Penta Shot",
     DANGER: 7,
