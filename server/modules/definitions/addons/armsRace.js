@@ -917,10 +917,10 @@ Class.directorDrive = {
 
 
 
-// Upgrades/Branches
+//stormrades/Branches
 // Trapper branch
-Class.trapper.UPGRADES_TIER_2.push(...['pen'])
- Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
+ClstormTurretPGRADES_TIER_2.pusStorm['pen'])
+ Class.pen.UPGRADES_TIER_3 = ['tripen', 'costormel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral"]

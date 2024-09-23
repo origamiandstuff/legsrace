@@ -214,7 +214,7 @@ for (let k in Class) {
     try {
         if (!Class.hasOwnProperty(k)) continue;
         let type = Class[k];
-        console.log('Loading mockup for ' + type.LABEL); // phosphorus isn't th
+        console.log('Loading mockup for ' + k); // phosphorus isn't th
         // Create a reference entities which we'll then take an image of.
         let temptank = new Entity({ x: 0, y: 0 });
         temptank.define(type);

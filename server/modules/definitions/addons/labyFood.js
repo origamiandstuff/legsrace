@@ -56,5 +56,5 @@ module.exports = ({ Config }) => {
 		])
 	]);
 
-	console.log('[labyFood.js] Using Labyrinth Food.');
+	console.log('[Labyrinth Food] Using Labyrinth Food.');
 };
