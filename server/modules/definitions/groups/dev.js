@@ -169,7 +169,7 @@ Class.sanctuaries.PROPS = [
 ]
 
 // Generators
-function compileMatrix(matrix, matrix2Entrance) {
+/*function compileMatrix(matrix, matrix2Entrance) {
     let matrixWidth = matrix[0].length,
         matrixHeight = matrix.length;
     for (let x = 0; x < matrixWidth; x++) for (let y = 0; y < matrixHeight; y++) {
@@ -327,7 +327,7 @@ for (let x = 0; x < tensorWidth; x++) {
         }
     }
 }
-
+*/
 // Testing tanks
 Class.diamondShape = {
     PARENT: "basic",
@@ -2062,17 +2062,6 @@ Class.latLeft = {
             TYPE: "latDeco2",
         },
     ]
-}
-Class.fukingddsosattack = {
-    PARENT: 'genericTank',
-    LABEL: "tsempdsd",
-    GUNS: weaponArray({
-        POSITION: [60, 0.2, 0, 0, 0, 0, 0],
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.basic, {size: 0, reload: 0.15, range: 0.05}]),
-            TYPE: ["bullet", {DRAW_SELF: false}]
-        }
-    }, 35561)
 }
 Class.latBase = {
     PARENT: "genericTank",

@@ -14,7 +14,7 @@ const {
 const { base, statnames, dfltskl, smshskl } = require("../constants.js");
 const g = require("../gunvals.js");
 
-//return console.log('[Arms Race Addon] Disabled by default.');
+return console.log('[Arms Race Addon] Disabled by default.');
 
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
@@ -87,6 +87,7 @@ const makeSurfer = (type, name = -1) => {
 
 // Turrets, Traps, Bullets etc..
 
+// Autos
 Class.sniperAutoTankGun = makeTurret({
     GUNS: [
         {
@@ -112,6 +113,40 @@ Class.megaAutoTurret = makeTurret({
         },
     ],
 }, {label: "Turret", fov: 0.8, extraStats: []})
+
+// Storm Turrets
+Class.stormProp = {
+    PARENT: "overdriveDeco",
+    LABEL: "Storm prop",
+    GUNS: [
+      {
+        POSITION: [7, 7.5, 0.6, 0, 0, 90, 0],
+      }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 270, 0]
+      }
+    ]
+}
+Class.stormTurret = makeTurret({
+    GUNS: [
+        {
+        POSITION: [7, 7.5, 0.6, 0, 0, 90, 0],
+        PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+        }, }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 270, 0],
+        PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+        }, 
+      }
+    ],
+}, {canRepel: true, limitFov: true, fov: 10, independent: true, extraStats: []})
+
 
 // Tanks
 
