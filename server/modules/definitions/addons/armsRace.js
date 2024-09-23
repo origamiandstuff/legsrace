@@ -202,7 +202,7 @@ Class.assistant = makeOver("single", "Assistant", {
 Class.autoSingle = makeAuto("single");
 
 // Smashers
-//wait lemme see what charger does for now
+
 // Trappers
 // Chargers
 Class.chargerTrapDeco = makeDeco(5)
@@ -843,6 +843,54 @@ Class.owl = makeBird("stalker", "Owl");
 Class.autoFalcon = makeAuto("falcon");
 Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
+// Droners
+// Directordrives
+Class.autoDrone = makeAuto("drone", { type: 'pillboxTurret'})
+Class.directorDrive = {
+    PARENT: "genericTank",
+    LABEL: "Directordrive",
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        FOV: base.FOV * 1.1
+    },
+    GUNS: [
+        {
+            POSITION: {
+                LENGTH: 6,
+                WIDTH: 11,
+                ASPECT: 1.3,
+                X: 7
+            },
+            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.drone]),
+                TYPE: "autoDrone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 6,
+                WAIT_TO_CYCLE: true
+            }
+        }
+    ],
+    TURRETS: [{
+          POSITION: [0, 0, 0, 0, 0, 0],
+          TYPE: "overdriveDeco"
+    }]
+}
+Class.stormProp = {
+    PARENT: "overdriveDeco",
+    LABEL: "Storm prop",
+    GUNS: [
+      {
+        POSITION: [7, 7.5, 0.6, 7, 4, 90, 0],
+      }
+    ]
+}
+
+
+
+// Upgrades/Branches
 // Trapper branch
 Class.trapper.UPGRADES_TIER_2.push(...['pen'])
  Class.pen.UPGRADES_TIER_3 = ['tripen', 'cockatiel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
