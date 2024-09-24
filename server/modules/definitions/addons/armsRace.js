@@ -929,7 +929,7 @@ Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 // Droners
 // Directordrives
-Class.autoDrone = makeAuto("drone", { type: 'pillboxTurret'})
+Class.autoDrone = makeAuto("drone", { type: 'droneAutoTurret'})
 Class.directorDrive = {
     PARENT: "genericTank",
     LABEL: "Directordrive",
@@ -995,10 +995,10 @@ Class.directorStorm = {
           TYPE: "stormProp"
     }]
 }
-Class.stormDrone = makeAuto("drone", { type: 'stormTurret'})
-Class.directorStorm = {
+Class.vortexDrone = makeAuto("drone", { type: 'vortexTurret'})
+Class.vortex = {
     PARENT: "genericTank",
-    LABEL: "Directorstorm",
+    LABEL: "Vorex",
     STAT_NAMES: statnames.drone,
     BODY: {
         FOV: base.FOV * 1.1
@@ -1014,7 +1014,7 @@ Class.directorStorm = {
             POSITION: [6, 11, 1.3, 7, 0, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.drone]),
-                TYPE: "stormDrone",
+                TYPE: "vortexDrone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
                 STAT_CALCULATOR: "drone",
@@ -1025,10 +1025,63 @@ Class.directorStorm = {
     ],
     TURRETS: [{
           POSITION: [0, 0, 0, 0, 0, 0],
-          TYPE: "stormProp"
+          TYPE: "vortexProp"
     }]
 }
-
+Class.overStorm = {
+    PARENT: "genericTank",
+    LABEL: "Overstorm",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: 0.9 * base.SPEED,
+        FOV: 1.1 * base.FOV,
+    },
+    TURRETS: [
+        {
+            POSITION: [9, 0, 0, 0, 360, 1],
+            TYPE: "stormProp",
+        },
+    ],
+    GUNS: weaponArray({
+        POSITION: [6, 12, 1.2, 8, 0, 90, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
+            TYPE: "vortexDrone",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            STAT_CALCULATOR: "drone",
+            WAIT_TO_CYCLE: true,
+            MAX_CHILDREN: 4
+        }
+    }, 2)
+}
+Class.tyrant = {
+    PARENT: "genericTank",
+    LABEL: "Tyrant",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+        FOV: 1.1 * base.FOV,
+    },
+    MAX_CHILDREN: 8,
+    GUNS: weaponArray({
+        POSITION: [6, 12, 1.2, 8, 0, 0, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
+            TYPE: "autoDrone",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            STAT_CALCULATOR: "drone",
+            WAIT_TO_CYCLE: true
+        }
+    }, 4),
+    TURRETS: [{
+        POSITION: [0, 0, 0, 0, 0, 0],
+        TYPE: "overdriveDeco"
+    }]
+}
 
 
 
