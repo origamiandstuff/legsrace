@@ -617,6 +617,39 @@ Class.corral = {
     	}
     ], 3),
 }
+Class.coop = makeAuto({
+    PARENT: "genericTank",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: weaponArray([
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}, 
+      {
+        	POSITION: [10, 8, 1, 0, 0, 60, 0],
+    	},
+    	{
+        	POSITION: [4, 8, 1.7, 13, 0, 60, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.trap]),
+            	TYPE: "trap",
+            	STAT_CALCULATOR: 'trap',
+        	},
+    	}, 
+    ], 3),
+}, "Coop")
 Class.autoPen = makeAuto('pen');
 Class.cockatiel = makeBird('pen', 'Cockatiel');
 Class.interner = makeOver("pen", "Interner", {
@@ -1265,7 +1298,7 @@ Class.factoryDrive = {
  Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
-  Class.fortress.UPGRADES_TIER_3 = ["corral"]
+  Class.fortress.UPGRADES_TIER_3 = ["corral", "coop"]
   Class.engineer.UPGRADES_TIER_3 = ["cubicle", 'autoEngineer']
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
   Class.builder.UPGRADES_TIER_3 = ["stall"]
