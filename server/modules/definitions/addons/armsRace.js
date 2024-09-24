@@ -929,7 +929,7 @@ Class.harpy = addBackGunner("falcon", "Harpy");
 Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 // Droners
 // Directordrives
-Class.autoDrone = makeAuto("drone", { type: 'droneAutoTurret'})
+Class.autoDrone = makeAuto("drone", { type: 'droneAutoTurret' })
 Class.directorDrive = {
     PARENT: "genericTank",
     LABEL: "Directordrive",
@@ -962,7 +962,7 @@ Class.directorDrive = {
           TYPE: "overdriveDeco"
     }]
 }
-Class.stormDrone = makeAuto("drone", { type: 'stormTurret'})
+Class.stormDrone = makeAuto("drone", { type: 'stormTurret' })
 Class.directorStorm = {
     PARENT: "genericTank",
     LABEL: "Directorstorm",
@@ -995,7 +995,7 @@ Class.directorStorm = {
           TYPE: "stormProp"
     }]
 }
-Class.vortexDrone = makeAuto("drone", { type: 'vortexTurret'})
+Class.vortexDrone = makeAuto("drone", { type: 'vortexTurret' })
 Class.vortex = {
     PARENT: "genericTank",
     LABEL: "Vorex",
@@ -1080,6 +1080,74 @@ Class.tyrant = {
     TURRETS: [{
         POSITION: [0, 0, 0, 0, 0, 0],
         TYPE: "overdriveDeco"
+    }]
+}
+Class.autoMinion = makeAuto("minion", "Auto-Minion", { TYPE: 'droneAutoTurret' })
+Class.spawnerDrive = {
+    PARENT: "genericTank",
+    LABEL: "Spawnerdrive",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "autoMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+        },
+    ],
+    TURRETS: [{
+        POSITION: [0, 0, 0, 0, 0, 0],
+        TYPE: "overdriveDeco"
+    }]
+}
+Class.stormMinion = makeAuto("minion", "Storm Minion", { TYPE: 'stormTurret' })
+Class.spawnerStorm = {
+    PARENT: "genericTank",
+    LABEL: "Spawnerstorm",
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "stormMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+        },
+    ],
+    TURRETS: [{
+        POSITION: [0, 0, 0, 0, 0, 0],
+        TYPE: "stormProp"
     }]
 }
 
