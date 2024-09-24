@@ -695,6 +695,36 @@ Class.warkwark = {
             },
         })
 }
+Class.hutch = {
+    PARENT: "genericTank",
+    LABEL: "Hutch",
+    STAT_NAMES: statnames.trap, 
+    GUNS: [
+        {
+            POSITION: [14, 8, 1, 0, 5.5, 5, 0],
+        },
+        {
+            POSITION: [3, 9, 1.5, 14, 5.5, 5, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.twin]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+        {
+            POSITION: [14, 8, 1, 0, -5.5, 355, 0],
+        },
+        {
+            POSITION: [3, 9, 1.5, 14, -5.5, 355, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.twin]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+      ]
+}
+
           
 // Trap Guards
 Class.triTrapGuard = {
@@ -1180,7 +1210,7 @@ Class.factoryDrive = {
     ],
     TURRETS: [{
         POSITION: [0, 0, 0, 0, 0, 0],
-        TYPE: "stormProp"
+        TYPE: "overdriveDeco"
     }]
 }
 
@@ -1188,9 +1218,8 @@ Class.factoryDrive = {
 
 
 //stormrades/Branches
-// Trapper branch: 'stormTurret'} // 
-    //Class.directorStorm  //okay byr
-     Class.pen.UPGRADES_TIER_3 = ['tripen', 'costormel', 'interner', 'autoPen', 'stall', 'incarcerator', 'operator']
+// Trapper t
+ Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel']//ima make hutch
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral"]
