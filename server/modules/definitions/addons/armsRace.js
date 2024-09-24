@@ -629,6 +629,47 @@ Class.overpen = makeOver('pen', 'Overpen', {
   independent: !1,
   cycle: !1
 });
+Class.fortifier = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Fortifier",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        FOV: 1.15,
+    },
+    GUNS: [
+        {
+            POSITION: [28, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+              	SHOOT_SETTINGS: combineStats([g.basic]),
+              	TYPE: "bullet",
+      	    }, }, {
+            POSITION: [4, 8, 1.3, 22, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5 }]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+        {
+            POSITION: [4, 8, 1.3, 18, 0, 0, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5 }]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+        {
+            POSITION: [4, 8, 1.3, 14, 0, 0, 2/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5 }]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+    ],
+}
+
 // Builders
 
 Class.fashioner = makeOver('builder', { count : 1, independent: true, cycle: false })
@@ -701,20 +742,22 @@ Class.hutch = {
     STAT_NAMES: statnames.trap, 
     GUNS: [
         {
-            POSITION: [14, 8, 1, 0, 5.5, 5, 0],
-        },
-        {
+            POSITION: [20, 8, 1, 0, 5.5, 5, 0],
+            PROPERTIES: {
+              	SHOOT_SETTINGS: combineStats([g.basic]),
+              	TYPE: "bullet",
+      	    }, }, {
             POSITION: [3, 9, 1.5, 14, 5.5, 5, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.twin]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
-            },
-        },
-        {
-            POSITION: [14, 8, 1, 0, -5.5, 355, 0],
-        },
-        {
+            }, }, {
+            POSITION: [20, 8, 1, 0, -5.5, 355, 0],
+            PROPERTIES: {
+              	SHOOT_SETTINGS: combineStats([g.basic]),
+              	TYPE: "bullet",
+      	    }, }, {
             POSITION: [3, 9, 1.5, 14, -5.5, 355, 0.5],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.twin]),
@@ -1219,7 +1262,7 @@ Class.factoryDrive = {
 
 //stormrades/Branches
 // Trapper t
- Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel']//ima make hutch
+ Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen']//ima make hutch
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral"]
