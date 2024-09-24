@@ -1262,7 +1262,7 @@ Class.factoryDrive = {
 
 //stormrades/Branches
 // Trapper t
- Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen']//ima make hutch
+ Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral"]
