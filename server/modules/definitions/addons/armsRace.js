@@ -14,7 +14,7 @@ const {
 const { base, statnames, dfltskl, smshskl } = require("../constants.js");
 const g = require("../gunvals.js");
 
-return console.log('[Arms Race Addon] Disabled by default.');
+// return console.log('[Arms Race Addon] Disabled by default.');
 
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
@@ -1150,6 +1150,40 @@ Class.spawnerStorm = {
         TYPE: "stormProp"
     }]
 }
+Class.factoryDrive = {
+    PARENT: "genericTank",
+    LABEL: "Factorydrive",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1, 15.5, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "autoMinion",
+                MAX_CHILDREN: 6,
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [12, 14, 1, 0, 0, 0, 0],
+        },
+    ],
+    TURRETS: [{
+        POSITION: [0, 0, 0, 0, 0, 0],
+        TYPE: "stormProp"
+    }]
+}
+
 
 
 
@@ -1164,14 +1198,13 @@ Class.spawnerStorm = {
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
   Class.builder.UPGRADES_TIER_3 = ["stall"]
 // Pounder Branch
-Classtormuncher.UPGRADES_TIER_3.push(...['inception', 'sidewinder'])
 if (!Array.isArray(Class.inception.UPGRADES_TIER_3)) {
-    Class.inception.UPGRADES_TIER_3 = [];
+  Class.inception.UPGRADES_TIER_3 = []
 }
- Class.inception.UPGRADES_TIER_3.push(...['hognose'])
 if (!Array.isArray(Class.sidewinder.UPGRADES_TIER_3)) {
-    Class.sidewinder.UstormProp3 = [];
+  Class.sidewinder.UPGRADES_TIER_3 = []
 }
+Class.inception.UPGRADES_TIER_3.push(...['inception', 'sidewinder'])
 Class.sidewinder.UPGRADES_TIER_3.push(...['hognose'])
 // Director Branch
 
