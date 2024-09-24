@@ -146,6 +146,55 @@ Class.stormTurret = makeTurret({
       }
     ],
 }, {canRepel: true, limitFov: true, fov: 10, independent: true, extraStats: []})
+Class.vortexProp = {
+    PARENT: "overdriveDeco",
+    LABEL: "Vortex prop",
+    GUNS: [
+      {
+        POSITION: [7, 7.5, 0.6, 0, 0, 0, 0],
+      }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 180, 0]
+      }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 90, 0],
+      }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 270, 0]
+      }
+    ]
+}
+Class.vortexTurret = makeTurret({
+    GUNS: [
+        {
+        POSITION: [7, 7.5, 0.6, 0, 0, 90, 0],
+        PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+        }, }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 270, 0],
+        PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+        }, 
+      }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 0, 0],
+        PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+        }, }, {
+        POSITION: [7, 7.5, 0.6, 0, 0, 180, 0],
+        PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+                LABEL: "Guided"
+        }, }
+    ],
+}, {canRepel: true, limitFov: true, fov: 10, independent: true, extraStats: []})
 
 
 // Tanks
@@ -911,6 +960,72 @@ Class.directorDrive = {
     TURRETS: [{
           POSITION: [0, 0, 0, 0, 0, 0],
           TYPE: "overdriveDeco"
+    }]
+}
+Class.stormDrone = makeAuto("drone", { type: 'stormTurret'})
+Class.directorStorm = {
+    PARENT: "genericTank",
+    LABEL: "Directorstorm",
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        FOV: base.FOV * 1.1
+    },
+    GUNS: [
+        {
+            POSITION: {
+                LENGTH: 6,
+                WIDTH: 11,
+                ASPECT: 1.3,
+                X: 7
+            },
+            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.drone]),
+                TYPE: "stormDrone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 6,
+                WAIT_TO_CYCLE: true
+            }
+        }
+    ],
+    TURRETS: [{
+          POSITION: [0, 0, 0, 0, 0, 0],
+          TYPE: "stormProp"
+    }]
+}
+Class.stormDrone = makeAuto("drone", { type: 'stormTurret'})
+Class.directorStorm = {
+    PARENT: "genericTank",
+    LABEL: "Directorstorm",
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        FOV: base.FOV * 1.1
+    },
+    GUNS: [
+        {
+            POSITION: {
+                LENGTH: 6,
+                WIDTH: 11,
+                ASPECT: 1.3,
+                X: 7
+            },
+            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.drone]),
+                TYPE: "stormDrone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 6,
+                WAIT_TO_CYCLE: true
+            }
+        }
+    ],
+    TURRETS: [{
+          POSITION: [0, 0, 0, 0, 0, 0],
+          TYPE: "stormProp"
     }]
 }
 
