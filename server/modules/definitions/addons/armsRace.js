@@ -717,7 +717,7 @@ Class.interner = makeOver("pen", "Interner", {
   independent: !0,
   cycle: !1,
 });
-Class.parotBase = makeSurfer("pen", "ParrotBase")
+Class.parrotBase = makeSurfer("pen", "ParrotBase")
 Class.parrot = makeBird("parrotBase", "Parrot");
 Class.overpen = makeOver('pen', 'Overpen', {
   count: 2,
@@ -1097,7 +1097,7 @@ Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 // Droners
 // Directordrives
 Class.autoDrone = makeAuto("drone", { type: 'droneAutoTurret' })
-Class.directorDrive = {
+Class.directordrive = {
     PARENT: "genericTank",
     LABEL: "Directordrive",
     STAT_NAMES: statnames.drone,
@@ -1130,7 +1130,7 @@ Class.directorDrive = {
     }]
 }
 Class.stormDrone = makeAuto("drone", { type: 'stormTurret' })
-Class.directorStorm = {
+Class.directorstorm = {
     PARENT: "genericTank",
     LABEL: "Directorstorm",
     STAT_NAMES: statnames.drone,
@@ -1195,7 +1195,7 @@ Class.vortex = {
           TYPE: "vortexProp"
     }]
 }
-Class.overStorm = {
+Class.overstorm = {
     PARENT: "genericTank",
     LABEL: "Overstorm",
     DANGER: 7,
@@ -1353,7 +1353,7 @@ Class.factoryDrive = {
 // Flanks
 Class.brawler = makeFighter("booster", "Brawler")
 Class.autoSurfer = makeAuto("surfer")
-Class.condor = makeSurfer("eaagle", "Condor")
+Class.condor = makeSurfer("eagle", "Condor")
 Class.soarer = makeSurfer("booster", "Soarer")
 Class.autoBooster = makeAuto("booster")
 Class.autoFighter = makeAuto("fighter")
@@ -1382,7 +1382,7 @@ Class.nuker = makeBomber({
 
 //stormrades/Branches
 // Trapper t
- Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler', 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
+ Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', /*'encircler',*/ 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral", "coop"]
@@ -1390,19 +1390,13 @@ Class.nuker = makeBomber({
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
   Class.builder.UPGRADES_TIER_3 = ["stall"]
 // Pounder Branch
-if (!Array.isArray(Class.inception.UPGRADES_TIER_3)) {
-  Class.inception.UPGRADES_TIER_3 = []
-}
-if (!Array.isArray(Class.sidewinder.UPGRADES_TIER_3)) {
-  Class.sidewinder.UPGRADES_TIER_3 = []
-}
-Class.inception.UPGRADES_TIER_3.push(...['inception', 'sidewinder'])
-Class.sidewinder.UPGRADES_TIER_3.push(...['hognose'])
+ Class.inception.UPGRADES_TIER_3 = ['hognose']
+ Class.sidewinder.UPGRADES_TIER_3 = ['hognose']
 // Director Branch
 
 // Flank Guard Branch
-   Class.booster.UPGRADES_TIER_3.push(...['brawler'])
-   Class.fighter.UPGRADES_TIER_3.push(...['brawler'])
+ Class.booster.UPGRADES_TIER_3 = ['brawler']
+ Class.fighter.UPGRADES_TIER_3 = ['brawler']
 // Machine Gun Branch
 
 // Sniper Branch
