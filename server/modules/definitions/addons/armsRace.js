@@ -92,21 +92,35 @@ const makeBackTrap = (type, name = -1, options = {}) => {
     thrusters: 0
   }
   let output = dereference(type);
+  if (gunType.pen == 0) {let cannons = [
+        {
+            POSITION: [13, 8, 1, 0, 0, 180, 0],
+        },]}
   let cannons = [
     {
-      POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.swarm]),
-        TYPE: "autoswarm",
-      },
-    },
-    {
-      POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.swarm]),
-        TYPE: "autoswarm",
-      },
-    },
+            POSITION: [18, 8, 1, 0, 0, 130, 0.1],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
+                TYPE: "bullet",
+                LABEL: "Wing",
+            },
+        },
+        {
+            POSITION: [18, 8, 1, 0, 0, 230, 0.1],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
+                TYPE: "bullet",
+                LABEL: "Wing",
+            },
+        },
+        {
+            POSITION: [4, 8, 1.7, 13, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
   ];
   output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
   output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
