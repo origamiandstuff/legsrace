@@ -92,12 +92,25 @@ const makeBackTrap = (type, name = -1, options = {}) => {
     thrusters: 0
   }
   let output = dereference(type);
-  if (gunType.pen == 0) {let cannons = [
+  if (gunType.pen == 0) {
+    let cannons = [
         {
-            POSITION: [13, 8, 1, 0, 0, 180, 0],
-        },]}
-  let cannons = [
-    {
+        POSITION: [13, 8, 1, 0, 0, 180, 0],
+        },]
+  } else {
+      let cannons = [
+        {
+        POSITION: [15, 8, 1, 0, 0, 180, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic]),
+            TYPE: "bullet",
+            LABEL: "Pen"
+          },
+        },]  
+  }
+  if (gunType.thrusters == 1) {
+     cannons.push([
+        {
             POSITION: [18, 8, 1, 0, 0, 130, 0.1],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
@@ -113,6 +126,9 @@ const makeBackTrap = (type, name = -1, options = {}) => {
                 LABEL: "Wing",
             },
         },
+    ],)
+  }
+    cannons.push([
         {
             POSITION: [4, 8, 1.7, 13, 0, 180, 0],
             PROPERTIES: {
@@ -121,9 +137,9 @@ const makeBackTrap = (type, name = -1, options = {}) => {
                 STAT_CALCULATOR: "trap",
             },
         },
-  ];
+  ]);
   output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-  output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+  output.LABEL = name == -1 ? "Bomber " + type.LABEL : name;
   return output;
 };
 
