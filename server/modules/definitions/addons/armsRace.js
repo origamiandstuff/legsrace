@@ -85,6 +85,44 @@ const makeSurfer = (type, name = -1) => {
   return output;
 };
 
+const makeBomber = (type, name = -1, options = {}) => {
+  type = ensureIsClass(type);
+  let output = dereference(type);
+  let cannons = [
+    {
+            POSITION: [18, 8, 1, 0, 0, 130, 0.1],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
+                TYPE: "bullet",
+                LABEL: "Wing",
+            },
+        },
+        {
+            POSITION: [18, 8, 1, 0, 0, 230, 0.1],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
+                TYPE: "bullet",
+                LABEL: "Wing",
+            },
+        },
+        {
+            POSITION: [13, 8, 1, 0, 0, 180, 0],
+        },
+        {
+            POSITION: [4, 8, 1.7, 13, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+  ];
+  output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+  output.LABEL = name == -1 ? "Fighter " + type.LABEL : name;
+  return output;
+};
+
+
 // Turrets, Traps, Bullets etc..
 
 // Autos
@@ -1291,82 +1329,17 @@ Class.factoryDrive = {
     }]
 }
 // Flanks
-Class.brawler = {
-    PARENT: "genericTank",
-    LABEL: "Brawler",
-    BODY: {
-        HEALTH: base.HEALTH * 0.4,
-        SHIELD: base.SHIELD * 0.4,
-        DENSITY: base.DENSITY * 0.3
-    },
-    DANGER: 7,
-    GUNS: [
-        {
-            POSITION: [18, 8, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront, { recoil: 4 }]),
-                TYPE: "bullet",
-                LABEL: "Front"
-            }
-        },
-        {
-            POSITION: [16, 8, 1, 0, -1, 90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
-                TYPE: "bullet",
-                LABEL: "Side",
-            },
-        },
-        {
-            POSITION: [16, 8, 1, 0, 1, -90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
-                TYPE: "bullet",
-                LABEL: "Side",
-            },
-        },
-        {
-            POSITION: [14, 8, 1, 0, -1, 140, 0.6],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
-                TYPE: "bullet",
-                LABEL: "thruster"
-            }
-        },
-        {
-            POSITION: [14, 8, 1, 0, 1, -140, 0.6],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
-                TYPE: "bullet",
-                LABEL: "thruster"
-            }
-        },
-        {
-            POSITION: [16, 8, 1, 0, 0, 150, 0.1],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
-                TYPE: "bullet",
-                LABEL: "thruster"
-            }
-        },
-        {
-            POSITION: [16, 8, 1, 0, 0, -150, 0.1],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
-                TYPE: "bullet",
-                LABEL: "thruster"
-            }
-        }
-    ]
-}
+Class.brawler = makeFighter("booster", "Brawler")
 Class.autoSurfer = makeAuto("surfer")
 Class.condor = makeSurfer("eaagle", "Condor")
 Class.soarer = makeSurfer("booster", "Soarer")
 Class.autoBooster = makeAuto("booster")
 Class.autoFighter = makeAuto("fighter")
 Class.defect = makeBird("tripleShot", "Defect")
-Class.
+Class.klutz = makeSurfer("defect", "Klutz")
 Class.deficiency = makeBird("pentaShot", "Deficiency")
+Class.autoDefect = makeAuto("defect")
+Class.mangle = makeFighter("defect")
 
 
 
