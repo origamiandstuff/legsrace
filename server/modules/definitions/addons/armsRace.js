@@ -657,6 +657,8 @@ Class.interner = makeOver("pen", "Interner", {
   independent: !0,
   cycle: !1,
 });
+Class.parotBase = makeSurfer("pen", "ParrotBase")
+Class.parrot = makeBird("parrotBase", "Parrot");
 Class.overpen = makeOver('pen', 'Overpen', {
   count: 2,
   independent: !1,
@@ -1289,9 +1291,9 @@ Class.factoryDrive = {
     }]
 }
 // Flanks
-Class.booster = {
+Class.brawler = {
     PARENT: "genericTank",
-    LABEL: "Booster",
+    LABEL: "Brawler",
     BODY: {
         HEALTH: base.HEALTH * 0.4,
         SHIELD: base.SHIELD * 0.4,
@@ -1306,6 +1308,22 @@ Class.booster = {
                 TYPE: "bullet",
                 LABEL: "Front"
             }
+        },
+        {
+            POSITION: [16, 8, 1, 0, -1, 90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
+                TYPE: "bullet",
+                LABEL: "Side",
+            },
+        },
+        {
+            POSITION: [16, 8, 1, 0, 1, -90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
+                TYPE: "bullet",
+                LABEL: "Side",
+            },
         },
         {
             POSITION: [14, 8, 1, 0, -1, 140, 0.6],
@@ -1365,7 +1383,8 @@ Class.sidewinder.UPGRADES_TIER_3.push(...['hognose'])
 // Director Branch
 
 // Flank Guard Branch
-
+   Class.booster.UPGRADES_TIER_3.push(...['brawler'])
+   Class.fighter.UPGRADES_TIER_3.push(...['brawler'])
 // Machine Gun Branch
 
 // Sniper Branch
