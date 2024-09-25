@@ -85,20 +85,21 @@ const makeSurfer = (type, name = -1) => {
   return output;
 };
 
-const makeBackTrap = (type, name = -1, options = {}) => {
+const makeBomber = (type, name = -1, options = {}) => {
   type = ensureIsClass(type);
   let gunType = {
     pen: 0,
     thrusters: 0
   }
   let output = dereference(type);
+  let cannons = []
   if (gunType.pen == 0) {
-    let cannons = [
+    cannons.push([
         {
         POSITION: [13, 8, 1, 0, 0, 180, 0],
-        },]
+        },])
   } else {
-      let cannons = [
+      cannons.push([
         {
         POSITION: [15, 8, 1, 0, 0, 180, 0],
         PROPERTIES: {
@@ -106,7 +107,7 @@ const makeBackTrap = (type, name = -1, options = {}) => {
             TYPE: "bullet",
             LABEL: "Pen"
           },
-        },]  
+        },])  
   }
   if (gunType.thrusters == 1) {
      cannons.push([
