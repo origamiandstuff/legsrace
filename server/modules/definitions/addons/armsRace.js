@@ -85,43 +85,6 @@ const makeSurfer = (type, name = -1) => {
   return output;
 };
 
-const makeBomber = (type, name = -1, options = {}) => {
-  type = ensureIsClass(type);
-  let output = dereference(type);
-  let cannons = [
-    {
-            POSITION: [18, 8, 1, 0, 0, 130, 0.1],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
-                TYPE: "bullet",
-                LABEL: "Wing",
-            },
-        },
-        {
-            POSITION: [18, 8, 1, 0, 0, 230, 0.1],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
-                TYPE: "bullet",
-                LABEL: "Wing",
-            },
-        },
-        {
-            POSITION: [13, 8, 1, 0, 0, 180, 0],
-        },
-        {
-            POSITION: [4, 8, 1.7, 13, 0, 180, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap]),
-                TYPE: "trap",
-                STAT_CALCULATOR: "trap",
-            },
-        },
-  ];
-  output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-  output.LABEL = name == -1 ? "Fighter " + type.LABEL : name;
-  return output;
-};
-
 
 // Turrets, Traps, Bullets etc..
 
