@@ -85,6 +85,34 @@ const makeSurfer = (type, name = -1) => {
   return output;
 };
 
+const makeBackTrap = (type, name = -1, options = {}) => {
+  type = ensureIsClass(type);
+  let gunType = {
+    pen: 0,
+    thrusters: 0
+  }
+  let output = dereference(type);
+  let cannons = [
+    {
+      POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.swarm]),
+        TYPE: "autoswarm",
+      },
+    },
+    {
+      POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
+      PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.swarm]),
+        TYPE: "autoswarm",
+      },
+    },
+  ];
+  output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+  output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+  return output;
+};
+
 
 // Turrets, Traps, Bullets etc..
 
