@@ -1359,6 +1359,14 @@ Class.brawler = {
         }
     ]
 }
+Class.autoSurfer = makeAuto("surfer")
+Class.condor = makeSurfer("eaagle", "Condor")
+Class.soarer = makeSurfer("booster", "Soarer")
+Class.autoBooster = makeAuto("booster")
+Class.autoFighter = makeAuto("fighter")
+Class.defect = makeBird("tripleShot", "Defect")
+Class.
+Class.deficiency = makeBird("pentaShot", "Deficiency")
 
 
 
