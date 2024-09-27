@@ -883,7 +883,7 @@ Class.wark = {
       ]
 }
 
-Class.warkwark = {
+Class.wark = {
     PARENT: "genericTank",
     LABEL: "Wark",
     STAT_NAMES: statnames.trap, 
@@ -1525,6 +1525,7 @@ Class.nuker = makeBomber({
 
 
 // Trapper  Branch
+Class.trapper.UPGRADES_TIER_3.push(...['pen'])
  Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler','incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
