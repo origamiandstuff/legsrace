@@ -1525,7 +1525,7 @@ Class.nuker = makeBomber({
 
 
 // Trapper  Branch
-Class.trapper.UPGRADES_TIER_3.push(...['pen'])
+Class.trapper.UPGRADES_TIER_2.push(...['pen'])
  Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler','incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
@@ -1537,6 +1537,11 @@ Class.trapper.UPGRADES_TIER_3.push(...['pen'])
  Class.inception.UPGRADES_TIER_3 = ['hognose']
  Class.sidewinder.UPGRADES_TIER_3 = ['hognose']
 // Director Branch
+ Class.directordrive.UPGRADES_TIER_2 = ['overdrive', 'directorstorm', 'spawnerdrive']
+  Class.directorstorm.UPGRADES_TIER_3 = ['vortex', 'overstorm']
+  Class.overdrive.UPGRADES_TIER_3 = ['overstorm']
+  Class.overlord.UPGRADES_TIER_3 = ['tyrant']
+  Class.spawnerdrive.UPGRADES_TIER_3 = ['spawnerstorm']
 
 // Flank Guard Branch
  Class.booster.UPGRADES_TIER_3 = ['brawler']
