@@ -14,8 +14,6 @@ const {
 const { base, statnames, dfltskl, smshskl } = require("../constants.js");
 const g = require("../gunvals.js");
 
-// return console.log('[Arms Race Addon] Disabled by default.');
-
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 // Adds the Arms Race menu to the Addons menu
@@ -24,6 +22,28 @@ Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter((basic) => basi
 Class.basic.UPGRADES_TIER_2.push("single");
 
 // Functions
+
+const makeMulti = (type, count, name = -1, startRotation = 0) => {
+    type = ensureIsClass(type);
+    let greekNumbers = ',Double ,Triple ,Quad ,Penta ,Hexa ,Septa ,Octo ,Nona ,Deca ,Hendeca ,Dodeca ,Trideca ,Tetradeca ,Pentadeca ,Hexadeca ,Septadeca ,Octadeca ,Nonadeca ,Icosa ,Henicosa ,Doicosa ,Triaicosa ,Tetraicosa ,Pentaicosa ,Hexaicosa ,Septaicosa ,Octoicosa ,Nonaicosa ,Triaconta '.split(','),
+        output = dereference(type),
+        fraction = 360 / count;
+    output.GUNS = [];
+    for (let gun of type.GUNS) {
+        for (let i = 0; i < count; i++) {
+            let newgun = dereference(gun);
+            if (Array.isArray(newgun.POSITION)) {
+                newgun.POSITION[5] += startRotation + fraction * i;
+            } else {
+                newgun.POSITION.ANGLE = (newgun.POSITION.ANGLE ?? 0) + startRotation + fraction * i;
+            }
+            if (gun.PROPERTIES) newgun.PROPERTIES = gun.PROPERTIES;
+            output.GUNS.push(newgun);
+        };
+    }
+    output.LABEL = name == -1 ? (greekNumbers[count - 1] || (count + ' ')) + type.LABEL : name;
+    return output;
+}
 
 const makeFighter = (type, name = -1) => {
   type = ensureIsClass(type);
@@ -350,25 +370,30 @@ Class.autoSingle = makeAuto("single");
 // Trappers
 // Chargers
 Class.chargerTrapDeco = makeDeco(5)
-Class.chargerTrap = {
-    PARENT: "setTrap",
-    ON: [{
-      event: "death",
-      handler: ({body}) => {
-      /*let trap = new Entity(body);
-      trap.define(Class.trap);*/
-      let trap = new Entity(body).define(Class.hexaTrapper);//qhar
-}
-    }],
-    TURRETS: [{
-      POSITION: [0, 0, 0, 0, 0, 0],
-      TYPE: "chargerTrapDeco",
-    }
+Class.chargerTrap = makeMulti({
+	PARENT: "setTrap",
+    INDEPENDENT: true,
+    TURRETS: [
+        {
+            POSITION: [8, 0, 0, 0, 360, 1],
+            TYPE: "znpAR_chargerSetTrapDeco",
+        },
+    ],
+    GUNS: [
+        {
+            POSITION: [4, 4, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: ["trap", { PERSISTS_AFTER_DEATH: true }],
+    			SHOOT_ON_DEATH: true,
+                STAT_CALCULATOR: gunCalcNames.trap
+            }
+        }
     ]
-}
+}, 5, "Set Trap")
 
 Class.charger = {
-    PARENT: "genericTank", // 
+    PARENT: "genericTank",
     LABEL: "Charger", // 
     GUNS: [ // 
       {
