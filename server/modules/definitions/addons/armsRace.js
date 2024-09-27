@@ -212,14 +212,14 @@ Class.stormTurret = makeTurret({
         {
         POSITION: [7, 7.5, 0.6, 7, 0, 90, 0],
         PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.halfrange]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
                 LABEL: "Guided"
         }, }, {
         POSITION: [7, 7.5, 0.6, 7, 0, 270, 0],
         PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.halfrange]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
                 LABEL: "Guided"
@@ -248,14 +248,14 @@ Class.vortexTurret = makeTurret({
         {
         POSITION: [7, 7.5, 0.6, 7, 0, 90, 0],
         PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.halfrange]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
                 LABEL: "Guided"
         }, }, {
         POSITION: [7, 7.5, 0.6, 7, 0, 270, 0],
         PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.halfrange]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
                 LABEL: "Guided"
@@ -263,14 +263,14 @@ Class.vortexTurret = makeTurret({
       }, {
         POSITION: [7, 7.5, 0.6, 7, 0, 0, 0],
         PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.halfrange]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
                 LABEL: "Guided"
         }, }, {
         POSITION: [7, 7.5, 0.6, 7, 0, 180, 0],
         PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.halfrange]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
                 LABEL: "Guided"
