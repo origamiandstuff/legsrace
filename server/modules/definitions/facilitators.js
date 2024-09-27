@@ -829,7 +829,7 @@ exports.makeLaby = (type, level, baseScale = 1) => {
     type = ensureIsClass(type);
     let usableSHAPE = Math.max(type.SHAPE, 3),
         downscale = Math.cos(Math.PI / usableSHAPE),
-        strengthMultiplier = 7.5 ** level;
+        strengthMultiplier = type==='hexagon' ? 10 ** level : 7.5 ** level;
     return {
         PARENT: "food",
         LABEL: ["", "Beta ", "Alpha ", "Omega ", "Gamma ", "Delta "][level] + type.LABEL,
