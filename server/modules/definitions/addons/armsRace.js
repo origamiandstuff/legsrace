@@ -207,6 +207,7 @@ Class.stormProp = {
     ]
 }
 Class.stormTurret = makeTurret({
+    PARENT: "genericTank",
     GUNS: [
         {
         POSITION: [7, 7.5, 0.6, 0, 0, 90, 0],
@@ -242,6 +243,7 @@ Class.vortexProp = {
     ]
 }
 Class.vortexTurret = makeTurret({
+    PARENT: "genericTank",
     GUNS: [
         {
         POSITION: [7, 7.5, 0.6, 0, 0, 90, 0],
