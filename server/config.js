@@ -78,7 +78,7 @@ module.exports = {
     runSpeed: 1.5,
 
     // Where the bullet spawns, where 1 is fully outside the barrel and -1 is fully inside the barrel, and 0 is halfway between.
-    bulletSpawnOffset: -0.9,
+    bulletSpawnOffset: 0.6,
 
     // General damage multiplier everytime damage is dealt.
     DAMAGE_CONSTANT: 0.5,

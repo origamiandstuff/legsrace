@@ -807,7 +807,7 @@ Class.predator = {
             }
         },
         {
-            POSITION: [18, 16, 1, 0, 0, 0, 0.3],
+            POSITION: [18, 14, 1, 0, 0, 0, 0.3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.predator]),
                 TYPE: "bullet"
