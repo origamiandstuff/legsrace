@@ -1200,7 +1200,7 @@ Class.directordrive =  {
         },
     ],
 }
-Class.stormDrone = makeAuto("drone", { type: 'stormTurret' })
+Class.stormDrone = makeAuto("drone", "Storm Drone", { type: 'stormTurret' })
 Class.directorstorm = {
     PARENT: "genericTank",
     LABEL: "Directorstorm",
@@ -1233,10 +1233,10 @@ Class.directorstorm = {
           TYPE: "stormProp"
     }]
 }
-Class.vortexDrone = makeAuto("drone", { type: 'vortexTurret' })
+Class.vortexDrone = makeAuto("drone", "Vortex Drone", { type: 'vortexTurret' })
 Class.vortex = {
     PARENT: "genericTank",
-    LABEL: "Vorex",
+    LABEL: "Vortex",
     STAT_NAMES: statnames.drone,
     BODY: {
         FOV: base.FOV * 1.1
