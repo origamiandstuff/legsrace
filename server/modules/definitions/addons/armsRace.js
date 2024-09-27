@@ -1319,7 +1319,7 @@ Class.tyrant = {
     }]
 }
 Class.autoMinion = makeAuto("minion", "Auto-Minion", { TYPE: 'droneAutoTurret' })
-Class.spawnerDrive = {
+Class.spawnerdrive = {
     PARENT: "genericTank",
     LABEL: "Spawnerdrive",
     DANGER: 7,
@@ -1353,7 +1353,7 @@ Class.spawnerDrive = {
     }]
 }
 Class.stormMinion = makeAuto("minion", "Storm Minion", { TYPE: 'stormTurret' })
-Class.spawnerStorm = {
+Class.spawnerstorm = {
     PARENT: "genericTank",
     LABEL: "Spawnerstorm",
     DANGER: 6,
@@ -1386,7 +1386,7 @@ Class.spawnerStorm = {
         TYPE: "stormProp"
     }]
 }
-Class.factoryDrive = {
+Class.factorydrive = {
     PARENT: "genericTank",
     LABEL: "Factorydrive",
     DANGER: 7,
@@ -1537,6 +1537,7 @@ Class.trapper.UPGRADES_TIER_2.push(...['pen'])
  Class.inception.UPGRADES_TIER_3 = ['hognose']
  Class.sidewinder.UPGRADES_TIER_3 = ['hognose']
 // Director Branch
+Class.director.UPGRADES_TIER_2.push(['directordrive'])
  Class.directordrive.UPGRADES_TIER_2 = ['overdrive', 'directorstorm', 'spawnerdrive']
   Class.directorstorm.UPGRADES_TIER_3 = ['vortex', 'overstorm']
   Class.overdrive.UPGRADES_TIER_3 = ['overstorm']
