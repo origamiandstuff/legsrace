@@ -376,7 +376,7 @@ Class.chargerTrap = makeMulti({
     TURRETS: [
         {
             POSITION: [8, 0, 0, 0, 360, 1],
-            TYPE: "znpAR_chargerSetTrapDeco",
+            TYPE: "chargerTrapDeco",
         },
     ],
     GUNS: [
@@ -386,7 +386,7 @@ Class.chargerTrap = makeMulti({
                 SHOOT_SETTINGS: combineStats([g.trap]),
                 TYPE: ["trap", { PERSISTS_AFTER_DEATH: true }],
     			SHOOT_ON_DEATH: true,
-                STAT_CALCULATOR: gunCalcNames.trap
+                STAT_CALCULATOR: "trap"
             }
         }
     ]
@@ -394,8 +394,8 @@ Class.chargerTrap = makeMulti({
 
 Class.charger = {
     PARENT: "genericTank",
-    LABEL: "Charger", // 
-    GUNS: [ // 
+    LABEL: "Charger",
+    GUNS: [
       {
           POSITION: [2, 12, 1.1, 18, 0, 0, 0],
           PROPERTIES: {
@@ -1122,37 +1122,33 @@ Class.merlin = makeBird("assassin", "Merlin", { super: !0 });
 // Droners
 // Directordrives
 Class.autoDrone = makeAuto("drone", { type: 'droneAutoTurret' })
-Class.directordrive = {
+Class.directordrive =  {
     PARENT: "genericTank",
     LABEL: "Directordrive",
+    DANGER: 6,
     STAT_NAMES: statnames.drone,
     BODY: {
-        FOV: base.FOV * 1.1
+        FOV: base.FOV * 1.1,
     },
+    TURRETS: [
+        {
+            POSITION: [9, 0, 0, 0, 360, 1],
+            TYPE: "overdriveDeco",
+        },
+    ],
     GUNS: [
         {
-            POSITION: {
-                LENGTH: 6,
-                WIDTH: 11,
-                ASPECT: 1.3,
-                X: 7
-            },
             POSITION: [6, 11, 1.3, 7, 0, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.drone]),
-                TYPE: "autoDrone",
+                TYPE: "turretedDrone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
                 STAT_CALCULATOR: "drone",
                 MAX_CHILDREN: 6,
-                WAIT_TO_CYCLE: true
-            }
-        }
+            },
+        },
     ],
-    TURRETS: [{
-          POSITION: [0, 0, 0, 0, 0, 0],
-          TYPE: "overdriveDeco"
-    }]
 }
 Class.stormDrone = makeAuto("drone", { type: 'stormTurret' })
 Class.directorstorm = {
