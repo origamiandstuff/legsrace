@@ -368,6 +368,7 @@ Class.autoSingle = makeAuto("single");
 // Smashers
 
 // Trappers
+
 // Chargers
 Class.chargerTrapDeco = makeDeco(5)
 Class.chargerTrap = makeMulti({
@@ -405,6 +406,26 @@ Class.charger = {
           }
       }
     ]
+}
+// Machine Trappers
+Class.machineTrapper = {
+    PARENT: "genericTank",
+    LABEL: "Machine Trapper",
+    DANGER: 6,
+    STAT_NAMES: statnames.trap,
+    GUNS: [
+        {
+            POSITION: [15, 9, 1.4, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 13, 1.3, 15, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.machineGun, {reload: 0.625, size: 0.625, spray: 0.75}]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+    ],
 }
 // Mechs
 Class.autoTrap = makeAuto("trap", { type: 'pillboxTurret' })
@@ -479,6 +500,32 @@ Class.pen = {
             	STAT_CALCULATOR: 'trap',
         	},
     	}
+    ]
+}
+Class.encircler = {
+    PARENT: "genericTank",
+    LABEL: "Pen",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: [
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+      {
+          POSITION: [15, 9, 1.4, 0, 0, 0, 0],
+      },
+      {
+          POSITION: [3, 13, 1.3, 15, 0, 0, 0],
+          PROPERTIES: {
+              SHOOT_SETTINGS: combineStats([g.trap, g.machineGun, {reload: 0.625, size: 0.625, spray: 0.75}]),
+              TYPE: "trap",
+              STAT_CALCULATOR: "trap",
+          },
+       },
     ]
 }
 Class.stall = {
@@ -1179,7 +1226,7 @@ Class.directorstorm = {
         }
     ],
     TURRETS: [{
-          POSITION: [0, 0, 0, 0, 0, 0],
+          POSITION: [9, 0, 0, 0, 360, 1],
           TYPE: "stormProp"
     }]
 }
@@ -1212,7 +1259,7 @@ Class.vortex = {
         }
     ],
     TURRETS: [{
-          POSITION: [0, 0, 0, 0, 0, 0],
+          POSITION: [9, 0, 0, 0, 360, 1],
           TYPE: "vortexProp"
     }]
 }
@@ -1266,7 +1313,7 @@ Class.tyrant = {
         }
     }, 4),
     TURRETS: [{
-        POSITION: [0, 0, 0, 0, 0, 0],
+        POSITION: [9, 0, 0, 0, 360, 1],
         TYPE: "overdriveDeco"
     }]
 }
@@ -1300,7 +1347,7 @@ Class.spawnerDrive = {
         },
     ],
     TURRETS: [{
-        POSITION: [0, 0, 0, 0, 0, 0],
+        POSITION: [9, 0, 0, 0, 360, 1],
         TYPE: "overdriveDeco"
     }]
 }
@@ -1334,7 +1381,7 @@ Class.spawnerStorm = {
         },
     ],
     TURRETS: [{
-        POSITION: [0, 0, 0, 0, 0, 0],
+        POSITION: [9, 0, 0, 0, 360, 1],
         TYPE: "stormProp"
     }]
 }
@@ -1367,7 +1414,7 @@ Class.factoryDrive = {
         },
     ],
     TURRETS: [{
-        POSITION: [0, 0, 0, 0, 0, 0],
+        POSITION: [9, 0, 0, 0, 360, 1],
         TYPE: "overdriveDeco"
     }]
 }
