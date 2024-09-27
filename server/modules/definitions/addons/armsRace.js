@@ -528,6 +528,7 @@ Class.encircler = {
        },
     ]
 }
+Class.autoEncircler = makeAuto("encircler");
 Class.stall = {
     PARENT: "genericTank",
     LABEL: "Stall",
@@ -770,7 +771,7 @@ Class.coop = makeAuto({
         	},
     	}, 
       {
-        	POSITION: [10, 8, 1, 0, 0, 60, 0],
+        	POSITION: [15, 8, 1, 0, 0, 60, 0],
     	},
     	{
         	POSITION: [4, 8, 1.7, 13, 0, 60, 0],
@@ -1118,7 +1119,7 @@ Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {
   count: 3,
 });
 
-// rangers
+// Rangers
 Class.autoRanger = makeAuto("ranger");
 Class.vindicator = {
   PARENT: "genericTank",
@@ -1419,6 +1420,28 @@ Class.factoryDrive = {
     }]
 }
 // Flanks
+Class.mingler = {
+    PARENT: "genericTank",
+    LABEL: "Mingler",
+    DANGER: 6,
+    STAT_NAMES: statnames.mixed,
+    GUNS: weaponArray([
+    	{
+        	POSITION: [20, 8, 1, 0, 0, 0, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	},
+    	{
+        	POSITION: [4, 4, 1.7, 13, 0, 35, 0],
+        	PROPERTIES: {
+            	SHOOT_SETTINGS: combineStats([g.basic]),
+            	TYPE: "bullet",
+        	},
+    	}
+    ], 5),
+}
 Class.brawler = makeFighter("booster", "Brawler")
 Class.autoSurfer = makeAuto("surfer")
 Class.condor = makeSurfer("eagle", "Condor")
@@ -1448,9 +1471,9 @@ Class.nuker = makeBomber({
 
 
 
-//stormrades/Branches
-// Trapper t
- Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', /*'encircler',*/ 'incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
+
+// Trapper  Branch
+ Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler','incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
   Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
   Class.fortress.UPGRADES_TIER_3 = ["corral", "coop"]
