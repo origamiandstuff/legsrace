@@ -1,3 +1,11 @@
+/*jslint node: true */
+/*jshint -W061 */
+/*global goog, Map, let */
+//"use strict";
+// General requires
+require('google-closure-library');
+goog.require('goog.structs.PriorityQueue');
+goog.require('goog.structs.QuadTree');
 function simplecollide(my, n) {
     let difference = (1 + util.getDistance(my, n) / 2) * Config.runSpeed;
     let pushability1 = (my.intangibility) ? 1 : my.pushability,
