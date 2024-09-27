@@ -373,7 +373,7 @@ Class.autoSingle = makeAuto("single");
 
 // Chargers
 Class.chargerTrapDeco = makeDeco(5)
-Class.chargerTrap = makeMulti({
+Class.chargerTrap = {
 	PARENT: "setTrap",
     INDEPENDENT: true,
     TURRETS: [
@@ -382,7 +382,7 @@ Class.chargerTrap = makeMulti({
             TYPE: "chargerTrapDeco",
         },
     ],
-    GUNS: [
+    GUNS: weaponArray([
         {
             POSITION: [4, 4, 1, 0, 0, 180, 0],
             PROPERTIES: {
@@ -392,8 +392,8 @@ Class.chargerTrap = makeMulti({
                 STAT_CALCULATOR: "trap"
             }
         }
-    ]
-}, 5, "Set Trap")
+    ], 5)
+}
 
 Class.charger = {
     PARENT: "genericTank",
