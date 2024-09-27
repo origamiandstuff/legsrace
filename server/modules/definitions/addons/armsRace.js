@@ -1420,6 +1420,7 @@ Class.factoryDrive = {
     }]
 }
 // Flanks
+// Hexas
 Class.mingler = {
     PARENT: "genericTank",
     LABEL: "Mingler",
@@ -1456,23 +1457,22 @@ Class.mingler = {
     ], 3)
 }
 Class.autoMingler = makeAuto("mingler")
-
 Class.unity = {
     PARENT: "genericTank",
     LABEL: "Unity",
     DANGER: 6,
     GUNS: weaponArray([
         {
-            POSITION: [15, 3.5, 1, 0, 0, 30, 0.25],
+            POSITION: [17, 4, 1, 0, 0, 30, 0.25],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.cyclone]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.flankGuard]),
                 TYPE: "bullet"
             }
         },
         {
-            POSITION: [17, 4.5, 1, 0, 0, 90, 0.75],
+            POSITION: [17, 4, 1, 0, 0, 90, 0.75],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.cyclone]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.flankGuard]),
                 TYPE: "bullet"
             }
         },
@@ -1493,6 +1493,7 @@ Class.unity = {
     ], 3)
 }
 
+// Tri Angles
 Class.brawler = makeFighter("booster", "Brawler")
 Class.autoSurfer = makeAuto("surfer")
 Class.condor = makeSurfer("eagle", "Condor")
