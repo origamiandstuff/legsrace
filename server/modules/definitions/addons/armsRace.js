@@ -171,6 +171,18 @@ Class.megaAutoTurret = makeTurret({
         },
     ],
 }, {label: "Turret", fov: 0.8, extraStats: []})
+Class.driveAutoTurret = makeTurret({
+    SHAPE: 4, 
+    GUNS: [
+        {
+            POSITION: [22, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 1.15 }, g.turret]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}, {label: "Turret", fov: 0.8, extraStats: []})
 
 // Storm Turrets
 Class.stormProp = {
@@ -1402,6 +1414,34 @@ Class.factorydrive = {
         TYPE: "overdriveDeco"
     }]
 }
+Class.autoOverdrive = {
+    PARENT: "genericTank",
+    LABEL: "Auto-Overdrive",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: 0.9 * base.SPEED,
+        FOV: 1.1 * base.FOV,
+    },
+    TURRETS: [
+        {
+            POSITION: [9, 0, 0, 0, 360, 1],
+            TYPE: "driveAutoTurret",
+        },
+    ],
+    GUNS: weaponArray({
+        POSITION: [6, 12, 1.2, 8, 0, 90, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
+            TYPE: "turretedDrone",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            STAT_CALCULATOR: "drone",
+            WAIT_TO_CYCLE: true,
+            MAX_CHILDREN: 4
+        }
+    }, 2)
+}
 // Flanks
 // Hexas
 Class.mingler = {
@@ -1523,7 +1563,7 @@ Class.trapper.UPGRADES_TIER_2.push(...['pen'])
 Class.director.UPGRADES_TIER_2.push(['directordrive'])
  Class.directordrive.UPGRADES_TIER_2 = ['overdrive', 'directorstorm', 'spawnerdrive']
   Class.directorstorm.UPGRADES_TIER_3 = ['vortex', 'overstorm']
-  Class.overdrive.UPGRADES_TIER_3 = ['overstorm']
+  Class.overdrive.UPGRADES_TIER_3 = ['overstorm', 'autoOverdrive']
   Class.overlord.UPGRADES_TIER_3 = ['tyrant']
   Class.spawnerdrive.UPGRADES_TIER_3 = ['spawnerstorm']
 
