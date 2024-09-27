@@ -1455,6 +1455,44 @@ Class.mingler = {
         }
     ], 3)
 }
+Class.autoMingler = makeAuto("mingler")
+
+Class.unity = {
+    PARENT: "genericTank",
+    LABEL: "Unity",
+    DANGER: 6,
+    GUNS: weaponArray([
+        {
+            POSITION: [15, 3.5, 1, 0, 0, 30, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.cyclone]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [17, 4.5, 1, 0, 0, 90, 0.75],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.cyclone]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [21, 12, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.pounder]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [21, 12, 1, 0, 0, 180, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.pounder]),
+                TYPE: "bullet"
+            }
+        }
+    ], 3)
+}
+
 Class.brawler = makeFighter("booster", "Brawler")
 Class.autoSurfer = makeAuto("surfer")
 Class.condor = makeSurfer("eagle", "Condor")
