@@ -268,7 +268,29 @@ Class.vortexTurret = makeTurret({
     ],
 }, {canRepel: true, limitFov: true, fov: 10, independent: true, extraStats: []})
 
-//
+// Traps 
+Class.chargerTrapDeco = makeDeco(5)
+Class.chargerTrap = {
+	PARENT: "setTrap",
+    INDEPENDENT: true,
+    TURRETS: [
+        {
+            POSITION: [8, 0, 0, 0, 360, 1],
+            TYPE: "chargerTrapDeco",
+        },
+    ],
+    GUNS: weaponArray([
+        {
+            POSITION: [4, 4, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap]),
+                TYPE: ["trap", { PERSISTS_AFTER_DEATH: true }],
+    			SHOOT_ON_DEATH: true,
+                STAT_CALCULATOR: "trap"
+            }
+        }
+    ], 5)
+}
 
 // Tanks
 

@@ -232,7 +232,7 @@ function incoming(message, socket) {
                 return 1;
             }
             // Bounce it back
-            socket.talk("S", synctick, performance.now());
+            socket.talk("S", m[0], performance.now());
             break;
         case "p":
             // ping
