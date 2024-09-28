@@ -1,6 +1,6 @@
 module.exports = [
   {
-    key: process.env.developer || 'a',
+    key: process.env.developer,
     discordID: "0",
     nameColor: "#0292f2",
     class: "developer",
@@ -8,7 +8,7 @@ module.exports = [
     note: "Developer Permissions",
   },
   {
-    key: process.env.betaTester || 'b',
+    key: process.env.betaTester,
     discordID: "0",
     nameColor: "#fffff",
     class: "",
