@@ -263,14 +263,6 @@ Class.healer = {
         }
     ]
 }
-Class.killme = {
-    PARENT: "genericTank",
-    LABEL: "kill me",
-    BODY: {
-        FOV: 1.2 * base.FOV
-    },
-    GUNS: combineGuns("basic", "twin", "sniper", "director", "pounder", "trapper", "desmos")
-}
 // Twin upgrades
 Class.doubleTwin = {
     PARENT: "genericTank",
@@ -3793,7 +3785,13 @@ Class.autoSmasher = makeAuto({
     ],
     SKILL_CAP: [smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl]
 }, "Auto-Smasher", {type: "autoSmasherTurret", size: 11})
-
+Class.killme = makeAuto({
+    PARENT: "genericTank",
+    BODY: {
+        FOV: 1.2 * base.FOV
+    },
+    GUNS: combineGuns("flankGuard", "octoTank", "hexaTank", "cyclone")
+}, "kill me let it rain edition")
 // Upgrade Paths
 Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "desmos"]
     Class.basic.UPGRADES_TIER_2 = ["smasher"]
