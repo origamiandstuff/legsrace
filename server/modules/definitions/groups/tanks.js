@@ -1,4 +1,4 @@
-const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray } = require('../facilitators.js');
+const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, combineGuns } = require('../facilitators.js');
 const { base, statnames, dfltskl, smshskl } = require('../constants.js');
 require('./generics.js');
 const g = require('../gunvals.js');
@@ -263,7 +263,14 @@ Class.healer = {
         }
     ]
 }
-
+Class.killme = {
+    PARENT: "genericTank",
+    LABEL: "kill me",
+    BODY: {
+        FOV: 1.2 * base.FOV
+    },
+    GUNS: combineGuns("basic", "twin", "sniper", "director", "pounder", "trapper", "desmos")
+}
 // Twin upgrades
 Class.doubleTwin = {
     PARENT: "genericTank",

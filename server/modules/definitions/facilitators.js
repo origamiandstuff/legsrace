@@ -64,6 +64,18 @@ exports.combineStats = function (stats) {
         throw JSON.stringify(stats);
     }
 }
+exports.combineGuns = (...tanks) => {
+    const combinedGuns = [];
+
+    tanks.forEach(tank => {
+        tank = ensureIsClass(tank);
+        if (tank.GUNS) {
+            combinedGuns.push(...tank.GUNS);
+        }
+    });
+
+    return combinedGuns;
+};
 exports.setBuild = (build) => {
     let skills = build.split(build.includes("/") ? "/" : "").map((r) => +r);
     if (skills.length !== 10)
