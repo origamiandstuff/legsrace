@@ -3790,8 +3790,8 @@ Class.killme = makeAuto({
     BODY: {
         FOV: 1.2 * base.FOV
     },
-    GUNS: combineGuns("flankGuard", "octoTank", "hexaTank", "cyclone")
-}, "kill me let it rain edition")
+    GUNS: combineGuns("launcher", "sidewinder", "skimmer", "twister", "swarmer")
+}, "kill me launching edition")
 // Upgrade Paths
 Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "desmos"]
     Class.basic.UPGRADES_TIER_2 = ["smasher"]
