@@ -67,6 +67,8 @@ module.exports = {
     bigCheese: { reload: 1.5, size: 1.8, health: 2.5, speed: 1.25 },
     mothership: { reload: 1.25, pen: 1.1, speed: 0.775, maxSpeed: 0.8, range: 15, resist: 1.15 },
     satellite: { size: 0.8, reload: 3, damage: 1.875 },
+    lightning: { speed: 2.5, damage: 0.2, reload: 0.5, health: 0.5, size: 0.75 },
+    tempest: { speed: 4, damage: 0.3, reload: 0.5, health: 0.5, size: 0.75 },
 
 // Heavy cannons
     pounder: { reload: 2, recoil: 1.6, damage: 2, speed: 0.85, maxSpeed: 0.8, density: 1.5, resist: 1.15 },
@@ -107,5 +109,5 @@ module.exports = {
     lowPower: { shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     halfrange: { range: 0.5 },
     aura: { reload: 0.001, recoil: 0.001, shudder: 0.001, size: 6, speed: 0.001, maxSpeed: 0.001, spray: 0.001 },
-    noSpread: { shudder: 0, spray: 0 }
+    noSpread: { shudder: 0, spray: 0 },
 }

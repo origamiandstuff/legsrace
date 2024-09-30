@@ -1,4 +1,4 @@
-const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, combineGuns } = require('../facilitators.js');
+const { combineStats, makeAuto, makeOver, makeDeco, makeGuard, makeBird, makeRadialAuto, weaponArray, makeMorpher } = require('../facilitators.js');
 const { base, statnames, dfltskl, smshskl } = require('../constants.js');
 require('./generics.js');
 const g = require('../gunvals.js');
@@ -263,6 +263,7 @@ Class.healer = {
         }
     ]
 }
+
 // Twin upgrades
 Class.doubleTwin = {
     PARENT: "genericTank",
@@ -3785,13 +3786,7 @@ Class.autoSmasher = makeAuto({
     ],
     SKILL_CAP: [smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl, smshskl]
 }, "Auto-Smasher", {type: "autoSmasherTurret", size: 11})
-Class.killme = makeAuto({
-    PARENT: "genericTank",
-    BODY: {
-        FOV: 1.2 * base.FOV
-    },
-    GUNS: combineGuns("launcher", "sidewinder", "skimmer", "twister", "swarmer")
-}, "kill me launching edition")
+
 // Upgrade Paths
 Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "desmos"]
     Class.basic.UPGRADES_TIER_2 = ["smasher"]
