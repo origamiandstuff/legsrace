@@ -1,5 +1,5 @@
 module.exports = {
     MODE: "tdm",
-    TEAMS: 4,
+    TEAMS: ran.choose([2, 4]),
     ROOM_SETUP: ['overlay_tdm']
 };
