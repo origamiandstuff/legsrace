@@ -16,7 +16,7 @@ const g = require("../gunvals.js");
 
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
-// Adds the Arms Race menu to the Addons menu
+Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter((assassin) => assassin !== "marksman");
 Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter((assassin) => assassin !== "single");
 Class.basic.UPGRADES_TIER_1 = Class.basic.UPGRADES_TIER_1.filter((basic) => basic !== "desmos");
 Class.basic.UPGRADES_TIER_2.push("single");
@@ -667,7 +667,7 @@ Class.fender = {
     },
     GUNS: [
         {
-          	POSITION: [20, 8, 1, 0, 0, 0, 0],
+          	POSITION: [24, 8, 1, 0, 0, 0, 0],
           	PROPERTIES: {
               	SHOOT_SETTINGS: combineStats([g.basic]),
               	TYPE: "bullet",
@@ -684,6 +684,43 @@ Class.fender = {
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.boomerang]),
                 TYPE: "boomerang",
+                STAT_CALCULATOR: "block"
+            },
+        },
+    ],
+}
+Class.overthrower = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Overthrower",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+          	POSITION: [24, 8, 1, 0, 0, 0, 0],
+          	PROPERTIES: {
+              	SHOOT_SETTINGS: combineStats([g.basic]),
+              	TYPE: "bullet",
+            }
+        },
+        {
+            POSITION: [18, 12, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "setTrap",
                 STAT_CALCULATOR: "block"
             },
         },
@@ -1551,11 +1588,11 @@ Class.nuker = makeBomber({
 Class.trapper.UPGRADES_TIER_2.push(...['pen'])
  Class.pen.UPGRADES_TIER_3 = ['stall', 'tripen', 'encircler','incarcerator', 'operator', 'cockatiel', 'hutch', 'interner', 'autoPen', 'fortifier']
   Class.tripen.UPGRADES_TIER_3 = ["corral"]
-  Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle"]
+  Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle", "overthrower"]
   Class.fortress.UPGRADES_TIER_3 = ["corral", "coop"]
   Class.engineer.UPGRADES_TIER_3 = ["cubicle", 'autoEngineer']
   Class.construct.UPGRADES_TIER_3 = ['hurdle', 'autoConstruct']
-  Class.builder.UPGRADES_TIER_3 = ["stall"]
+  Class.builder.UPGRADES_TIER_3.push(["stall"])
 // Pounder Branch
  Class.inception.UPGRADES_TIER_3 = ['hognose']
  Class.sidewinder.UPGRADES_TIER_3 = ['hognose']
