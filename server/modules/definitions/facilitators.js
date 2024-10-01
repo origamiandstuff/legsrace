@@ -806,8 +806,7 @@ exports.makeCrasher = type => ({
         HEALTH: Math.pow(type.BODY.HEALTH, 2/3),
         DAMAGE: Math.pow(type.BODY.HEALTH, 1/3) * type.BODY.DAMAGE,
         ACCELERATION: 5,
-        PUSHABILITY: 0.5,
-        DENSITY: 10
+        PUSHABILITY: type.BODY.PUSHABILITY / 2,
     },
     AI: {
         NO_LEAD: true,

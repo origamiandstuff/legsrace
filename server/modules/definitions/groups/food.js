@@ -100,7 +100,7 @@ Class.triangle = {
     COLOR: "orange",
     BODY: {
         DAMAGE: basePolygonDamage,
-        DENSITY: 6,
+        DENSITY: 4,
         HEALTH: 3 * basePolygonHealth,
         RESIST: 1.15,
         PENETRATION: 1.5,
@@ -124,7 +124,7 @@ Class.pentagon = {
     COLOR: "purple",
     BODY: {
         DAMAGE: 1.5 * basePolygonDamage,
-        DENSITY: 8,
+        DENSITY: 6,
         HEALTH: 10 * basePolygonHealth,
         RESIST: 1.25,
         PENETRATION: 1.1,
@@ -200,7 +200,7 @@ Class.hexagon = {
     COLOR: "hexagon",
     BODY: {
         DAMAGE: 3 * basePolygonDamage,
-        DENSITY: 8,
+        DENSITY: 6,
         HEALTH: 20 * basePolygonHealth,
         RESIST: 1.3,
         SHIELD: 50 * basePolygonHealth,
