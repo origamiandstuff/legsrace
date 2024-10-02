@@ -1612,6 +1612,54 @@ Class.crowbar = {
   ],
 }
 
+Class.wrench = {
+  PARENT: "genericTank",
+  DANGER: 7,
+  LABEL: "Wrench",
+  BODY: {
+    ACCELERATION: base.ACCEL * 0.6,
+    SPEED: base.SPEED * 0.85,
+    FOV: base.FOV * 1.4,
+  },
+  GUNS: [
+    {
+      POSITION: [67, 6.5, 1, 0, 0, 0, 0],
+    },
+    {
+      POSITION: [5, 8.5, -1.5, 8, 0, 0, 0],
+    },
+  ],
+  TURRETS: [
+    {
+      POSITION: [6, 68, 0, 0, 360, 1],
+      TYPE: [
+        "crowbarTurret",
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 58, 0, 0, 360, 1],
+      TYPE: [
+        "crowbarTurret",
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 48, 0, 0, 360, 1],
+      TYPE: [
+        "crowbarTurret",
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+  ],
+}
+
 Class.pryer = {
   PARENT: "genericTank",
   DANGER: 8,
