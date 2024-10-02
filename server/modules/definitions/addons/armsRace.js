@@ -1707,7 +1707,7 @@ Class.crowbar = {
   },
   GUNS: [
     {
-      POSITION: [37, 6.5, 1, 0, 0, 0, 0],
+      POSITION: [42, 6.5, 1, 0, 0, 0, 0],
     },
     {
       POSITION: [6, 8.5, -1.5, 8, 0, 0, 0],
@@ -1755,14 +1755,14 @@ Class.spanner = {
   },
   GUNS: [
     {
-      POSITION: [46, 5.5, 1, 0, 0, 0, 0],
+      POSITION: [45, 4.5, 1, 0, 0, 0, 0],
       PROPERTIES: {
         SHOOT_SETTINGS: combineStats([g.basic]),
         TYPE: "bullet",
       },
     },
     {
-      POSITION: [37, 6.5, 1, 0, 0, 0, 0],
+      POSITION: [42, 6.5, 1, 0, 0, 0, 0],
     },
     {
       POSITION: [6, 8.5, -1.5, 8, 0, 0, 0],
@@ -1810,7 +1810,7 @@ Class.wrench = {
   },
   GUNS: [
     {
-      POSITION: [67, 6.5, 1, 0, 0, 0, 0],
+      POSITION: [72, 6.5, 1, 0, 0, 0, 0],
     },
     {
       POSITION: [6, 8.5, -1.5, 8, 0, 0, 0],
@@ -1858,7 +1858,7 @@ Class.pryer = {
   },
   GUNS: [
     {
-      POSITION: [57, 6.5, 1, 0, 0, 0, 0],
+      POSITION: [62, 6.5, 1, 0, 0, 0, 0],
     },
     {
       POSITION: [6, 8.5, -1.5, 8, 0, 0, 0],
