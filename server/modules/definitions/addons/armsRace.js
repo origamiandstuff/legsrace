@@ -1208,7 +1208,6 @@ Class.hognose = {
   ],
 };
 Class.seriemas = makeBird("launcher", "Seriemas");
-// Hunters
 // Subverters
 Class.subverter = {
   PARENT: "genericTank",
@@ -1241,6 +1240,9 @@ Class.subverter = {
     },
   ],
 };
+// Annhialators
+Class.autoAnnihilator = makeAuto("annihilator")
+// Snipers
 Class.buttbuttin = addBackGunner("assassin", "Buttbuttin");
 Class.hitman = makeOver("assassin", "Hitman", {
   count: 1,
