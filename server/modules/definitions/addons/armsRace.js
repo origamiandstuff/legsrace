@@ -1552,6 +1552,54 @@ Class.unity = {
         }
     ], 3)
 }
+// Crowbars
+Class.crowbar = {
+  PARENT: "genericTank",
+  DANGER: 7,
+  LABEL: "Crowbar",
+  BODY: {
+    ACCELERATION: base.ACCEL * 0.6,
+    SPEED: base.SPEED * 0.85,
+    FOV: base.FOV * 1.4,
+  },
+  GUNS: [
+    {
+      POSITION: [37, 6.5, 1, 0, 0, 0, 0],
+    },
+    {
+      POSITION: [5, 8.5, -1.5, 8, 0, 0, 0],
+    },
+  ],
+  TURRETS: [
+    {
+      POSITION: [6, 38, 0, 0, 360, 1],
+      TYPE: [
+        "crowbarTurret",
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 28, 0, 0, 360, 1],,
+      TYPE: [
+        "crowbarTurret",
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 18, 0, 0, 360, 1],
+      TYPE: [
+        "crowbarTurret",
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+  ],
+};
 
 // Tri Angles
 Class.brawler = makeFighter("booster", "Brawler")
