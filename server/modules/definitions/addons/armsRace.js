@@ -1612,6 +1612,74 @@ Class.crowbar = {
   ],
 };
 
+exports.pryer = {
+  PARENT: [exports.genericTank],
+  DANGER: 8,
+  LABEL: "Pryer",
+  BODY: {
+    ACCELERATION: base.ACCEL * 0.6,
+    SPEED: base.SPEED * 0.85,
+    FOV: base.FOV * 1.4,
+  },
+  GUNS: [
+    {
+      /*** LENGTH  WIDTH   ASPECT    X       Y     ANGLE   DELAY */
+      POSITION: [57, 6.5, 1, 0, 0, 0, 0],
+    },
+    {
+      POSITION: [5, 8.5, -1.5, 8, 0, 0, 0],
+    },
+  ],
+  TURRETS: [
+    {
+      /*  SIZE     X       Y     ANGLE    ARC */
+      POSITION: [6, 58, 0, 0, 360, 1],
+      TYPE: [
+        exports.autoTankGun,
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 48, 0, 0, 360, 1],
+      TYPE: [
+        exports.autoTankGun,
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 38, 0, 0, 360, 1],
+      TYPE: [
+        exports.autoTankGun,
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 28, 0, 0, 360, 1],
+      TYPE: [
+        exports.autoTankGun,
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+    {
+      POSITION: [6, 18, 0, 0, 360, 1],
+      TYPE: [
+        exports.autoTankGun,
+        {
+          INDEPENDENT: true,
+        },
+      ],
+    },
+  ],
+};
+
 // Tri Angles
 Class.brawler = makeFighter("booster", "Brawler")
 Class.autoSurfer = makeAuto("surfer")
