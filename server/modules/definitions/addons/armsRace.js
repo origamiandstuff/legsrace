@@ -326,48 +326,6 @@ Class.vortexTurret = makeTurret(
   },
   { canRepel: true, limitFov: true, fov: 10, independent: true, extraStats: [] }
 );
-// Overlords
-Class.overczar = {
-    PARENT: "genericTank",
-    LABEL: "Overczar",
-    DANGER: 7,
-    STAT_NAMES: statnames.drone,
-    BODY: {
-        SPEED: 0.8 * base.SPEED,
-        FOV: 1.1 * base.FOV,
-    },
-    MAX_CHILDREN: 12,
-    GUNS: weaponArray(
-        {
-        POSITION: [6, 12, 1.2, 8, 0, 60, 0],
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
-            TYPE: "drone",
-            AUTOFIRE: true,
-            SYNCS_SKILLS: true,
-            STAT_CALCULATOR: "drone",
-            WAIT_TO_CYCLE: true
-        }, }, {
-        POSITION: [6, 12, 1.2, 8, 0, 180, 0],
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
-            TYPE: "drone",
-            AUTOFIRE: true,
-            SYNCS_SKILLS: true,
-            STAT_CALCULATOR: "drone",
-            WAIT_TO_CYCLE: true
-      }, }, {
-        POSITION: [6, 12, 1.2, 8, 0, 300, 0],
-        PROPERTIES: {
-            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
-            TYPE: "drone",
-            AUTOFIRE: true,
-            SYNCS_SKILLS: true,
-            STAT_CALCULATOR: "drone",
-            WAIT_TO_CYCLE: true
-      }
-    }, 2) //let me make it//uhh its fine
-}
 
 // Traps
 Class.chargerTrapDeco = makeDeco(5);
@@ -1650,85 +1608,122 @@ Class.autoOverdrive = {
 }
 // Overlords
 Class.overczar = {
+    PARENT: "genericTank",
+    LABEL: "Overczar",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+        FOV: 1.1 * base.FOV,
+    },
+    MAX_CHILDREN: 12,
+    GUNS: weaponArray({
+        POSITION: [6, 12, 1.2, 8, 0, 0, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
+            TYPE: "drone",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            STAT_CALCULATOR: "drone",
+            WAIT_TO_CYCLE: true
+        }
+    }, 6)
+}
+// Spawners
+Class.captain = {
+    PARENT: "genericTank",
+    LABEL: "Captain",
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 90, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 90, 0],
+        },
+    ], 2)
+}
+Class.supervisor = {
+    PARENT: "genericTank",
+    LABEL: "Supervisor",
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 90, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 90, 0],
+        },
+    ], 2)
+}
+Class.captaindrive = {
   PARENT: "genericTank",
-  LABEL: "Overczar",
-  DANGER: 8,
-  STAT_NAMES: "drone",
+  LABEL: "Captaindrive",
+  DANGER: 7,
+  STAT_NAMES: statnames.drone,
   BODY: {
-    ACCELERATION: 0.75 * base.ACCEL,
-    SPEED: 0.8 * base.SPEED,
-    FOV: 1.1 * base.FOV,
+    SPEED: base.SPEED * 0.8,
+    FOV: 1.1,
   },
-  MAX_CHILDREN: 12,
-  GUNS: [
+  GUNS: weaponArray([
     {
-      POSITION: [6, 12, 1.2, 8, 0, 60, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.drone, g.over]),
-        TYPE: "drone",
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
-        STAT_CALCULATOR: gunCalcNames.drone,
-        WAIT_TO_CYCLE: true,
-      },
+      POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
     },
     {
-      POSITION: [6, 12, 1.2, 8, 0, 180, 0],
+      POSITION: [1, 12, 1, 15, 0, 90, 0],
       PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.drone, g.over]),
-        TYPE: "drone",
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
-        STAT_CALCULATOR: gunCalcNames.drone,
-        WAIT_TO_CYCLE: true,
-      },
-    },
-    {
-      POSITION: [6, 12, 1.2, 8, 0, 300, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.drone, g.over]),
-        TYPE: "drone",
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
-        STAT_CALCULATOR: gunCalcNames.drone,
-        WAIT_TO_CYCLE: true,
-      },
-    },
-    {
-      POSITION: [6, 12, 1.2, 8, 0, 0, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.drone, g.over]),
-        TYPE: "drone",
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
+        MAX_CHILDREN: 4,
+        SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+        TYPE: "autoMinion",
         STAT_CALCULATOR: "drone",
-        WAIT_TO_CYCLE: true,
+        AUTOFIRE: true,
+        SYNCS_SKILLS: true,
       },
     },
     {
-      POSITION: [6, 12, 1.2, 8, 0, 120, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.drone, g.over]),
-        TYPE: "drone",
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
-        STAT_CALCULATOR: "drone",
-        WAIT_TO_CYCLE: true,
-      },
+      POSITION: [11.5, 12, 1, 0, 0, 90, 0],
     },
+  ], 2),
+  TURRETS: [
     {
-      POSITION: [6, 12, 1.2, 8, 0, 240, 0],
-      PROPERTIES: {
-        SHOOT_SETTINGS: combineStats([g.drone, g.over]),
-        TYPE: "drone",
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
-        STAT_CALCULATOR: "drone",
-        WAIT_TO_CYCLE: true,
-      },
+      POSITION: [9, 0, 0, 0, 360, 1],
+      TYPE: "overdriveDeco",
     },
   ],
 }
+Class.autoCaptain = makeAuto('captain')
 // Cruisers
 Class.warship = {
     PARENT: "genericTank",
