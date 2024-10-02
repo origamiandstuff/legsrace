@@ -1686,7 +1686,7 @@ Class.supervisor = {
         {
             POSITION: [11.5, 12, 1, 0, 0, 90, 0],
         },
-    ], 2)
+    ], 4)
 }
 Class.captaindrive = {
   PARENT: "genericTank",
@@ -1723,7 +1723,79 @@ Class.captaindrive = {
     },
   ],
 }
+Class.mandarin = {
+    PARENT: "genericTank",
+    LABEL: "Mandarin",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 90, 0],
+        },
+        {
+            POSITION: [2, 14, 1, 15.5, 0, 90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "minion",
+                MAX_CHILDREN: 6,
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [12, 14, 1, 0, 0, 90, 0],
+        },
+    ], 2)
+}
 Class.autoCaptain = makeAuto('captain')
+Class.phantom = makeRadialAuto("sniperAutoTankGun", {isTurret: true, danger: 7, size: 10, arc: 80, label: "Phantom", body: {SPEED: 0.8 * base.SPEED, FOV: 1.1 * base.FOV}})
+Class.phantom.GUNS = weaponArray({
+    POSITION: [6, 11, 1.2, 8, 0, 60, 0],
+    PROPERTIES: {
+        SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+        TYPE: "minion",
+        AUTOFIRE: true,
+        SYNCS_SKILLS: true,
+        STAT_CALCULATOR: "drone",
+        WAIT_TO_CYCLE: true,
+        MAX_CHILDREN: 2,
+    },
+}, 3)
+Class.governer = {
+    PARENT: "genericTank",
+    LABEL: "Governer",
+    STAT_NAMES: statnames.drone,
+    DANGER: 7,
+    BODY: {
+        FOV: base.FOV * 1.15,
+    },
+    GUNS: [
+        ...weaponArray({
+            POSITION: [8, 11, 1.3, 6, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "minion",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                MAX_CHILDREN: 2,
+                STAT_CALCULATOR: "drone",
+            },
+        }, 3),
+        ...weaponArray({
+            POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, g.commander]),//it can be just 1 weaponArray(i think)
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        }, 3, 1/3),
+    ]
+}
 // Cruisers
 Class.warship = {
     PARENT: "genericTank",
