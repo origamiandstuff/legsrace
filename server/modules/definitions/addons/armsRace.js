@@ -171,6 +171,17 @@ Class.megaAutoTurret = makeTurret({
         },
     ],
 }, {label: "Turret", fov: 0.8, extraStats: []})
+Class.crowbarTurret = makeTurret({
+    GUNS: [
+        {
+            POSITION: [22, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, { reload: 2.2, recoil: 0.2, damage: 0.6 }]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}, {canRepel: true, limitFov: true, fov: 1})
 Class.driveAutoTurret = makeTurret({
     SHAPE: 4, 
     GUNS: [
@@ -1581,7 +1592,7 @@ Class.crowbar = {
       ],
     },
     {
-      POSITION: [6, 28, 0, 0, 360, 1],,
+      POSITION: [6, 28, 0, 0, 360, 1],
       TYPE: [
         "crowbarTurret",
         {
