@@ -212,38 +212,46 @@ function sizeEntity(entity, x = 0, y = 0, angle = 0, scale = 1) {
 console.log("Started loading mockups...");
 let mockupsLoadStartTime = performance.now();
 let mockupData = [];
-for (let k in Class) {
-    try {
-        if (!Class.hasOwnProperty(k)) continue;
-        let type = Class[k];
-        // Create a reference entities which we'll then take an image of.
-        let temptank = new Entity({ x: 0, y: 0 });
-        temptank.define(type);
-        temptank.className = k;
-        temptank.name = type.LABEL; // Rename it (for the upgrades menu).
-        // Fetch the mockup.
-        type.mockup = {
-            body: temptank.camera(true),
-            position: getDimensions(temptank),
-        };
-        // This is to pass the size information about the mockup that we didn't have until we created the mockup
-        type.mockup.body.position = type.mockup.position;
-        // Add the new data to the thing.
-        mockupData.push(getMockup(temptank, type.mockup.position));
-        // Kill the reference entities.
-        temptank.destroy();
-    } catch (error) {
-        util.error('[WARNING] An error has occured during mockup loading:');
-        util.error('When attempting to generate mockup "' + k + '":');
-        for (let i in Class[k]) util.error("\t" + i + ": " + Class[k][i]);
-        //throw error;
-    }
+const classKeys = Object.keys(Class);
+
+for (const k of classKeys) {
+    if (!Class.hasOwnProperty(k)) continue;
+
+    const type = Class[k];
+
+    // Create a reference entity which we'll then take an image of.
+    const temptank = new Entity({ x: 0, y: 0 });
+    temptank.define(type);
+    temptank.className = k;
+    temptank.name = type.LABEL; // Rename it (for the upgrades menu).
+
+    // Fetch the mockup.
+    type.mockup = {
+        body: temptank.camera(true),
+        position: getDimensions(temptank),
+    };
+
+    // Pass the size information about the mockup that we didn't have until we created the mockup
+    type.mockup.body.position = type.mockup.position;
+
+    // Add the new data to the thing.
+    mockupData.push(getMockup(temptank, type.mockup.position));
+
+    // Kill the reference entity.
+    temptank.destroy();
 }
 
-// Remove them
+classKeys.forEach(k => {
+    try {
+        const type = Class[k];
+    } catch (error) {
+        util.error('[WARNING] An error has occurred during mockup loading:');
+        util.error('When attempting to generate mockup "' + k + '":');
+        for (let i in Class[k]) util.error("\t" + i + ": " + Class[k][i]);
+    }
+});
+
 purgeEntities();
-//let reusableEntity=new Entity({x:0,y:0}),mockupData=[];Object.keys(Class).forEach((e=>{try{let t,r=Class[e];reusableEntity.define(r),reusableEntity.className=e,reusableEntity.name=r.LABEL,t=getDimensions(reusableEntity),r.mockup={body:reusableEntity.camera(!0),position:t},r.mockup.body.position=t,mockupData.push(getMockup(reusableEntity,t))}catch(t){util.error("[WARNING] An error has occured during mockup loading:"),util.error('When attempting to generate mockup "'+e+'":');for(let e in classType)util.error("\t"+e+": "+classType[e]);throw t}}));
-//const ClassMap=new Map(Object.entries(Class));Object.freeze(ClassMap);let reusableEntity=new Entity({x:0,y:0}),mockupData=new Uint8Array(ClassMap.size);for(let[e,t]of ClassMap)try{let a;reusableEntity.define(t),reusableEntity.className=e,reusableEntity.name=t.LABEL,a=getDimensions(reusableEntity),t.mockup={body:reusableEntity.camera(!0),position:a},t.mockup.body.position=a,mockupData.set(getMockup(reusableEntity,a))}catch(a){util.error("[WARNING] An error has occured during mockup loading:"),util.error('When attempting to generate mockup "'+e+'":');for(let e in t)util.error("\t"+e+": "+t[e]);throw a}
 let mockupsLoadEndTime = performance.now();
 console.log("Finished compiling " + mockupData.length + " classes into mockups.");
 console.log("Mockups generated in " + util.rounder(mockupsLoadEndTime - mockupsLoadStartTime, 3) + " milliseconds.\n");
