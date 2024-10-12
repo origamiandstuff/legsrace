@@ -48,7 +48,7 @@ server = require('http').createServer((req, res) => {
 			break;
 		default:
 			res.writeHead(302, {
-				Location: Config.CLIENT_ADDRESS
+				Location: "https://" + Config.CLIENT_ADDRESS
 			});
 			return res.end();
 			//return the file
