@@ -4,7 +4,7 @@ module.exports = {
     drone: { reload: 36, recoil: 0.25, shudder: 0.1, size: 0.6, speed: 2, spray: 0.1 },
     trap: { reload: 23, shudder: 0.25, size: 0.6, damage: 0.75, speed: 5, spray: 15, resist: 3 },
     swarm: { reload: 23, recoil: 0.25, shudder: 0.05, size: 0.4, damage: 0.75, speed: 4, spray: 5 },
-    factory: { reload: 48, shudder: 0.1, size: 0.7, damage: 0.75, speed: 3, spray: 0.1 },
+    factory: { reload: 48, recoil: 0.2, shudder: 0.1, size: 0.7, damage: 0.2, speed: 2.2, spray: 0.1 },
     productionist: { reload: 56, recoil: 0.25, shudder: 0.05, size: 0.7, damage: 0.75, speed: 4, range: 1.5, spray: 5 },
 
 // Spammers

@@ -115,6 +115,9 @@ function incoming(message, socket) {
     // Remember who we are
     let player = socket.player;
     // Handle the request
+    if (!m || !Array.isArray(m) || m.length === 0) {
+        return;
+    }
     if (socket.resolveResponse(m[0], m)) {
         return;
     }
