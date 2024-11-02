@@ -10,14 +10,14 @@ const {
 	addBackGunner,
 	dereference,
 	makeTurret,
-} = require("../server/modules/definitions/facilitators.js");
+} = require("../facilitators.js");
 const {
 	base,
 	statnames,
 	dfltskl,
 	smshskl
-} = require("../server/modules/definitions/constants.js");
-const g = require("../server/modules/definitions/gunvals.js");
+} = require("../constants.js");
+const g = require("../gunvals.js");
 
 if (Config.ARMS_RACE === false) return;
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
