@@ -2250,6 +2250,38 @@ Class.spawnerstorm = {
 		TYPE: "stormProp",
 	}, ],
 };
+Class.Autospawnerdrive = {
+	PARENT: "genericTank",
+	LABEL: "Spawnerdrive",
+	DANGER: 7,
+	STAT_NAMES: statnames.drone,
+	BODY: {
+		SPEED: base.SPEED * 0.8,
+		FOV: 1.1,
+	},
+	GUNS: [{
+			POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+		},
+		{
+			POSITION: [1, 12, 1, 15, 0, 0, 0],
+			PROPERTIES: {
+				MAX_CHILDREN: 4,
+				SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+				TYPE: "autoMinion",
+				STAT_CALCULATOR: "drone",
+				AUTOFIRE: true,
+				SYNCS_SKILLS: true,
+			},
+		},
+		{
+			POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+		},
+	],
+	TURRETS: [{
+		POSITION: [9, 0, 0, 0, 360, 1],
+		TYPE: "overdriveDeco",
+	}, ],
+};
 Class.factorydrive = {
 	PARENT: "genericTank",
 	LABEL: "Factorydrive",
