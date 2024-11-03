@@ -2713,11 +2713,22 @@ Class.gale = {
     PARENT: "genericTank",
     DANGER: 6,
     LABEL: "Gale",
-    GUNS: [
-      ...weaponArray(
-          
-      )
-    ]
+    GUNS: weaponArray([
+          {
+            POSITION: [15, 3.5, 1, 0, 0, 30, 0.5],
+            PROPERIES: {
+                TYPE: "bullet",
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.cyclone])
+            }
+          },
+          {
+            POSITION: [15, 3.5, 1, 0, 0, 60, 0],
+            PROPERTIES: {
+                TYPE: "bullet",
+                SHOOT_SETTINGS: combineStats()
+            }
+          }
+    ], 4)
 }
 // Cheeses
 Class.biggerCheese = {
