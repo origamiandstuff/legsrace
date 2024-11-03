@@ -2959,7 +2959,7 @@ Class.directorstorm.UPGRADES_TIER_3 = ["vortex", "overstorm"];
 Class.overdrive.UPGRADES_TIER_3 = ["overstorm", "autoOverdrive"];
 Class.overlord.UPGRADES_TIER_3 = ["tyrant"];
 Class.spawner.UPGRADES_TIER_2 = ["foundry", "megaSpawner"]
-Class.spawnerdrive.UPGRADES_TIER_3 = ["spawnerstorm"];
+Class.spawnerdrive.UPGRADES_TIER_3 = ["spawnerstorm", "factorydrive"];
 Class.megaSpawner.UPGRADES_TIER_3 = ["ultraSpawner"];
 Class.foundry.UPGRADES_TIER_3 = ["topBanana"];
 // Flank Guard Branch
