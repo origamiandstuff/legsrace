@@ -2723,6 +2723,10 @@ Class.gale = {
           },
           {
             POSITION: [18, 8, 1, 0, 0, 45, 0.5],
+            PROPERTIES: {
+                TYPE: "bullet",
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.flankGuard, g.spam])
+            }
           },
           {
             POSITION: [15, 3.5, 1, 0, 0, 30, 0.5],
