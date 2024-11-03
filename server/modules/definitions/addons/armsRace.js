@@ -2583,8 +2583,8 @@ Class.governer = {
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.swarm, g.commander]),
 				TYPE: "swarm",
-				STAT_CALCULATOR: "swarm",
-			},
+        STAT_CALCULATOR: "swarm"
+		},
 		}, 3, 1 / 3),
 	],
 };
@@ -2708,6 +2708,17 @@ Class.unity = {
 		3
 	),
 };
+// Cyclones
+Class.gale = {
+    PARENT: "genericTank",
+    DANGER: 6,
+    LABEL: "Gale",
+    GUNS: [
+      ...weaponArray(
+          
+      )
+    ]
+}
 // Cheeses
 Class.biggerCheese = {
     PARENT: "genericTank",
