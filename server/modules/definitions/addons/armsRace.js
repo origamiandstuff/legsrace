@@ -2941,6 +2941,7 @@ Class.nuker = makeBomber({
 
 // Trapper  Branch
 Class.trapper.UPGRADES_TIER_2.push(...["pen"]);
+Class.hexaTrapper.UPGRADES_TIER_2.push(...["coop"]);
 Class.pen.UPGRADES_TIER_3 = ["stall","tripen","encircler","incarcerator","operator","cockatiel","hutch","interner","autoPen","fortifier",];
 Class.tripen.UPGRADES_TIER_3 = ["corral"];
 Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle", "overthrower"];
