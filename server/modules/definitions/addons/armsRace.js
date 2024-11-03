@@ -2715,6 +2715,16 @@ Class.gale = {
     LABEL: "Gale",
     GUNS: weaponArray([
           {
+            POSITION: [18, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                TYPE: "bullet",
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.flankGuard, g.spam])
+            }
+          },
+          {
+            POSITION: [18, 8, 1, 0, 0, 45, 0.5],
+          },
+          {
             POSITION: [15, 3.5, 1, 0, 0, 30, 0.5],
             PROPERIES: {
                 TYPE: "bullet",
@@ -2725,7 +2735,7 @@ Class.gale = {
             POSITION: [15, 3.5, 1, 0, 0, 60, 0],
             PROPERTIES: {
                 TYPE: "bullet",
-                SHOOT_SETTINGS: combineStats()
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.cyclone])
             }
           }
     ], 4)
