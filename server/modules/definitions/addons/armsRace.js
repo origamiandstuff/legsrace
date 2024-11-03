@@ -2955,7 +2955,7 @@ Class.sidewinder.UPGRADES_TIER_3 = ["hognose"];
 // Director Branch
 Class.director.UPGRADES_TIER_2.push(["directordrive"]);
 Class.directordrive.UPGRADES_TIER_2 = ["overdrive", "directorstorm", "spawnerdrive"];
-Class.directorstorm.UPGRADES_TIER_3 = ["vortex_", "overstorm"];
+Class.directorstorm.UPGRADES_TIER_3 = ["vortex", "overstorm"];
 Class.overdrive.UPGRADES_TIER_3 = ["overstorm", "autoOverdrive"];
 Class.overlord.UPGRADES_TIER_3 = ["tyrant"];
 Class.spawner.UPGRADES_TIER_2 = ["foundry", "megaSpawner"]
