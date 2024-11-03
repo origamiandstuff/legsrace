@@ -147,7 +147,7 @@ const makeBomber = (type, name = -1, options = {}) => {
 // Turrets, Traps, Bullets etc..
 
 // Autos
-Class.tripleAutoTankGun = {
+Class.phs_tripleAutoTankGun = {
 	TURRETS: [
         {
             POSITION: [6, 4.5, 0, 0, 150, 1],
@@ -163,7 +163,7 @@ Class.tripleAutoTankGun = {
         },
     ],
 }
-Class.sniperAutoTankGun = makeTurret({
+Class.phs_sniperAutoTankGun = makeTurret({
 	GUNS: [{
 			POSITION: [27, 8, 1, 0, 0, 0, 0],
 			PROPERTIES: {
@@ -180,7 +180,7 @@ Class.sniperAutoTankGun = makeTurret({
 	limitFov: true,
 	fov: 4
 });
-Class.megaAutoTurret = makeTurret({
+Class.phs_megaAutoTurret = makeTurret({
 	GUNS: [{
 		POSITION: [22, 14, 1, 0, 0, 0, 0],
 		PROPERTIES: {
@@ -203,7 +203,7 @@ Class.megaAutoTurret = makeTurret({
 	fov: 3
 });
 
-Class.crowbarTurret = {
+Class.phs_crowbarTurret = {
 	PARENT: "genericTank",
 	COLOR: 16,
 	BODY: {
@@ -231,7 +231,7 @@ Class.crowbarTurret = {
 		}),
 	}, ],
 };
-Class.driveAutoTurret = makeTurret({
+Class.phs_driveAutoTurret = makeTurret({
 	SHAPE: 4,
 	GUNS: [{
 		POSITION: [22, 10, 1, 0, 0, 0, 0],
@@ -254,10 +254,10 @@ Class.driveAutoTurret = makeTurret({
 	extraStats: []
 });
 // Minions
-Class.autoMinion = makeAuto("minion", "Auto-Minion", {
+Class.phs_autoMinion = makeAuto("minion", "Auto-Minion", {
 	TYPE: "droneAutoTurret",
 });
-Class.megaMinion = {
+Class.phs_megaMinion = {
     PARENT: "genericTank",
     LABEL: "Mega Minion",
     TYPE: "minion",
@@ -299,7 +299,7 @@ Class.megaMinion = {
         },
     ],
 };
-Class.ultraMinion = {
+Class.phs_ultraMinion = {
     PARENT: "genericTank",
     LABEL: "Ultra Minion",
     TYPE: "minion",
@@ -341,7 +341,7 @@ Class.ultraMinion = {
         },
     ],
 };
-Class.foundryMinion = {
+Class.phs_foundryMinion = {
     PARENT: "genericTank",
     LABEL: "Foundry Minion",
     TYPE: "minion",
@@ -383,7 +383,7 @@ Class.foundryMinion = {
         },
     ],
 };
-Class.shopperMinion = {
+Class.phs_shopperMinion = {
     PARENT: "genericTank",
     LABEL: "Foundry Minion",
     TYPE: "minion",
@@ -425,10 +425,10 @@ Class.shopperMinion = {
         },
     ],
 };
-Class.autoFoundryMinion = makeAuto("foundryMinion", "Auto-Foundry Minion", {
+Class.phs_autoFoundryMinion = makeAuto("phs_foundryMinion", "Auto-Foundry Minion", {
 	TYPE: "droneAutoTurret",
 });
-Class.topBananaMinion = {
+Class.phs_topBananaMinion = {
     PARENT: "genericTank",
     LABEL: "Top Banana Minion",
     TYPE: "minion",
@@ -471,7 +471,7 @@ Class.topBananaMinion = {
     ],
 };
 // Storm Turrets
-Class.stormProp = {
+Class.phs_stormProp = {
 	PARENT: "overdriveDeco",
 	LABEL: "Storm prop",
 	GUNS: [{
@@ -482,12 +482,12 @@ Class.stormProp = {
 		},
 	],
 };
-Class.stormTurret = makeTurret({
+Class.phs_stormTurret = makeTurret({
 	PARENT: "genericTank",
 	GUNS: [{
 			POSITION: [7, 7.5, 0.6, 7, 0, 90, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+				SHOOT_SETTINGS: combineStats([g.swarm, g.carrier]),
 				TYPE: "swarm",
 				STAT_CALCULATOR: "swarm",
 				LABEL: "Guided",
@@ -496,7 +496,7 @@ Class.stormTurret = makeTurret({
 		{
 			POSITION: [7, 7.5, 0.6, 7, 0, 270, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+				SHOOT_SETTINGS: combineStats([g.swarm, g.carrier]),
 				TYPE: "swarm",
 				STAT_CALCULATOR: "swarm",
 				LABEL: "Guided",
@@ -506,11 +506,11 @@ Class.stormTurret = makeTurret({
 }, {
 	canRepel: true,
 	limitFov: true,
-	fov: 10,
+	fov: 4,
 	independent: true,
 	extraStats: []
 });
-Class.vortexProp = {
+Class.phs_vortexProp = {
 	PARENT: "overdriveDeco",
 	LABEL: "Vortex prop",
 	GUNS: [{
@@ -527,15 +527,15 @@ Class.vortexProp = {
 		},
 	],
 };
-Class.stormMinion = makeAuto("minion", "Storm Minion", {
+Class.phs_stormMinion = makeAuto("minion", "Storm Minion", {
 	TYPE: "stormTurret"
 });
-Class.vortexTurret = makeTurret({
+Class.phs_vortexTurret = makeTurret({
 	PARENT: "genericTank",
 	GUNS: [{
 			POSITION: [7, 7.5, 0.6, 7, 0, 90, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+				SHOOT_SETTINGS: combineStats([g.swarm, g.carrier]),
 				TYPE: "swarm",
 				STAT_CALCULATOR: "swarm",
 				LABEL: "Guided",
@@ -544,7 +544,7 @@ Class.vortexTurret = makeTurret({
 		{
 			POSITION: [7, 7.5, 0.6, 7, 0, 270, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+				SHOOT_SETTINGS: combineStats([g.swarm, g.carrier]),
 				TYPE: "swarm",
 				STAT_CALCULATOR: "swarm",
 				LABEL: "Guided",
@@ -553,7 +553,7 @@ Class.vortexTurret = makeTurret({
 		{
 			POSITION: [7, 7.5, 0.6, 7, 0, 0, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+				SHOOT_SETTINGS: combineStats([g.swarm, g.carrier]),
 				TYPE: "swarm",
 				STAT_CALCULATOR: "swarm",
 				LABEL: "Guided",
@@ -562,7 +562,7 @@ Class.vortexTurret = makeTurret({
 		{
 			POSITION: [7, 7.5, 0.6, 7, 0, 180, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+				SHOOT_SETTINGS: combineStats([g.swarm, g.carrier]),
 				TYPE: "swarm",
 				STAT_CALCULATOR: "swarm",
 				LABEL: "Guided",
@@ -572,16 +572,16 @@ Class.vortexTurret = makeTurret({
 }, {
 	canRepel: true,
 	limitFov: true,
-	fov: 5,
+	fov: 4,
 	independent: true,
 });
 
 // Traps
-Class.autoTrap = makeAuto("trap", {
+Class.phs_autoTrap = makeAuto("trap", {
 	type: "pillboxTurret"
 });
-Class.chargerTrapDeco = makeDeco(5);
-Class.chargerTrap = {
+Class.phs_chargerTrapDeco = makeDeco(5);
+Class.phs_chargerTrap = {
 	PARENT: "setTrap",
 	INDEPENDENT: true,
 	TURRETS: [{
@@ -605,14 +605,14 @@ Class.chargerTrap = {
 };
 
 // Drones
-Class.autoDrone = makeAuto("drone", {
+Class.phs_autoDrone = makeAuto("drone", {
 	type: "droneAutoTurret"
 });
 
 // Tanks
 
 // Singles
-Class.duo = {
+Class.phs_duo = {
 	PARENT: "genericTank",
 	LABEL: "Duo",
 	DANGER: 7,
@@ -642,7 +642,7 @@ Class.duo = {
 	],
 };
 
-Class.sharpshooter = {
+Class.phs_sharpshooter = {
 	PARENT: "genericTank",
 	LABEL: "Sharpshooter",
 	DANGER: 7,
@@ -658,7 +658,7 @@ Class.sharpshooter = {
 		},
 	],
 };
-Class.ternion = {
+Class.phs_ternion = {
 	PARENT: "genericTank",
 	LABEL: "Ternion",
 	DANGER: 7,
@@ -684,21 +684,21 @@ Class.ternion = {
 	),
 };
 
-Class.avian = makeBird("single", "Avian");
-Class.custodian = makeGuard("single", "Custodian");
-Class.assistant = makeOver("single", "Assistant", {
+Class.phs_avian = makeBird("single", "Avian");
+Class.phs_custodian = makeGuard("single", "Custodian");
+Class.phs_assistant = makeOver("single", "Assistant", {
 	count: 1,
 	independent: !0,
 	cycle: !1,
 });
-Class.autoSingle = makeAuto("single");
+Class.phs_autoSingle = makeAuto("single");
 
 // Smashers
 
 // Trappers
 // Constructors
 // Chargers
-Class.charger = {
+Class.phs_charger = {
 	PARENT: "genericTank",
 	LABEL: "Charger",
 	GUNS: [{
@@ -715,7 +715,7 @@ Class.charger = {
 	],
 };
 // Machine Trappers
-Class.machineTrapper = {
+Class.phs_machineTrapper = {
 	PARENT: "genericTank",
 	LABEL: "Machine Trapper",
 	DANGER: 6,
@@ -741,7 +741,7 @@ Class.machineTrapper = {
 		},
 	],
 };
-Class.propper = {
+Class.phs_propper = {
     PARENT: "genericTank",
     DANGER: 7,
     LABEL: "Propper",
@@ -782,7 +782,7 @@ Class.propper = {
 		}
     ],
 };
-Class.blockade = {
+Class.phs_blockade = {
     PARENT: "genericTank",
     DANGER: 7,
     LABEL: "Blockade",
@@ -821,7 +821,7 @@ Class.blockade = {
     ],
 }
 // Mechs
-Class.mech = {
+Class.phs_mech = {
 	PARENT: "genericTank",
 	LABEL: "Mech",
 	DANGER: 7,
@@ -842,7 +842,7 @@ Class.mech = {
 		},
 	],
 };
-Class.operator = {
+Class.phs_operator = {
 	PARENT: "genericTank",
 	LABEL: "Operator",
 	DANGER: 7,
@@ -867,9 +867,9 @@ Class.operator = {
 		},
 	],
 };
-Class.overMech = makeOver("mech", "Overmech");
+Class.phs_overMech = makeOver("mech", "Overmech");
 // Pens
-Class.pen = {
+Class.phs_pen = {
 	PARENT: "genericTank",
 	LABEL: "Pen",
 	DANGER: 6,
@@ -891,7 +891,7 @@ Class.pen = {
 		},
 	],
 };
-Class.encircler = {
+Class.phs_encircler = {
 	PARENT: "genericTank",
 	LABEL: "Encircler",
 	DANGER: 6,
@@ -924,8 +924,8 @@ Class.encircler = {
 		},
 	],
 };
-Class.autoEncircler = makeAuto("encircler");
-Class.stall = {
+Class.phs_autoEncircler = makeAuto("encircler");
+Class.phs_stall = {
 	PARENT: "genericTank",
 	LABEL: "Stall",
 	DANGER: 6,
@@ -950,13 +950,13 @@ Class.stall = {
 		},
 	],
 };
-Class.autoStall = makeAuto("stall");
-Class.delayer = makeOver("stall", "Delayer", {
+Class.phs_autoStall = makeAuto("stall");
+Class.phs_delayer = makeOver("stall", "Delayer", {
 	count: 1,
 	independent: !0,
 	cycle: !1,
 });
-Class.hurdle = {
+Class.phs_hurdle = {
 	PARENT: "genericTank",
 	LABEL: "Hurdle",
 	DANGER: 6,
@@ -985,7 +985,7 @@ Class.hurdle = {
 	],
 };
 
-Class.cubicle = {
+Class.phs_cubicle = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Cubicle",
@@ -1024,7 +1024,7 @@ Class.cubicle = {
 	],
 };
 
-Class.incarcerator = {
+Class.phs_incarcerator = {
 	PARENT: "genericTank",
 	LABEL: "Incarcerator",
 	DANGER: 6,
@@ -1053,7 +1053,7 @@ Class.incarcerator = {
 		},
 	],
 };
-Class.fender = {
+Class.phs_fender = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Fender",
@@ -1085,7 +1085,7 @@ Class.fender = {
 		},
 	],
 };
-Class.overthrower = {
+Class.phs_overthrower = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Overthrower",
@@ -1122,7 +1122,7 @@ Class.overthrower = {
 	],
 };
 
-Class.tripen = {
+Class.phs_tripen = {
 	PARENT: "genericTank",
 	LABEL: "Tri-Pen",
 	DANGER: 6,
@@ -1147,7 +1147,7 @@ Class.tripen = {
 		3
 	),
 };
-Class.corral = {
+Class.phs_corral = {
 	PARENT: "genericTank",
 	LABEL: "Corral",
 	DANGER: 6,
@@ -1181,7 +1181,7 @@ Class.corral = {
 		3
 	),
 };
-Class.coop = makeAuto({
+Class.phs_coop = makeAuto({
 		PARENT: "genericTank",
 		DANGER: 6,
 		STAT_NAMES: statnames.mixed,
@@ -1218,19 +1218,19 @@ Class.coop = makeAuto({
 	},
 	"Coop"
 );
-Class.autoPen = makeAuto("pen");
-Class.cockatiel = makeBird("pen", "Cockatiel");
-Class.interner = makeOver("pen", "Interner", {
+Class.phs_autoPen = makeAuto("pen");
+Class.phs_cockatiel = makeBird("pen", "Cockatiel");
+Class.phs_interner = makeOver("pen", "Interner", {
 	count: 1,
 	independent: !0,
 	cycle: !1,
 });
-Class.overpen = makeOver("pen", "Overpen", {
+Class.phs_overpen = makeOver("pen", "Overpen", {
 	count: 2,
 	independent: !1,
 	cycle: !1,
 });
-Class.fortifier = {
+Class.phs_fortifier = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Fortifier",
@@ -1280,21 +1280,21 @@ Class.fortifier = {
 
 // Builders
 
-Class.fashioner = makeOver('builder', "Fashioner", {count: 1, independent: true, cycle: false})
-Class.autoFashioner = makeAuto("fashioner");
-Class.autoEngineer = makeAuto("engineer");
-Class.autoConstruct = makeAuto("construct");
-Class.autoBoomer = makeAuto("boomer");
-Class.megaAutoBuilder = makeAuto("builder", {
+Class.phs_fashioner = makeOver('builder', "Fashioner", {count: 1, independent: true, cycle: false})
+Class.phs_autoFashioner = makeAuto("fashioner");
+Class.phs_autoEngineer = makeAuto("engineer");
+Class.phs_autoConstruct = makeAuto("construct");
+Class.phs_autoBoomer = makeAuto("boomer");
+Class.phs_megaAutoBuilder = makeAuto("builder", {
 	type: "megaAutoTurret"
 });
-Class.overbuilder = makeOver("builder", "Overbuilder", {
+Class.phs_overbuilder = makeOver("builder", "Overbuilder", {
 	count: 1,
 	independent: !0,
 	cycle: !1,
 });
 
-Class.assemble = {
+Class.phs_assemble = {
     PARENT: "genericTank",
     LABEL: "Assembler",
     STAT_NAMES: statnames.trap,
@@ -1320,7 +1320,7 @@ Class.assemble = {
 }
 
 // Warks
-Class.wark = {
+Class.phs_wark = {
 	PARENT: "genericTank",
 	LABEL: "Wark",
 	STAT_NAMES: statnames.trap,
@@ -1349,7 +1349,7 @@ Class.wark = {
 	],
 };
 
-Class.wark = {
+Class.phs_wark = {
 	PARENT: "genericTank",
 	LABEL: "Wark",
 	STAT_NAMES: statnames.trap,
@@ -1370,7 +1370,7 @@ Class.wark = {
 		},
 	}),
 };
-Class.hutch = {
+Class.phs_hutch = {
 	PARENT: "genericTank",
 	LABEL: "Hutch",
 	STAT_NAMES: statnames.trap,
@@ -1408,7 +1408,7 @@ Class.hutch = {
 };
 
 // Trap Guards
-Class.triTrapGuard = {
+Class.phs_triTrapGuard = {
 	PARENT: "genericTank",
 	LABEL: "Tri-Trap Guard",
 	STAT_NAMES: statnames.mixed,
@@ -1494,7 +1494,7 @@ Class.triTrapGuard = {
 };
 // Pounders
 // Launchers
-Class.inception = {
+Class.phs_inception = {
 	PARENT: "genericTank",
 	LABEL: "Inception",
 	DANGER: 7,
@@ -1517,7 +1517,7 @@ Class.inception = {
 		},
 	],
 };
-Class.hognose = {
+Class.phs_hognose = {
 	PARENT: "genericTank",
 	LABEL: "Hognose",
 	DANGER: 7,
@@ -1550,7 +1550,7 @@ Class.hognose = {
 	],
 };
 
-Class.helix_ = {
+Class.phs_helix_ = {
     PARENT: "genericTank",
     LABEL: "Helix",
     TOOLTIP: "Hold right click to reverse missile rotation.",
@@ -1578,9 +1578,9 @@ Class.helix_ = {
 		},
     ],
 };
-Class.seriemas = makeBird("launcher", "Seriemas");
+Class.phs_seriemas = makeBird("launcher", "Seriemas");
 // Subverters
-Class.subverter = {
+Class.phs_subverter = {
 	PARENT: "genericTank",
 	LABEL: "Subverter",
 	DANGER: 6,
@@ -1611,21 +1611,21 @@ Class.subverter = {
 	],
 };
 // Destroyers
-Class.autoDestroyer = makeAuto("destroyer");
-Class.compound = makeOver("destroyer", "Compound", {
+Class.phs_autoDestroyer = makeAuto("destroyer");
+Class.phs_compound = makeOver("destroyer", "Compound", {
 	count: 2,
 	independent: false,
 	cycle: false,
 });
 // Annihilators
-Class.autoAnnihilator = makeAuto("annihilator");
-Class.compound = makeOver("annihilator", "Compound", {
+Class.phs_autoAnnihilator = makeAuto("annihilator");
+Class.phs_compound = makeOver("annihilator", "Compound", {
 	count: 1,
 	independent: true,
 	cycle: false,
 });
-Class.wiper = addBackGunner("annihilator", "Wiper");
-Class.obliterator = {
+Class.phs_wiper = addBackGunner("annihilator", "Wiper");
+Class.phs_obliterator = {
     PARENT: "genericTank",
     DANGER: 7,
     LABEL: "Obliterator",
@@ -1658,30 +1658,30 @@ Class.obliterator = {
     ],
 }
 // Snipers
-Class.buttbuttin = addBackGunner("assassin", "Buttbuttin");
-Class.hitman = makeOver("assassin", "Hitman", {
+Class.phs_buttbuttin = addBackGunner("assassin", "Buttbuttin");
+Class.phs_hitman = makeOver("assassin", "Hitman", {
 	count: 1,
 	independent: true,
 	cycle: false,
 });
-Class.autoHitman = makeAuto("hitman");
-Class.trailer = makeOver("stalker", "trailer", {
+Class.phs_autoHitman = makeAuto("hitman");
+Class.phs_trailer = makeOver("stalker", "trailer", {
 	count: 1,
 	independent: true,
 	cycle: false,
 });
-Class.doorman = makeOver("ranger", "Doorman", {
+Class.phs_doorman = makeOver("ranger", "Doorman", {
 	count: 1,
 	independent: true,
 	cycle: false,
 });
-Class.mercenary = addBackGunner("hitman", "Mercenary");
-Class.overassassin = makeOver("assassin", "Overassassin", {
+Class.phs_mercenary = addBackGunner("hitman", "Mercenary");
+Class.phs_overassassin = makeOver("assassin", "Overassassin", {
 	count: 2,
 	independent: false,
 	cycle: false,
 });
-Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {
+Class.phs_sniper3 = makeRadialAuto("phs_sniperAutoTankGun", {
 	isTurret: true,
 	body: {
 		FOV: 1.2
@@ -1692,8 +1692,8 @@ Class.sniper3 = makeRadialAuto("sniperAutoTankGun", {
 });
 
 // Rangers
-Class.autoRanger = makeAuto("ranger");
-Class.vindicator = {
+Class.phs_autoRanger = makeAuto("ranger");
+Class.phs_vindicator = {
 	PARENT: "genericTank",
 	LABEL: "Vindicator",
 	DANGER: 7,
@@ -1713,7 +1713,7 @@ Class.vindicator = {
 		},
 	],
 };
-Class.hawker = {
+Class.phs_hawker = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Hawker",
@@ -1731,16 +1731,16 @@ Class.hawker = {
 		},
 	}, ],
 };
-Class.peregrine = makeBird("ranger", "Peregrine");
-Class.owl = makeBird("stalker", "Owl");
-Class.autoFalcon = makeAuto("falcon");
-Class.harpy = addBackGunner("falcon", "Harpy");
-Class.merlin = makeBird("assassin", "Merlin", {
+Class.phs_peregrine = makeBird("ranger", "Peregrine");
+Class.phs_owl = makeBird("stalker", "Owl");
+Class.phs_autoFalcon = makeAuto("falcon");
+Class.phs_harpy = addBackGunner("falcon", "Harpy");
+Class.phs_merlin = makeBird("assassin", "Merlin", {
 	super: true,
 });
 // Nailguns
 // [4, 8, 1.3, 22, 0, 0, 0]
-/*Class.binder = {
+/*Class.phs_binder = {
     PARENT: "genericTank",
     LABEL: "Binder",
     DANGER: 7,
@@ -1776,7 +1776,7 @@ Class.merlin = makeBird("assassin", "Merlin", {
 }*/
 // Droners
 // Foundries
-Class.foundry = {
+Class.phs_foundry = {
     PARENT: "genericTank",
     LABEL: "Foundry",
     DANGER: 6,
@@ -1793,7 +1793,7 @@ Class.foundry = {
             PROPERTIES: {
                 MAX_CHILDREN: 3,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.pounder, { size: 0.85 }]),
-                TYPE: "foundryMinion",
+                TYPE: "phs_foundryMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1804,7 +1804,7 @@ Class.foundry = {
         },
     ],
 };
-Class.shopper = {
+Class.phs_shopper = {
     PARENT: "genericTank",
     LABEL: "Shopper",
     DANGER: 6,
@@ -1821,7 +1821,7 @@ Class.shopper = {
             PROPERTIES: {
                 MAX_CHILDREN: 3,
                 SHOOT_SETTINGS: combineStats([g.factory, g.pounder, { size: 0.9 }]),
-                TYPE: "shopperMinion",
+                TYPE: "phs_shopperMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1832,7 +1832,7 @@ Class.shopper = {
         },
     ],
 };
-Class.foundrydrive = {
+Class.phs_foundrydrive = {
     PARENT: "genericTank",
     LABEL: "Foundrydrive",
     DANGER: 6,
@@ -1865,7 +1865,7 @@ Class.foundrydrive = {
     ],
 };
 
-Class.stocker = {
+Class.phs_stocker = {
     PARENT: "genericTank",
     LABEL: "Stocker",
     DANGER: 6,
@@ -1882,7 +1882,7 @@ Class.stocker = {
             PROPERTIES: {
                 MAX_CHILDREN: 3,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.pounder, { size: 0.85 }]),
-                TYPE: "foundryMinion",
+                TYPE: "phs_foundryMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1893,7 +1893,7 @@ Class.stocker = {
         },
     ], 2),
 };
-Class.topBanana = {
+Class.phs_topBanana = {
     PARENT: "genericTank",
     LABEL: "Top Banana",
     DANGER: 6,
@@ -1922,7 +1922,7 @@ Class.topBanana = {
     ],
 };
 // Mega Spawners
-Class.megaSpawner = {
+Class.phs_megaSpawner = {
     PARENT: "genericTank",
     LABEL: "Mega Spawner",
     DANGER: 6,
@@ -1939,7 +1939,7 @@ Class.megaSpawner = {
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.pounder, { size: 0.7 }]),
-                TYPE: "megaMinion",
+                TYPE: "phs_megaMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1950,7 +1950,7 @@ Class.megaSpawner = {
         },
     ],
 };
-Class.ultraSpawner = {
+Class.phs_ultraSpawner = {
     PARENT: "genericTank",
     LABEL: "Ultra Spawner",
     DANGER: 6,
@@ -1967,7 +1967,7 @@ Class.ultraSpawner = {
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.destroyer, { size: 0.65 }]),
-                TYPE: "ultraMinion",
+                TYPE: "phs_ultraMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1978,7 +1978,7 @@ Class.ultraSpawner = {
         },
     ],
 };
-Class.megaCaptain = {
+Class.phs_megaCaptain = {
 	PARENT: "genericTank",
 	LABEL: "Mega Captain",
 	DANGER: 6,
@@ -1996,7 +1996,7 @@ Class.megaCaptain = {
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.pounder, { size: 0.7 }]),
-                TYPE: "megaMinion",
+                TYPE: "phs_megaMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -2009,7 +2009,7 @@ Class.megaCaptain = {
 		2
 	),
 };
-Class.megaFactory = {
+Class.phs_megaFactory = {
     PARENT: "genericTank",
     LABEL: "Mega Factory",
     DANGER: 6,
@@ -2026,7 +2026,7 @@ Class.megaFactory = {
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.pounder, { size: 0.7}]),
-                TYPE: "megaMinion",
+                TYPE: "phs_megaMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -2037,9 +2037,9 @@ Class.megaFactory = {
         },
     ],
 };
-Class.autoMegaSpawner = makeAuto("megaSpawner");
+Class.phs_autoMegaSpawner = makeAuto("megaSpawner");
 // Directordrives
-Class.directordrive = {
+Class.phs_directordrive = {
 	PARENT: "genericTank",
 	LABEL: "Directordrive",
 	DANGER: 6,
@@ -2063,10 +2063,10 @@ Class.directordrive = {
 		},
 	}, ],
 };
-Class.stormDrone = makeAuto("drone", "Storm Drone", {
+Class.phs_stormDrone = makeAuto("drone", "Storm Drone", {
 	type: "stormTurret"
 });
-Class.directorstorm = {
+Class.phs_directorstorm = {
 	PARENT: "genericTank",
 	LABEL: "Directorstorm",
 	STAT_NAMES: statnames.drone,
@@ -2096,10 +2096,10 @@ Class.directorstorm = {
 		TYPE: "stormProp",
 	}, ],
 };
-Class.vortexDrone = makeAuto("drone", "Vortex Drone", {
+Class.phs_vortexDrone = makeAuto("drone", "Vortex Drone", {
 	type: "vortexTurret"
 });
-Class.vortex_ = {
+Class.phs_vortex_ = {
 	PARENT: "genericTank",
 	LABEL: "Vortex",
 	STAT_NAMES: statnames.drone,
@@ -2129,7 +2129,7 @@ Class.vortex_ = {
 		TYPE: "vortexProp",
 	}, ],
 };
-Class.overstorm = {
+Class.phs_overstorm = {
 	PARENT: "genericTank",
 	LABEL: "Overstorm",
 	DANGER: 7,
@@ -2157,7 +2157,7 @@ Class.overstorm = {
 		2
 	),
 };
-Class.tyrant = {
+Class.phs_tyrant = {
 	PARENT: "genericTank",
 	LABEL: "Tyrant",
 	DANGER: 7,
@@ -2185,7 +2185,7 @@ Class.tyrant = {
 		TYPE: "overdriveDeco",
 	}, ],
 };
-Class.spawnerdrive = {
+Class.phs_spawnerdrive = {
 	PARENT: "genericTank",
 	LABEL: "Spawnerdrive",
 	DANGER: 7,
@@ -2202,7 +2202,7 @@ Class.spawnerdrive = {
 			PROPERTIES: {
 				MAX_CHILDREN: 4,
 				SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-				TYPE: "autoMinion",
+				TYPE: "phs_autoMinion",
 				STAT_CALCULATOR: "drone",
 				AUTOFIRE: true,
 				SYNCS_SKILLS: true,
@@ -2218,7 +2218,7 @@ Class.spawnerdrive = {
 	}, ],
 };
 
-Class.spawnerstorm = {
+Class.phs_spawnerstorm = {
 	PARENT: "genericTank",
 	LABEL: "Spawnerstorm",
 	DANGER: 6,
@@ -2250,39 +2250,7 @@ Class.spawnerstorm = {
 		TYPE: "stormProp",
 	}, ],
 };
-Class.autoSpawnerdrive = {
-	PARENT: "genericTank",
-	LABEL: "Auto-Spawnerdrive",
-	DANGER: 7,
-	STAT_NAMES: statnames.drone,
-	BODY: {
-		SPEED: base.SPEED * 0.8,
-		FOV: 1.1,
-	},
-	GUNS: [{
-			POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
-		},
-		{
-			POSITION: [1, 12, 1, 15, 0, 0, 0],
-			PROPERTIES: {
-				MAX_CHILDREN: 4,
-				SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-				TYPE: "autoMinion",
-				STAT_CALCULATOR: "drone",
-				AUTOFIRE: true,
-				SYNCS_SKILLS: true,
-			},
-		},
-		{
-			POSITION: [11.5, 12, 1, 0, 0, 0, 0],
-		},
-	],
-	TURRETS: [{
-		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "driveAutoTurret",
-	}, ],
-};
-Class.factorydrive = {
+Class.phs_factorydrive = {
 	PARENT: "genericTank",
 	LABEL: "Factorydrive",
 	DANGER: 7,
@@ -2298,7 +2266,7 @@ Class.factorydrive = {
 			POSITION: [2, 14, 1, 15.5, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.factory]),
-				TYPE: "autoMinion",
+				TYPE: "phs_autoMinion",
 				MAX_CHILDREN: 6,
 				STAT_CALCULATOR: "drone",
 				AUTOFIRE: true,
@@ -2314,7 +2282,7 @@ Class.factorydrive = {
 		TYPE: "overdriveDeco",
 	}, ],
 };
-Class.autoOverdrive = {
+Class.phs_autoOverdrive = {
 	PARENT: "genericTank",
 	LABEL: "Auto-Overdrive",
 	DANGER: 7,
@@ -2343,7 +2311,7 @@ Class.autoOverdrive = {
 	),
 };
 // Overlords
-Class.overczar = {
+Class.phs_overczar = {
 	PARENT: "genericTank",
 	LABEL: "Overczar",
 	DANGER: 7,
@@ -2368,7 +2336,7 @@ Class.overczar = {
 	),
 };
 // Spawners
-Class.captain = {
+Class.phs_captain = {
 	PARENT: "genericTank",
 	LABEL: "Captain",
 	DANGER: 6,
@@ -2399,7 +2367,7 @@ Class.captain = {
 		2
 	),
 };
-Class.supervisor = {
+Class.phs_supervisor = {
 	PARENT: "genericTank",
 	LABEL: "Supervisor",
 	DANGER: 6,
@@ -2430,7 +2398,7 @@ Class.supervisor = {
 		4
 	),
 };
-Class.captaindrive = {
+Class.phs_captaindrive = {
 	PARENT: "genericTank",
 	LABEL: "Captaindrive",
 	DANGER: 7,
@@ -2448,7 +2416,7 @@ Class.captaindrive = {
 				PROPERTIES: {
 					MAX_CHILDREN: 4,
 					SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-					TYPE: "autoMinion",
+					TYPE: "phs_autoMinion",
 					STAT_CALCULATOR: "drone",
 					AUTOFIRE: true,
 					SYNCS_SKILLS: true,
@@ -2465,7 +2433,7 @@ Class.captaindrive = {
 		TYPE: "overdriveDeco",
 	}, ],
 };
-Class.mandarin = {
+Class.phs_mandarin = {
 	PARENT: "genericTank",
 	LABEL: "Mandarin",
 	DANGER: 7,
@@ -2496,7 +2464,7 @@ Class.mandarin = {
 		2
 	),
 };
-Class.industry = {
+Class.phs_industry = {
     PARENT: "genericTank",
     LABEL: "Industry",
     DANGER: 7,
@@ -2524,8 +2492,8 @@ Class.industry = {
         },
     ],
 }
-Class.autoCaptain = makeAuto("captain");
-Class.phantom = makeRadialAuto("sniperAutoTankGun", {
+Class.phs_autoCaptain = makeAuto("captain");
+Class.phs_phantom = makeRadialAuto("phs_sniperAutoTankGun", {
 	isTurret: true,
 	danger: 7,
 	size: 10,
@@ -2536,7 +2504,7 @@ Class.phantom = makeRadialAuto("sniperAutoTankGun", {
 		FOV: 1.1 * base.FOV
 	},
 });
-Class.phantom.GUNS = weaponArray({
+Class.phs_phantom.GUNS = weaponArray({
 		POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
 	}, {
 		POSITION: [1, 12, 1, 15, 0, 0, 0],
@@ -2554,7 +2522,7 @@ Class.phantom.GUNS = weaponArray({
 	},
 	3
 );
-Class.governer = {
+Class.phs_governer = {
 	PARENT: "genericTank",
 	LABEL: "Governer",
 	STAT_NAMES: statnames.drone,
@@ -2583,13 +2551,13 @@ Class.governer = {
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.swarm, g.commander]),
 				TYPE: "swarm",
-        STAT_CALCULATOR: "swarm"
-		},
+				STAT_CALCULATOR: "swarm",
+			},
 		}, 3, 1 / 3),
 	],
 };
 // Cruisers
-Class.warship = {
+Class.phs_warship = {
 	PARENT: "genericTank",
 	LABEL: "Warship",
 	DANGER: 7,
@@ -2623,7 +2591,7 @@ Class.warship = {
 };
 // Flanks
 // Hexas
-Class.mingler = {
+Class.phs_mingler = {
 	PARENT: "genericTank",
 	LABEL: "Mingler",
 	DANGER: 6,
@@ -2660,8 +2628,8 @@ Class.mingler = {
 		3
 	),
 };
-Class.autoMingler = makeAuto("mingler");
-Class.unity = {
+Class.phs_autoMingler = makeAuto("mingler");
+Class.phs_unity = {
 	PARENT: "genericTank",
 	LABEL: "Unity",
 	DANGER: 6,
@@ -2708,8 +2676,7 @@ Class.unity = {
 		3
 	),
 };
-// Cyclones
-Class.gale = {
+Class.phs_gale = {
     PARENT: "genericTank",
     DANGER: 6,
     LABEL: "Gale",
@@ -2743,9 +2710,9 @@ Class.gale = {
             }
           }
     ], 4)
-}
+};
 // Cheeses
-Class.biggerCheese = {
+Class.phs_biggerCheese = {
     PARENT: "genericTank",
     LABEL: "Bigger Cheese",
     STAT_NAMES: statnames.drone,
@@ -2768,10 +2735,10 @@ Class.biggerCheese = {
     ],
 };
 
-Class.autoBigCheese = makeAuto("bigCheese");
+Class.phs_autoBigCheese = makeAuto("bigCheese");
 // Autos
 // Crowbars
-Class.crowbar = {
+Class.phs_crowbar = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Crowbar",
@@ -2790,28 +2757,28 @@ Class.crowbar = {
 	TURRETS: [{
 			POSITION: [6, 42, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 32, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 22, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 	],
 };
 
-Class.spanner = {
+Class.phs_spanner = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Spanner",
@@ -2837,28 +2804,28 @@ Class.spanner = {
 	TURRETS: [{
 			POSITION: [6, 42, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 32, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 22, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 	],
 };
 
-Class.wrench = {
+Class.phs_wrench = {
 	PARENT: "genericTank",
 	DANGER: 7,
 	LABEL: "Wrench",
@@ -2877,28 +2844,28 @@ Class.wrench = {
 	TURRETS: [{
 			POSITION: [6, 72, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 62, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 52, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 	],
 };
 
-Class.pryer = {
+Class.phs_pryer = {
 	PARENT: "genericTank",
 	DANGER: 8,
 	LABEL: "Pryer",
@@ -2917,71 +2884,71 @@ Class.pryer = {
 	TURRETS: [{
 			POSITION: [6, 62, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 52, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 42, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 32, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 		{
 			POSITION: [6, 22, 0, 0, 360, 1],
 			TYPE: [
-				"crowbarTurret",
+				"phs_crowbarTurret",
 				{ INDEPENDENT: true }
 			],
 		},
 	],
 };
 
-Class.spindle = makeOver("crowbar", "Spindle", {
+Class.phs_spindle = makeOver("crowbar", "Spindle", {
 	count: 1,
 	independent: true,
 	cycle: false,
 });
 
 // Tri Angles
-Class.brawler = makeFighter("booster", "Brawler");
-Class.autoSurfer = makeAuto("surfer");
-Class.condor = makeSurfer("eagle", "Condor");
-Class.soarer = makeSurfer("booster", "Soarer");
-Class.autoBooster = makeAuto("booster");
-Class.autoFighter = makeAuto("fighter");
-Class.defect = makeBird("tripleShot", "Defect");
-Class.klutz = makeSurfer("defect", "Klutz");
-Class.deficiency = makeBird("pentaShot", "Deficiency");
-Class.autoDefect = makeAuto("defect");
-Class.mangle = makeFighter("defect");
-Class.autoCockatiel = makeAuto("cockatiel");
-Class.autoBomber = makeAuto("bomber");
-Class.autoSurfer = makeAuto("surfer");
-Class.autoEagle = makeAuto("eagle");
-Class.virago = addBackGunner("eagle", "Virago");
-Class.parakeet = makeBird("stall", "Parakeet");
-Class.quarrion = makeBird("encircler");
-Class.cacatua = makeBird("operator");
-Class.cockatoo = makeFighter("cockatiel");
-Class.parrot = makeSurfer("cockatiel");
-Class.corella = makeBird("hutch");
-Class.nuker = makeBomber({
+Class.phs_brawler = makeFighter("booster", "Brawler");
+Class.phs_autoSurfer = makeAuto("surfer");
+Class.phs_condor = makeSurfer("eagle", "Condor");
+Class.phs_soarer = makeSurfer("booster", "Soarer");
+Class.phs_autoBooster = makeAuto("booster");
+Class.phs_autoFighter = makeAuto("fighter");
+Class.phs_defect = makeBird("tripleShot", "Defect");
+Class.phs_klutz = makeSurfer("defect", "Klutz");
+Class.phs_deficiency = makeBird("pentaShot", "Deficiency");
+Class.phs_autoDefect = makeAuto("defect");
+Class.phs_mangle = makeFighter("defect");
+Class.phs_autoCockatiel = makeAuto("cockatiel");
+Class.phs_autoBomber = makeAuto("bomber");
+Class.phs_autoSurfer = makeAuto("surfer");
+Class.phs_autoEagle = makeAuto("eagle");
+Class.phs_virago = addBackGunner("eagle", "Virago");
+Class.phs_parakeet = makeBird("stall", "Parakeet");
+Class.phs_quarrion = makeBird("encircler");
+Class.phs_cacatua = makeBird("operator");
+Class.phs_cockatoo = makeFighter("cockatiel");
+Class.phs_parrot = makeSurfer("cockatiel");
+Class.phs_corella = makeBird("hutch");
+Class.phs_nuker = makeBomber({
 		PARENT: "genericTank",
 		BODY: {
 			DENSITY: base.DENSITY * 0.6,
@@ -3007,36 +2974,38 @@ Class.nuker = makeBomber({
 	}
 );
 
-// Trapper  Branch
-Class.trapper.UPGRADES_TIER_2.push(...["pen"]);
-Class.hexaTrapper.UPGRADES_TIER_2.push(...["coop"]);
-Class.pen.UPGRADES_TIER_3 = ["stall","tripen","encircler","incarcerator","operator","cockatiel","hutch","interner","autoPen","fortifier",];
-Class.tripen.UPGRADES_TIER_3 = ["corral","coop"];
-Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle", "overthrower"];
-Class.fortress.UPGRADES_TIER_3 = ["corral"];
-Class.engineer.UPGRADES_TIER_3 = ["cubicle", "autoEngineer"];
-Class.construct.UPGRADES_TIER_3 = ["hurdle", "autoConstruct"];
-Class.builder.UPGRADES_TIER_3.push(["stall"]);
+// Branches
+
+if (Config.ARMS_RACE) {
+// Trapper Branch
+Class.phs_trapper.UPGRADES_TIER_2.push(...["pen"]);
+Class.phs_pen.UPGRADES_TIER_3 = ["stall","tripen","encircler","incarcerator","operator","cockatiel","hutch","interner","autoPen","fortifier",];
+Class.phs_tripen.UPGRADES_TIER_3 = ["corral"];
+Class.phs_stall.UPGRADES_TIER_3 = ["cubicle", "hurdle", "overthrower"];
+Class.phs_fortress.UPGRADES_TIER_3 = ["corral", "coop"];
+Class.phs_engineer.UPGRADES_TIER_3 = ["cubicle", "autoEngineer"];
+Class.phs_construct.UPGRADES_TIER_3 = ["hurdle", "autoConstruct"];
+Class.phs_builder.UPGRADES_TIER_3.push(["stall"]);
 // Pounder Branch
-Class.inception.UPGRADES_TIER_3 = ["hognose"];
-Class.sidewinder.UPGRADES_TIER_3 = ["hognose"];
+Class.phs_inception.UPGRADES_TIER_3 = ["hognose"];
+Class.phs_sidewinder.UPGRADES_TIER_3 = ["hognose"];
 // Director Branch
-Class.director.UPGRADES_TIER_2.push(["directordrive"]);
-Class.directordrive.UPGRADES_TIER_2 = ["overdrive", "directorstorm", "spawnerdrive"];
-Class.directorstorm.UPGRADES_TIER_3 = ["vortex", "overstorm"];
-Class.overdrive.UPGRADES_TIER_3 = ["overstorm", "autoOverdrive"];
-Class.overlord.UPGRADES_TIER_3 = ["tyrant"];
-Class.spawner.UPGRADES_TIER_2 = ["foundry", "megaSpawner"]
-Class.spawnerdrive.UPGRADES_TIER_3 = ["spawnerstorm", "factorydrive"];
-Class.megaSpawner.UPGRADES_TIER_3 = ["ultraSpawner"];
-Class.foundry.UPGRADES_TIER_3 = ["topBanana"];
+Class.phs_director.UPGRADES_TIER_2.push(["directordrive"]);
+Class.phs_directordrive.UPGRADES_TIER_2 = ["overdrive", "directorstorm", "spawnerdrive"];
+Class.phs_directorstorm.UPGRADES_TIER_3 = ["vortex_", "overstorm"];
+Class.phs_overdrive.UPGRADES_TIER_3 = ["overstorm", "autoOverdrive"];
+Class.phs_overlord.UPGRADES_TIER_3 = ["tyrant"];
+Class.phs_spawner.UPGRADES_TIER_2 = ["foundry", "megaSpawner"]
+Class.phs_spawnerdrive.UPGRADES_TIER_3 = ["spawnerstorm"];
+Class.phs_megaSpawner.UPGRADES_TIER_3 = ["ultraSpawner"];
+Class.phs_foundry.UPGRADES_TIER_3 = ["topBanana"];
 // Flank Guard Branch
-Class.triAngle.UPGRADES_TIER_2 = ["cockatiel"];
-Class.cockatiel.UPGRADES_TIER_3 = ["autoCockatiel", "parakeet", "quarrion", "cacatua", "cockatoo", "corella"];
-Class.booster.UPGRADES_TIER_3 = ["brawler"];
-Class.fighter.UPGRADES_TIER_3 = ["brawler"];
+Class.phs_triAngle.UPGRADES_TIER_2 = ["cockatiel"];
+Class.phs_cockatiel.UPGRADES_TIER_3 = ["autoCockatiel", "parakeet", "quarrion", "cacatua", "cockatoo", "corella"];
+Class.phs_booster.UPGRADES_TIER_3 = ["brawler"];
+Class.phs_fighter.UPGRADES_TIER_3 = ["brawler"];
 Class.autoTriAngle.UPGRADES_TIER_3 = ["autoSurfer", "autoBooster", "autoBomber", "autoFighter", "autoDeflect", "autoCockatiel", "autoBomber"];
-Class.crowbar.UPGRADES_TIER_3 = ["wrench","pryer","spindle","spanner"];
+Class.phs_crowbar.UPGRADES_TIER_3 = ["wrench","pryer","spindle","spanner"];
 // Machine Gun Branch
 
 // Sniper Branch
@@ -3044,5 +3013,5 @@ Class.crowbar.UPGRADES_TIER_3 = ["wrench","pryer","spindle","spanner"];
 // Twin Branch
 
 // Tanks
-
+};
 console.log("[Arms Race Addon] Loaded Arms Race.");
