@@ -19,7 +19,6 @@ const {
 } = require("../constants.js");
 const g = require("../gunvals.js");
 
-if (Config.ARMS_RACE === false) return;
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 /*Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(
@@ -2941,19 +2940,8 @@ Class.nuker = makeBomber({
 );
 
 // Trapper  Branch
-/*Class.trapper.UPGRADES_TIER_2.push(...["pen"]);
-Class.pen.UPGRADES_TIER_3 = [
-  "stall",
-  "tripen",
-  "encircler",
-  "incarcerator",
-  "operator",
-  "cockatiel",
-  "hutch",
-  "interner",
-  "autoPen",
-  "fortifier",
-];
+Class.trapper.UPGRADES_TIER_2.push(...["pen"]);
+Class.pen.UPGRADES_TIER_3 = ["stall","tripen","encircler","incarcerator","operator","cockatiel","hutch","interner","autoPen","fortifier",];
 Class.tripen.UPGRADES_TIER_3 = ["corral"];
 Class.stall.UPGRADES_TIER_3 = ["cubicle", "hurdle", "overthrower"];
 Class.fortress.UPGRADES_TIER_3 = ["corral", "coop"];
@@ -2965,19 +2953,21 @@ Class.inception.UPGRADES_TIER_3 = ["hognose"];
 Class.sidewinder.UPGRADES_TIER_3 = ["hognose"];
 // Director Branch
 Class.director.UPGRADES_TIER_2.push(["directordrive"]);
-Class.directordrive.UPGRADES_TIER_2 = [
-  "overdrive",
-  "directorstorm",
-  "spawnerdrive",
-];
-Class.directorstorm.UPGRADES_TIER_3 = ["vortex", "overstorm"];
+Class.directordrive.UPGRADES_TIER_2 = ["overdrive", "directorstorm", "spawnerdrive"];
+Class.directorstorm.UPGRADES_TIER_3 = ["vortex_", "overstorm"];
 Class.overdrive.UPGRADES_TIER_3 = ["overstorm", "autoOverdrive"];
 Class.overlord.UPGRADES_TIER_3 = ["tyrant"];
+Class.spawner.UPGRADES_TIER_2 = ["foundry", "megaSpawner"]
 Class.spawnerdrive.UPGRADES_TIER_3 = ["spawnerstorm"];
-
+Class.megaSpawner.UPGRADES_TIER_3 = ["ultraSpawner"];
+Class.foundry.UPGRADES_TIER_3 = ["topBanana"];
 // Flank Guard Branch
+Class.triAngle.UPGRADES_TIER_2 = ["cockatiel"];
+Class.cockatiel.UPGRADES_TIER_3 = ["autoCockatiel", "parakeet", "quarrion", "cacatua", "cockatoo", "corella"];
 Class.booster.UPGRADES_TIER_3 = ["brawler"];
-Class.fighter.UPGRADES_TIER_3 = ["brawler"];*/
+Class.fighter.UPGRADES_TIER_3 = ["brawler"];
+Class.autoTriAngle.UPGRADES_TIER_3 = ["autoSurfer", "autoBooster", "autoBomber", "autoFighter", "autoDeflect", "autoCockatiel", "autoBomber"];
+Class.crowbar.UPGRADES_TIER_3 = ["wrench","pryer","spindle","spanner"];
 // Machine Gun Branch
 
 // Sniper Branch
