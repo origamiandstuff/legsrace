@@ -2250,9 +2250,9 @@ Class.spawnerstorm = {
 		TYPE: "stormProp",
 	}, ],
 };
-Class.Autospawnerdrive = {
+Class.autoSpawnerdrive = {
 	PARENT: "genericTank",
-	LABEL: "Spawnerdrive",
+	LABEL: "Auto-Spawnerdrive",
 	DANGER: 7,
 	STAT_NAMES: statnames.drone,
 	BODY: {
@@ -2279,7 +2279,7 @@ Class.Autospawnerdrive = {
 	],
 	TURRETS: [{
 		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "overdriveDeco",
+		TYPE: "driveAutoTurret",
 	}, ],
 };
 Class.factorydrive = {
