@@ -144,6 +144,32 @@ const makeBomber = (type, name = -1, options = {}) => {
 	return output;
 };
 
+const makeBackCruiser = (type, name = -1) => {
+	type = ensureIsClass(type);
+	let output = dereference(type);
+	let cannons = [{
+            POSITION: [7, 7.5, 0.6, 7, 4, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [7, 7.5, 0.6, 7, -4, 180, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+	];
+	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+	output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+	return output;
+};
+
+
 // Turrets, Traps, Bullets etc..
 
 // Autos
