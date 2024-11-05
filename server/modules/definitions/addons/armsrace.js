@@ -144,30 +144,26 @@ const makeBomber = (type, name = -1, options = {}) => {
 	return output;
 };
 
-const makeBackCruiser = (type, name = -1) => {
+const makeBackDirectorBranch = (type, name = -1, directorTank) => {// uh so what do i do with this idk how to edit existing cannons
 	type = ensureIsClass(type);
 	let output = dereference(type);
-	let cannons = [{
-            POSITION: [7, 7.5, 0.6, 7, 4, 180, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm]),
-                TYPE: "autoswarm",
-                STAT_CALCULATOR: "swarm",
-            },
-        },
-        {
-            POSITION: [7, 7.5, 0.6, 7, -4, 180, 0.5],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm]),
-                TYPE: "autoswarm",
-                STAT_CALCULATOR: "swarm",
-            },
-        },
-	];
+	let cannons = directorTank.GUNS
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
 	output.LABEL = name == -1 ? "Cruiser " + type.LABEL : name;
 	return output;
 };
+
+const addBackDroner = (type, name = -1) => {
+    type = ensureIsClass(type);
+    let output = exports.dereference(type);
+    let cannons = [{
+        POSITION: [12, 11, 1, 0, 0, 180, 0],
+        
+    }];
+    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+    output.LABEL = name == -1 ? type.LABEL : name;
+    return output;
+}
 
 
 // Turrets, Traps, Bullets etc..
@@ -2741,7 +2737,8 @@ Class.phs_gale = {
 // Artilleries
 Class.phs_force = makeOver('artillery', "Force", {count: 1, independent: true, cycle: false})//Newton's 3rd law
 // Forces
-Class.overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
+Class.phs_overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
+Class.phs_mixer = makeBackCruiser('artillery', "Mixer")
 
 // Cheeses
 Class.phs_biggerCheese = {

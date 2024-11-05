@@ -1,42 +1,80 @@
-const enableEditCommand = true;
-const enableEvalCommand = false;
+const enableEditCommand = false;
+const enableEvalCommand = true;
 
 let chatCommandsLoaded = false;
-const log = (...message) => (chatCommandsLoaded ? util : console).log(`[chatCommands] ${message.join(' ')}`)
+const log = (...message) => (chatCommandsLoaded ? util : console).log(`[commands.js] ${message.join(' ')}`)
 
 const tags = new class {
 	constructor() {
 		/**
  		 * @type {Map<number, import('../../live/entity').Entity>}
  		 */
-		this.tags = new Map();
-		this.last = 0;
+		this.tags = new Map(); // Store entities using their entity.id as the key
 	}
 
-	get(tag) {
-		return this.tags.get(tag);
-	}
-
-	has(entity) {
-		let tag = null;
-		for (const [t, e] of this.tags.entries()) {
-			if (e.id === entity.id) {
-				tag = t;
-				break;
-			}
+	/**
+	 * Get an entity by its tag (entity.id).
+	 * @param {number} id - The entity's ID.
+	 * @returns {Entity|null} - The entity associated with the ID, or null if not found.
+	 */
+	get(id) {
+		try {
+			const entity = this.tags.get(id); // Use entity.id to get the entity
+			return entity || null; // Return entity or null if not found
+		} catch (error) {
+			console.error('Error in get method:', error);
+			return null;
 		}
-		return tag;
 	}
 
+	/**
+	 * Check if an entity exists in the tags.
+	 * @param {Entity} entity - The entity to check for.
+	 * @returns {boolean} - True if the entity is in the tags, false otherwise.
+	 */
+	has(entity) {
+		try {
+			return this.tags.has(entity.id); // Check by entity.id
+		} catch (error) {
+			console.error('Error in has method:', error);
+			return false;
+		}
+	}
+
+	/**
+	 * Add an entity to the tags.
+	 * @param {Entity} entity - The entity to add.
+	 * @returns {number|null} - The entity's ID if successful, null otherwise.
+	 */
 	add(entity) {
-		const tag = this.has(entity);
-		if (tag !== null) return tag;
-		const id = ++this.last;
-		this.tags.set(id, entity);
-		return id;
-	}
-}
+		try {
+			// Check if the entity is already in the map
+			if (this.has(entity)) return entity.id;
 
+			// Add entity to the map using its id
+			this.tags.set(entity.id, entity);
+			return entity.id;
+		} catch (error) {
+			console.error('Error in add method:', error);
+			return null;
+		}
+	}
+
+	/**
+	 * Remove an entity by its ID.
+	 * @param {number} id - The entity's ID.
+	 * @returns {boolean} - True if successfully removed, false otherwise.
+	 */
+	remove(id) {
+		try {
+			return this.tags.delete(id); // Remove by entity.id
+		} catch (error) {
+			console.error('Error in remove method:', error);
+			return false;
+		}
+	}
+};
+global.tags = tags;
 const perm = {
 	user: 0b0,
 	token: 0b1
@@ -194,11 +232,11 @@ class Commands {
 	checkPerms(command, socket) {
 		const { permissions } = socket;
 		if (command.perms > 0 && !permissions) {
-			command.status('fail')
+			command.status('fail').send('You do not have permission to use this command')
 			return false;
 		}
 		if (command.perms & perm.token && permissions.class != 'developer') {
-			command.status('fail')
+			command.status('fail').send('You do not have permission to use this command, you must be a developer or an administrator');
 			return false;
 		}
 		return true;
@@ -326,11 +364,6 @@ module.exports = ({ Config, Events }) => {
 		}
 	});
 
-	commands.add('close', 0, { doc: 'Close the server' }, ({ command }) => {
-		command.send('Closing server...');
-		closeArena();
-	});
-
 	commands.add(['broadcast', 'bc'], [1, 50], { doc: 'Broadcast a message to all players\nExample: /bc Hello everyone!\nDoc: /broadcast [MESSAGE ...]' }, ({ args }) =>
 		sockets.broadcast(args.join())
 	);
@@ -358,7 +391,7 @@ module.exports = ({ Config, Events }) => {
 		entity.destroy();
 	});
 
-	commands.add(['entity', 'e', 'tag'], [0, 50], { doc: 'Get the entity\nDoc: /e [USERNAME ...]' }, ({ args, body, command }) => {
+	commands.add(['entity', 'e', 'tag', 'id'], [0, 50], { doc: 'Get the entity\nDoc: /id [USERNAME ...]', perms: perm.user }, ({ args, body, command }) => {
 		if (args.count == 0) {
 			return command.send(`Current entity-id: ${tags.add(body)}`);
 		}
@@ -373,7 +406,7 @@ module.exports = ({ Config, Events }) => {
 		command.send(`${username}'s Entity-ID: ${id}`);
 	});
 
-	commands.add(['entities', 'tags'], [0, 50], { doc: 'List all entities\nDoc: /tags [USERNAME ...]' }, ({ command, args }) => {
+	commands.add(['entities', 'tags', 'ids'], [0, 50], { doc: 'List all entities\nDoc: /ids [USERNAME ...]' }, ({ command, args }) => {
 		const query = args.count > 0 ? args.join() : null;
 		const list = [];
 		for (const [id, e] of tags.tags) {
@@ -470,6 +503,9 @@ module.exports = ({ Config, Events }) => {
 		}
 		const oldTeam = entity.team;
 		entity.team = team;
+    if (entity.color.base == '-1' || entity.color.base == 'mirror') {
+        entity.color.base = getTeamColor((Config.GROUPS || (Config.MODE == 'ffa' && !Config.TAG)) ? TEAM_RED : entity.team);
+    }
 		command.send(`Changed ${entity.name}'s team ${oldTeam} -> ${team}`);
 	});
 
@@ -523,7 +559,7 @@ module.exports = ({ Config, Events }) => {
 		}
 	});
 
-	const tileSize = (Config.TILE_WIDTH + Config.TILE_WIDTH) / 2;
+	const tileSize = (Config.TILE_WIDTH + Config.TILE_WIDTH) / 2; // i need square
 	const wallSize = tileSize / 2;
 	const spawnWall = (x, y, name = null, size = wallSize) => {
 		const e = new Entity({ x, y });
@@ -691,11 +727,11 @@ module.exports = ({ Config, Events }) => {
 		const entity = args.getEntity(1, body);
 		if (!entity) return;
 		if (!Class[cls]) return command.send(`Unknown class: ${cls}`);
-		const color = entity.color;
-		entity.define(cls);
-		if (!Class[cls].COLOR) {
-			entity.color = color;
-		}
+		entity.define({ RESET_UPGRADES: true, BATCH_UPGRADES: false });
+        entity.define(cls);
+        if (entity.color.base == '-1' || entity.color.base == 'mirror') {
+            entity.color.base = getTeamColor((Config.GROUPS || (Config.MODE == 'ffa' && !Config.TAG)) ? TEAM_RED : entity.team);
+        }
 	});
 
 	commands.add(['heal', 'hp', 'h'], [0, 1], { doc: 'Heal an entity\nDoc: /heal [WHO]' }, ({ args, body }) => {
@@ -760,8 +796,10 @@ module.exports = ({ Config, Events }) => {
 			let result;
 			try {
 				result = eval(code);
+				console.log(result);
 			} catch (e) {
 				command.send('Error:', e.toString());
+				console.log('Error:', e);
 			}
 			command.send(`${result}`);
 		});
@@ -781,12 +819,6 @@ module.exports = ({ Config, Events }) => {
 		});
 	}
 
-	/*
-	// This is example for a custom command
-	commands.add('hru', 0, { doc: 'the "How Are You" command.\nExample: /hru', perms: perm.user }, ({ command }) => {
-		command.send('I am good. How are you?');
-	});
-	*/
 
 	Events.on('chatMessage', ({ message, socket, preventDefault }) => {
 		if (!message.startsWith('/')) return;
