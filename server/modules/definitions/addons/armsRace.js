@@ -833,7 +833,7 @@ Class.phs_mech = {
 			POSITION: [3, 9, 1.7, 15, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap]),
-				TYPE: "autoTrap",
+				TYPE: "phs_autoTrap",
 				STAT_CALCULATOR: "trap",
 			},
 		},
@@ -858,7 +858,7 @@ Class.phs_operator = {
 			POSITION: [3, 9, 1.7, 15, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap]),
-				TYPE: "autoTrap",
+				TYPE: "phs_autoTrap",
 				STAT_CALCULATOR: "trap",
 			},
 		},
@@ -2978,34 +2978,34 @@ Class.phs_nuker = makeBomber({
 
 if (Config.ARMS_RACE) {
 // Trapper Branch
-Class.phs_trapper.UPGRADES_TIER_2.push(...["pen"]);
-Class.phs_pen.UPGRADES_TIER_3 = ["stall","tripen","encircler","incarcerator","operator","cockatiel","hutch","interner","autoPen","fortifier",];
-Class.phs_tripen.UPGRADES_TIER_3 = ["corral"];
-Class.phs_stall.UPGRADES_TIER_3 = ["cubicle", "hurdle", "overthrower"];
-Class.phs_fortress.UPGRADES_TIER_3 = ["corral", "coop"];
-Class.phs_engineer.UPGRADES_TIER_3 = ["cubicle", "autoEngineer"];
-Class.phs_construct.UPGRADES_TIER_3 = ["hurdle", "autoConstruct"];
-Class.phs_builder.UPGRADES_TIER_3.push(["stall"]);
+Class.phs_trapper.UPGRADES_TIER_2.push(...["phs_pen"]);
+Class.phs_pen.UPGRADES_TIER_3 = ["phs_stall","phs_tripen","phs_encircler","phs_incarcerator","phs_operator","phs_cockatiel","phs_hutch","phs_interner","phs_autoPen","phs_fortifier",];
+Class.phs_tripen.UPGRADES_TIER_3 = ["phs_corral"];
+Class.phs_stall.UPGRADES_TIER_3 = ["phs_cubicle", "phs_hurdle", "phs_overthrower"];
+Class.phs_fortress.UPGRADES_TIER_3 = ["phs_corral", "phs_coop"];
+Class.phs_engineer.UPGRADES_TIER_3 = ["phs_cubicle", "phs_autoEngineer"];
+Class.phs_construct.UPGRADES_TIER_3 = ["phs_hurdle", "phs_autoConstruct"];
+Class.phs_builder.UPGRADES_TIER_3.push(["phs_stall"]);
 // Pounder Branch
-Class.phs_inception.UPGRADES_TIER_3 = ["hognose"];
-Class.phs_sidewinder.UPGRADES_TIER_3 = ["hognose"];
+Class.phs_inception.UPGRADES_TIER_3 = ["phs_hognose"];
+Class.phs_sidewinder.UPGRADES_TIER_3 = ["phs_hognose"];
 // Director Branch
-Class.phs_director.UPGRADES_TIER_2.push(["directordrive"]);
-Class.phs_directordrive.UPGRADES_TIER_2 = ["overdrive", "directorstorm", "spawnerdrive"];
-Class.phs_directorstorm.UPGRADES_TIER_3 = ["vortex_", "overstorm"];
-Class.phs_overdrive.UPGRADES_TIER_3 = ["overstorm", "autoOverdrive"];
-Class.phs_overlord.UPGRADES_TIER_3 = ["tyrant"];
-Class.phs_spawner.UPGRADES_TIER_2 = ["foundry", "megaSpawner"]
-Class.phs_spawnerdrive.UPGRADES_TIER_3 = ["spawnerstorm"];
-Class.phs_megaSpawner.UPGRADES_TIER_3 = ["ultraSpawner"];
-Class.phs_foundry.UPGRADES_TIER_3 = ["topBanana"];
+Class.phs_director.UPGRADES_TIER_2.push(["phs_directordrive"]);
+Class.phs_directordrive.UPGRADES_TIER_2 = ["phs_overdrive", "phs_directorstorm", "phs_spawnerdrive"];
+Class.phs_directorstorm.UPGRADES_TIER_3 = ["phs_vortex_", "phs_overstorm"];
+Class.phs_overdrive.UPGRADES_TIER_3 = ["phs_overstorm", "phs_autoOverdrive"];
+Class.phs_overlord.UPGRADES_TIER_3 = ["phs_tyrant"];
+Class.phs_spawner.UPGRADES_TIER_2 = ["phs_foundry", "phs_megaSpawner"]
+Class.phs_spawnerdrive.UPGRADES_TIER_3 = ["phs_spawnerstorm"];
+Class.phs_megaSpawner.UPGRADES_TIER_3 = ["phs_ultraSpawner"];
+Class.phs_foundry.UPGRADES_TIER_3 = ["phs_topBanana"];
 // Flank Guard Branch
-Class.phs_triAngle.UPGRADES_TIER_2 = ["cockatiel"];
-Class.phs_cockatiel.UPGRADES_TIER_3 = ["autoCockatiel", "parakeet", "quarrion", "cacatua", "cockatoo", "corella"];
+Class.phs_triAngle.UPGRADES_TIER_2 = ["phs_cockatiel"];
+Class.phs_cockatiel.UPGRADES_TIER_3 = ["phs_autoCockatiel", "phs_parakeet", "phs_quarrion", "phs_cacatua", "phs_cockatoo", "phs_corella"];
 Class.phs_booster.UPGRADES_TIER_3 = ["brawler"];
 Class.phs_fighter.UPGRADES_TIER_3 = ["brawler"];
-Class.autoTriAngle.UPGRADES_TIER_3 = ["autoSurfer", "autoBooster", "autoBomber", "autoFighter", "autoDeflect", "autoCockatiel", "autoBomber"];
-Class.phs_crowbar.UPGRADES_TIER_3 = ["wrench","pryer","spindle","spanner"];
+Class.autoTriAngle.UPGRADES_TIER_3 = ["phs_autoSurfer", "phs_autoBooster", "phs_autoBomber", "phs_autoFighter", "phs_autoDeflect", "phs_autoCockatiel", "phs_autoBomber"];
+Class.phs_crowbar.UPGRADES_TIER_3 = ["phs_wrench","phs_pryer","phs_spindle","phs_spanner"];
 // Machine Gun Branch
 
 // Sniper Branch
