@@ -144,26 +144,24 @@ const makeBomber = (type, name = -1, options = {}) => {
 	return output;
 };
 
-const makeBackDirectorBranch = (type, name = -1, directorTank) => {// uh so what do i do with this idk how to edit existing cannons
+const addBackDroner = (type, name = -1, droner) => {
 	type = ensureIsClass(type);
+  droner = ensureIsClass(droner);
 	let output = dereference(type);
-	let cannons = directorTank.GUNS
+  // Gets each droner.GUNS and runs through the code we input.
+  let cannons = droner.GUNS.map(gun => {
+      let   guns = { 
+          ...gun, 
+          POSITION: [...gun.POSITION] 
+      };
+      guns.POSITION[5] = (guns.POSITION[5] + 180) % 360; 
+      return guns;
+  });
+  
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-	output.LABEL = name == -1 ? "Cruiser " + type.LABEL : name;
+	output.LABEL = name == -1 ? droner.LABEL + type.LABEL : name;
 	return output;
 };
-
-const addBackDroner = (type, name = -1) => {
-    type = ensureIsClass(type);
-    let output = exports.dereference(type);
-    let cannons = [{
-        POSITION: [12, 11, 1, 0, 0, 180, 0],
-        
-    }];
-    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-    output.LABEL = name == -1 ? type.LABEL : name;
-    return output;
-}
 
 
 // Turrets, Traps, Bullets etc..
