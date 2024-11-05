@@ -554,7 +554,7 @@ Class.phs_vortexProp = {
 	],
 };
 Class.phs_stormMinion = makeAuto("minion", "Storm Minion", {
-	TYPE: "stormTurret"
+	TYPE: "phs_stormTurret"
 });
 Class.phs_vortexTurret = makeTurret({
 	PARENT: "genericTank",
@@ -612,7 +612,7 @@ Class.phs_chargerTrap = {
 	INDEPENDENT: true,
 	TURRETS: [{
 		POSITION: [8, 0, 0, 0, 360, 1],
-		TYPE: "chargerTrapDeco",
+		TYPE: "phs_chargerTrapDeco",
 	}, ],
 	GUNS: weaponArray(
 		[{
@@ -734,7 +734,7 @@ Class.phs_charger = {
 			POSITION: [2, 12, 1.1, 18, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, {}]),
-				TYPE: ["chargerTrap"],
+				TYPE: ["phs_chargerTrap"],
 				STAT_CALCULATOR: "block",
 			},
 		},
@@ -783,7 +783,7 @@ Class.phs_propper = {
             POSITION: [4, 8, 1.3, 22, 0, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.5, recoil: 0.2 }]),
-                TYPE: "autoTrap",
+                TYPE: "phs_autoTrap",
                 STAT_CALCULATOR: "trap",
             },
         },
@@ -791,7 +791,7 @@ Class.phs_propper = {
             POSITION: [4, 8, 1.3, 18, 0, 0, 1/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.5, recoil: 0.2 }]),
-                TYPE: "autoTrap",
+                TYPE: "phs_autoTrap",
                 STAT_CALCULATOR: "trap",
             },
         },
@@ -799,7 +799,7 @@ Class.phs_propper = {
             POSITION: [4, 8, 1.3, 14, 0, 0, 2/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.trap, g.minigun, { range: 0.5, reload: 0.5, recoil: 0.2 }]),
-                TYPE: "autoTrap",
+                TYPE: "phs_autoTrap",
                 STAT_CALCULATOR: "trap",
             },
         },
@@ -1879,7 +1879,7 @@ Class.phs_foundrydrive = {
             PROPERTIES: {
                 MAX_CHILDREN: 3,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.pounder, { size: 0.85 }]),
-                TYPE: "autoFoundryMinion",
+                TYPE: "phs_autoFoundryMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1936,7 +1936,7 @@ Class.phs_topBanana = {
             PROPERTIES: {
                 MAX_CHILDREN: 1,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.destroyer, { size: 1.25, speed: 2, reload: 5 }]),
-                TYPE: "topBananaMinion",
+                TYPE: "phs_topBananaMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -2152,7 +2152,7 @@ Class.phs_vortex_ = {
 	}, ],
 	TURRETS: [{
 		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "vortexProp",
+		TYPE: "phs_vortexProp",
 	}, ],
 };
 Class.phs_overstorm = {
@@ -2166,13 +2166,13 @@ Class.phs_overstorm = {
 	},
 	TURRETS: [{
 		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "stormProp",
+		TYPE: "phs_stormProp",
 	}, ],
 	GUNS: weaponArray({
 			POSITION: [6, 12, 1.2, 8, 0, 90, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
-				TYPE: "vortexDrone",
+				TYPE: "phs_vortexDrone",
 				AUTOFIRE: true,
 				SYNCS_SKILLS: true,
 				STAT_CALCULATOR: "drone",
@@ -2197,7 +2197,7 @@ Class.phs_tyrant = {
 			POSITION: [6, 12, 1.2, 8, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.drone, g.overseer]),
-				TYPE: "autoDrone",
+				TYPE: "phs_autoDrone",
 				AUTOFIRE: true,
 				SYNCS_SKILLS: true,
 				STAT_CALCULATOR: "drone",
@@ -2261,7 +2261,7 @@ Class.phs_spawnerstorm = {
 			PROPERTIES: {
 				MAX_CHILDREN: 4,
 				SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-				TYPE: "stormMinion",
+				TYPE: "phs_stormMinion",
 				STAT_CALCULATOR: "drone",
 				AUTOFIRE: true,
 				SYNCS_SKILLS: true,
@@ -2273,7 +2273,7 @@ Class.phs_spawnerstorm = {
 	],
 	TURRETS: [{
 		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "stormProp",
+		TYPE: "phs_stormProp",
 	}, ],
 };
 Class.phs_factorydrive = {
@@ -2319,7 +2319,7 @@ Class.phs_autoOverdrive = {
 	},
 	TURRETS: [{
 		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "driveAutoTurret",
+		TYPE: "phs_driveAutoTurret",
 	}, ],
 	GUNS: weaponArray({
 			POSITION: [6, 12, 1.2, 8, 0, 90, 0],
@@ -2965,11 +2965,11 @@ Class.phs_soarer = makeSurfer("booster", "Soarer");
 Class.phs_autoBooster = makeAuto("booster");
 Class.phs_autoFighter = makeAuto("fighter");
 Class.phs_defect = makeBird("tripleShot", "Defect");
-Class.phs_klutz = makeSurfer("defect", "Klutz");
+Class.phs_klutz = makeSurfer("phs_defect", "Klutz");
 Class.phs_deficiency = makeBird("pentaShot", "Deficiency");
 Class.phs_autoDefect = makeAuto("phs_defect");
 Class.phs_mangle = makeFighter("phs_defect", "Mangle");
-Class.phs_autoCockatiel = makeAuto("cockatiel");
+Class.phs_autoCockatiel = makeAuto("phs_cockatiel");
 Class.phs_autoBomber = makeAuto("bomber");
 Class.phs_autoSurfer = makeAuto("surfer");
 Class.phs_autoEagle = makeAuto("eagle");
@@ -2978,7 +2978,7 @@ Class.phs_parakeet = makeBird("phs_stall", "Parakeet");
 Class.phs_quarrion = makeBird("phs_encircler", "Quarrion");
 Class.phs_cacatua = makeBird("phs_operator", "Cacatua");
 Class.phs_cockatoo = makeFighter("phs_cockatiel", "Cockatoo");
-Class.phs_parrot = makeSurfer("cockatiel", "Parrot");
+Class.phs_parrot = makeSurfer("phs_cockatiel", "Parrot");
 Class.phs_corella = makeBird("phs_hutch", "Corella");
 Class.phs_nuker = makeBomber({
 		PARENT: "genericTank",
