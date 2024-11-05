@@ -2711,6 +2711,10 @@ Class.phs_gale = {
           }
     ], 4)
 };
+// Machine Guns
+// Artilleries
+Class.phs_force = makeOver('artillery', "Force", {count: 1, independent: true, cycle: false})//Newton's 3rd law
+Class.overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
 // Cheeses
 Class.phs_biggerCheese = {
     PARENT: "genericTank",
