@@ -152,10 +152,10 @@ const addBackDroner = (type, name = -1, droner) => {
   let cannons = droner.GUNS.map(gun => {
       let   guns = { 
           ...gun, 
-          POSITION: [...gun.POSITION] 
+          POSITION: [...gun.POSITION] // basically to get it within 360 degrees
       };
-      guns.POSITION[5] = (guns.POSITION[5] + 180) % 360; 
-      return guns;
+      guns.POSITION[5] = (guns.POSITION[5] + 180) % 360; //last part of this line ah okay so like the mod operator
+      return guns;//i gotta sleep its 12 am sry
   });
   
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
@@ -2733,10 +2733,10 @@ Class.phs_gale = {
 };
 // Machine Guns
 // Artilleries
-Class.phs_force = makeOver('artillery', "Force", {count: 1, independent: true, cycle: false})//Newton's 3rd law
+Class.phs_force = addBackDroner("artillery", "Force", "director")// the thing is supposed to b independent
 // Forces
 Class.phs_overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
-Class.phs_mixer = makeBackCruiser('artillery', "Mixer")
+Class.phs_mixer = addBackDroner('artillery', "Mixer", "cruiser")
 
 // Cheeses
 Class.phs_biggerCheese = {
