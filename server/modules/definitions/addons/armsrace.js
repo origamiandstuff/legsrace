@@ -144,24 +144,31 @@ const makeBomber = (type, name = -1, options = {}) => {
 	return output;
 };
 
-const addBackDroner = (type, name = -1, droner) => {
-	type = ensureIsClass(type);
-  droner = ensureIsClass(droner);
-	let output = dereference(type);
-  // Gets each droner.GUNS and runs through the code we input.
-  let cannons = droner.GUNS.map(gun => {
-      let   guns = { 
-          ...gun, 
-          POSITION: [...gun.POSITION] // basically to get it within 360 degrees
-      };
-      guns.POSITION[5] = (guns.POSITION[5] + 180) % 360; //last part of this line ah okay so like the mod operator
-      return guns;//i gotta sleep its 12 am sry
-  });
+const addBackDroner = (type, name = -1, droner, independent = false) => {
+    type = ensureIsClass(type);
+    droner = ensureIsClass(droner);
+    let output = dereference(type);
+
+    let cannons = droner.GUNS.map(gun => {
+        let guns = { 
+            ...gun, 
+            POSITION: [...gun.POSITION] 
+        };
+        guns.POSITION[5] = (guns.POSITION[5] + 180) % 360;
+
+        guns.PROPERTIES = { 
+            ...gun.PROPERTIES, 
+            TYPE: [gun.PROPERTIES.TYPE || gun.PROPERTIES.TYPE[0] || "drone", { INDEPENDENT: independent }]
+        };
+        return guns;
+    });
   
-	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-	output.LABEL = name == -1 ? droner.LABEL + type.LABEL : name;
-	return output;
+    output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+    output.LABEL = name == -1 ? droner.LABEL + type.LABEL : name;
+    
+    return output;
 };
+
 
 
 // Turrets, Traps, Bullets etc..
@@ -2733,7 +2740,7 @@ Class.phs_gale = {
 };
 // Machine Guns
 // Artilleries
-Class.phs_force = addBackDroner("artillery", "Force", "director")// the thing is supposed to b independent
+Class.phs_force = addBackDroner("artillery", "Force", "director", true)
 // Forces
 Class.phs_overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
 Class.phs_mixer = addBackDroner('artillery', "Mixer", "cruiser")
