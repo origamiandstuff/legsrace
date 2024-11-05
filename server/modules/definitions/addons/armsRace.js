@@ -893,7 +893,7 @@ Class.phs_operator = {
 		},
 	],
 };
-Class.phs_overMech = makeOver("mech", "Overmech");
+Class.phs_overMech = makeOver("phs_mech", "Overmech");
 // Pens
 Class.phs_pen = {
 	PARENT: "genericTank",
@@ -950,7 +950,7 @@ Class.phs_encircler = {
 		},
 	],
 };
-Class.phs_autoEncircler = makeAuto("encircler");
+Class.phs_autoEncircler = makeAuto("phs_encircler");
 Class.phs_stall = {
 	PARENT: "genericTank",
 	LABEL: "Stall",
@@ -976,8 +976,8 @@ Class.phs_stall = {
 		},
 	],
 };
-Class.phs_autoStall = makeAuto("stall");
-Class.phs_delayer = makeOver("stall", "Delayer", {
+Class.phs_autoStall = makeAuto("phs_stall");
+Class.phs_delayer = makeOver("phs_stall", "Delayer", {
 	count: 1,
 	independent: !0,
 	cycle: !1,
@@ -1244,14 +1244,14 @@ Class.phs_coop = makeAuto({
 	},
 	"Coop"
 );
-Class.phs_autoPen = makeAuto("pen");
-Class.phs_cockatiel = makeBird("pen", "Cockatiel");
-Class.phs_interner = makeOver("pen", "Interner", {
+Class.phs_autoPen = makeAuto("phs_pen");
+Class.phs_cockatiel = makeBird("phs_pen", "Cockatiel");
+Class.phs_interner = makeOver("phs_pen", "Interner", {
 	count: 1,
 	independent: !0,
 	cycle: !1,
 });
-Class.phs_overpen = makeOver("pen", "Overpen", {
+Class.phs_overpen = makeOver("phs_pen", "Overpen", {
 	count: 2,
 	independent: !1,
 	cycle: !1,
@@ -1307,7 +1307,7 @@ Class.phs_fortifier = {
 // Builders
 
 Class.phs_fashioner = makeOver('builder', "Fashioner", {count: 1, independent: true, cycle: false})
-Class.phs_autoFashioner = makeAuto("fashioner");
+Class.phs_autoFashioner = makeAuto("phs_fashioner");
 Class.phs_autoEngineer = makeAuto("engineer");
 Class.phs_autoConstruct = makeAuto("construct");
 Class.phs_autoBoomer = makeAuto("boomer");
@@ -1690,7 +1690,7 @@ Class.phs_hitman = makeOver("assassin", "Hitman", {
 	independent: true,
 	cycle: false,
 });
-Class.phs_autoHitman = makeAuto("hitman");
+Class.phs_autoHitman = makeAuto("phs_hitman");
 Class.phs_trailer = makeOver("stalker", "trailer", {
 	count: 1,
 	independent: true,
@@ -1701,7 +1701,7 @@ Class.phs_doorman = makeOver("ranger", "Doorman", {
 	independent: true,
 	cycle: false,
 });
-Class.phs_mercenary = addBackGunner("hitman", "Mercenary");
+Class.phs_mercenary = addBackGunner("phs_hitman", "Mercenary");
 Class.phs_overassassin = makeOver("assassin", "Overassassin", {
 	count: 2,
 	independent: false,
@@ -2063,7 +2063,7 @@ Class.phs_megaFactory = {
         },
     ],
 };
-Class.phs_autoMegaSpawner = makeAuto("megaSpawner");
+Class.phs_autoMegaSpawner = makeAuto("phs_megaSpawner");
 // Directordrives
 Class.phs_directordrive = {
 	PARENT: "genericTank",
@@ -2090,7 +2090,7 @@ Class.phs_directordrive = {
 	}, ],
 };
 Class.phs_stormDrone = makeAuto("drone", "Storm Drone", {
-	type: "stormTurret"
+	type: "phs_stormTurret"
 });
 Class.phs_directorstorm = {
 	PARENT: "genericTank",
@@ -2109,7 +2109,7 @@ Class.phs_directorstorm = {
 		POSITION: [6, 11, 1.3, 7, 0, 0, 0],
 		PROPERTIES: {
 			SHOOT_SETTINGS: combineStats([g.drone]),
-			TYPE: "stormDrone",
+			TYPE: "phs_stormDrone",
 			AUTOFIRE: true,
 			SYNCS_SKILLS: true,
 			STAT_CALCULATOR: "drone",
@@ -2119,11 +2119,11 @@ Class.phs_directorstorm = {
 	}, ],
 	TURRETS: [{
 		POSITION: [9, 0, 0, 0, 360, 1],
-		TYPE: "stormProp",
+		TYPE: "phs_stormProp",
 	}, ],
 };
 Class.phs_vortexDrone = makeAuto("drone", "Vortex Drone", {
-	type: "vortexTurret"
+	type: "phs_vortexTurret"
 });
 Class.phs_vortex_ = {
 	PARENT: "genericTank",
@@ -2142,7 +2142,7 @@ Class.phs_vortex_ = {
 		POSITION: [6, 11, 1.3, 7, 0, 0, 0],
 		PROPERTIES: {
 			SHOOT_SETTINGS: combineStats([g.drone]),
-			TYPE: "vortexDrone",
+			TYPE: "phs_vortexDrone",
 			AUTOFIRE: true,
 			SYNCS_SKILLS: true,
 			STAT_CALCULATOR: "drone",
@@ -2518,7 +2518,7 @@ Class.phs_industry = {
         },
     ],
 }
-Class.phs_autoCaptain = makeAuto("captain");
+Class.phs_autoCaptain = makeAuto("phs_captain");
 Class.phs_phantom = makeRadialAuto("phs_sniperAutoTankGun", {
 	isTurret: true,
 	danger: 7,
@@ -2654,7 +2654,7 @@ Class.phs_mingler = {
 		3
 	),
 };
-Class.phs_autoMingler = makeAuto("mingler");
+Class.phs_autoMingler = makeAuto("phs_mingler");
 Class.phs_unity = {
 	PARENT: "genericTank",
 	LABEL: "Unity",
@@ -2951,7 +2951,7 @@ Class.phs_pryer = {
 	],
 };
 
-Class.phs_spindle = makeOver("crowbar", "Spindle", {
+Class.phs_spindle = makeOver("phs_crowbar", "Spindle", {
 	count: 1,
 	independent: true,
 	cycle: false,
@@ -2967,19 +2967,19 @@ Class.phs_autoFighter = makeAuto("fighter");
 Class.phs_defect = makeBird("tripleShot", "Defect");
 Class.phs_klutz = makeSurfer("defect", "Klutz");
 Class.phs_deficiency = makeBird("pentaShot", "Deficiency");
-Class.phs_autoDefect = makeAuto("defect");
-Class.phs_mangle = makeFighter("defect");
+Class.phs_autoDefect = makeAuto("phs_defect");
+Class.phs_mangle = makeFighter("phs_defect", "Mangle");
 Class.phs_autoCockatiel = makeAuto("cockatiel");
 Class.phs_autoBomber = makeAuto("bomber");
 Class.phs_autoSurfer = makeAuto("surfer");
 Class.phs_autoEagle = makeAuto("eagle");
 Class.phs_virago = addBackGunner("eagle", "Virago");
-Class.phs_parakeet = makeBird("stall", "Parakeet");
-Class.phs_quarrion = makeBird("encircler");
-Class.phs_cacatua = makeBird("operator");
-Class.phs_cockatoo = makeFighter("cockatiel");
-Class.phs_parrot = makeSurfer("cockatiel");
-Class.phs_corella = makeBird("hutch");
+Class.phs_parakeet = makeBird("phs_stall", "Parakeet");
+Class.phs_quarrion = makeBird("phs_encircler", "Quarrion");
+Class.phs_cacatua = makeBird("phs_operator", "Cacatua");
+Class.phs_cockatoo = makeFighter("phs_cockatiel", "Cockatoo");
+Class.phs_parrot = makeSurfer("cockatiel", "Parrot");
+Class.phs_corella = makeBird("phs_hutch", "Corella");
 Class.phs_nuker = makeBomber({
 		PARENT: "genericTank",
 		BODY: {
@@ -3034,8 +3034,8 @@ Class.phs_foundry.UPGRADES_TIER_3 = ["phs_topBanana"];
 // Flank Guard Branch
 Class.phs_triAngle.UPGRADES_TIER_2 = ["phs_cockatiel"];
 Class.phs_cockatiel.UPGRADES_TIER_3 = ["phs_autoCockatiel", "phs_parakeet", "phs_quarrion", "phs_cacatua", "phs_cockatoo", "phs_corella"];
-Class.phs_booster.UPGRADES_TIER_3 = ["brawler"];
-Class.phs_fighter.UPGRADES_TIER_3 = ["brawler"];
+Class.phs_booster.UPGRADES_TIER_3 = ["phs_brawler"];
+Class.phs_fighter.UPGRADES_TIER_3 = ["phs_brawler"];
 Class.autoTriAngle.UPGRADES_TIER_3 = ["phs_autoSurfer", "phs_autoBooster", "phs_autoBomber", "phs_autoFighter", "phs_autoDeflect", "phs_autoCockatiel", "phs_autoBomber"];
 Class.phs_crowbar.UPGRADES_TIER_3 = ["phs_wrench","phs_pryer","phs_spindle","phs_spanner"];
 // Machine Gun Branch
