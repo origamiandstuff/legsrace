@@ -148,16 +148,6 @@ const addBackDroner = (type, name = -1, droner, independent = false) => {
     type = ensureIsClass(type);
     droner = ensureIsClass(droner);
     let output = dereference(type);
-      let stats = options.extraStats ?? [];
-    let spawnerProperties = {
-        SHOOT_SETTINGS: exports.combineStats([g.drone, g.overseer, ...stats]),
-        TYPE: ["drone", {INDEPENDENT: independent}],
-        AUTOFIRE: true,
-        SYNCS_SKILLS: true,
-        STAT_CALCULATOR: "drone",
-        WAIT_TO_CYCLE: cycle,
-        MAX_CHILDREN: maxChildren,
-    };
 
     let cannons = droner.GUNS.map(gun => {
         let guns = { 
