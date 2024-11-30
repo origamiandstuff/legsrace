@@ -2744,6 +2744,9 @@ Class.phs_force = addBackDroner("artillery", "Force", "director", true)
 // Forces
 Class.phs_overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
 Class.phs_mixer = addBackDroner('artillery', "Mixer", "cruiser", true)
+Class.phs_generator = addBackDroner('artillery', "Generator", "spawner", true)
+Class.phs_autoForce = makeAuto('force')
+Class.phs_plaster = addBackDroner("mortar", "Plaster", "director", true)
 
 // Cheeses
 Class.phs_biggerCheese = {
