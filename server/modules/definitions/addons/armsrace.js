@@ -1519,6 +1519,66 @@ Class.phs_triTrapGuard = {
 		},
 	],
 };
+// Hexa-Trappers
+Class.phs_respite = makeAuto({
+    PARENT: "genericTank",
+    DANGER: 7,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    STAT_NAMES: statnames.trap,
+    HAS_NO_RECOIL: true,
+    GUNS: [
+        ...weaponArray(
+        {
+            POSITION: [15, 7, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 7, 1.7, 15, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.hexaTrapper]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        }, 
+        {
+            POSITION: [15, 7, 1, 0, 0, 60, 0.5],
+        },
+        {
+            POSITION: [3, 7, 1.7, 15, 0, 60, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.hexaTrapper]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        }, 3),
+        {
+            POSITION: [7, 7.5, 0.6, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [7, 7.5, 0.6, 7, -4, 0, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [7, 7.5, 0.6, 7, -4, 0, 2/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+    ],
+}, "Respite")
+
 // Pounders
 // Launchers
 Class.phs_inception = {
