@@ -280,6 +280,27 @@ Class.phs_driveAutoTurret = makeTurret({
 	fov: 0.8,
 	extraStats: []
 });
+Class.driverPillboxTurret = makeTurret({
+    HAS_NO_RECOIL: true,
+    GUNS: [
+        {
+            POSITION: [22, 11, 1, 0, 4, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.minionGun, g.turret, g.power, g.autoTurret, { density: 0.1 }]),
+                TYPE: "bullet",
+                WAIT_TO_CYCLE: true
+            },
+        },
+        {
+            POSITION: [22, 11, 1, 0, -4, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.minionGun, g.turret, g.power, g.autoTurret, { density: 0.1 }]),
+                TYPE: "bullet",
+                WAIT_TO_CYCLE: true
+            },
+        },
+    ],
+}, {independent: true, extraStats: []})
 // Minions
 Class.phs_autoMinion = makeAuto("minion", "Auto-Minion", {
 	TYPE: "droneAutoTurret",
@@ -2802,11 +2823,11 @@ Class.phs_gale = {
 // Artilleries
 Class.phs_force = addBackDroner("artillery", "Force", "director", true)
 // Forces
-Class.phs_overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
+/*Class.phs_overartillery = makeOver('artillery', "Overartillery", {count: 2, independent: false, cycle: false})
 Class.phs_mixer = addBackDroner('artillery', "Mixer", "cruiser", true)
 Class.phs_generator = addBackDroner('artillery', "Generator", "spawner", true)
 Class.phs_autoForce = makeAuto('force')
-Class.phs_plaster = addBackDroner("mortar", "Plaster", "director", true)
+Class.phs_plaster = addBackDroner("mortar", "Plaster", "director", true)*/
 
 // Cheeses
 Class.phs_biggerCheese = {
