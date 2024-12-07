@@ -664,6 +664,18 @@ Class.phs_driverPillbox = {
         },
     ],
 }
+Class.phs_specialistPillbox = {
+    PARENT: "setTrap",
+    LABEL: "Specialist Pillbox",
+    INDEPENDENT: true,
+    DIE_AT_RANGE: true,
+    TURRETS: [
+        {
+            POSITION: [11, 0, 0, 0, 360, 1],
+            TYPE: "phs_stormTurret",
+        },
+    ],
+}
 // Drones
 Class.phs_autoDrone = makeAuto("drone", {
 	type: "droneAutoTurret"
@@ -1379,7 +1391,7 @@ Class.phs_assemble = {
     ]
 }
 // Engineers
-Class.driver = {
+Class.phs_driver = {
     PARENT: "genericTank",
     DANGER: 7,
     LABEL: "Driver",
@@ -1421,6 +1433,41 @@ Class.driver = {
         {
             POSITION: [4, 2, 1, 8, -6, 0, 0],
         },//deco
+    ],
+}
+Class.phs_specialist = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Specialist",
+    STAT_NAMES: statnames.trap,
+    BODY: {
+        SPEED: 0.75 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 14, 1, 15.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "phs_specialistPillbox",
+                SYNCS_SKILLS: true,
+                DESTROY_OLDEST_CHILD: true,
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [7, 7.5, 0.6, 9.7, 0, 0, 0],
+        },
+        {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+        },
     ],
 }
 
