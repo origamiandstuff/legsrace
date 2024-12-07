@@ -284,7 +284,7 @@ Class.driverPillboxTurret = makeTurret({
     HAS_NO_RECOIL: true,
     GUNS: [
         {
-            POSITION: [22, 10, 1, 0, 3.5, 0, 0],
+            POSITION: [22, 7, 1, 0, 5, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.minionGun, g.turret, g.power, g.autoTurret, { density: 0.1 }]),
                 TYPE: "bullet",
@@ -292,7 +292,7 @@ Class.driverPillboxTurret = makeTurret({
             },
         },
         {
-            POSITION: [22, 10, 1, 0, -3.5, 0, 0],
+            POSITION: [22, 7, 1, 0, -5, 0, 0.5],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.minionGun, g.turret, g.power, g.autoTurret, { density: 0.1 }]),
                 TYPE: "bullet",
