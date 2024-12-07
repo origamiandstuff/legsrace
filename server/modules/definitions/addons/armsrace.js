@@ -280,7 +280,7 @@ Class.phs_driveAutoTurret = makeTurret({
 	fov: 0.8,
 	extraStats: []
 });
-Class.driverPillboxTurret = makeTurret({
+Class.phs_driverPillboxTurret = makeTurret({
     HAS_NO_RECOIL: true,
     GUNS: [
         {
@@ -652,7 +652,7 @@ Class.phs_chargerTrap = {
 	),
 };
 // Pillboxes
-Class.driverPillbox = {
+Class.phs_driverPillbox = {
     PARENT: "setTrap",
     LABEL: "Driver Pillbox",
     INDEPENDENT: true,
@@ -660,7 +660,7 @@ Class.driverPillbox = {
     TURRETS: [
         {
             POSITION: [11, 0, 0, 0, 360, 1],
-            TYPE: "driverPillboxTurret",
+            TYPE: "phs_driverPillboxTurret",
         },
     ],
 }
@@ -1396,11 +1396,17 @@ Class.driver = {
             POSITION: [3, 14, 1, 15.5, 0, 0, 0],
         },
         {
+            POSITION: [3, 2, 1, 15.5, 6, 0, 0],
+        },//deco
+        {
+            POSITION: [3, 2, 1, 15.5, -6, 0, 0],
+        },//deco
+        {
             POSITION: [2, 14, 1.3, 18, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 6,
                 SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
-                TYPE: "driverPillbox",
+                TYPE: "phs_driverPillbox",
                 SYNCS_SKILLS: true,
                 DESTROY_OLDEST_CHILD: true,
                 STAT_CALCULATOR: "block"
@@ -1409,6 +1415,12 @@ Class.driver = {
         {
             POSITION: [4, 14, 1, 8, 0, 0, 0],
         },
+        {
+            POSITION: [4, 2, 1, 8, 6, 0, 0],
+        },//deco
+        {
+            POSITION: [4, 2, 1, 8, -6, 0, 0],
+        },//deco
     ],
 }
 
