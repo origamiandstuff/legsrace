@@ -301,6 +301,20 @@ Class.phs_driverPillboxTurret = makeTurret({
         },
     ],
 }, {independent: true, extraStats: []})
+Class.phs_deviserPillboxTurret = makeTurret({
+    HAS_NO_RECOIL: true,
+    SHAPE: 5,
+    GUNS: [
+        {
+            POSITION: [22, 11, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.minionGun, g.turret, g.power, g.autoTurret, { density: 0.1 }]),
+                TYPE: "bullet",
+                WAIT_TO_CYCLE: true
+            },
+        },
+    ],
+}, {independent: true, extraStats: []})
 // Minions
 Class.phs_autoMinion = makeAuto("minion", "Auto-Minion", {
 	TYPE: "droneAutoTurret",
@@ -652,6 +666,32 @@ Class.phs_chargerTrap = {
 	),
 };
 // Pillboxes
+Class.phs_deviserPillbox = {
+    PARENT: "setTrap",
+    LABEL: "Deviser Pillbox",
+    INDEPENDENT: true,
+    DIE_AT_RANGE: true,
+	GUNS: weaponArray(
+		[{
+			POSITION: [4, 4, 1, 0, 0, 180, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.trap]),
+				TYPE: ["trap", {
+					PERSISTS_AFTER_DEATH: true
+				}],
+				SHOOT_ON_DEATH: true,
+				STAT_CALCULATOR: "trap",
+			},
+		}, ],
+		5
+	),
+    TURRETS: [
+        {
+            POSITION: [11, 0, 0, 0, 360, 1],
+            TYPE: "phs_deviserPillboxTurret",
+        },
+    ],
+}
 Class.phs_driverPillbox = {
     PARENT: "setTrap",
     LABEL: "Driver Pillbox",
