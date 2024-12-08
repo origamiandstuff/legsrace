@@ -303,7 +303,6 @@ Class.phs_driverPillboxTurret = makeTurret({
 }, {independent: true, extraStats: []})
 Class.phs_deviserPillboxTurret = makeTurret({
     HAS_NO_RECOIL: true,
-    SHAPE: 5,
     GUNS: [
         {
             POSITION: [22, 11, 1, 0, 0, 0, 0],
@@ -315,6 +314,7 @@ Class.phs_deviserPillboxTurret = makeTurret({
         },
     ],
 }, {independent: true, extraStats: []})
+Class.phs_deviserPillboxTurret.SHAPE = 5,
 // Minions
 Class.phs_autoMinion = makeAuto("minion", "Auto-Minion", {
 	TYPE: "droneAutoTurret",
@@ -809,26 +809,7 @@ Class.phs_autoSingle = makeAuto("single");
 
 // Trappers
 // Constructors
-// Chargers
-Class.phs_charger = {
-	PARENT: "genericTank",
-	LABEL: "Charger",
-	GUNS: [{
-			POSITION: [18, 12, 1, 0, 0, 0, 0],
-		},
-		{
-			POSITION: [2, 12, 1.1, 18, 0, 0, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, {}]),
-				TYPE: ["phs_chargerTrap"],
-				STAT_CALCULATOR: "block",
-			},
-		},
-		{
-			POSITION: [2, 0.2, -25, 18, 0, 0, 0],
-		},
-	],
-};
+
 // Machine Trappers
 Class.phs_machineTrapper = {
 	PARENT: "genericTank",
@@ -1433,6 +1414,31 @@ Class.phs_assemble = {
         }
     ]
 }
+// Chargers
+Class.phs_charger = {
+	PARENT: "genericTank",
+	LABEL: "Charger",
+	GUNS: [{
+			POSITION: [18, 12, 1, 0, 0, 0, 0],
+		},
+		{
+			POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, {}]),
+				TYPE: ["phs_chargerTrap"],
+				STAT_CALCULATOR: "block",
+			},
+		},
+		{
+			POSITION: [2, 0.2, -25, 18, 0, 0, 0],
+      	PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, { range: 10e-20 }]),
+				TYPE: "bullet",
+				STAT_CALCULATOR: "block",
+			},
+		},
+	],
+};
 // Engineers
 Class.phs_driver = {
     PARENT: "genericTank",
@@ -1541,13 +1547,15 @@ Class.phs_deviser = {
             },
         },
         {
-            POSITION: [7, 7.5, 0.6, 9.7, 0, 0, 0],
-        },
-        {
             POSITION: [4, 14, 1, 8, 0, 0, 0],
         },
 	    	{
 		    	  POSITION: [2, 0.2, -30, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, { range: 10e-20 }]),
+                TYPE: "bullet",
+                STAT_CALCULATOR: "block"
+            },
 	    	},
     ],
 }
