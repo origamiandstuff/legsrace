@@ -1440,6 +1440,39 @@ Class.phs_charger = {
 	],
 };
 // Engineers
+Class.phs_mechanic = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Mechanic",
+    STAT_NAMES: statnames.trap,
+    BODY: {
+        SPEED: 0.75 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [5, 16.5, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 19.5, 1, 15.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 19.5, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.construct]),
+                TYPE: "pillbox",
+                SYNCS_SKILLS: true,
+                DESTROY_OLDEST_CHILD: true,
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [12, 19.5, 1, 0, 0, 0, 0],
+        },
+    ],
+}
+Class.phs_autoEngineer = makeAuto("engineer")
 Class.phs_driver = {
     PARENT: "genericTank",
     DANGER: 7,
@@ -1557,38 +1590,6 @@ Class.phs_deviser = {
                 STAT_CALCULATOR: "block"
             },
 	    	},
-    ],
-}
-Class.engineer = {
-    PARENT: "genericTank",
-    DANGER: 7,
-    LABEL: "Engineer",
-    STAT_NAMES: statnames.trap,
-    BODY: {
-        SPEED: 0.75 * base.SPEED,
-        FOV: 1.15 * base.FOV,
-    },
-    GUNS: [
-        {
-            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
-        },
-        {
-            POSITION: [3, 14, 1, 15.5, 0, 0, 0],
-        },
-        {
-            POSITION: [2, 14, 1.3, 18, 0, 0, 0],
-            PROPERTIES: {
-                MAX_CHILDREN: 6,
-                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
-                TYPE: "pillbox",
-                SYNCS_SKILLS: true,
-                DESTROY_OLDEST_CHILD: true,
-                STAT_CALCULATOR: "block"
-            },
-        },
-        {
-            POSITION: [4, 14, 1, 8, 0, 0, 0],
-        },
     ],
 }
 // Warks
