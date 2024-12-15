@@ -174,7 +174,7 @@ const addBackDroner = (type, name = -1, droner, independent = false) => {
 // Turrets, Traps, Bullets etc..
 
 // Autos
-Class.phs_tripleAutoTankGun = {
+Class.phs_tripleAutoTankGun = {`  `
 	TURRETS: [
         {
             POSITION: [6, 4.5, 0, 0, 150, 1],
