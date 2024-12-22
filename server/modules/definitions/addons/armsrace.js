@@ -1586,6 +1586,7 @@ Class.phs_producer = {
         },
     ],
 }
+Class.phs_machinist = makeOver('engineer', "Machinist", {count: 1, independent: true, cycle: false})
 Class.phs_driver = {
     PARENT: "genericTank",
     DANGER: 7,
