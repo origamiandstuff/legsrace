@@ -315,6 +315,31 @@ Class.phs_deviserPillboxTurret = makeTurret({
     ],
 }, {independent: true, extraStats: []})
 Class.phs_deviserPillboxTurret.SHAPE = 5,
+  
+Class.originatorGun = makeTurret({
+    GUNS: [
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 14, 1, 15.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.flankGuard]),
+                TYPE: "pillbox",
+                SYNCS_SKILLS: true,
+                DESTROY_OLDEST_CHILD: true,
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+        },
+    ],
+}, {canRepel: true, limitFov: true, fov: 3})
 // Minions
 Class.phs_autoMinion = makeAuto("minion", "Auto-Minion", {
 	TYPE: "droneAutoTurret",
@@ -1473,6 +1498,7 @@ Class.phs_mechanic = {
     ],
 }
 Class.phs_autoEngineer = makeAuto("engineer")
+Class.originator = makeRadialAuto("architectGun", {isTurret: true, danger: 7, size: 12, label: "Architect", body: {SPEED: 1.1 * base.SPEED}})
 Class.phs_driver = {
     PARENT: "genericTank",
     DANGER: 7,
