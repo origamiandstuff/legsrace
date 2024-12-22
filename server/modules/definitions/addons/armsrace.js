@@ -1089,12 +1089,7 @@ Class.phs_stall = {
 		},
 	],
 };
-Class.phs_autoStall = makeAuto("phs_stall");
-Class.phs_delayer = makeOver("phs_stall", "Delayer", {
-	count: 1,
-	independent: !0,
-	cycle: !1,
-});
+// Stall upgrades
 Class.phs_hurdle = {
 	PARENT: "genericTank",
 	LABEL: "Hurdle",
@@ -1123,7 +1118,12 @@ Class.phs_hurdle = {
 		},
 	],
 };
-
+Class.phs_autoStall = makeAuto("phs_stall");
+Class.phs_delayer = makeOver("phs_stall", "Delayer", {
+	count: 1,
+	independent: !0,
+	cycle: !1,
+});
 Class.phs_cubicle = {
 	PARENT: "genericTank",
 	DANGER: 7,
@@ -1159,36 +1159,6 @@ Class.phs_cubicle = {
 		},
 		{
 			POSITION: [4, 14, 1, 8, 0, 0, 0],
-		},
-	],
-};
-
-Class.phs_incarcerator = {
-	PARENT: "genericTank",
-	LABEL: "Incarcerator",
-	DANGER: 6,
-	STAT_NAMES: statnames.mixed,
-	GUNS: [{
-			POSITION: [20, 8, 1, 0, 0, 0, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic]),
-				TYPE: "bullet",
-			},
-		},
-		{
-			POSITION: [20, 8, 1, 0, 0, 180, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic]),
-				TYPE: "bullet",
-			},
-		},
-		{
-			POSITION: [4, 8, 1.7, 13, 0, 180, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.trap]),
-				TYPE: "trap",
-				STAT_CALCULATOR: "trap",
-			},
 		},
 	],
 };
@@ -1261,6 +1231,35 @@ Class.phs_overthrower = {
 	],
 };
 
+Class.phs_incarcerator = {
+	PARENT: "genericTank",
+	LABEL: "Incarcerator",
+	DANGER: 6,
+	STAT_NAMES: statnames.mixed,
+	GUNS: [{
+			POSITION: [20, 8, 1, 0, 0, 0, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.basic]),
+				TYPE: "bullet",
+			},
+		},
+		{
+			POSITION: [20, 8, 1, 0, 0, 180, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.basic]),
+				TYPE: "bullet",
+			},
+		},
+		{
+			POSITION: [4, 8, 1.7, 13, 0, 180, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.trap]),
+				TYPE: "trap",
+				STAT_CALCULATOR: "trap",
+			},
+		},
+	],
+};
 Class.phs_tripen = {
 	PARENT: "genericTank",
 	LABEL: "Tri-Pen",
