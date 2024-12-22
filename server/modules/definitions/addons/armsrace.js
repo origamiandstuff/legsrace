@@ -1531,15 +1531,15 @@ Class.phs_parryer = {
             POSITION: [10, 10, 1, 8, 0, 0, 0],
         },
         {
-            POSITION: [5, 12, -1.35, 7, 0, 0, 0],
+            POSITION: [6, 11.75, -1.3, 6, 0, 0, 0],
         },
         {
-            POSITION: [1, 12, 1, 17, 0, 0, 0],
+            POSITION: [2, 11.75, 1, 16, 0, 0, 0],
         },
         {
-            POSITION: [2, 12, 1.3, 18, 0, 0, 0],
+            POSITION: [2, 11.5, 1.35, 18, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.boomerang]),
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.boomerang, {shudder: 0.2}]),
                 TYPE: "phs_parryerBoomerang",
                 STAT_CALCULATOR: "block"
             },
