@@ -1113,7 +1113,6 @@ Class.phs_encircler = {
 		},
 	],
 };
-Class.phs_autoEncircler = makeAuto("phs_encircler");
 Class.phs_incarcerator = {
 	PARENT: "genericTank",
 	LABEL: "Incarcerator",
@@ -1143,6 +1142,7 @@ Class.phs_incarcerator = {
 		},
 	],
 };
+Class.phs_autoEncircler = makeAuto("phs_encircler");
 // Stall upgrades
 Class.phs_hurdle = {
 	PARENT: "genericTank",
