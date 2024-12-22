@@ -1534,6 +1534,9 @@ Class.phs_specialist = {
             POSITION: [3, 14, 1, 15.5, 0, 0, 0],
         },
         {
+            POSITION: [7, 7.5, 0.6, 11, 0, 0, 0],
+        },
+        {
             POSITION: [2, 14, 1.3, 18, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 6,
@@ -1545,10 +1548,7 @@ Class.phs_specialist = {
             },
         },
         {
-            POSITION: [7, 7.5, 0.6, 9.7, 0, 0, 0],
-        },
-        {
-            POSITION: [4, 14, 1, 8, 0, 0, 0],
+            POSITION: [6, 14, 1, 6, 0, 0, 0],
         },
     ],
 }
