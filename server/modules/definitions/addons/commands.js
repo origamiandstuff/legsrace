@@ -722,8 +722,8 @@ module.exports = ({ Config, Events }) => {
 		}
 	});
 
-	commands.add(['define', 'def'], [1, 2], { doc: 'Set an entity definition\nDoc: /define CLASS [WHO]' }, ({ args, body, command }) => {
-		const cls = args.getString(0);
+	commands.add(['define', 'def', 'd'], [1, 2], { doc: 'Set an entity definition\nDoc: /define CLASS [WHO]' }, ({ args, body, command }) => {
+		let cls = args.getString(0);
 		const entity = args.getEntity(1, body);
 		if (!entity) return;
 		if (!Class[cls] && !Class["phs_" + cls]) { 
