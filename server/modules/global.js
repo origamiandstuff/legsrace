@@ -126,17 +126,15 @@ for (let [key, value] of Object.entries(require('./setup/config.js'))) {
     }
 }
 
-global.Class = {};
-global.ensureIsClass = str => {
+global.Class = {};global.ensureIsClass = str => {
     if ("object" == typeof str) {
         return str;
     }
     if (str in Class) {
         return Class[str];
     }
-    console.log('Definitions:');
-    console.log(Class);
-    throw Error(`Definition ${str} is attempted to be gotten but does not exist!`);
+    console.log(`definition: ${str} doesnt exist, defaulting to basic`);
+    return Class.basic
 }
 global.makeHitbox = wall => {
     const _size = wall.size + 4;

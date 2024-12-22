@@ -1498,7 +1498,46 @@ Class.phs_mechanic = {
     ],
 }
 Class.phs_autoEngineer = makeAuto("engineer")
-Class.originator = makeRadialAuto("architectGun", {isTurret: true, danger: 7, size: 12, label: "Architect", body: {SPEED: 1.1 * base.SPEED}})
+Class.phs_originator = makeRadialAuto("originatorGun", {isTurret: true, danger: 7, size: 12, label: "Originator", body: {SPEED: 1.1 * base.SPEED}})
+Class.phs_vanquisher = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Vanquisher",
+    STAT_NAMES: statnames.trap,
+    BODY: {
+        SPEED: 0.75 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 14, 1, 15.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "pillbox",
+                SYNCS_SKILLS: true,
+                DESTROY_OLDEST_CHILD: true,
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+        },
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}
 Class.phs_driver = {
     PARENT: "genericTank",
     DANGER: 7,
@@ -3384,4 +3423,3 @@ Class.phs_crowbar.UPGRADES_TIER_3 = ["phs_wrench","phs_pryer","phs_spindle","phs
 // Tanks
 };
 console.log("[Arms Race Addon] Loaded Arms Race.");
-Class.basic.UPGRADES_TIER_0 = ["phs_originator"]
