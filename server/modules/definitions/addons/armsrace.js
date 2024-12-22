@@ -3484,13 +3484,13 @@ Class.phs_nuker = makeBomber({
 if (Config.ARMS_RACE) {
 // Trapper Branch
 Class.trapper.UPGRADES_TIER_2.push(...["phs_pen"]);
-Class.phs_pen.UPGRADES_TIER_3 = ["phs_stall","phs_tripen","phs_encircler","phs_incarcerator","phs_operator","phs_cockatiel","phs_hutch","phs_interner","phs_autoPen","phs_fortifier",];
-Class.phs_tripen.UPGRADES_TIER_3 = ["phs_corral"];
-Class.phs_stall.UPGRADES_TIER_3 = ["phs_cubicle", "phs_hurdle", "phs_overthrower"];
-Class.fortress.UPGRADES_TIER_3 = ["phs_corral", "phs_coop"];
-Class.engineer.UPGRADES_TIER_3 = ["phs_cubicle", "phs_autoEngineer"];
-Class.construct.UPGRADES_TIER_3 = ["phs_hurdle", "phs_autoConstruct"];
-Class.builder.UPGRADES_TIER_3.push(["phs_stall"]);
+    Class.builder.UPGRADES_TIER_3.push(["phs_stall"]);
+    Class.phs_pen.UPGRADES_TIER_3 = ["phs_stall","phs_tripen","phs_encircler","phs_incarcerator","phs_operator","phs_cockatiel","phs_hutch","phs_interner","phs_autoPen","phs_fortifier",];
+        Class.phs_tripen.UPGRADES_TIER_3 = ["phs_corral"];
+            Class.phs_stall.UPGRADES_TIER_3 = ["phs_cubicle", "phs_hurdle", "phs_overthrower"];
+            Class.fortress.UPGRADES_TIER_3 = ["phs_corral", "phs_coop"];
+            Class.engineer.UPGRADES_TIER_3 = ["phs_mechanic", "phs_autoEngineer", "phs_parryer", "phs_originator", "phs_vanquisher", "phs_producer", "phs_cubicle", "phs_machinist", "phs_driver", "phs_specialist", "phs_deviser"];
+            Class.construct.UPGRADES_TIER_3 = ["phs_hurdle", "phs_autoConstruct"];
 // Pounder Branch
 Class.phs_inception.UPGRADES_TIER_3 = ["phs_hognose"];
 Class.sidewinder.UPGRADES_TIER_3 = ["phs_hognose"];
