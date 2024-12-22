@@ -741,6 +741,24 @@ Class.phs_specialistPillbox = {
         },
     ],
 }
+Class.phs_parryerBoomerang = {
+    PARENT: "trap",
+    LABEL: "Boomerang",
+    CONTROLLERS: ["boomerang"],
+    MOTION_TYPE: "motor",
+    HITS_OWN_TYPE: "never",
+    SHAPE: -5,
+    BODY: {
+        SPEED: 1.25,
+        RANGE: 120,
+    },
+    TURRETS: [
+        {
+            POSITION: [11, 0, 0, 0, 360, 1],
+            TYPE: "pillboxTurret",
+        },
+    ],
+}
 // Drones
 Class.phs_autoDrone = makeAuto("drone", {
 	type: "droneAutoTurret"
@@ -1498,6 +1516,36 @@ Class.phs_mechanic = {
     ],
 }
 Class.phs_autoEngineer = makeAuto("engineer")
+Class.phs_parryer = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Parryer",
+    STAT_NAMES: statnames.trap,
+    FACING_TYPE: "locksFacing",
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: base.FOV * 1.15,
+    },
+    GUNS: [
+        {
+            POSITION: [10, 10, 1, 8, 0, 0, 0],
+        },
+        {
+            POSITION: [5, 12, -1.35, 7, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 17, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 12, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.boomerang]),
+                TYPE: "phs_parryerBoomerang",
+                STAT_CALCULATOR: "block"
+            },
+        },
+    ],
+}
 Class.phs_originator = makeRadialAuto("originatorGun", {isTurret: true, danger: 7, size: 12, label: "Originator", body: {SPEED: 1.1 * base.SPEED}})
 Class.phs_vanquisher = {
     PARENT: "genericTank",
