@@ -3384,3 +3384,4 @@ Class.phs_crowbar.UPGRADES_TIER_3 = ["phs_wrench","phs_pryer","phs_spindle","phs
 // Tanks
 };
 console.log("[Arms Race Addon] Loaded Arms Race.");
+Class.basic.UPGRADES_TIER_0 = ["phs_originator"]

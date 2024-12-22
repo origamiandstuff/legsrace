@@ -26,7 +26,7 @@ module.exports = {
 
     // The \modules\setup\gamemodeconfigs\ files to load.
     // To change specific things about specific gamemodes (such as team count for tdm), edit their config file in \modules\setup\gamemodeconfigs\.
-    GAME_MODES: ['tdm'],
+    GAME_MODES: ['ffa'],
     ARMS_RACE: false,
 
     // The room files to load in the setup/rooms folder.
