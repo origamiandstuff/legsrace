@@ -1007,7 +1007,6 @@ Class.phs_operator = {
 	],
 };
 Class.phs_overMech = makeOver("phs_mech", "Overmech");
-// Pens
 Class.phs_pen = {
 	PARENT: "genericTank",
 	LABEL: "Pen",
@@ -1029,6 +1028,57 @@ Class.phs_pen = {
 			},
 		},
 	],
+};
+// Pen upgrades
+Class.phs_stall = {
+	PARENT: "genericTank",
+	LABEL: "Stall",
+	DANGER: 6,
+	STAT_NAMES: statnames.mixed,
+	GUNS: [{
+			POSITION: [24, 8, 1, 0, 0, 0, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.basic]),
+				TYPE: "bullet",
+			},
+		},
+		{
+			POSITION: [18, 12, 1, 0, 0, 0, 0],
+		},
+		{
+			POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+				TYPE: "setTrap",
+				STAT_CALCULATOR: "block",
+			},
+		},
+	],
+};
+Class.phs_tripen = {
+	PARENT: "genericTank",
+	LABEL: "Tri-Pen",
+	DANGER: 6,
+	STAT_NAMES: statnames.mixed,
+	GUNS: weaponArray(
+		[{
+				POSITION: [20, 8, 1, 0, 0, 0, 0],
+				PROPERTIES: {
+					SHOOT_SETTINGS: combineStats([g.basic]),
+					TYPE: "bullet",
+				},
+			},
+			{
+				POSITION: [4, 8, 1.7, 13, 0, 0, 0],
+				PROPERTIES: {
+					SHOOT_SETTINGS: combineStats([g.trap]),
+					TYPE: "trap",
+					STAT_CALCULATOR: "trap",
+				},
+			},
+		],
+		3
+	),
 };
 Class.phs_encircler = {
 	PARENT: "genericTank",
@@ -1064,27 +1114,31 @@ Class.phs_encircler = {
 	],
 };
 Class.phs_autoEncircler = makeAuto("phs_encircler");
-Class.phs_stall = {
+Class.phs_incarcerator = {
 	PARENT: "genericTank",
-	LABEL: "Stall",
+	LABEL: "Incarcerator",
 	DANGER: 6,
 	STAT_NAMES: statnames.mixed,
 	GUNS: [{
-			POSITION: [24, 8, 1, 0, 0, 0, 0],
+			POSITION: [20, 8, 1, 0, 0, 0, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic]),
 				TYPE: "bullet",
 			},
 		},
 		{
-			POSITION: [18, 12, 1, 0, 0, 0, 0],
+			POSITION: [20, 8, 1, 0, 0, 180, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.basic]),
+				TYPE: "bullet",
+			},
 		},
 		{
-			POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+			POSITION: [4, 8, 1.7, 13, 0, 180, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
-				TYPE: "setTrap",
-				STAT_CALCULATOR: "block",
+				SHOOT_SETTINGS: combineStats([g.trap]),
+				TYPE: "trap",
+				STAT_CALCULATOR: "trap",
 			},
 		},
 	],
@@ -1229,61 +1283,6 @@ Class.phs_overthrower = {
 			},
 		},
 	],
-};
-
-Class.phs_incarcerator = {
-	PARENT: "genericTank",
-	LABEL: "Incarcerator",
-	DANGER: 6,
-	STAT_NAMES: statnames.mixed,
-	GUNS: [{
-			POSITION: [20, 8, 1, 0, 0, 0, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic]),
-				TYPE: "bullet",
-			},
-		},
-		{
-			POSITION: [20, 8, 1, 0, 0, 180, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic]),
-				TYPE: "bullet",
-			},
-		},
-		{
-			POSITION: [4, 8, 1.7, 13, 0, 180, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.trap]),
-				TYPE: "trap",
-				STAT_CALCULATOR: "trap",
-			},
-		},
-	],
-};
-Class.phs_tripen = {
-	PARENT: "genericTank",
-	LABEL: "Tri-Pen",
-	DANGER: 6,
-	STAT_NAMES: statnames.mixed,
-	GUNS: weaponArray(
-		[{
-				POSITION: [20, 8, 1, 0, 0, 0, 0],
-				PROPERTIES: {
-					SHOOT_SETTINGS: combineStats([g.basic]),
-					TYPE: "bullet",
-				},
-			},
-			{
-				POSITION: [4, 8, 1.7, 13, 0, 0, 0],
-				PROPERTIES: {
-					SHOOT_SETTINGS: combineStats([g.trap]),
-					TYPE: "trap",
-					STAT_CALCULATOR: "trap",
-				},
-			},
-		],
-		3
-	),
 };
 Class.phs_corral = {
 	PARENT: "genericTank",
