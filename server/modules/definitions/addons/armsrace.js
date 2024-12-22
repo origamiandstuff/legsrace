@@ -1538,6 +1538,54 @@ Class.phs_vanquisher = {
         },
     ],
 }
+Class.phs_producer = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Producer",
+    STAT_NAMES: statnames.trap,
+    BODY: {
+        SPEED: 0.75 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [16.7, 3, 1, -4, -7, -7, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
+                TYPE: "bullet",
+                LABEL: "Secondary",
+            },
+        },
+        {
+            POSITION: [16.7, 3, 1, -4, 7, 7, 0.75],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
+                TYPE: "bullet",
+                LABEL: "Secondary",
+            },
+        },
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [3, 14, 1, 15.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "pillbox",
+                SYNCS_SKILLS: true,
+                DESTROY_OLDEST_CHILD: true,
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [4, 14, 1, 8, 0, 0, 0],
+        },
+    ],
+}
 Class.phs_driver = {
     PARENT: "genericTank",
     DANGER: 7,
