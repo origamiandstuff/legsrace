@@ -18,7 +18,7 @@ const {
 	smshskl
 } = require("../constants.js");
 const g = require("../gunvals.js");
-
+const note = () => {}
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 /*Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(
@@ -2045,6 +2045,37 @@ Class.phs_overwhelmer = {
                 STAT_CALCULATOR: "block"
             }
         }
+    ],
+}
+note("vanquisher done")
+Class.conqueror = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Conqueror",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [18, 12, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "setTrap",
+                STAT_CALCULATOR: "block"
+            },
+        },
     ],
 }
 // Annhialator
