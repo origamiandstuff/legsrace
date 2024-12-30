@@ -1986,6 +1986,71 @@ Class.phs_respite = makeAuto({
 }, "Respite")
 
 // Pounders
+// Conquerers
+Class.phs_obliderator = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Obliderator",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [20.5, 19.5, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [18, 12, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "setTrap",
+                STAT_CALCULATOR: "block"
+            },
+        },
+    ],
+}
+Class.phs_overwhelmer = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Overwhelmer",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [18, 18, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 18, 1.2, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.construct]),
+                TYPE: "setTrap",
+                STAT_CALCULATOR: "block"
+            }
+        }
+    ],
+}
+// Annhialator
+// Hybrids
+// Constructors
+// what the hell is that
 // Launchers
 Class.phs_inception = {
 	PARENT: "genericTank",
@@ -3482,13 +3547,13 @@ Class.phs_nuker = makeBomber({
 if (Config.ARMS_RACE) {
 // Trapper Branch
 Class.trapper.UPGRADES_TIER_2.push(...["phs_pen"]);
-    Class.builder.UPGRADES_TIER_3.push(["phs_stall"]);
-    Class.phs_pen.UPGRADES_TIER_3 = ["phs_stall","phs_tripen","phs_encircler","phs_incarcerator","phs_operator","phs_cockatiel","phs_hutch","phs_interner","phs_autoPen","phs_fortifier",];
-        Class.phs_tripen.UPGRADES_TIER_3 = ["phs_corral"];
-            Class.phs_stall.UPGRADES_TIER_3 = ["phs_cubicle", "phs_hurdle", "phs_overthrower"];
-            Class.fortress.UPGRADES_TIER_3 = ["phs_corral", "phs_coop"];
-            Class.engineer.UPGRADES_TIER_3 = ["phs_mechanic", "phs_autoEngineer", "phs_parryer", "phs_originator", "phs_vanquisher", "phs_producer", "phs_cubicle", "phs_machinist", "phs_driver", "phs_specialist", "phs_deviser"];
-            Class.construct.UPGRADES_TIER_3 = ["phs_hurdle", "phs_autoConstruct"];
+  Class.builder.UPGRADES_TIER_3.push(["phs_stall"]);
+  Class.phs_pen.UPGRADES_TIER_3 = ["phs_stall","phs_tripen","phs_encircler","phs_incarcerator","phs_operator","phs_cockatiel","phs_hutch","phs_interner","phs_autoPen","phs_fortifier",];
+    Class.phs_tripen.UPGRADES_TIER_3 = ["phs_corral"];
+      Class.phs_stall.UPGRADES_TIER_3 = ["phs_cubicle", "phs_hurdle", "phs_overthrower"];
+        Class.fortress.UPGRADES_TIER_3 = ["phs_corral", "phs_coop"];
+        Class.engineer.UPGRADES_TIER_3 = ["phs_mechanic", "phs_autoEngineer", "phs_parryer", "phs_originator", "phs_vanquisher", "phs_producer", "phs_cubicle", "phs_machinist", "phs_driver", "phs_specialist", "phs_deviser"];
+        Class.construct.UPGRADES_TIER_3 = ["phs_hurdle", "phs_autoConstruct"];
 // Pounder Branch
 Class.phs_inception.UPGRADES_TIER_3 = ["phs_hognose"];
 Class.sidewinder.UPGRADES_TIER_3 = ["phs_hognose"];
