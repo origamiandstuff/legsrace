@@ -3766,11 +3766,11 @@ Class.phs_quadAngle = {
     TURRETS: [
         {
             POSITION: [11, 8, 0, 45, 190, 0],
-            TYPE: "tankAutoTurret"
+            TYPE: "autoTankGun"
         },
         {
             POSITION: [11, 8, 0, -45, 190, 0],
-            TYPE: "tankAutoTurret"
+            TYPE: "autoTankGun"
         },
     ]
 }
