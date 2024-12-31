@@ -100,22 +100,28 @@ const makeBomber = (type, name = -1, options = {}) => {
 	};
 	let output = dereference(type);
 	let cannons = [];
-	if (gunType.pen == 0) {
-		cannons.push({
-			POSITION: [13, 8, 1, 0, 0, 180, 0],
-		});
-	} else {
-		cannons.push({
+	if (gunType.pen == 1) {
+		cannons.push([{
 			POSITION: [15, 8, 1, 0, 0, 180, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic]),
 				TYPE: "bullet",
 				LABEL: "Pen",
 			},
-		});
+		}]);
 	}
+  cannons.push([{
+        POSITION: [13, 8, 1, 0, 0, 180, 0],
+    }, {
+        POSITION: [4, 8, 1.7, 13, 0, 180, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.trap]),
+            TYPE: "trap",
+            STAT_CALCULATOR: "trap",
+        }
+    }])
 	if (gunType.thrusters == 1) {
-		cannons.push({
+		cannons.push([{
 			POSITION: [18, 8, 1, 0, 0, 130, 0.1],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
@@ -129,16 +135,8 @@ const makeBomber = (type, name = -1, options = {}) => {
 				TYPE: "bullet",
 				LABEL: "Wing",
 			},
-		});
+		}]);
 	}
-	cannons.push({
-		POSITION: [4, 8, 1.7, 13, 0, 180, 0],
-		PROPERTIES: {
-			SHOOT_SETTINGS: combineStats([g.trap]),
-			TYPE: "trap",
-			STAT_CALCULATOR: "trap",
-		},
-	});
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
 	output.LABEL = name == -1 ? "Bomber " + type.LABEL : name;
 	return output;
