@@ -3867,20 +3867,77 @@ Class.phs_conformer = {
     PARENT: "genericTank",
     LABEL: "Conformer",
     GUNS: [
-        ...addThrusters(false, false),
         {
-            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
-            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            POSITION: [6, 11, 1.3, 7, 0, 180, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.drone]),
-                TYPE: ["drone", {INDEPENDANT: true}],
+                TYPE: ["drone", {INDEPENDENT: true}],
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
                 STAT_CALCULATOR: "drone",
-                MAX_CHILDREN: 6,
+                MAX_CHILDREN: 3,
                 WAIT_TO_CYCLE: true
             }
-        }
+        },
+        ...addThrusters(false, false),
+    ],
+    TURRETS: [
+        {
+            POSITION: [9, 8, 0, 45, 190, 0],
+            TYPE: "autoTankGun"
+        },
+        {
+            POSITION: [9, 8, 0, -45, 190, 0],
+            TYPE: "autoTankGun"
+        },
+    ]
+}
+Class.phs_spoiler = {
+    PARENT: "genericTank",
+    LABEL: "Spoiler",
+    DANGER: 7,
+    GUNS: addThrusters(),
+    TURRETS: [
+        {
+            POSITION: [11, 8, 0, 45, 190, 0],
+            TYPE: "megaAutoTankGun"
+        },
+        {
+            POSITION: [11, 8, 0, -45, 190, 0],
+            TYPE: "megaAutoTankGun"
+        },
+    ]
+}
+Class.phs_mandible = {
+    PARENT: "genericTank",
+    LABEL: "Mandible",
+    DANGER: 7,
+    GUNS: addThrusters(),
+    TURRETS: [
+        {
+            POSITION: [11, 8, 0, 45, 190, 0],
+            TYPE: "auto4gun"
+        },
+        {
+            POSITION: [11, 8, 0, -45, 190, 0],
+            TYPE: "auto4gun"
+        },
+    ]
+}
+Class.phs_waster = {
+    PARENT: "genericTank",
+    LABEL: "Waster",
+    DANGER: 7,
+    GUNS: addThrusters(),
+    TURRETS: [
+        {
+            POSITION: [9, 8, 0, 45, 190, 0],
+            TYPE: "phs_sniperAutoTankGun"
+        },
+        {
+            POSITION: [9, 8, 0, -45, 190, 0],
+            TYPE: "phs_sniperAutoTankGun"
+        },
     ]
 }
 
@@ -3912,8 +3969,9 @@ Class.phs_spawnerdrive.UPGRADES_TIER_3 = ["phs_spawnerstorm"];
 Class.phs_megaSpawner.UPGRADES_TIER_3 = ["phs_ultraSpawner"];
 Class.phs_foundry.UPGRADES_TIER_3 = ["phs_topBanana"];
 // Flank Guard Branch
-Class.triAngle.UPGRADES_TIER_2 = ["phs_cockatiel"];
+Class.triAngle.UPGRADES_TIER_3 = ["phs_cockatiel", "phs_quadAngle"];
 Class.phs_cockatiel.UPGRADES_TIER_3 = ["phs_autoCockatiel", "phs_parakeet", "phs_quarrion", "phs_cacatua", "phs_cockatoo", "phs_corella"];
+  Class.quadAngle.UPGRADES_TIER_3 = ["phs_scrimmer", "phs_aspirer", "phs_fleeter", ""]
 Class.booster.UPGRADES_TIER_3 = ["phs_brawler"];
 Class.fighter.UPGRADES_TIER_3 = ["phs_brawler"];
 Class.autoTriAngle.UPGRADES_TIER_3 = ["phs_autoSurfer", "phs_autoBooster", "phs_autoBomber", "phs_autoFighter", "phs_autoDefect", "phs_autoCockatiel", "phs_autoBomber"];
