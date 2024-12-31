@@ -120,7 +120,24 @@ const makeBomber = (type, name = -1, options = {}) => {
             STAT_CALCULATOR: "trap",
         }
     })
-  if ()
+      cannons.push(
+      {
+			POSITION: [18, 8, 1, 0, 0, 130, 0.1],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
+				TYPE: "bullet",
+				LABEL: "Wing",
+			},
+	  	}, 
+      {
+			POSITION: [18, 8, 1, 0, 0, 230, 0.1],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
+				TYPE: "bullet",
+				LABEL: "Wing",
+			},
+		  } 
+      )
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
 	output.LABEL = name == -1 ? "Bomber " + type.LABEL : name;
 	return output;
@@ -3789,11 +3806,11 @@ Class.phs_quadAngle = {
     GUNS: addThrusters(),
     TURRETS: [
         {
-            POSITION: [11, 8, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: "autoTankGun"
         },
         {
-            POSITION: [11, 8, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: "autoTankGun"
         },
     ]
@@ -3806,11 +3823,11 @@ Class.phs_scrimmer = {
     GUNS: addThrusters(true, false),
     TURRETS: [
         {
-            POSITION: [11, 8, 0, 90, 190, 0],
+            POSITION: [9, 8, 0, 90, 190, 0],
             TYPE: "autoTankGun"
         },
         {
-            POSITION: [11, 8, 0, -90, 190, 0],
+            POSITION: [9, 8, 0, -90, 190, 0],
             TYPE: "autoTankGun"
         },
     ]
@@ -3822,11 +3839,11 @@ Class.phs_aspirer = {
     GUNS: addThrusters(false, true),
     TURRETS: [
         {
-            POSITION: [11, 8, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: "autoTankGun"
         },
         {
-            POSITION: [11, 8, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: "autoTankGun"
         },
     ]
@@ -3835,16 +3852,17 @@ Class.phs_fleeter = makeBomber({
     PARENT: "genericTank",
     TURRETS: [
         {
-            POSITION: [11, 8, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: "autoTankGun"
         },
         {
-            POSITION: [11, 8, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: "autoTankGun"
         },
     ]
 }, "Fleeter", {pen: 0, thrusters: 1})
 Class.phs_autoQuadAngle = makeAuto("phs_quadAngle")
+Class.phs_glider = makeSurfer("phs_quadAngle", "Glider")
 
 
 // Branches
