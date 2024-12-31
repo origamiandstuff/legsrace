@@ -2150,7 +2150,51 @@ Class.phs_annexer = {
         },
     ],
 }
-// Annhialator
+Class.phs_blusterer = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Blusterer",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [18, 12, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "setTrap",
+                STAT_CALCULATOR: "block"
+            },
+        },
+        {
+            POSITION: [17, 2, 1, 0, -2.5, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.twin, { recoil: 4 }, { recoil: 1.8 }]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [17, 2, 1, 0, 2.5, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.twin, { recoil: 4 }, { recoil: 1.8 }]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}
+// Annhialators
 Class.phs_autoAnnihilator = makeAuto("annihilator");
 Class.phs_compound = makeOver("annihilator", "Compound", {
 	count: 1,
@@ -3622,7 +3666,7 @@ Class.phs_inception.UPGRADES_TIER_3 = ["phs_hognose"];
 Class.sidewinder.UPGRADES_TIER_3 = ["phs_hognose"];
 // Director Branch
 Class.director.UPGRADES_TIER_2.push(["phs_directordrive"]);
-Class.phs_directordrive.UPGRADES_TIER_2 = ["phs_overdrive", "phs_directorstorm", "phs_spawnerdrive"];
+Class.phs_directordrive.UPGRADES_TIER_2 = ["overdrive", "phs_directorstorm", "phs_spawnerdrive"];
 Class.phs_directorstorm.UPGRADES_TIER_3 = ["phs_vortex_", "phs_overstorm"];
 Class.overdrive.UPGRADES_TIER_3 = ["phs_overstorm", "phs_autoOverdrive"];
 Class.overlord.UPGRADES_TIER_3 = ["phs_tyrant"];
@@ -3635,7 +3679,7 @@ Class.triAngle.UPGRADES_TIER_2 = ["phs_cockatiel"];
 Class.phs_cockatiel.UPGRADES_TIER_3 = ["phs_autoCockatiel", "phs_parakeet", "phs_quarrion", "phs_cacatua", "phs_cockatoo", "phs_corella"];
 Class.booster.UPGRADES_TIER_3 = ["phs_brawler"];
 Class.fighter.UPGRADES_TIER_3 = ["phs_brawler"];
-Class.autoTriAngle.UPGRADES_TIER_3 = ["phs_autoSurfer", "phs_autoBooster", "phs_autoBomber", "phs_autoFighter", "phs_autoDeflect", "phs_autoCockatiel", "phs_autoBomber"];
+Class.autoTriAngle.UPGRADES_TIER_3 = ["phs_autoSurfer", "phs_autoBooster", "phs_autoBomber", "phs_autoFighter", "phs_autoDefect", "phs_autoCockatiel", "phs_autoBomber"];
 Class.phs_crowbar.UPGRADES_TIER_3 = ["phs_wrench","phs_pryer","phs_spindle","phs_spanner"];
 // Machine Gun Branch
 
