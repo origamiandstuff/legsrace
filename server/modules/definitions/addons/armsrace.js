@@ -1459,13 +1459,14 @@ Class.phs_assemble = {
 Class.phs_charger = {
 	PARENT: "genericTank",
 	LABEL: "Charger",
-	GUNS: [{
+	GUNS: [
+    {
 			POSITION: [18, 12, 1, 0, 0, 0, 0],
 		},
 		{
 			POSITION: [2, 12, 1.1, 18, 0, 0, 0],
 			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, {}]),
+				SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
 				TYPE: ["phs_chargerTrap"],
 				STAT_CALCULATOR: "block",
 			},
@@ -2197,6 +2198,76 @@ Class.phs_blusterer = {
 Class.phs_autoConqueror = makeAuto("conqueror");
 note("overthrower is done")
 note("yo pulverizer doesnt exist lmao")
+Class.phs_overrunner = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Overrunner",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+		      	POSITION: [18, 12, 1, 0, 0, 0, 0],
+	    	},
+	    	{
+		      	POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+			      PROPERTIES: {
+				        SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+		        		TYPE: ["phs_chargerTrap"],
+			        	STAT_CALCULATOR: "block",
+			      },
+		    },
+		    {
+			      POSITION: [2, 0.2, -25, 18, 0, 0, 0],
+      	    PROPERTIES: {
+				        SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, { range: 10e-20 }]),
+				        TYPE: "bullet",
+				        STAT_CALCULATOR: "block",
+		      	},
+	     	},
+    ],
+}
+Class.phs_massacrer = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Massacrer",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    INVISIBLE: [0.08, 0.03],
+    TOOLTIP: "Stay still to turn invisible.",
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, -1.1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [18, 12, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 12, 1.1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
+                TYPE: "setTrap",
+                STAT_CALCULATOR: "block"
+            },
+        },
+    ],
+}
 
 // Annhialators
 Class.phs_autoAnnihilator = makeAuto("annihilator");
