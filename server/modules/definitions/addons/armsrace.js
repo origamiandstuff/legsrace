@@ -3971,7 +3971,7 @@ Class.phs_foundry.UPGRADES_TIER_3 = ["phs_topBanana"];
 // Flank Guard Branch
 Class.triAngle.UPGRADES_TIER_3 = ["phs_cockatiel", "phs_quadAngle"];
 Class.phs_cockatiel.UPGRADES_TIER_3 = ["phs_autoCockatiel", "phs_parakeet", "phs_quarrion", "phs_cacatua", "phs_cockatoo", "phs_corella"];
-  Class.quadAngle.UPGRADES_TIER_3 = ["phs_scrimmer", "phs_aspirer", "phs_fleeter", ""]
+  Class.phs_quadAngle.UPGRADES_TIER_3 = ["phs_scrimmer", "phs_aspirer", "phs_fleeter", "phs_autoQuadAngle", "phs_glider", "phs_conformer", "phs_spoiler", "phs_mandible", "phs_waster"]
 Class.booster.UPGRADES_TIER_3 = ["phs_brawler"];
 Class.fighter.UPGRADES_TIER_3 = ["phs_brawler"];
 Class.autoTriAngle.UPGRADES_TIER_3 = ["phs_autoSurfer", "phs_autoBooster", "phs_autoBomber", "phs_autoFighter", "phs_autoDefect", "phs_autoCockatiel", "phs_autoBomber"];
