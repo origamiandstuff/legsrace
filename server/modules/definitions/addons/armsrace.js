@@ -2279,14 +2279,14 @@ Class.phs_bigMac = {
         {
             POSITION: [20.5, 24, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, g.annihilator]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, g.bigMac]),
                 TYPE: "bullet",
             },
         },
         {
-            POSITION: [2, 19.5, 1.23076923077, -2, 0, 0, 0],
+            POSITION: [3, 19.5, 1.23076923077, -3, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, g.annihilator, {range: 10e-20}]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, g.bigMac, {range: 10e-20}]),
                 TYPE: "bullet",
             },
         }
