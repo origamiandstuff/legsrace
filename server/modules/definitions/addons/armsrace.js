@@ -1986,6 +1986,13 @@ Class.phs_respite = makeAuto({
 }, "Respite")
 
 // Pounders
+// Destroyers
+Class.phs_autoDestroyer = makeAuto("destroyer");
+Class.phs_compound = makeOver("destroyer", "Compound", {
+	count: 2,
+	independent: false,
+	cycle: false,
+});
 // Conquerers
 Class.phs_obliderator = {
     PARENT: "genericTank",
@@ -2048,10 +2055,43 @@ Class.phs_overwhelmer = {
     ],
 }
 note("vanquisher done")
-Class.conqueror = {
+Class.phs_defeater = {
     PARENT: "genericTank",
     DANGER: 7,
-    LABEL: "Conqueror",
+    LABEL: "Defeater",
+    STAT_NAMES: statnames.mixed,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+    },
+    REVERSE_TARGET_WITH_TANK: true,
+    GUNS: [
+        {
+            POSITION: [21, 14, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [5, 10, 1, 13, 0, 0, 0],
+        },
+        {
+            POSITION: [6, 10, -1.5, 7, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 10, 1.3, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap, g.boomerang]),
+                TYPE: "boomerang",
+                STAT_CALCULATOR: "block"
+            },
+        },
+    ],
+}
+Class.phs_annexer = {
+    PARENT: "genericTank",
+    DANGER: 7,
+    LABEL: "Annexer",
     STAT_NAMES: statnames.mixed,
     BODY: {
         SPEED: 0.8 * base.SPEED,
@@ -2079,6 +2119,13 @@ Class.conqueror = {
     ],
 }
 // Annhialator
+Class.phs_autoAnnihilator = makeAuto("annihilator");
+Class.phs_compound = makeOver("annihilator", "Compound", {
+	count: 1,
+	independent: true,
+	cycle: false,
+});
+Class.phs_wiper = addBackGunner("annihilator", "Wiper");
 // Hybrids
 // Constructors
 // what the hell is that
@@ -2199,53 +2246,6 @@ Class.phs_subverter = {
 		},
 	],
 };
-// Destroyers
-Class.phs_autoDestroyer = makeAuto("destroyer");
-Class.phs_compound = makeOver("destroyer", "Compound", {
-	count: 2,
-	independent: false,
-	cycle: false,
-});
-// Annihilators
-Class.phs_autoAnnihilator = makeAuto("annihilator");
-Class.phs_compound = makeOver("annihilator", "Compound", {
-	count: 1,
-	independent: true,
-	cycle: false,
-});
-Class.phs_wiper = addBackGunner("annihilator", "Wiper");
-Class.phs_obliterator = {
-    PARENT: "genericTank",
-    DANGER: 7,
-    LABEL: "Obliterator",
-    STAT_NAMES: statnames.mixed,
-    BODY: {
-        SPEED: 0.85 * base.SPEED,
-    },
-    REVERSE_TARGET_WITH_TANK: true,
-    GUNS: [
-		{
-            POSITION: [20.5, 19.5, 1, 0, 0, 180, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator]),
-                TYPE: "bullet",
-            },
-        },
-        {
-            POSITION: [18, 12, 1, 0, 0, 0, 0],
-        },
-        {
-            POSITION: [2, 12, 1.1, 18, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, g.setTrap]),
-                DESTROY_OLDEST_CHILD: true,
-                MAX_CHILDREN: 17,
-                TYPE: "setTrap",
-                STAT_CALCULATOR: "block"
-            },
-        },
-    ],
-}
 // Snipers
 Class.phs_buttbuttin = addBackGunner("assassin", "Buttbuttin");
 Class.phs_hitman = makeOver("assassin", "Hitman", {
