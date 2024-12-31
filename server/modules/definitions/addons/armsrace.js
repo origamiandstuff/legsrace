@@ -2181,19 +2181,23 @@ Class.phs_blusterer = {
         {
             POSITION: [17, 2, 1, 0, -2.5, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.twin, { recoil: 4 }, { recoil: 1.8 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.twin]),
                 TYPE: "bullet",
             },
         },
         {
             POSITION: [17, 2, 1, 0, 2.5, 0, 0.5],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.twin, { recoil: 4 }, { recoil: 1.8 }]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, g.twin]),
                 TYPE: "bullet",
             },
         },
     ],
 }
+Class.phs_autoConqueror = makeAuto("conqueror");
+note("overthrower is done")
+note("yo pulverizer doesnt exist lmao")
+
 // Annhialators
 Class.phs_autoAnnihilator = makeAuto("annihilator");
 Class.phs_compound = makeOver("annihilator", "Compound", {
