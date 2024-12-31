@@ -2099,10 +2099,42 @@ Class.phs_annexer = {
     REVERSE_TARGET_WITH_TANK: true,
     GUNS: [
         {
+            POSITION: [17, 3, 1, 0, -7, -187, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
+                TYPE: "bullet",
+                LABEL: "Secondary",
+            },
+        },
+        {
+            POSITION: [17, 3, 1, 0, 7, 187, 0.75],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
+                TYPE: "bullet",
+                LABEL: "Secondary",
+            },
+        },
+        {
             POSITION: [21, 14, 1, 0, 0, 180, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer]),
                 TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [17, 3, 1, 0, -6, -7, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
+                TYPE: "bullet",
+                LABEL: "Secondary",
+            },
+        },
+        {
+            POSITION: [17, 3, 1, 0, 6, 7, 0.75],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
+                TYPE: "bullet",
+                LABEL: "Secondary",
             },
         },
         {

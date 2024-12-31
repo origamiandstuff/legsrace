@@ -459,23 +459,7 @@ Class.minion = {
             },
         },
     ],
-}/*
-        {
-            POSITION: [17, 3, 1, 0, -6, -8, 0.25],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
-                TYPE: "bullet",
-                LABEL: "Secondary",
-            },
-        },
-        {
-            POSITION: [17, 3, 1, 0, 6, 8, 0.75],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.artillery]),
-                TYPE: "bullet",
-                LABEL: "Secondary",
-            },
-        },*/ 
+}
 Class.tinyMinion = {
     PARENT: "minion",
     LABEL: "Swarm Minion",
