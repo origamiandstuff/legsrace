@@ -169,8 +169,8 @@ const addBackDroner = (type, name = -1, droner, independent = false) => {
     return output;
 };
 
-const addThrusters = () => {
-        return[{
+const addThrusters = (front = false, booster = false) => {
+        let guns = (booster == true ? [{
             POSITION: [16, 8, 1, 0, 0, 150, 0.1],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
@@ -185,7 +185,48 @@ const addThrusters = () => {
                 TYPE: "bullet",
                 LABEL: "thruster",
             },
-        },]
+        }] : [{
+            POSITION: [14, 8, 1, 0, -1, 140, 0.6],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
+                TYPE: "bullet",
+                LABEL: "thruster"
+            }
+        },
+        {
+            POSITION: [14, 8, 1, 0, 1, -140, 0.6],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
+                TYPE: "bullet",
+                LABEL: "thruster"
+            }
+        },
+        {
+            POSITION: [16, 8, 1, 0, 0, 150, 0.1],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
+                TYPE: "bullet",
+                LABEL: "thruster"
+            }
+        },
+        {
+            POSITION: [16, 8, 1, 0, 0, -150, 0.1],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
+                TYPE: "bullet",
+                LABEL: "thruster"
+            }
+        }])
+        if (front == true) guns.push([
+        {
+            POSITION: [18, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.triAngleFront, { recoil: 4 }]),
+                TYPE: "bullet",
+                LABEL: "Front",
+            },
+        },
+        ])
 }
 
 
@@ -3774,6 +3815,52 @@ Class.phs_quadAngle = {
         },
     ]
 }
+// Quad-Angles
+Class.phs_scrimmer = {
+    PARENT: "generictank",
+    LABEL: "Scrimmer",
+    DANGER: 7,
+    GUNS: addThrusters(true, false),
+    TURRETS: [
+        {
+            POSITION: [11, 8, 0, 90, 190, 0],
+            TYPE: "autoTankGun"
+        },
+        {
+            POSITION: [11, 8, 0, -90, 190, 0],
+            TYPE: "autoTankGun"
+        },
+    ]
+}
+Class.phs_aspirer = {
+    PARENT: "generictank",
+    LABEL: "Aspirer",
+    DANGER: 7,
+    GUNS: addThrusters(false, true),
+    TURRETS: [
+        {
+            POSITION: [11, 8, 0, 45, 190, 0],
+            TYPE: "autoTankGun"
+        },
+        {
+            POSITION: [11, 8, 0, -45, 190, 0],
+            TYPE: "autoTankGun"
+        },
+    ]
+}
+Class.phs_fleeter = makeBomber({
+    PARENT: "genericTank",
+    TURRETS: [
+        {
+            POSITION: [11, 8, 0, 45, 190, 0],
+            TYPE: "autoTankGun"
+        },
+        {
+            POSITION: [11, 8, 0, -45, 190, 0],
+            TYPE: "autoTankGun"
+        },
+    ]
+}, "Fleeter", {pen: 0, thrusters: 1})
 Class.phs_autoQuadAngle = makeAuto("phs_quadAngle")
 
 // Branches
