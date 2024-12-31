@@ -3774,6 +3774,7 @@ Class.phs_quadAngle = {
         },
     ]
 }
+Class.phs_autoQuadAngle = makeAuto("phs_quadAngle")
 
 // Branches
 
