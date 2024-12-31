@@ -3779,7 +3779,7 @@ Class.phs_cacatua = makeBird("phs_operator", "Cacatua");
 Class.phs_cockatoo = makeFighter("phs_cockatiel", "Cockatoo");
 Class.phs_parrot = makeSurfer("phs_cockatiel", "Parrot");
 Class.phs_corella = makeBird("phs_hutch", "Corella");
-/*Class.phs_nuker = makeBomber({
+Class.phs_nuker = makeBomber({
 		PARENT: "genericTank",
 		BODY: {
 			DENSITY: base.DENSITY * 0.6,
@@ -3798,7 +3798,7 @@ Class.phs_corella = makeBird("phs_hutch", "Corella");
 		pen: 1,
 		thrusters: 1
 	}
-);*/
+);
 Class.phs_quadAngle = {
     PARENT: "genericTank",
     LABEL: "Quad-Angle",
@@ -3863,6 +3863,26 @@ Class.phs_fleeter = makeBomber({
 }, "Fleeter", {pen: 0, thrusters: 1})
 Class.phs_autoQuadAngle = makeAuto("phs_quadAngle")
 Class.phs_glider = makeSurfer("phs_quadAngle", "Glider")
+Class.phs_conformer = {
+    PARENT: "genericTank",
+    LABEL: "Conformer",
+    GUNS: [
+        ...addThrusters(false, false),
+        {
+            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.drone]),
+                TYPE: ["drone", {INDEPENDANT: true}],
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 6,
+                WAIT_TO_CYCLE: true
+            }
+        }
+    ]
+}
 
 
 // Branches
