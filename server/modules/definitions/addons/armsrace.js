@@ -170,7 +170,7 @@ const addBackDroner = (type, name = -1, droner, independent = false) => {
 };
 
 const addThrusters = (front = false, booster = false) => {
-        let guns = (booster == true ? [{
+        let guns = (booster == false ? [{
             POSITION: [16, 8, 1, 0, 0, 150, 0.1],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle, g.thruster]),
@@ -227,6 +227,7 @@ const addThrusters = (front = false, booster = false) => {
             },
         },
         ])
+        return guns;
 }
 
 
@@ -3800,7 +3801,7 @@ Class.phs_nuker = makeBomber({
 	}
 );
 Class.phs_quadAngle = {
-    PARENT: "generictank",
+    PARENT: "genericTank",
     LABEL: "Quad-Angle",
     DANGER: 7,
     GUNS: addThrusters(),
@@ -3816,7 +3817,7 @@ Class.phs_quadAngle = {
     ]
 }
 // Quad-Angles
-Class.phs_scrimmer = {
+/*Class.phs_scrimmer = {
     PARENT: "generictank",
     LABEL: "Scrimmer",
     DANGER: 7,
@@ -3847,7 +3848,7 @@ Class.phs_aspirer = {
             TYPE: "autoTankGun"
         },
     ]
-}
+}*/
 Class.phs_fleeter = makeBomber({
     PARENT: "genericTank",
     TURRETS: [
