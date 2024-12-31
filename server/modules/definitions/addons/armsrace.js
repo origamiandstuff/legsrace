@@ -2269,14 +2269,35 @@ Class.phs_massacrer = {
         },
     ],
 }
-
 // Annhialators
-Class.phs_autoAnnihilator = makeAuto("annihilator");
+note("obliderator alr done")
+Class.phs_bigMac = {
+    PARENT: "genericTank",
+    LABEL: "Big Mac",
+    DANGER: 7,
+    GUNS: [
+        {
+            POSITION: [20.5, 24, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, g.annihilator]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [2, 19.5, 1.23076923077, -2, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator, g.annihilator, {range: 10e-20}]),
+                TYPE: "bullet",
+            },
+        }
+    ]
+}
 Class.phs_compound = makeOver("annihilator", "Compound", {
 	count: 1,
 	independent: true,
 	cycle: false,
 });
+Class.phs_autoAnnihilator = makeAuto("annihilator");
 Class.phs_wiper = addBackGunner("annihilator", "Wiper");
 // Hybrids
 // Constructors
