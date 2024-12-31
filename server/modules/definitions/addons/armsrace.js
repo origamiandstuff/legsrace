@@ -101,16 +101,16 @@ const makeBomber = (type, name = -1, options = {}) => {
 	let output = dereference(type);
 	let cannons = [];
 	if (gunType.pen == 1) {
-		cannons.push([{
+		cannons.push({
 			POSITION: [15, 8, 1, 0, 0, 180, 0],
 			PROPERTIES: {
 				SHOOT_SETTINGS: combineStats([g.basic]),
 				TYPE: "bullet",
 				LABEL: "Pen",
 			},
-		}]);
+		});
 	}
-  cannons.push([{
+  cannons.push({
         POSITION: [13, 8, 1, 0, 0, 180, 0],
     }, {
         POSITION: [4, 8, 1.7, 13, 0, 180, 0],
@@ -119,24 +119,8 @@ const makeBomber = (type, name = -1, options = {}) => {
             TYPE: "trap",
             STAT_CALCULATOR: "trap",
         }
-    }])
-	if (gunType.thrusters == 1) {
-		cannons.push([{
-			POSITION: [18, 8, 1, 0, 0, 130, 0.1],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
-				TYPE: "bullet",
-				LABEL: "Wing",
-			},
-		}, {
-			POSITION: [18, 8, 1, 0, 0, 230, 0.1],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.triAngle]),
-				TYPE: "bullet",
-				LABEL: "Wing",
-			},
-		}]);
-	}
+    })
+  if ()
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
 	output.LABEL = name == -1 ? "Bomber " + type.LABEL : name;
 	return output;
@@ -215,7 +199,7 @@ const addThrusters = (front = false, booster = false) => {
                 LABEL: "thruster"
             }
         }])
-        if (front == true) guns.push([
+        if (front == true) guns.push(
         {
             POSITION: [18, 8, 1, 0, 0, 0, 0],
             PROPERTIES: {
@@ -224,7 +208,7 @@ const addThrusters = (front = false, booster = false) => {
                 LABEL: "Front",
             },
         },
-        ])
+        )
         return guns;
 }
 
@@ -3778,7 +3762,7 @@ Class.phs_cacatua = makeBird("phs_operator", "Cacatua");
 Class.phs_cockatoo = makeFighter("phs_cockatiel", "Cockatoo");
 Class.phs_parrot = makeSurfer("phs_cockatiel", "Parrot");
 Class.phs_corella = makeBird("phs_hutch", "Corella");
-Class.phs_nuker = makeBomber({
+/*Class.phs_nuker = makeBomber({
 		PARENT: "genericTank",
 		BODY: {
 			DENSITY: base.DENSITY * 0.6,
@@ -3797,7 +3781,7 @@ Class.phs_nuker = makeBomber({
 		pen: 1,
 		thrusters: 1
 	}
-);
+);*/
 Class.phs_quadAngle = {
     PARENT: "genericTank",
     LABEL: "Quad-Angle",
@@ -3815,7 +3799,7 @@ Class.phs_quadAngle = {
     ]
 }
 // Quad-Angles
-/*Class.phs_scrimmer = {
+Class.phs_scrimmer = {
     PARENT: "generictank",
     LABEL: "Scrimmer",
     DANGER: 7,
@@ -3846,7 +3830,7 @@ Class.phs_aspirer = {
             TYPE: "autoTankGun"
         },
     ]
-}*/
+}
 Class.phs_fleeter = makeBomber({
     PARENT: "genericTank",
     TURRETS: [
@@ -3861,6 +3845,7 @@ Class.phs_fleeter = makeBomber({
     ]
 }, "Fleeter", {pen: 0, thrusters: 1})
 Class.phs_autoQuadAngle = makeAuto("phs_quadAngle")
+
 
 // Branches
 
