@@ -19,7 +19,6 @@ const {
 } = require("../constants.js");
 const g = require("../gunvals.js");
 const note = () => {}
-g.basic = { reload: 10.5, recoil: 1.4, shudder: 0.1, damage: 0, speed: 4.5, spray: 15 };
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 /*Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(
