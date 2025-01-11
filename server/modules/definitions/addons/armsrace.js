@@ -702,6 +702,51 @@ Class.phs_fashionedDouble = {
         }
     ]
 }
+Class.ori_warpedPenta = {
+    PARENT: "genericTank",
+    LABEL: "Penta Shot",
+    DANGER: 7,
+    BODY: {
+        SPEED: 0.85 * base.SPEED
+    },
+    GUNS: [
+        {
+            POSITION: [16, 8, 1, 0, -3, -30, 2/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 8, 1, 0, 3, 30, 2/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, -2, -15, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, 2, 15, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [22, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        }
+    ]
+}
 
 
 
@@ -729,8 +774,9 @@ if (Config.ARMS_RACE) {
   Class.twin.UPGRADES_TIER_3.push("ori_hitman", "ori_trapezium")
     Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleGunner")
       Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_tripleGunner"]
-        Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
-        Class.hewnDouble.UPGRADES_TIER_3 = ["ori_slicedDouble", "ori_hackedDouble", "ori_carvedDouble", "ori_chippedDouble", "ori_autoHewnDouble", "ori_chiselledDouble", "phs_fashionedDouble"]
+      Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
+      Class.hewnDouble.UPGRADES_TIER_3 = ["ori_slicedDouble", "ori_hackedDouble", "ori_carvedDouble", "ori_chippedDouble", "ori_autoHewnDouble", "ori_chiselledDouble", "phs_fashionedDouble"]
+      Class.ori_doubleGunner.UPGRADES_TIER_3 = ["ori_tripleGunner"]
 // Sniper Branch
 
 // Machine Gun Branch
