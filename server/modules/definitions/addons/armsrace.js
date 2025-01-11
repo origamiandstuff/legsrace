@@ -898,11 +898,11 @@ Class.ori_quadAngle = {
     GUNS: addThrusters(false, false),
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -916,11 +916,11 @@ Class.ori_scrimmer = {
     GUNS: addThrusters(true, false),
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 90, 190, 0],
+            POSITION: [9, 8, 0, 90, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -90, 190, 0],
+            POSITION: [9, 8, 0, -90, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -932,11 +932,11 @@ Class.ori_aspirer = {
     GUNS: addThrusters(false, true),
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -946,11 +946,11 @@ Class.ori_fleeter = makeBomber({
     BODY: sts("tri"),
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -963,7 +963,7 @@ Class.ori_conformer = {
     BODY: sts("tri"),
     GUNS: [
         {
-            POSITION: [6, 11, 1.3, 7, 0, 180, 0],
+            POSITION: [6, 8, 1.3, 7, 0, 180, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.drone]),
                 TYPE: ["drone", {INDEPENDENT: true}],
@@ -978,11 +978,11 @@ Class.ori_conformer = {
     ],
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -992,11 +992,11 @@ Class.ori_spoiler = {
     LABEL: "Spoiler",
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: ["megaAutoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: ["megaAutoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -1006,11 +1006,11 @@ Class.ori_mandible = {
     LABEL: "Mandible",
     TURRETS: [
         {
-            POSITION: [11, 11, 0, 45, 190, 0],
+            POSITION: [11, 8, 0, 45, 190, 0],
             TYPE: ["auto4gun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [11, 11, 0, -45, 190, 0],
+            POSITION: [11, 8, 0, -45, 190, 0],
             TYPE: ["auto4gun", {INDEPENDENT: true}]
         },
     ]
@@ -1020,11 +1020,11 @@ Class.ori_waster = {
     LABEL: "Waster",
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 45, 190, 0],
+            POSITION: [9, 8, 0, 45, 190, 0],
             TYPE: ["sniperAutoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [8, 11, 0, -45, 190, 0],
+            POSITION: [9, 8, 0, -45, 190, 0],
             TYPE: ["sniperAutoTankGun", {INDEPENDENT: true}]
         },
     ]
@@ -1059,6 +1059,7 @@ if (Config.ARMS_RACE) {
 
 // Flank Guard Branch
     Class.triAngle.UPGRADES_TIER_3.push("ori_quadAngle")
+      
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
 
