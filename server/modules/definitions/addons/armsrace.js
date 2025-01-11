@@ -265,6 +265,17 @@ const triSwarm = () => {
           },
       ]
 }
+const sts = (type = null) => {
+  if (type == "trig") {
+    return {
+        HEALTH: 0.8 * base.HEALTH,
+        SHIELD: 0.8 * base.SHIELD,
+        DENSITY: 0.6 * base.DENSITY,
+    }
+  } else if (type == "a") {
+    
+  }
+}
 
 // Twin Upgrades
 Class.ori_hitman = {
@@ -289,6 +300,16 @@ Class.ori_hitman = {
             }
         },
     ],
+}
+Class.ori_quadrilateral = {
+    PARENT: "genericTank",
+    LABEL: "Quadrilateral",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        ...addThrusters(),
+    ]
 }
 
 // Double Twin Upgrades
