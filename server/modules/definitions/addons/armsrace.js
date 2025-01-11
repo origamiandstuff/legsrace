@@ -308,6 +308,20 @@ const sts = (type = null) => {
     
   }
 }
+// TURRETS
+Class.sniperAutoTankGun = makeTurret({
+    GUNS: [
+        {
+            POSITION: [28, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.sniper]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}, {canRepel: true, limitFov: true, fov: 3})
+
+// TANKS
 
 // Twin Upgrades
 Class.ori_hitman = {
@@ -942,12 +956,27 @@ Class.ori_fleeter = makeBomber({
         },
     ]
 }, {pen: 0, thrusters: 1})
-Class.ori_drifter = makeSurfer("ori_quadAngle", "Drifter")
+Class.ori_autoQuadAngle = makeAuto("ori_quadAngle")
+Class.ori_glider = makeSurfer("ori_quadAngle", "Glider")
 Class.ori_conformer = {
     PARENT: "genericTank",
     LABEL: "Conformer",
     BODY: sts("tri"),
-    GUNS: addThrusters(false, false),
+    GUNS: [
+        {
+            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.drone]),
+                TYPE: ["drone", {INDEPENDENT: true}],
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                STAT_CALCULATOR: "drone",
+                MAX_CHILDREN: 3,
+                WAIT_TO_CYCLE: true
+            }
+        },
+        ...addThrusters(false, false), 
+    ],
     TURRETS: [
         {
             POSITION: [8, 11, 0, 45, 190, 0],
@@ -956,6 +985,48 @@ Class.ori_conformer = {
         {
             POSITION: [8, 11, 0, -45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
+Class.ori_spoiler = {
+    PARENT: "ori_quadAngle",
+    LABEL: "Spoiler",
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 45, 190, 0],
+            TYPE: ["megaAutoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -45, 190, 0],
+            TYPE: ["megaAutoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
+Class.ori_mandible = {
+    PARENT: "ori_quadAngle",
+    LABEL: "Mandible",
+    TURRETS: [
+        {
+            POSITION: [11, 11, 0, 45, 190, 0],
+            TYPE: ["auto4gun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [11, 11, 0, -45, 190, 0],
+            TYPE: ["auto4gun", {INDEPENDENT: true}]
+        },
+    ]
+}
+Class.ori_waster = {
+    PARENT: "ori_quadAngle",
+    LABEL: "Waster",
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 45, 190, 0],
+            TYPE: ["sniperAutoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -45, 190, 0],
+            TYPE: ["sniperAutoTankGun", {INDEPENDENT: true}]
         },
     ]
 }
