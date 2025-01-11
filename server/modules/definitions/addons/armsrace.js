@@ -884,7 +884,77 @@ Class.ori_quadAngle = {
     GUNS: addThrusters(false, false),
     TURRETS: [
         {
-            POSITION: [8, 11, 0, 90, 190, 1],
+            POSITION: [8, 11, 0, 45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
+
+// Quad-Angles
+Class.ori_scrimmer = {
+    PARENT: "genericTank",
+    LABEL: "Scrimmer",
+    BODY: sts("tri"),
+    GUNS: addThrusters(true, false),
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 90, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -90, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
+Class.ori_aspirer = {
+    PARENT: "genericTank",
+    LABEL: "Aspirer",
+    BODY: sts("tri"),
+    GUNS: addThrusters(false, true),
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
+Class.ori_fleeter = makeBomber({
+    PARENT: "genericTank",
+    LABEL: "Fleeter",
+    BODY: sts("tri"),
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}, {pen: 0, thrusters: 1})
+Class.ori_drifter = makeSurfer("ori_quadAngle", "Drifter")
+Class.ori_conformer = {
+    PARENT: "genericTank",
+    LABEL: "Conformer",
+    BODY: sts("tri"),
+    GUNS: addThrusters(false, false),
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 45, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [8, 11, 0, -45, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
