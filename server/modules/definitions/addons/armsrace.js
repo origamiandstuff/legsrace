@@ -237,6 +237,34 @@ const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTI
         }
     }
 }
+const triSwarm = () => {
+      return [
+          {
+            POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+          },
+          {
+            POSITION: [7, 7.5, 0.6, 7, 0, 120, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+          },
+          {
+            POSITION: [7, 7.5, 0.6, 7, 0, 240, 2/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+          },
+      ]
+}
 
 // Twin Upgrades
 Class.ori_hitman = {
@@ -280,15 +308,7 @@ Class.ori_battery = {
     GUNS: [
         ...weaponArray(easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.spam, g.doubleTwin]), 3),
         ...weaponArray(easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.spam, g.doubleTwin]), 3),
-        ...weaponArray(
-        {
-            POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm]),
-                TYPE: "swarm",
-                STAT_CALCULATOR: "swarm",
-            },
-        }, 3, 1/3),
+        ...triSwarm
     ]
 }
 Class.ori_tripleTripleShot = {
@@ -337,7 +357,7 @@ Class.ori_tripleTripleShot = {
         }
     ], 3)
 }
-
+Class.ori_autoTriple = makeAuto("tripleTwin", "Auto-Triple")
 
 // Branches
 
@@ -350,8 +370,8 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
 if (Config.ARMS_RACE) {
 // Twin Branch
   Class.twin.UPGRADES_TIER_3.push("ori_hitman")
-    Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleTripleShot")
-      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot"]
+    Class.doubleTwin.UPGRADES_TIER_3.push()
+      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
 // Sniper Branch
 
