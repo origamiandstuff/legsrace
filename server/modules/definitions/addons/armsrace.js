@@ -248,7 +248,7 @@ const triSwarm = () => {
             },
           },
           {
-            POSITION: [7, 7.5, 0.6, 7, 0, 120, 1/3],
+            POSITION: [7, 7.5, 0.6, 7, 0, 180, 1/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
                 TYPE: "swarm",
@@ -256,7 +256,7 @@ const triSwarm = () => {
             },
           },
           {
-            POSITION: [7, 7.5, 0.6, 7, 0, 240, 2/3],
+            POSITION: [7, 7.5, 0.6, 7, 0, 300, 2/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
                 TYPE: "swarm",
@@ -308,7 +308,7 @@ Class.ori_battery = {
     GUNS: [
         ...weaponArray(easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.spam, g.doubleTwin]), 3),
         ...weaponArray(easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.spam, g.doubleTwin]), 3),
-        ...triSwarm
+        ...triSwarm()
     ]
 }
 Class.ori_tripleTripleShot = {
