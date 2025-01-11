@@ -390,7 +390,7 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
 
 if (Config.ARMS_RACE) {
 // Twin Branch
-  Class.twin.UPGRADES_TIER_3.push("ori_hitman")
+  Class.twin.UPGRADES_TIER_3.push("ori_hitman", "ori_trapezium")
     Class.doubleTwin.UPGRADES_TIER_3.push()
       Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
