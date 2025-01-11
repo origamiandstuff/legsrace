@@ -301,9 +301,9 @@ Class.ori_hitman = {
         },
     ],
 }
-Class.ori_quadrilateral = {
+Class.ori_trapezium = {
     PARENT: "genericTank",
-    LABEL: "Quadrilateral",
+    LABEL: "Trapezium",
     BODY: sts("tri"),
     GUNS: [
         easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.triAngle, g.triAngleFront, {recoil: 2}]),
