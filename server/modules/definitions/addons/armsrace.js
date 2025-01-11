@@ -873,6 +873,22 @@ Class.ori_mutatedDouble = {
 
 // Hexa Tank Upgrades
 
+// Flank Guard Upgrades
+
+// Tri Angle Upgrades
+Class.ori_nuker = makeNuker("triAngle", "Nuker")
+Class.ori_quadAngle = {
+    PARENT: "genericTank",
+    LABEL: "Quad-Angle",
+    BODY: sts("tri"),
+    GUNS: addThrusters(false, false),
+    TURRETS: [
+        {
+            POSITION: [8, 11, 0, 90, 190, 1],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
 
 // Branches
 
@@ -893,7 +909,7 @@ if (Config.ARMS_RACE) {
       Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_tripleGunner"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
       Class.hewnDouble.UPGRADES_TIER_3 = ["ori_slicedDouble", "ori_hackedDouble", "ori_carvedDouble", "ori_chippedDouble", "ori_autoHewnDouble", "ori_chiselledDouble", "ori_fashionedDouble", "ori_cutDouble"]
-      Class.bentDouble.UPGRADES_TIER_3 = ["ori_warpedDouble"]
+      Class.bentDouble.UPGRADES_TIER_3 = ["ori_warpedDouble", "ori_dentedDouble", "ori_disfiguredDouble", "ori_mutilatedDouble", "ori_mutatedDouble"]
       Class.ori_doubleGunner.UPGRADES_TIER_3 = ["ori_tripleGunner"]
 // Sniper Branch
 
