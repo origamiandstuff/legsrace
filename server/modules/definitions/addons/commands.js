@@ -726,10 +726,10 @@ module.exports = ({ Config, Events }) => {
 		let cls = args.getString(0);
 		const entity = args.getEntity(1, body);
 		if (!entity) return;
-		if (!Class[cls] && !Class["phs_" + cls]) { 
+		if (!Class[cls] && !Class["ori_" + cls]) { 
       return command.send(`Unknown class: ${cls}`);
-    } else if (Class["phs_" + cls]) {
-      cls = `phs_${cls}`
+    } else if (Class["ori_" + cls]) {
+      cls = `ori_${cls}`
     }
 		entity.define({ RESET_UPGRADES: true, BATCH_UPGRADES: false });
         entity.define(cls);

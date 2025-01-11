@@ -311,6 +311,41 @@ Class.ori_trapezium = {
         ...addThrusters(),
     ]
 }
+Class.ori_doubleGunner = {
+    PARENT: "genericTank",
+    LABEL: "Double Gunner",
+    DANGER: 7,
+    GUNS: weaponArray([
+        {
+            POSITION: [12, 3.5, 1, 0, 7.25, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [12, 3.5, 1, 0, -7.25, 0, 0.75],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 3.5, 1, 0, 3.75, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 3.5, 1, 0, -3.75, 0, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        }
+    ], 2)
+}
 
 // Double Twin Upgrades
 
@@ -379,6 +414,41 @@ Class.ori_tripleTripleShot = {
     ], 3)
 }
 Class.ori_autoTriple = makeAuto("tripleTwin", "Auto-Triple")
+Class.ori_tripleGunner = {
+    PARENT: "genericTank",
+    LABEL: "Triple Gunner",
+    DANGER: 7,
+    GUNS: weaponArray([
+        {
+            POSITION: [12, 3.5, 1, 0, 7.25, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [12, 3.5, 1, 0, -7.25, 0, 0.75],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 3.5, 1, 0, 3.75, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 3.5, 1, 0, -3.75, 0, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.gunner, g.spam, g.doubleTwin, { speed: 1.2 }]),
+                TYPE: "bullet"
+            }
+        }
+    ], 3)
+}
 
 // Triple Shot Upgrades
 
@@ -398,8 +468,8 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
 if (Config.ARMS_RACE) {
 // Twin Branch
   Class.twin.UPGRADES_TIER_3.push("ori_hitman", "ori_trapezium")
-    Class.doubleTwin.UPGRADES_TIER_3.push()
-      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple"]
+    Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleGunner")
+      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_riple"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
 // Sniper Branch
 
