@@ -264,7 +264,7 @@ Class.ori_hitman = {
 }
 
 // Double Twin Upgrades
-Class.doubleTripleShot = {
+Class.ori_doubleTripleShot = {
     PARENT: "genericTank",
     LABEL: "Double Triple Shot",
     DANGER: 6,
@@ -281,7 +281,7 @@ Class.doubleTripleShot = {
                 DELAY: 0.5
             },
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.spam, g.doubleTwin]),
                 TYPE: "bullet"
             }
         },
@@ -294,7 +294,7 @@ Class.doubleTripleShot = {
                 DELAY: 0.5
             },
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.spam, g.doubleTwin]),
                 TYPE: "bullet"
             }
         },
@@ -304,7 +304,7 @@ Class.doubleTripleShot = {
                 WIDTH: 8
             },
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.spam, g.doubleTwin]),
                 TYPE: "bullet"
             }
         }
@@ -312,12 +312,42 @@ Class.doubleTripleShot = {
 }
 
 // Triple Twin Upgrades
-Class.quadTwin = {
+Class.ori_quadTwin = {
     PARENT: "genericTank",
     LABEL: "Quad Twin",
     GUNS: [
-        ...weaponArray(easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin]), 4),
-        ...weaponArray(easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin]), 4),
+        ...weaponArray(easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.spam, g.doubleTwin]), 4),
+        ...weaponArray(easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.spam, g.doubleTwin]), 4),
+    ]
+}
+Class.ori_battery = {
+    PARENT: "genericTank",
+    LABEL: "Battery",
+    GUNS: [
+        ...weaponArray(
+        {
+            POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        }, 3, 1/3),
+        ...weaponArray(
+        {
+            POSITION: [20, 8, 1, 0, 5.5, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.spam, g.doubleTwin]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [20, 8, 1, 0, -5.5, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.spam, g.doubleTwin]),
+                TYPE: "bullet"
+            }
+        }, 3)
     ]
 }
 
@@ -332,6 +362,8 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
 if (Config.ARMS_RACE) {
 // Twin Branch
   Class.twin.UPGRADES_TIER_3.push("ori_hitman")
+    Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleTripleShot")
+      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery"]
 // Sniper Branch
 
 // Machine Gun Branch
