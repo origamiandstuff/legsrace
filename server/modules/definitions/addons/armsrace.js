@@ -380,6 +380,13 @@ Class.ori_tripleTripleShot = {
 }
 Class.ori_autoTriple = makeAuto("tripleTwin", "Auto-Triple")
 
+// Triple Shot Upgrades
+
+// Gunner Upgrades
+
+// Hexa Tank Upgrades
+
+
 // Branches
 
 //remove single from assassin branch
