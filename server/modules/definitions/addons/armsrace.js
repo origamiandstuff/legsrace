@@ -229,11 +229,11 @@ const addThrusters = (front = false, booster = false) => {
         return guns;
 }
 
-
 // Turrets, Traps, Bullets etc..
 
 // Autos
 Class.phs_tripleAutoTankGun = {
+
 	TURRETS: [
         {
             POSITION: [6, 4.5, 0, 0, 150, 1],
