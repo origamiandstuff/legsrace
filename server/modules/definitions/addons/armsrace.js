@@ -943,7 +943,6 @@ Class.ori_aspirer = {
 }
 Class.ori_fleeter = makeBomber({
     PARENT: "genericTank",
-    LABEL: "Fleeter",
     BODY: sts("tri"),
     TURRETS: [
         {
@@ -955,7 +954,7 @@ Class.ori_fleeter = makeBomber({
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
     ]
-}, {pen: 0, thrusters: 1})
+}, "fleeter", {pen: 0, thrusters: 1})
 Class.ori_autoQuadAngle = makeAuto("ori_quadAngle")
 Class.ori_glider = makeSurfer("ori_quadAngle", "Glider")
 Class.ori_conformer = {
@@ -964,7 +963,7 @@ Class.ori_conformer = {
     BODY: sts("tri"),
     GUNS: [
         {
-            POSITION: [6, 11, 1.3, 7, 0, 0, 0],
+            POSITION: [6, 11, 1.3, 7, 0, 180, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.drone]),
                 TYPE: ["drone", {INDEPENDENT: true}],
@@ -1030,6 +1029,8 @@ Class.ori_waster = {
         },
     ]
 }
+Class.ori_drifter = makeFighter("ori_quadAngle", "drifter")
+Class.ori_hoverer = makeNuker("ori_quadAngle", "Hoverer")
 
 // Branches
 
@@ -1057,7 +1058,8 @@ if (Config.ARMS_RACE) {
 // Machine Gun Branch
 
 // Flank Guard Branch
-
+    Class.triAngle.UPGRADES_TIER_3.push("ori_quadAngle")
+      Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
 
 // Pounder Branch
