@@ -465,11 +465,15 @@ Class.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin",
 //add single
 Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "single", "desmos"]
 
+//Throw smasher into the abyss i hate rammers
+Class.basic.UPGRADES_TIER_2 = []
+
+// Upgrades
 if (Config.ARMS_RACE) {
 // Twin Branch
   Class.twin.UPGRADES_TIER_3.push("ori_hitman", "ori_trapezium")
     Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleGunner")
-      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_riple"]
+      Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_tripleGunner"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
 // Sniper Branch
 
