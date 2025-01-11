@@ -580,6 +580,9 @@ Class.ori_hackedDouble = {
         }
     ]
 }
+Class.ori_carvedDouble = makeSurfer("hewnDouble", "Carved Double")
+Class.ori_chippedDouble = makeFighter("hewnDouble", "Chipped Double")
+Class.ori_autoHewnDouble = makeAuto("hewnDouble")
 
 
 
