@@ -782,35 +782,89 @@ Class.ori_warpedDouble = {
         }
     ], 2)
 }
-Class.bentDouble = {
+Class.ori_dentedDouble = makeFighter("bentDouble", "Dented Double")
+Class.ori_disfiguredDouble = makeSurfer("bentDouble", "Disfigured Double")
+Class.ori_mutilatedDouble = makeNuker("bentDouble", "Mutilated Double")
+Class.ori_mutatedDouble = {
     PARENT: "genericTank",
-    LABEL: "Bent Double",
+    LABEL: "Mutated Double",
     DANGER: 7,
-    GUNS: weaponArray([
+    BODY: {
+        SPEED: 0.85 * base.SPEED
+    },
+    GUNS: [
         {
-            POSITION: [19, 8, 1, 0, -2, -17.5, 0.5],
+            POSITION: [13, 8, 1, 0, -4, -45, 0.75],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.doubleTwin]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
                 TYPE: "bullet"
             }
         },
         {
-            POSITION: [19, 8, 1, 0, 2, 17.5, 0.5],
+            POSITION: [13, 8, 1, 0, 4, 45, 0.75],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.doubleTwin]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 8, 1, 0, -3, -30, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [16, 8, 1, 0, 3, 30, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, -2, -15, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, 2, 15, 0.25],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
                 TYPE: "bullet"
             }
         },
         {
             POSITION: [22, 8, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.doubleTwin]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
                 TYPE: "bullet"
             }
-        }
-    ], 2)
+        },
+        {
+            POSITION: [19, 8, 1, 0, -2, -195, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, 2, 195, 1/3],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [22, 8, 1, 0, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot]),
+                TYPE: "bullet"
+            }
+        },
+    ]
 }
-
 
 
 // Triple Shot Upgrades
@@ -839,6 +893,7 @@ if (Config.ARMS_RACE) {
       Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_tripleGunner"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
       Class.hewnDouble.UPGRADES_TIER_3 = ["ori_slicedDouble", "ori_hackedDouble", "ori_carvedDouble", "ori_chippedDouble", "ori_autoHewnDouble", "ori_chiselledDouble", "ori_fashionedDouble", "ori_cutDouble"]
+      Class.bentDouble.UPGRADES_TIER_3 = ["ori_warpedDouble"]
       Class.ori_doubleGunner.UPGRADES_TIER_3 = ["ori_tripleGunner"]
 // Sniper Branch
 
