@@ -92,6 +92,48 @@ const makeSurfer = (type, name = -1) => {
 	return output;
 };
 
+const makeNuker = (type, name = -1) => {
+	type = ensureIsClass(type);
+	let output = dereference(type);
+	let cannons = [{
+			POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.swarm]),
+				TYPE: "autoswarm",
+			},
+		},
+		{
+			POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
+			PROPERTIES: {
+				SHOOT_SETTINGS: combineStats([g.swarm]),
+				TYPE: "autoswarm",
+			},
+		},
+	];
+	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+	output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+	return output;
+};
+
+        {
+            POSITION: [4, 8, 1.7, 13, 0, 90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: exports.combineStats([g.trap, {reload: 2.15}]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+        {
+            POSITION: [13, 8, 1, 0, 0, -90, 0],
+        }, 
+        {
+            POSITION: [4, 8, 1.7, 13, 0, -90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: exports.combineStats([g.trap, {reload: 2.15}]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
 const makeBomber = (type, name = -1, options = {}) => {
 	type = ensureIsClass(type);
 	let gunType = {
@@ -372,7 +414,7 @@ Class.ori_tripleTripleShot = {
     LABEL: "Triple Triple Shot",
     DANGER: 6,
     BODY: {
-        SPEED: base.SPEED * 0.9
+        SPEED: base.SPEED * 0.85
     },
     GUNS: weaponArray([
         {
@@ -702,9 +744,63 @@ Class.phs_fashionedDouble = {
         }
     ]
 }
-Class.ori_warpedPenta = {
+Class.phs_cutDouble = {
     PARENT: "genericTank",
-    LABEL: "Penta Shot",
+    LABEL: "Cut Double",
+    DANGER: 7,
+    GUNS: [
+        {
+            POSITION: [19, 8, 1, 0, 5.5, 205, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, -5.5, -205, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [20, 8, 1, 0, 5.5, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [20, 8, 1, 0, -5.5, 180, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [20, 8, 1, 0, 5.5, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [20, 8, 1, 0, -5.5, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [13, 8, 1, 0, 0, 90, 0],
+        }, 
+    ]
+}
+
+// Bent Double Upgrades
+Class.ori_warpedDouble = {
+    PARENT: "genericTank",
+    LABEL: "Warped Double",
     DANGER: 7,
     BODY: {
         SPEED: 0.85 * base.SPEED
