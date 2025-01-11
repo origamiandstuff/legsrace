@@ -228,14 +228,48 @@ const addThrusters = (front = false, booster = false) => {
         )
         return guns;
 }
+const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTINGS = [g.basic], ) => {
+    return {
+        POSITION: POSITION,
+        PROPERTIES: {
+            TYPE: TYPE,
+            
+        }
+    }
+}
 
+// Twin Upgrades
+Class.hitman = {
+    PARENT: "genericTank",
+    LABEL: "Hitman",
+    BODY: {
+      FOV: base.FOV * 1.225
+    },
+    GUNS: [
+        {
+            POSITION: [24, 8, 1, 0, 5.5, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.twin]),
+                TYPE: "bullet",
+            }
+        },
+        {
+            POSITION: [24, 8, 1, 0, 5.5, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.twin]),
+                TYPE: "bullet",
+            }
+        },
+    ],
+}
 
 // Branches
+
 //remove single from assassin branch
 Class.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin", "deadeye"]
-//replace desmos with single
 
-Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "single"]
+//add single
+Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "single", "desmos"]
 
 if (Config.ARMS_RACE) {
 // Twin Branch
@@ -250,8 +284,11 @@ if (Config.ARMS_RACE) {
 
 // Pounder Branch
 
-
 // Trapper Branch
+
+// Single Branch
+
+// Desmos Branch
 
 };
 console.log("[Arms Race Addon] Loaded Arms Race.");
