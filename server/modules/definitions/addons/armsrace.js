@@ -95,45 +95,35 @@ const makeSurfer = (type, name = -1) => {
 const makeNuker = (type, name = -1) => {
 	type = ensureIsClass(type);
 	let output = dereference(type);
-	let cannons = [{
-			POSITION: [7, 7.5, 0.6, 7, -1, 90, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm]),
-				TYPE: "autoswarm",
-			},
-		},
-		{
-			POSITION: [7, 7.5, 0.6, 7, 1, -90, 0],
-			PROPERTIES: {
-				SHOOT_SETTINGS: combineStats([g.swarm]),
-				TYPE: "autoswarm",
-			},
-		},
+	let cannons = [
+        {
+            POSITION: [15, 8, 1, 0, 0, 90, 0],
+        }, 
+        {
+            POSITION: [4, 8, 1.7, 15, 0, 90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, {reload: 2.15}]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
+        {
+            POSITION: [15, 8, 1, 0, 0, -90, 0],
+        }, 
+        {
+            POSITION: [4, 8, 1.7, 15, 0, -90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, {reload: 2.15}]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            },
+        },
 	];
 	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
 	output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
 	return output;
 };
 
-        {
-            POSITION: [4, 8, 1.7, 13, 0, 90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: exports.combineStats([g.trap, {reload: 2.15}]),
-                TYPE: "trap",
-                STAT_CALCULATOR: "trap",
-            },
-        },
-        {
-            POSITION: [13, 8, 1, 0, 0, -90, 0],
-        }, 
-        {
-            POSITION: [4, 8, 1.7, 13, 0, -90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: exports.combineStats([g.trap, {reload: 2.15}]),
-                TYPE: "trap",
-                STAT_CALCULATOR: "trap",
-            },
-        },
 const makeBomber = (type, name = -1, options = {}) => {
 	type = ensureIsClass(type);
 	let gunType = {
@@ -681,7 +671,7 @@ Class.ori_chiselledDouble = {
         },
     ]
 }
-Class.phs_fashionedDouble = {
+Class.ori_fashionedDouble = {
     PARENT: "genericTank",
     LABEL: "Fashioned Double",
     DANGER: 7,
@@ -744,58 +734,7 @@ Class.phs_fashionedDouble = {
         }
     ]
 }
-Class.phs_cutDouble = {
-    PARENT: "genericTank",
-    LABEL: "Cut Double",
-    DANGER: 7,
-    GUNS: [
-        {
-            POSITION: [19, 8, 1, 0, 5.5, 205, 0.5],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [19, 8, 1, 0, -5.5, -205, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [20, 8, 1, 0, 5.5, 180, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [20, 8, 1, 0, -5.5, 180, 0.5],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble, { recoil: 1.15 }]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [20, 8, 1, 0, 5.5, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [20, 8, 1, 0, -5.5, 0, 0.5],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.doubleTwin, g.hewnDouble]),
-                TYPE: "bullet"
-            }
-        },
-        {
-            POSITION: [13, 8, 1, 0, 0, 90, 0],
-        }, 
-    ]
-}
+Class.ori_cutDouble = makeNuker("hewnDouble", "Cut Double")
 
 // Bent Double Upgrades
 Class.ori_warpedDouble = {
@@ -805,7 +744,7 @@ Class.ori_warpedDouble = {
     BODY: {
         SPEED: 0.85 * base.SPEED
     },
-    GUNS: [
+    GUNS: weaponArray([
         {
             POSITION: [16, 8, 1, 0, -3, -30, 2/3],
             PROPERTIES: {
@@ -841,7 +780,35 @@ Class.ori_warpedDouble = {
                 TYPE: "bullet"
             }
         }
-    ]
+    ], 2)
+}
+Class.bentDouble = {
+    PARENT: "genericTank",
+    LABEL: "Bent Double",
+    DANGER: 7,
+    GUNS: weaponArray([
+        {
+            POSITION: [19, 8, 1, 0, -2, -17.5, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.doubleTwin]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [19, 8, 1, 0, 2, 17.5, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.doubleTwin]),
+                TYPE: "bullet"
+            }
+        },
+        {
+            POSITION: [22, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.twin, g.tripleShot, g.doubleTwin]),
+                TYPE: "bullet"
+            }
+        }
+    ], 2)
 }
 
 
@@ -871,7 +838,7 @@ if (Config.ARMS_RACE) {
     Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleGunner")
       Class.tripleTwin.UPGRADES_TIER_3 = ["ori_quadTwin", "ori_battery", "ori_tripleTripleShot", "ori_autoTriple", "ori_tripleGunner"]
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_tripleTripleShot"]
-      Class.hewnDouble.UPGRADES_TIER_3 = ["ori_slicedDouble", "ori_hackedDouble", "ori_carvedDouble", "ori_chippedDouble", "ori_autoHewnDouble", "ori_chiselledDouble", "phs_fashionedDouble"]
+      Class.hewnDouble.UPGRADES_TIER_3 = ["ori_slicedDouble", "ori_hackedDouble", "ori_carvedDouble", "ori_chippedDouble", "ori_autoHewnDouble", "ori_chiselledDouble", "ori_fashionedDouble", "ori_cutDouble"]
       Class.ori_doubleGunner.UPGRADES_TIER_3 = ["ori_tripleGunner"]
 // Sniper Branch
 
