@@ -260,12 +260,13 @@ const addThrusters = (front = false, booster = false) => {
         )
         return guns;
 }
-const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTINGS = [g.basic]) => {
+const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTINGS = [g.basic], LABEL = null) => {
     return {
         POSITION: POSITION,
         PROPERTIES: {
             TYPE: TYPE,
             SHOOT_SETTINGS: combineStats(SHOOT_SETTINGS),
+            LABEL: LABEL
         }
     }
 }
@@ -919,10 +920,11 @@ Class.ori_terrorist = {
     LABEL: "Terrorist",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([16, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
-        easyGun([16, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
-        easyGun([4, 8, 1.7, 13, 0, 90, 0], "bullet", [g.trap, {reload: 2.15}]),
-        easyGun([4, 8, 1.7, 13, 0, -90, 0], "bullet", [g.trap, {reload: 2.15}])
+        easyGun([17, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([17, 8, 1, 0, -1, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([4, 8, 1.7, 11, -1, 90, 0], "trap", [g.trap, {reload: 2.15}], "Side"),
+        easyGun([4, 8, 1.7, 11, -1, -90, 0], "trap", [g.trap, {reload: 2.15}], "Side"),
+        ...addThrusters(true, false)
     ]
 }
 
