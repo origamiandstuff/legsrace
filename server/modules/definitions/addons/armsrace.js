@@ -1298,6 +1298,15 @@ Class.laxatives = {
 for (let i = 0; i < 3; i++) {
     Class.laxatives.GUNS.push(easyGun([15, 10, 1.7, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 2.5, spray: 2, pen: 0.85, speed: 1.5}]))
 }
+Class.assSprayer = {
+    PARENT: "genericTank",
+    LABEL: "Ass Sprayer",
+    GUNS: [
+        easyGun(),
+        easyGun([15, 8, 1.3, 10, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 0.9, spray: 1.2}]),
+        easyGun([12, 10, 1.5, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 0.7, spray: 1.4, pen: 0.8}]),
+    ]
+}
 // Branches
 
 
@@ -1342,6 +1351,6 @@ if (Config.ARMS_RACE) {
 };
 if (Config.ASS_BLASTER = true) {
     Class.basic.UPGRADES_TIER_2.push("assBlaster")
-       Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican", "constipation", "laxatives"]
+       Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican", "constipation", "laxatives", "assSprayer"]
 }
 console.log("[Arms Race Addon] Loaded Arms Race.");
