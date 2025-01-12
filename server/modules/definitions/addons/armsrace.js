@@ -902,10 +902,10 @@ Class.ori_mutatedDouble = {
 // Machine Gun Upgrades
 Class.ori_rainmaker = {
     PARENT: "genericTank",
-    LABEL: "Superflous",
+    LABEL: "Rainmaker",
     GUNS: [
-        easyGun([12, 8.5, 1.42, 9, 0, 0, 0], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9}]),
-        easyGun([12, 8.5, 1.42, 7, 0, 0, 0.5], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9}]),
+        easyGun([12, 9, 1.42, 10, 0, 0, 0], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9}]),
+        easyGun([12, 9, 1.65, 7, 0, 0, 0.5], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9, spray: 1.2}]),
     ]
 }
 
