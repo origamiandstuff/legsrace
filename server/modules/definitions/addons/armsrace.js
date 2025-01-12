@@ -260,13 +260,14 @@ const addThrusters = (front = false, booster = false) => {
         )
         return guns;
 }
-const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTINGS = [g.basic], LABEL = null) => {
+const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTINGS = [g.basic], LABEL = null, ALT_FIRE = false) => {
     return {
         POSITION: POSITION,
         PROPERTIES: {
             TYPE: TYPE,
             SHOOT_SETTINGS: combineStats(SHOOT_SETTINGS),
-            LABEL: LABEL
+            LABEL: LABEL,
+            ALT_FIRE: ALT_FIRE
         }
     }
 }
@@ -309,6 +310,7 @@ const sts = (type = null) => {
     
   }
 }
+
 // TURRETS
 Class.sniperAutoTankGun = makeTurret({
     GUNS: [
@@ -955,7 +957,7 @@ Class.ori_combatant = makeFighter({
     PARENT: "genericTank",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([20.5, 12, 1, 0, 0, 0, 0], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Front"),
+        easyGun([21, 14, 1, 0, 0, 0, 0], "bullet", [g.basic, g.pounder, g.destroyer, g.flankGuard, g.triAngle, g.triAngleFront], "Front", true),
         ...addThrusters(false, false),
     ]
 }, "Combatant")
@@ -973,10 +975,12 @@ Class.ori_warrior = makeFighter({
     PARENT: "genericTank",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront])
+        easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([20, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
         ...addThrusters(true, false),
     ]
 }, "Warrior")
+note("scrimmer")
 
 // Quad-Angle
 Class.ori_scrimmer = {
@@ -1153,7 +1157,7 @@ if (Config.ARMS_RACE) {
 
 // Flank Guard Branch
     Class.triAngle.UPGRADES_TIER_3 = ["fighter", "booster", "falcon", "bomber", "autoTriAngle", "surfer", "ori_quadAngle", "eagle", "phoenix", "vulture"]
-      
+      Class.fighter.UPGRADES_TIER_3 = ["ori_gangster", "ori_terrorist", "ori_boxer", "ori_streetfighter", "ori_warplane", "ori_combatant", "ori_soldier", "ori_warrior", "ori_scrimmer"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
 
