@@ -1010,8 +1010,18 @@ Class.ori_minelayer = makeBomber({
     ]
 }, "Minelayer", {thrusters: 1, pen: 0})
 Class.ori_browser = makeSurfer("booster", "Browser")
-Class.ori_trinitrotoluene = makeSurfer("booster", "Trinir")
-
+Class.ori_trinitrotoluene = makeNuker("booster", "Trinitrotoluene")
+Class.ori_jet = {
+    PARENT: "genericTank",
+    LABEL: "Jet",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([20, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        ...addThrusters(false, true),
+    ]
+}
+          
 // Quad-Angle Upgrades
 Class.ori_scrimmer = {
     PARENT: "genericTank",
@@ -1188,7 +1198,7 @@ if (Config.ARMS_RACE) {
 // Flank Guard Branch
     Class.triAngle.UPGRADES_TIER_3 = ["fighter", "booster", "bomber", "surfer", "ori_nuker", "ori_quadAngle", "autoTriAngle", "falcon", "eagle", "phoenix", "vulture"]
       Class.fighter.UPGRADES_TIER_3 = ["ori_gangster", "ori_terrorist", "ori_boxer", "ori_streetfighter", "ori_warplane", "ori_combatant", "ori_soldier", "ori_warrior", "ori_scrimmer", "ori_detonator", "ori_autoFighter"]
-      Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_aspirer"]
+      Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
 
