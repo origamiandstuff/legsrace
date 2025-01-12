@@ -1230,6 +1230,49 @@ Class.ori_hexaAngle = {
 
 // Spawner Upgrades
 
+
+
+
+
+// Jokes
+Class.baldEagle = makeBird("genericTank", "Bald Eagle")
+
+// Ass Blaster
+Class.assBlaster = {
+    PARENT: "genericTank",
+    LABEL: "Ass Blaster",
+    GUNS: [
+        easyGun(),
+        easyGun([13, 10, 1.4, 9, 0, 0, 0], "bullet", [g.basic, g.machineGun, {reload: 0.7, spray: 1.4, pen: 0.8}])
+    ]
+}
+Class.tacoBell = {
+    PARENT: "genericTank",
+    LABEL: "Taco Bell",
+    GUNS: [
+        easyGun(),
+        easyGun([16, 10, 1.55, 9, 0, 0, 0], "bullet", [g.basic, g.machineGun, {reload: 0.45, spray: 1.6, pen: 0.8, health: 0.8}])
+    ]
+}
+Class.explosiveDiarrhea = {
+    PARENT: "genericTank",
+    LABEL: "Explosive Diarrhea",
+    GUNS: [
+        easyGun(),
+        easyGun([16, 10, 1.55, 9, 0, 0, 0], "bullet", [g.basic, g.machineGun, {reload: 0.6, spray: 1.9, pen: 0.8, speed: 1.2}])
+    ]
+}
+Class.deepAssShart = {
+    PARENT: "genericTank",
+    LABEL: "Deep Ass Shart",
+    GUNS: [
+        easyGun(),
+        for i 
+        easyGun([16, 10, 1.55, 9, 0, 0, 0], "bullet", [g.basic, g.machineGun, {reload: 20, spray: 1.9, pen: 0.8, speed: 1.2}])
+    ]
+}
+
+
 // Branches
 
 
@@ -1272,4 +1315,7 @@ if (Config.ARMS_RACE) {
 // Desmos Branch
 
 };
+if (Config.ASS_BLASTER = true) {
+    Class.basic.UPGRADES_TIER_2.push("assBlaster")
+}
 console.log("[Arms Race Addon] Loaded Arms Race.");
