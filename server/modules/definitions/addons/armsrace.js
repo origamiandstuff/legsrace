@@ -939,6 +939,17 @@ Class.ori_boxer = {
         easyGun([16, 5, 1, 0, -3, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
     ]
 }
+Class.ori_streetfighter = {
+    PARENT: "genericTank",
+    LABEL: "Streetfighter",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([17, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([17, 8, 1, 0, -1, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        ...addThrusters(true, false),
+        easyGun([4, 8, 1.7, 11, -1, 90, 0], "trap", [g.trap, g.flankGuard, g.triAngle, g.triAngleFront], "Front"),
+    ]
+}
 
 // Quad-Angle
 Class.ori_scrimmer = {
