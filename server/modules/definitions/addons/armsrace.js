@@ -1031,6 +1031,30 @@ Class.ori_waster = {
 }
 Class.ori_drifter = makeFighter("ori_quadAngle", "drifter")
 Class.ori_hoverer = makeNuker("ori_quadAngle", "Hoverer")
+Class.ori_hexaAngle = {
+    PARENT: "genericTank",
+    LABEL: "Hexa-Angle",
+    BODY: sts("tri"),
+    GUNS: addThrusters(false, false),
+    TURRETS: [
+        {
+            POSITION: [9, 8, 0, 60, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [9, 8, 0, -60, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [9, 8, 0, 90, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+        {
+            POSITION: [9, 8, 0, -90, 190, 0],
+            TYPE: ["autoTankGun", {INDEPENDENT: true}]
+        },
+    ]
+}
 
 // Branches
 
@@ -1060,7 +1084,7 @@ if (Config.ARMS_RACE) {
 // Flank Guard Branch
     Class.triAngle.UPGRADES_TIER_3.push("ori_quadAngle")
       
-      Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
+      Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
 
 // Pounder Branch
