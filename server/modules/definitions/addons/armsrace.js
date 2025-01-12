@@ -1259,7 +1259,7 @@ Class.explosiveDiarrhea = {
     LABEL: "Explosive Diarrhea",
     GUNS: [
         easyGun(),
-        easyGun([16, 10, 1.55, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 0.6, spray: 1.9, pen: 0.8, speed: 1.2}])
+        easyGun([18, 10, 1.55, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, g.sniper, {reload: 0.6, spray: 5, pen: 0.8, speed: 1.2}])
     ]
 }
 Class.deepAssShart = {
@@ -1269,9 +1269,25 @@ Class.deepAssShart = {
         easyGun(),
     ]
 }
-for (let i = 0; i < 7; i++)
+for (let i = 0; i < 12; i++) {
     Class.deepAssShart.GUNS.push(easyGun([15, 10, 1.7, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 20, spray: 2, pen: 0.9, speed: 1.5}]))
-
+}
+Class.mexican = {
+    PARENT: "genericTank",
+    LABEL: "Mexican",
+    GUNS: [
+        easyGun(),
+        easyGun([18, 10, 1.7, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, g.machineGun, {reload: 0.35, spray: 1.6, pen: 0.8, health: 0.8}])
+    ]
+}
+Class.constipationBlaster = {
+    PARENT: "genericTank",
+    LABEL: "Ass Blaster",
+    GUNS: [
+        easyGun(),
+        easyGun([13, 12, 1.4, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, g.pounder, {reload: 0.7, spray: 1.4, pen: 0.8}])
+    ]
+}
 // Branches
 
 
@@ -1316,6 +1332,6 @@ if (Config.ARMS_RACE) {
 };
 if (Config.ASS_BLASTER = true) {
     Class.basic.UPGRADES_TIER_2.push("assBlaster")
-       Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart"]
+       Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican"]
 }
 console.log("[Arms Race Addon] Loaded Arms Race.");
