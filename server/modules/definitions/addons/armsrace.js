@@ -899,6 +899,16 @@ Class.ori_mutatedDouble = {
 
 // Hexa Tank Upgrades
 
+// Machine Gun Upgrades
+Class.ori_rainmaker = {
+    PARENT: "genericTank",
+    LABEL: "Superflous",
+    GUNS: [
+        easyGun([12, 8.5, 1.42, 9, 0, 0, 0], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9}]),
+        easyGun([12, 8.5, 1.42, 7, 0, 0, 0.5], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9}]),
+    ]
+}
+
 // Flank Guard Upgrades
 
 // Tri Angle Upgrades
