@@ -927,6 +927,18 @@ Class.ori_terrorist = {
         ...addThrusters(true, false)
     ]
 }
+Class.ori_boxer = {
+    PARENT: "genericTank",
+    LABEL: "Boxer",
+    BODY: sts("tri"),
+    GUNS: [
+        ...addThrusters(true, false),
+        easyGun([16, 5, 1, 0, -3, 90, 0.5], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
+        easyGun([16, 5, 1, 0, 3, -90, 0.5], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
+        easyGun([16, 5, 1, 0, 3, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
+        easyGun([16, 5, 1, 0, -3, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
+    ]
+}
 
 // Quad-Angle
 Class.ori_scrimmer = {
