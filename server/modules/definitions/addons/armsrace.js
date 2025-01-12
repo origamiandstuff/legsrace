@@ -978,8 +978,8 @@ Class.ori_warrior = makeFighter({
     PARENT: "genericTank",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
-        easyGun([20, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
         ...addThrusters(false, false),
     ]
 }, "Warrior")
@@ -1016,8 +1016,8 @@ Class.ori_jet = {
     LABEL: "Jet",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
-        easyGun([20, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([18, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
+        easyGun([18, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
         ...addThrusters(false, true),
     ]
 }
