@@ -1216,7 +1216,9 @@ Class.ori_hexaAngle = {
 }
 
 // Director Upgrades
-Class.
+
+
+// Spawner Upgrades
 
 // Branches
 
