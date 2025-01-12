@@ -951,10 +951,32 @@ Class.ori_streetfighter = {
     ]
 }
 Class.ori_warplane = makeSurfer("fighter", "Warplane")
-Class.combatant = {
-    PARENT: "pounder",
-    LABEL: "combatant"
+Class.ori_combatant = makeFighter({
+    PARENT: "genericTank",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([20.5, 12, 1, 0, 0, 0, 0], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Front"),
+        ...addThrusters(false, false),
+    ]
+}, "Combatant")
+Class.ori_soldier = {
+    PARENT: "genericTank",
+    LABEL: "Soldier",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([20.5, 12, 1, 0, 0, 0, 90], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([20.5, 12, 1, 0, 0, 0, -90], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        ...addThrusters(true, false),
+    ]
 }
+Class.ori_warrior = makeFighter({
+    PARENT: "genericTank",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront])
+        ...addThrusters(true, false),
+    ]
+}, "Warrior")
 
 // Quad-Angle
 Class.ori_scrimmer = {
