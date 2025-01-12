@@ -904,8 +904,8 @@ Class.ori_rainmaker = {
     PARENT: "genericTank",
     LABEL: "Rainmaker",
     GUNS: [
-        easyGun([8, 9, 1.45, 14, 0, 0, 0], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9}]),
-        easyGun([12, 9, 1.65, 7, 0, 0, 0.5], "bullet", [g.basic, g.machineGun, {pen: 2, reload: 0.9, spray: 1.2}]),
+        easyGun([8, 10, 1.45, 14, 0, 0, 0], "bullet", [g.basic, g.machineGun, {pen: 1.5, reload: 1.15, spray: 1.15, shudder: 0.4}]),
+        easyGun([12, 9, 1.65, 7, 0, 0, 0.5], "bullet", [g.basic, g.machineGun, {size: 0.85, pen: 1.5, reload: 1.25, spray: 1.4, shudder: 0.4}]),
     ]
 }
 
