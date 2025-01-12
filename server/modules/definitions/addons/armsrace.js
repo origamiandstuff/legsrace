@@ -1021,6 +1021,14 @@ Class.ori_jet = {
         ...addThrusters(false, true),
     ]
 }
+Class.ori_combatant = makeFighter({
+    PARENT: "genericTank",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([21, 14, 1, 0, 0, 0, 0], "bullet", [g.basic, g.pounder, g.destroyer, g.flankGuard, g.triAngle, g.triAngleFront], "Front", true),
+        ...addThrusters(false, false),
+    ]
+}, "Combatant")
           
 // Quad-Angle Upgrades
 Class.ori_scrimmer = {
