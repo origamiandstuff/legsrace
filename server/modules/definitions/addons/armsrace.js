@@ -982,7 +982,9 @@ Class.ori_warrior = makeFighter({
 }, "Warrior")
 note("scrimmer")
 
-// Quad-Angle
+
+
+// Quad-Angle Upgrades
 Class.ori_scrimmer = {
     PARENT: "genericTank",
     LABEL: "Scrimmer",
