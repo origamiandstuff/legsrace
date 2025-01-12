@@ -935,10 +935,10 @@ Class.ori_boxer = {
     BODY: sts("tri"),
     GUNS: [
         ...addThrusters(true, false),
-        easyGun([16, 5, 1, 0, -3, 90, 0.5], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
+        easyGun([16, 5, 1, 0, -4, 90, 0.5], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
         easyGun([16, 5, 1, 0, 3, -90, 0.5], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
         easyGun([16, 5, 1, 0, 3, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
-        easyGun([16, 5, 1, 0, -3, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
+        easyGun([16, 5, 1, 0, -4, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront, g.twin], "Side"),
     ]
 }
 Class.ori_streetfighter = {
@@ -966,8 +966,8 @@ Class.ori_soldier = {
     LABEL: "Soldier",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([20.5, 12, 1, 0, 0, 0, 90], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
-        easyGun([20.5, 12, 1, 0, 0, 0, -90], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([16.5, 12, 1, 0, 0, 90, 0], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([16.5, 12, 1, 0, 0, -90, 0], "bullet", [g.basic, g.pounder, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
         ...addThrusters(true, false),
     ]
 }
@@ -977,7 +977,7 @@ Class.ori_warrior = makeFighter({
     GUNS: [
         easyGun([20, 8, 1, 0, 5.5, 0, 0], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
         easyGun([20, 8, 1, 0, -5.5, 0, 0.5], "bullet", [g.basic, g.twin, g.flankGuard, g.triAngle, g.triAngleFront, {recoil: 2}]),
-        ...addThrusters(true, false),
+        ...addThrusters(false, false),
     ]
 }, "Warrior")
 note("scrimmer")
@@ -1156,8 +1156,9 @@ if (Config.ARMS_RACE) {
 // Machine Gun Branch
 
 // Flank Guard Branch
-    Class.triAngle.UPGRADES_TIER_3 = ["fighter", "booster", "falcon", "bomber", "autoTriAngle", "surfer", "ori_quadAngle", "eagle", "phoenix", "vulture"]
+    Class.triAngle.UPGRADES_TIER_3 = ["fighter", "booster", "bomber", "autoTriAngle", "surfer", "ori_nuker", "ori_quadAngle", "falcon", "eagle", "phoenix", "vulture"]
       Class.fighter.UPGRADES_TIER_3 = ["ori_gangster", "ori_terrorist", "ori_boxer", "ori_streetfighter", "ori_warplane", "ori_combatant", "ori_soldier", "ori_warrior", "ori_scrimmer"]
+      Class.booster.UPGRADES_TIER_3 = ["ori_gangster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
 
