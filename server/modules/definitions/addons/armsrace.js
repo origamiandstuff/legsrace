@@ -328,15 +328,10 @@ Class.sniperAutoTankGun = makeTurret({
 }, {canRepel: true, limitFov: true, fov: 3})
 Class.stormAutoTurret = makeTurret({
     GUNS: [
-        {
-            POSITION: [22, 10, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pelleter, g.power, { recoil: 1.15 }, g.turret]),
-                TYPE: "bullet",
-            },
-        },
+        easyGun([7, 7.5, 0.6, 7, 4, 0, 0], "swarm", [g.swarm, g.pelleter, g.power]),
+        easyGun([7, 7.5, 0.6, 7, -4, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
     ],
-}, {label: "Turret", fov: 0.8, extraStats: []})
+}, {label: "Storm Suto Turret", fov: 0.8, extraStats: []})
 
 // TANKS
 
@@ -1220,7 +1215,11 @@ Class.ori_hexaAngle = {
     ]
 }
 
+// Director Upgrades
+Class.
+
 // Branches
+
 
 //remove single from assassin branch
 Class.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin", "deadeye"]
