@@ -921,9 +921,9 @@ Class.ori_terrorist = {
     BODY: sts("tri"),
     GUNS: [
         easyGun([17, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
-        easyGun([17, 8, 1, 0, -1, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([17, 8, 1, 0, 1, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
         easyGun([4, 8, 1.7, 11, -1, 90, 0], "trap", [g.trap, {reload: 2.15}], "Side"),
-        easyGun([4, 8, 1.7, 11, -1, -90, 0], "trap", [g.trap, {reload: 2.15}], "Side"),
+        easyGun([4, 8, 1.7, 11, 1, -90, 0], "trap", [g.trap, {reload: 2.15}], "Side"),
         ...addThrusters(true, false)
     ]
 }
@@ -944,11 +944,16 @@ Class.ori_streetfighter = {
     LABEL: "Streetfighter",
     BODY: sts("tri"),
     GUNS: [
-        easyGun([17, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
-        easyGun([17, 8, 1, 0, -1, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([16, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
+        easyGun([16, 8, 1, 0, 1, -90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront], "Side"),
         ...addThrusters(true, false),
-        easyGun([4, 8, 1.7, 11, -1, 90, 0], "trap", [g.trap, g.flankGuard, g.triAngle, g.triAngleFront], "Front"),
+        easyGun([4, 8, 1.7, 11, 0, 0, 0], "trap", [g.trap, g.flankGuard, g.triAngle, g.triAngleFront], "Front"),
     ]
+}
+Class.ori_warplane = makeSurfer("fighter", "Warplane")
+Class.combatant = {
+    PARENT: "pounder",
+    LABEL: "combatant"
 }
 
 // Quad-Angle
