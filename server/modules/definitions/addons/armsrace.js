@@ -92,7 +92,7 @@ const makeSurfer = (type, name = -1) => {
 	return output;
 };
 
-const makeNuker = (type, name = -1) => {
+const makeNuker = (type, name = -1, reload = 2.15) => {
 	type = ensureIsClass(type);
 	let output = dereference(type);
 	let cannons = [
@@ -102,7 +102,7 @@ const makeNuker = (type, name = -1) => {
         {
             POSITION: [4, 8, 1.7, 15, 0, 90, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, {reload: 2.15}]),
+                SHOOT_SETTINGS: combineStats([g.trap, {reload: reload}]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
             },
@@ -113,7 +113,7 @@ const makeNuker = (type, name = -1) => {
         {
             POSITION: [4, 8, 1.7, 15, 0, -90, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.trap, {reload: 2.15}]),
+                SHOOT_SETTINGS: combineStats([g.trap, {reload: reload}]),
                 TYPE: "trap",
                 STAT_CALCULATOR: "trap",
             },
@@ -909,10 +909,22 @@ Class.ori_quadAngle = {
 }
 
 // Fighter Upgrades
-Class.ori_jet = makeFighter({
+Class.ori_gangster = makeFighter({
     PARENT: "genericTank",
-    
-}, "Jet")
+    BODY: sts("tri"),
+    GUNS: addThrusters(true, true)
+}, "Gangster")
+Class.ori_terrorist = {
+    PARENT: "genericTank",
+    LABEL: "Terrorist",
+    BODY: sts("tri"),
+    GUNS: [
+        easyGun([16, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
+        easyGun([16, 8, 1, 0, -1, 90, 0], "bullet", [g.basic, g.flankGuard, g.triAngle, g.triAngleFront]),
+        easyGun([4, 8, 1.7, 13, 0, 90, 0], "bullet", [g.trap, {reload: 2.15}]),
+        easyGun([4, 8, 1.7, 13, 0, -90, 0], "bullet", [g.trap, {reload: 2.15}])
+    ]
+}
 
 // Quad-Angle
 Class.ori_scrimmer = {
