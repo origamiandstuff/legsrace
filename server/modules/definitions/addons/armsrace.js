@@ -908,7 +908,13 @@ Class.ori_quadAngle = {
     ]
 }
 
-// Quad-Angles
+// Fighter Upgrades
+Class.ori_jet = makeFighter({
+    PARENT: "genericTank",
+    
+}, "Jet")
+
+// Quad-Angle
 Class.ori_scrimmer = {
     PARENT: "genericTank",
     LABEL: "Scrimmer",
@@ -1038,11 +1044,11 @@ Class.ori_hexaAngle = {
     GUNS: addThrusters(false, false),
     TURRETS: [
         {
-            POSITION: [9, 8, 0, 60, 190, 0],
+            POSITION: [9, 8, 0, 30, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
-            POSITION: [9, 8, 0, -60, 190, 0],
+            POSITION: [9, 8, 0, -30, 190, 0],
             TYPE: ["autoTankGun", {INDEPENDENT: true}]
         },
         {
@@ -1082,7 +1088,7 @@ if (Config.ARMS_RACE) {
 // Machine Gun Branch
 
 // Flank Guard Branch
-    Class.triAngle.UPGRADES_TIER_3.push("ori_quadAngle")
+    Class.triAngle.UPGRADES_TIER_3 = ["fighter", "booster", "falcon", "bomber", "autoTriAngle", "surfer", "ori_quadAngle", "eagle", "phoenix", "vulture"]
       
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
