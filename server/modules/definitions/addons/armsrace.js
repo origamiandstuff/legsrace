@@ -1280,13 +1280,23 @@ Class.mexican = {
         easyGun([18, 10, 1.7, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, g.machineGun, {reload: 0.35, spray: 1.6, pen: 0.8, health: 0.8}])
     ]
 }
-Class.constipationBlaster = {
+Class.constipation = {
     PARENT: "genericTank",
-    LABEL: "Ass Blaster",
+    LABEL: "Constipation",
     GUNS: [
         easyGun(),
         easyGun([13, 12, 1.4, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, g.pounder, {reload: 0.7, spray: 1.4, pen: 0.8}])
     ]
+}
+Class.laxatives = {
+    PARENT: "genericTank",
+    LABEL: "Laxatives",
+    GUNS: [
+        easyGun(),
+    ]
+}
+for (let i = 0; i < 3; i++) {
+    Class.laxatives.GUNS.push(easyGun([15, 10, 1.7, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 2.5, spray: 2, pen: 0.85, speed: 1.5}]))
 }
 // Branches
 
@@ -1332,6 +1342,6 @@ if (Config.ARMS_RACE) {
 };
 if (Config.ASS_BLASTER = true) {
     Class.basic.UPGRADES_TIER_2.push("assBlaster")
-       Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican"]
+       Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican", "constipation", "laxatives"]
 }
 console.log("[Arms Race Addon] Loaded Arms Race.");
