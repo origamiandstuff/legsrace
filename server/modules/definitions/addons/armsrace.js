@@ -277,7 +277,7 @@ const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTI
 const triSwarm = (dir = 0) => {
       return [
           {
-            POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
+            POSITION: [7, 7.5, 0.6, 7, 0, 60 + dir, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
                 TYPE: "swarm",
@@ -285,7 +285,7 @@ const triSwarm = (dir = 0) => {
             },
           },
           {
-            POSITION: [7, 7.5, 0.6, 7, 0, 180, 1/3],
+            POSITION: [7, 7.5, 0.6, 7, 0, 180 + dir, 1/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
                 TYPE: "swarm",
@@ -293,7 +293,7 @@ const triSwarm = (dir = 0) => {
             },
           },
           {
-            POSITION: [7, 7.5, 0.6, 7, 0, 300, 2/3],
+            POSITION: [7, 7.5, 0.6, 7, 0, 300 + dir, 2/3],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
                 TYPE: "swarm",
