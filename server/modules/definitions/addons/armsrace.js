@@ -274,7 +274,7 @@ const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTI
         }
     }
 }
-const triSwarm = () => {
+const triSwarm = (dir = 0) => {
       return [
           {
             POSITION: [7, 7.5, 0.6, 7, 0, 60, 0],
