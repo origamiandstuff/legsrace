@@ -27,7 +27,7 @@ module.exports = {
     // The \modules\setup\gamemodeconfigs\ files to load.
     // To change specific things about specific gamemodes (such as team count for tdm), edit their config file in \modules\setup\gamemodeconfigs\.
     GAME_MODES: ['ffa'],
-    ARMS_RACE: true,
+    LEGS_RACE: true,
     ASS_BLASTER: true,
     BALD_EAGLE: true,
 

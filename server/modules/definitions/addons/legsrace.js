@@ -1373,6 +1373,9 @@ Class.assSprayer = {
 // Branches
 
 
+
+// Upgrades
+if (Config.LEGS_RACE) {
 //remove single from assassin branch
 Class.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin", "deadeye"]
 
@@ -1381,9 +1384,8 @@ Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "di
 
 //Throw smasher into the abyss i hate rammers
 Class.basic.UPGRADES_TIER_2 = []
-
-// Upgrades
-if (Config.ARMS_RACE) {
+  
+  
 // Twin Branch
   Class.twin.UPGRADES_TIER_3.push("ori_hitman", "ori_trapezium")
     Class.doubleTwin.UPGRADES_TIER_3.push("ori_doubleGunner")
