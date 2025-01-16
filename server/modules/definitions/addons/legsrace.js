@@ -350,9 +350,11 @@ let output = {
     ],
     GUNS: base.GUNS
 }
-for (let i = 0; i < base.GUNS.length; i++) {
-    stats.push(g.minionGun)
-    output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
+if (base.TURRETS.length >= 0) {
+  for (let i = 0; i < base.GUNS.length; i++) {
+      stats.push(g.minionGun)
+      output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
+  }
 }
 return output;
 }
@@ -387,6 +389,9 @@ Class.ori_AutoMinionGun = makeTurret({
     ],
 }, {canRepel: true, limitFov: true, fov: 3})
 
+// PROPS
+Class.ori_roundDeco = makeDeco(0)
+
 // PROJECTILES
 Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
 Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion", [g.basic, g.flankGuard, g.flankGuard]);
@@ -395,7 +400,7 @@ Class.ori_ballerinaMinion = makeMinion({
     GUNS: triSwarm(0, [{range: 0.3, size: 0.65}])
 }, "Ballerina Minion")
 Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "Showperson Minion", {type: "droneAutoTurret"})
-Class.ori_divaMinion = makeMinion(makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: "Auto-3"}), "Diva Minion", [])
+Class.ori_divaMinion = makeMinion(makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: ""}), "Diva Minion", [])
 
 // TANKS
 
@@ -1496,9 +1501,9 @@ Class.ori_showperson = {
         TYPE: "overdriveDeco"
     }]
 }
-Class.ori_dancer = {
+Class.ori_diva = {
     PARENT: "genericTank",
-    LABEL: "Dancer",
+    LABEL: "Diva",
     DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
@@ -1514,7 +1519,7 @@ Class.ori_dancer = {
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-                TYPE: "ori_dancerMinion",
+                TYPE: "ori_divaMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1527,6 +1532,10 @@ Class.ori_dancer = {
             POSITION: [15.5, 3, 1, 0, 0, 0, 0],
         },
     ],
+    TURRETS: [{
+        POSITION: [5, 3, 0, 0, 360, 1],
+        TYPE: "ori_roundDeco"
+    }]
 }
 
 
