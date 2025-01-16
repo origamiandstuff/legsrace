@@ -313,7 +313,46 @@ const sts = (type = null) => {
     
   }
 }
-const makeMinion = {}
+const makeMinion = (type = "basic", label = "Minion", stats = [g.basic]) => {
+let base = dereference(type);
+let output = {
+    PARENT: "genericTank",
+    LABEL: label,
+    TYPE: "minion",
+    DAMAGE_CLASS: 0,
+    HITS_OWN_TYPE: "hard",
+    FACING_TYPE: "smoothToTarget",
+    BODY: {
+        FOV: 0.5,
+        SPEED: 3,
+        ACCELERATION: 1,
+        HEALTH: 5,
+        SHIELD: 0,
+        DAMAGE: 1.2,
+        RESIST: 1,
+        PENETRATION: 1,
+        DENSITY: 0.4,
+    },
+    AI: {
+        BLIND: true,
+    },
+    DRAW_HEALTH: false,
+    CLEAR_ON_MASTER_UPGRADE: true,
+    GIVE_KILL_MESSAGE: false,
+    CONTROLLERS: [
+        "nearestDifferentMaster",
+        "mapAltToFire",
+        "minion",
+        "canRepel",
+        "hangOutNearMaster",
+    ],
+    GUNS: base.GUNS
+}
+for (let i = 0; i < base.GUNS.length; i++) {
+    stats.push(g.minionGun)
+    output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
+}
+}
 
 // TURRETS
 Class.sniperAutoTankGun = makeTurret({
@@ -333,6 +372,9 @@ Class.stormAutoTurret = makeTurret({
         easyGun([7, 7.5, 0.6, 7, -4, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
     ],
 }, {label: "Storm Suto Turret", fov: 0.8, extraStats: []})
+
+// PROJECTILES
+Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
 
 // TANKS
 
@@ -1295,7 +1337,7 @@ Class.ori_hexaAngle = {
 // Spawner Upgrades
 Class.ori_dancer = {
     PARENT: "genericTank",
-    LABEL: "Spawner",
+    LABEL: "Dancecr",
     DANGER: 6,
     STAT_NAMES: statnames.drone,
     BODY: {
@@ -1307,7 +1349,7 @@ Class.ori_dancer = {
             POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
         },
         {
-            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            POSITION: [1, 10.8, 10/9, 15, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
@@ -1318,7 +1360,10 @@ Class.ori_dancer = {
             },
         },
         {
-            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [18, 12, 0.9, 0, 0, 0, 0],
         },
     ],
 }
