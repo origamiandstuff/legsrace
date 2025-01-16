@@ -378,10 +378,12 @@ Class.stormAutoTurret = makeTurret({
 
 // PROJECTILES
 Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
+Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion", [g.basic, g.flankGuard]);
 Class.ori_ballerinaMinion = makeMinion({
     PARENT: "genericTank",
-    GUNS: triSwarm()
+    GUNS: triSwarm(0, [{range: 0.3, size: 0.65}])
 }, "Ballerina Minion")
+Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "droneAutoTurret")
 
 // TANKS
 
@@ -1376,6 +1378,44 @@ Class.ori_dancer = {
 }
 
 // Dancer Upgrades
+Class.ori_performer = {
+    PARENT: "genericTank",
+    LABEL: "Performer",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_performerMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [13, 3, 1, 0, 2.5, 0, 0],
+        },
+        {
+            POSITION: [13, 3, 1, 0, -2.5, 0, 0],
+        },
+        {
+            POSITION: [14.5, 4, 1, 0, 0, 0, 0],
+        },
+    ],
+}
 Class.ori_ballerina = {
     PARENT: "genericTank",
     LABEL: "Ballerina",
@@ -1394,7 +1434,7 @@ Class.ori_ballerina = {
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-                TYPE: "ori_dancerMinion",
+                TYPE: "ori_ballerinaMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
