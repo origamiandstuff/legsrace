@@ -375,15 +375,27 @@ Class.stormAutoTurret = makeTurret({
         easyGun([7, 7.5, 0.6, 7, -4, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
     ],
 }, {label: "Storm Suto Turret", fov: 0.8, extraStats: []})
+Class.ori_AutoMinionGun = makeTurret({
+    GUNS: [
+        {
+            POSITION: [22, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.flankGuard, g.minionGun]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}, {canRepel: true, limitFov: true, fov: 3})
 
 // PROJECTILES
 Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
-Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion", [g.basic, g.flankGuard]);
+Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion", [g.basic, g.flankGuard, g.flankGuard]);
 Class.ori_ballerinaMinion = makeMinion({
     PARENT: "genericTank",
     GUNS: triSwarm(0, [{range: 0.3, size: 0.65}])
 }, "Ballerina Minion")
-Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "droneAutoTurret")
+Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "Showperson Minion", {type: "droneAutoTurret"})
+Class.ori_divaMinion = makeMinion(makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: "Auto-3"}), "Diva Minion", [])
 
 // TANKS
 
@@ -1448,6 +1460,74 @@ Class.ori_ballerina = {
         },
     ],
 }
+Class.ori_showperson = {
+    PARENT: "genericTank",
+    LABEL: "Showperson",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_showpersonMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+        },
+    ],
+    TURRETS: [{
+        POSITION: [9, 0, 0, 0, 360, 1],
+        TYPE: "overdriveDeco"
+    }]
+}
+Class.ori_dancer = {
+    PARENT: "genericTank",
+    LABEL: "Dancer",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_dancerMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+        },
+    ],
+}
 
 
 
@@ -1558,7 +1638,8 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer", "ori_jet", "ori_advocate", "ori_exhaust", "ori_autoBooster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
-
+    Class.spawner.UPGRADES_TIER_3.push("ori_dancer")
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson"]
 // Pounder Branch
 
 // Trapper Branch
