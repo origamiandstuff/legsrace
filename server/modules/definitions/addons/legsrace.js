@@ -274,12 +274,14 @@ const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTI
         }
     }
 }
-const triSwarm = (dir = 0) => {
+const triSwarm = (dir = 0, gunvals = []) => {
+      let gg = [g.swarm]
+      for (let i = 0; i < gunvals.length; i++) gg.push(gunvals[i])
       return [
           {
             POSITION: [7, 7.5, 0.6, 7, 0, 60 + dir, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
+                SHOOT_SETTINGS: combineStats(gg),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
             },
@@ -287,7 +289,7 @@ const triSwarm = (dir = 0) => {
           {
             POSITION: [7, 7.5, 0.6, 7, 0, 180 + dir, 1/3],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
+                SHOOT_SETTINGS: combineStats(gg),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
             },
@@ -295,7 +297,7 @@ const triSwarm = (dir = 0) => {
           {
             POSITION: [7, 7.5, 0.6, 7, 0, 300 + dir, 2/3],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, {damage: 1.15, health: 1.15}]),
+                SHOOT_SETTINGS: combineStats(gg),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
             },
@@ -376,6 +378,10 @@ Class.stormAutoTurret = makeTurret({
 
 // PROJECTILES
 Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
+Class.ori_ballerinaMinion = makeMinion({
+    PARENT: "genericTank",
+    GUNS: triSwarm()
+}, "Ballerina Minion")
 
 // TANKS
 
@@ -1339,7 +1345,7 @@ Class.ori_hexaAngle = {
 Class.ori_dancer = {
     PARENT: "genericTank",
     LABEL: "Dancer",
-    DANGER: 6,
+    DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
         SPEED: base.SPEED * 0.8,
@@ -1369,6 +1375,39 @@ Class.ori_dancer = {
     ],
 }
 
+// Dancer Upgrades
+Class.ori_ballerina = {
+    PARENT: "genericTank",
+    LABEL: "Ballerina",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_dancerMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [14, 5, 0.85, 0, 0, 0, 0],
+        },
+    ],
+}
 
 
 
