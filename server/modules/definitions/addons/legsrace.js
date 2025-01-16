@@ -352,6 +352,7 @@ for (let i = 0; i < base.GUNS.length; i++) {
     stats.push(g.minionGun)
     output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
 }
+return output;
 }
 
 // TURRETS
@@ -1337,7 +1338,7 @@ Class.ori_hexaAngle = {
 // Spawner Upgrades
 Class.ori_dancer = {
     PARENT: "genericTank",
-    LABEL: "Dancecr",
+    LABEL: "Dancer",
     DANGER: 6,
     STAT_NAMES: statnames.drone,
     BODY: {
@@ -1346,14 +1347,14 @@ Class.ori_dancer = {
     },
     GUNS: [
         {
-            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
         },
         {
-            POSITION: [1, 10.8, 10/9, 15, 0, 0, 0],
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
-                TYPE: "minion",
+                TYPE: "ori_dancerMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
                 SYNCS_SKILLS: true,
@@ -1363,7 +1364,7 @@ Class.ori_dancer = {
             POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
         },
         {
-            POSITION: [18, 12, 0.9, 0, 0, 0, 0],
+            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
         },
     ],
 }
