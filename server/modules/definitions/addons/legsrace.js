@@ -19,6 +19,9 @@ const {
 } = require("../constants.js");
 const g = require("../gunvals.js");
 const note = () => {}
+const b = {
+    
+}
 // Removes the desmos branch and adds the single branch to be upgradable from basic.
 // Removes single from assassin branch.
 /*Class.assassin.UPGRADES_TIER_3 = Class.assassin.UPGRADES_TIER_3.filter(
@@ -406,16 +409,40 @@ Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun", {isTurret: true, dang
 Class.ori_divaDeco.COLOR = "grey"
 
 // PROJECTILES
-Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
-Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion", [g.basic, g.flankGuard, g.flankGuard]);
+Class.ori_dancerMinion = makeMinion("flankGuard", "Flank Guard Minion", [g.basic, g.flankGuard]);
+Class.ori_performerMinion = makeMinion("hexaTank", "Hexa Tank Minion", [g.basic, g.flankGuard, g.flankGuard]);
 Class.ori_ballerinaMinion = makeMinion({
     PARENT: "genericTank",
     GUNS: triSwarm(0, [{range: 0.3, size: 0.65}])
 }, "Ballerina Minion")
-Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "Showperson Minion", {type: "droneAutoTurret"})
+Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "Auto-Flank Guard Minion", {type: "droneAutoTurret"})
 Class.ori_divaAuto3 = makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: ""})
 Class.ori_divaAuto3.GUNS = []
-Class.ori_divaMinion = makeMinion("ori_divaAuto3", "Diva Minion", [])
+Class.ori_divaMinion = makeMinion("ori_divaAuto3", "Auto-3 Minion", [])
+Class.ori_playwriteMinion = {
+    PARENT: "minion",
+    LABEL: "Trap Guard Minion",
+    GUNS: [
+        {
+            POSITION: [17, 9, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.minionGun]),
+                WAIT_TO_CYCLE: true,
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [13, 8, 1, 0, 0, 180, 0],
+        }, {
+            POSITION: [4, 8, 1.7, 13, 0, 180, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.trap, g.minionGun]),
+                TYPE: "trap",
+                STAT_CALCULATOR: "trap",
+            }
+        }
+    ]
+}
 
 // TANKS
 
@@ -1578,6 +1605,41 @@ Class.ori_actor = {
         },
         {
             POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+        },
+    ],
+}
+Class.ori_playwrite = {
+    PARENT: "genericTank",
+    LABEL: "Playwrite",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_playwriteMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [14, 3, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 3, 1.5, 14, 0, 0, 0],
         },
     ],
 }
