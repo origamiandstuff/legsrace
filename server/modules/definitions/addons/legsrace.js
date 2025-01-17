@@ -350,12 +350,10 @@ let output = {
     ],
     GUNS: base.GUNS
 }
-if (base.TURRETS.length >= 0) {
+  stats.push(g.minionGun)
   for (let i = 0; i < base.GUNS.length; i++) {
-      stats.push(g.minionGun)
       output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
   }
-}
 return output;
 }
 
@@ -400,7 +398,9 @@ Class.ori_ballerinaMinion = makeMinion({
     GUNS: triSwarm(0, [{range: 0.3, size: 0.65}])
 }, "Ballerina Minion")
 Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "Showperson Minion", {type: "droneAutoTurret"})
-Class.ori_divaMinion = makeMinion(makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: ""}), "Diva Minion", [])
+Class.ori_divaAuto3 = makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: ""})
+Class.ori_divaAuto3.GUNS = []
+Class.ori_divaMinion = makeMinion("ori_divaAuto3", "Diva Minion", [])
 
 // TANKS
 
