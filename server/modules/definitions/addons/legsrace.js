@@ -203,6 +203,37 @@ const addBackDroner = (type, name = -1, droner, independent = false) => {
     return output;
 };
 
+const makeHangar = (type, name = -1) => {
+	type = ensureIsClass(type);
+	let output = dereference(type);
+	let cannons = [
+        {
+            POSITION: [7, 7.5, 0.6, 7, 6, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [7, 7.5, 0.6, 7, -6, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+	];
+  let h = {
+      GUNS: []
+  }
+  h.GUNS.push(cannons)
+  h.GUNS.push(output.GUNS)
+	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
+	output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+	return output;
+};
+
 const addThrusters = (front = false, booster = false, onlyFront = false) => {
         let guns = []
         if (onlyFront == false) {
