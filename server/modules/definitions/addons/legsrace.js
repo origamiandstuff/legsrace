@@ -208,7 +208,7 @@ const makeHangar = (type, name = -1) => {
 	let output = dereference(type);
 	let cannons = [
         {
-            POSITION: [7, 7.5, 0.6, 7, 6, 0, 0],
+            POSITION: [7, 7, 0.6, 3.5, 6, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm]),
                 TYPE: "swarm",
@@ -216,7 +216,7 @@ const makeHangar = (type, name = -1) => {
             },
         },
         {
-            POSITION: [7, 7.5, 0.6, 7, -6, 0, 0.5],
+            POSITION: [7, 7, 0.6, 3.5, -6, 0, 0.5],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm]),
                 TYPE: "swarm",
@@ -227,10 +227,10 @@ const makeHangar = (type, name = -1) => {
   let h = {
       GUNS: []
   }
-  h.GUNS.push(cannons)
-  h.GUNS.push(output.GUNS)
-	output.GUNS = type.GUNS == null ? cannons : type.GUNS.concat(cannons);
-	output.LABEL = name == -1 ? "Surfer " + type.LABEL : name;
+  h.GUNS = cannons
+  h.GUNS = h.GUNS.concat(output.GUNS);
+	output.GUNS = h.GUNS;
+	output.LABEL = name == -1 ? "whar " + type.LABEL : name;
 	return output;
 };
 
@@ -1466,6 +1466,7 @@ Class.ori_dancer = {
         },
     ],
 }
+Class.ori_hangar = makeHangar("spawner", "Hangar")
 
 // Dancer Upgrades
 Class.ori_performer = {
