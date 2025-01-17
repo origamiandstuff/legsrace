@@ -348,7 +348,9 @@ let output = {
         "canRepel",
         "hangOutNearMaster",
     ],
-    GUNS: base.GUNS
+    GUNS: base.GUNS,
+    TURRETS: base.TURRETS,
+    ON: base.ON,
 }
   stats.push(g.minionGun)
   for (let i = 0; i < base.GUNS.length; i++) {
@@ -375,7 +377,7 @@ Class.stormAutoTurret = makeTurret({
         easyGun([7, 7.5, 0.6, 7, -4, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
     ],
 }, {label: "Storm Suto Turret", fov: 0.8, extraStats: []})
-Class.ori_AutoMinionGun = makeTurret({
+Class.ori_autoMinionGun = makeTurret({
     GUNS: [
         {
             POSITION: [22, 10, 1, 0, 0, 0, 0],
@@ -386,9 +388,22 @@ Class.ori_AutoMinionGun = makeTurret({
         },
     ],
 }, {canRepel: true, limitFov: true, fov: 3})
+Class.ori_fakeAutoTankGun = makeTurret({
+    GUNS: [
+        {
+            POSITION: [28, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.fake, {shudder: 0}]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+}, {canRepel: true, limitFov: true, fov: 3})
 
 // PROPS
 Class.ori_roundDeco = makeDeco(0)
+Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun")
+]
 
 // PROJECTILES
 Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
@@ -1528,12 +1543,9 @@ Class.ori_diva = {
         {
             POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
         },
-        {
-            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
-        },
     ],
     TURRETS: [{
-        POSITION: [5, 3, 0, 0, 360, 1],
+        POSITION: [6.5, 6.5, 0, 0, 360, 1],
         TYPE: "ori_roundDeco"
     }]
 }
