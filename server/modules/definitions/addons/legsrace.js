@@ -1585,15 +1585,15 @@ Class.ori_actor = {
         SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
-    GUNS: [
+    MAX_CHILDREN: 4,
+    GUNS: weaponArray([
         {
             POSITION: [6, 8, 1, 10.5, 0, 0, 0],
         },
         {
             POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
             PROPERTIES: {
-                MAX_CHILDREN: 4,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "ori_dancerMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -1606,7 +1606,7 @@ Class.ori_actor = {
         {
             POSITION: [15.5, 3, 1, 0, 0, 0, 0],
         },
-    ],
+    ], 3),
 }
 Class.ori_playwrite = {
     PARENT: "genericTank",
