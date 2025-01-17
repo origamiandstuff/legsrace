@@ -402,8 +402,8 @@ Class.ori_fakeAutoTankGun = makeTurret({
 
 // PROPS
 Class.ori_roundDeco = makeDeco(0)
-Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun")
-]
+Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun", {isTurret: true, danger: 6, label: ""})
+Class.ori_divaDeco.COLOR = "grey"
 
 // PROJECTILES
 Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
@@ -1545,8 +1545,8 @@ Class.ori_diva = {
         },
     ],
     TURRETS: [{
-        POSITION: [6.5, 6.5, 0, 0, 360, 1],
-        TYPE: "ori_roundDeco"
+        POSITION: [6.5, 7.5, 0, 0, 360, 1],
+        TYPE: "ori_divaDeco"
     }]
 }
 
@@ -1660,7 +1660,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer")
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson"]
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva"]
 // Pounder Branch
 
 // Trapper Branch
@@ -1670,8 +1670,9 @@ Class.basic.UPGRADES_TIER_2 = []
 // Desmos Branch
 
 };
+/*
 if (Config.ASS_BLASTER = true) {
     Class.basic.UPGRADES_TIER_2.push("assBlaster")
        Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican", "constipation", "laxatives", "assSprayer"]
-}
-console.log("[Arms Race Addon] Loaded Arms Race.");
+}*/
+console.log("[Arms Race Addon] Loaded Legs Race.");
