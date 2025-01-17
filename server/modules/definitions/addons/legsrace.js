@@ -1549,7 +1549,38 @@ Class.ori_diva = {
         TYPE: "ori_divaDeco"
     }]
 }
-
+Class.ori_actor = {
+    PARENT: "genericTank",
+    LABEL: "Actor",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_dancerMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+        },
+    ],
+}
 
 
 // Jokes
