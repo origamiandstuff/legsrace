@@ -208,7 +208,7 @@ const makeHangar = (type, name = -1) => {
 	let output = dereference(type);
 	let cannons = [
         {
-            POSITION: [7, 7, 0.6, 3.5, 6, 0, 0],
+            POSITION: [8, 7, 0.6, 3.5, 6, 0, 0],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm]),
                 TYPE: "swarm",
@@ -216,7 +216,7 @@ const makeHangar = (type, name = -1) => {
             },
         },
         {
-            POSITION: [7, 7, 0.6, 3.5, -6, 0, 0.5],
+            POSITION: [8, 7, 0.6, 3.5, -6, 0, 0.5],
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.swarm]),
                 TYPE: "swarm",
@@ -1675,6 +1675,7 @@ Class.ori_playwrite = {
         },
     ],
 }
+Class.ori_musician = makeHangar("ori_dancer", "Musician")
 
 
 // Jokes
@@ -1784,8 +1785,9 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer", "ori_jet", "ori_advocate", "ori_exhaust", "ori_autoBooster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
-    Class.spawner.UPGRADES_TIER_3.push("ori_dancer")
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite"]
+    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar")
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician"]
+      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician"]
 // Pounder Branch
 
 // Trapper Branch
