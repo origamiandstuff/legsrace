@@ -1636,10 +1636,10 @@ Class.ori_playwrite = {
             POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
         },
         {
-            POSITION: [14, 3, 1, 0, 0, 0, 0],
+            POSITION: [14, 5, 1, 0, 0, 0, 0],
         },
         {
-            POSITION: [2, 3, 1.5, 14, 0, 0, 0],
+            POSITION: [2, 5, 1.4, 14, 0, 0, 0],
         },
     ],
 }
@@ -1753,7 +1753,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer")
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva"]
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite"]
 // Pounder Branch
 
 // Trapper Branch
