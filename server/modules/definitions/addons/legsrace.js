@@ -315,7 +315,7 @@ const sts = (type = null) => {
     
   }
 }
-const makeMinion = (type = "basic", label = "Minion", stats = [g.basic]) => {
+const makeMinion = (type = "basic", label = "Minion") => {
 let base = dereference(type);
 let output = {
     PARENT: "genericTank",
@@ -352,10 +352,12 @@ let output = {
     TURRETS: base.TURRETS,
     ON: base.ON,
 }
-  stats.push(g.minionGun)
+if (base.GUNS.length > 0) {
   for (let i = 0; i < base.GUNS.length; i++) {
-      output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
+      let shotsetting = output.GUNS[i].PROPERTIES.SHOOT_SETTINGS
+      output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats([shotsetting, g.minionGun])
   }
+}
 return output;
 }
 
@@ -406,8 +408,8 @@ Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun", {isTurret: true, dang
 Class.ori_divaDeco.COLOR = "grey"
 
 // PROJECTILES
-Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion", [g.basic, g.flankGuard]);
-Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion", [g.basic, g.flankGuard, g.flankGuard]);
+Class.ori_dancerMinion = makeMinion("flankGuard", "Dancer Minion");
+Class.ori_performerMinion = makeMinion("hexaTank", "Dancer Minion");
 Class.ori_ballerinaMinion = makeMinion({
     PARENT: "genericTank",
     GUNS: triSwarm(0, [{range: 0.3, size: 0.65}])
@@ -415,7 +417,8 @@ Class.ori_ballerinaMinion = makeMinion({
 Class.ori_showpersonMinion = makeAuto("ori_dancerMinion", "Showperson Minion", {type: "droneAutoTurret"})
 Class.ori_divaAuto3 = makeRadialAuto("ori_autoMinionGun", {isTurret: true, danger: 6, label: ""})
 Class.ori_divaAuto3.GUNS = []
-Class.ori_divaMinion = makeMinion("ori_divaAuto3", "Diva Minion", [])
+Class.ori_divaMinion = makeMinion("ori_divaAuto3", "Diva Minion")
+Class.ori_actorMinion = makeMinion("trapGuard", "Actor Minion")
 
 // TANKS
 
