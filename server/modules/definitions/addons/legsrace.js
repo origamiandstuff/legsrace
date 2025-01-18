@@ -238,7 +238,7 @@ const makeCoordinator = (type, name = -1) => {
 	type = ensureIsClass(type);
 	let output = dereference(type);
 	let cannons = [
-      easyGun([20, 8, 1, 0, 0, 0, 0])
+      easyGun([19.5, 8, 1, 0, 0, 0, 0])
 	];
   let h = {}
   h.GUNS = cannons
@@ -1691,7 +1691,10 @@ Class.ori_playwrite = {
     ],
 }
 Class.ori_musician = makeHangar("ori_dancer", "Musician")
-Class.ori_pianist = makeHangar("ori_dancer", "Pianist")
+Class.ori_pianist = makeCoordinator("ori_dancer", "Pianist")
+
+// Hangar Upgrades
+Class.ori_hideout = makeHangar("ori_coordinator", "Hideout")
 
 
 // Jokes
@@ -1803,7 +1806,8 @@ Class.basic.UPGRADES_TIER_2 = []
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator")
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
-      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician"]
+      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout"]
+      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout"]
 // Pounder Branch
 
 // Trapper Branch
