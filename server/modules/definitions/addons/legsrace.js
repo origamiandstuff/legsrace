@@ -1833,6 +1833,9 @@ Class.ori_pianist = makeCoordinator("ori_dancer", "Pianist")
 Class.ori_hideout = makeHangar("ori_coordinator", "Hideout")
 Class.ori_opera = makeHangar("ori_melody", "Opera")
 Class.ori_dissonance = makeHangar("ori_din", "Dissonance")
+Class.ori_headquarter = makeCoordinator("ori_hangar", "Headquarter")
+
+// Coordinator Upgrades
 
 // Melody Upgrades
 Class.ori_cacophony = {
