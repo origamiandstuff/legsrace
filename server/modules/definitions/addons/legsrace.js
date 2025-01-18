@@ -1770,6 +1770,23 @@ Class.assSprayer = {
         easyGun([12, 10, 1.5, 9, 0, 180, 0], "bullet", [g.basic, g.machineGun, {reload: 0.7, spray: 1.4, pen: 0.8}]),
     ]
 }
+
+
+Class.weirdAssTank = {
+    PARENT: "genericTank",
+    GUNS: [
+        {
+            POSITION: [20, 10, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic]),
+                TYPE: "bullet",
+                SHOOT_RANDOM: ["bullet", "missile", "minimissile", "hive"]
+            }
+        }
+    ]
+}
+
+
 // Branches
 
 
