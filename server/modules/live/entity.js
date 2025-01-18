@@ -294,10 +294,7 @@ class Gun extends EventEmitter {
             this.h = this.shootRandom[this.arrayPos];
             this.setBulletType(this.h);
         } else if (this.alternateFire !== null) {
-            console.log(this.currentAmmunition)
-            console.log(this.currentAmmunition + 1)
-            this.currentAmmunition = (this.currentAmmunition + 1) % this.alternateFire.legth;
-            console.log(this.alternateFire.legth)
+            this.currentAmmunition = (this.currentAmmunition + 1) % this.alternateFire.length;
             this.projectile = this.alternateFire[this.currentAmmunition];
             this.setBulletType(this.projectile);
         }
