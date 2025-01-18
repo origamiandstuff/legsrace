@@ -68,7 +68,10 @@ class Gun extends EventEmitter {
             this.stack = info.PROPERTIES.STACK_GUN ?? true ;
             this.identifier = info.PROPERTIES.IDENTIFIER ?? null;
             this.shootRandom = info.PROPERTIES.SHOOT_RANDOM ?? null;
-            this.alternateFire = info.PROPERTIES.ALTERNATE_FIRE ?? null;
+            if (this.alternateFire) {
+                this.alternateFire = info.PROPERTIES.ALTERNATE_FIRE ?? null;
+                this.currentAmmunition = 0;
+            }
             if (info.PROPERTIES.TYPE != null) {
                 this.canShoot = true;
                 this.label = info.PROPERTIES.LABEL ?? "";
@@ -289,6 +292,12 @@ class Gun extends EventEmitter {
             let arrayPos = Math.floor(Math.random() * this.shootRandom.length);
             if (arrayPos == this.shootRandom.length) this.arrayPos--;
             this.h = this.shootRandom[arrayPos];
+            this.setBulletType(this.h);
+        }
+        if (this.alternateFire !== null) {
+            let arrayPos = Math.floor(Math.random() * this.alternateFire.length);
+            if (arrayPos == this.alternateFire.length) this.arrayPos--;
+            this.h = this.alternateFire[arrayPos];
             this.setBulletType(this.h);
         }
         this.bulletType.SIZE = (this.body.size * this.width * this.shootSettings.size) / 2;
