@@ -1862,6 +1862,7 @@ Class.ori_band0 = {
         SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
+    ON_ALT: (body) => animate(body, "ori_band", 30, false, 17),
     GUNS: [
         {
             POSITION: [8, 7, 0.6, 3.5, 6, 0, 0],
@@ -1896,6 +1897,12 @@ Class.ori_band0 = {
         {
             POSITION: [11.5, 12, 1, 0, 0, 0, 0],
         },
+        {
+            POSITION: [14, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: `#0000FF`
+            }
+        }
     ],
 }
 for ( let ii = 1; ii < 30; ii++ ) {
@@ -1920,17 +1927,63 @@ for ( let ii = 1; ii < 30; ii++ ) {
             POSITION: [8 - (4/15) * ii, 7, 0.6, 3.5 - (3.5/30) * ii, -6, 0, 0.5],
         },
         {
-            POSITION: [4.5 + (1.5 / 30) * ii, 10, 1, 10.5, 0, 0, 0],
+            POSITION: [4.5 + (1.5 / 30) * ii, 10 - (1/15) * ii, 1, 10.5, 0, 0, 0],
         },
         {
-            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            POSITION: [1, 12 - (1.2/30) * ii, 1 + (0.1111111/30) * ii, 15 + (1.5 / 30), 0, 0, 0],
         },
         {
-            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+            POSITION: [11.5, 12, 1 - (0.1/30) * ii, 0, 0, 0, 0],
         },
         {
             POSITION: [(15.5/30) * ii, 8 - (5/30) * ii, 1, 0, 0, 0, 0],
         },
+        {
+            POSITION: [14, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: `#${R}00${B}`
+            }
+        }
+    ],
+}
+}
+Class.ori_band30 = {
+    PARENT: "genericTank",
+    LABEL: "Band",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    ON_ALT: (body) => animate(body, "ori_band", 30, true, 17),
+    GUNS: [
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_dancerMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [14, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: `#FF0000`
+            }
+        }
     ],
 }
 
@@ -2201,8 +2254,8 @@ Class.basic.UPGRADES_TIER_2 = []
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
       Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus"]
-      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera"]
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30"]
+      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor"]
       Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus"]
@@ -2220,4 +2273,4 @@ if (Config.ASS_BLASTER = true) {
     Class.basic.UPGRADES_TIER_2.push("assBlaster")
        Class.assBlaster.UPGRADES_TIER_3 = ["tacoBell", "explosiveDiarrhea", "deepAssShart", "mexican", "constipation", "laxatives", "assSprayer"]
 }*/
-console.log("[Arms Race Addon] Loaded Legs Race.");
+console.log("Loaded Legs Race");
