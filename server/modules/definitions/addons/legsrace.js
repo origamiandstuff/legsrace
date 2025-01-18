@@ -234,6 +234,20 @@ const makeHangar = (type, name = -1) => {
 	return output;
 };
 
+const makeCoordinator = (type, name = -1) => {
+	type = ensureIsClass(type);
+	let output = dereference(type);
+	let cannons = [
+      easyGun([20, 8, 1, 0, 0, 0, 0])
+	];
+  let h = {}
+  h.GUNS = cannons
+  h.GUNS = h.GUNS.concat(output.GUNS);
+	output.GUNS = h.GUNS;
+	output.LABEL = name == -1 ? "dawg what are you doing you didnt rename the tank" : name;
+	return output;
+};
+
 const addThrusters = (front = false, booster = false, onlyFront = false) => {
         let guns = []
         if (onlyFront == false) {
@@ -1467,6 +1481,7 @@ Class.ori_dancer = {
     ],
 }
 Class.ori_hangar = makeHangar("spawner", "Hangar")
+Class.ori_coordinator = makeCoordinator("spawner", "Coordinator")
 
 // Dancer Upgrades
 Class.ori_performer = {
@@ -1676,6 +1691,7 @@ Class.ori_playwrite = {
     ],
 }
 Class.ori_musician = makeHangar("ori_dancer", "Musician")
+Class.ori_pianist = makeHangar("ori_dancer", "Pianist")
 
 
 // Jokes
@@ -1785,8 +1801,8 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer", "ori_jet", "ori_advocate", "ori_exhaust", "ori_autoBooster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
-    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar")
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician"]
+    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator")
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician"]
 // Pounder Branch
 
