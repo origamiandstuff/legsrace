@@ -1772,7 +1772,7 @@ Class.assSprayer = {
 }
 
 
-Class.weirdAssTank = {
+Class.hhhhh = {
     PARENT: "genericTank",
     GUNS: [
         {
@@ -1784,6 +1784,37 @@ Class.weirdAssTank = {
             }
         }
     ]
+}
+Class.dc_hurricane = {
+    PARENT: "genericTank",
+    LABEL: "Hurricane",
+    DANGER: 6,
+    ANGLE: 45,
+    SHAPE: "https://cdn.discordapp.com/avatars/1207892663223844865/f744f7e81407253bef857a367b38f747.webp?",
+    FACING_TYPE: ["spin", {speed: 2}],
+    CONTROLLERS: ["whirlwind"],
+    HAS_NO_RECOIL: true,
+    STAT_NAMES: statnames.whirlwind,
+    AI: {
+        SPEED: 2, 
+    }, 
+    GUNS: (() => { 
+        let output = []
+        for (let i = 0; i < 8; i++) { 
+            output.push({ 
+                POSITION: {WIDTH: 8, LENGTH: 1, DELAY: i * 0.25},
+                PROPERTIES: {
+                    SHOOT_SETTINGS: combineStats([g.satellite]), 
+                    TYPE: ["satellite", {ANGLE: i * 45}], 
+                    MAX_CHILDREN: 1,   
+                    AUTOFIRE: true,  
+                    SYNCS_SKILLS: false,
+                    WAIT_TO_CYCLE: true
+                }
+            }) 
+        }
+        return output
+    })()
 }
 
 
