@@ -289,15 +289,13 @@ class Gun extends EventEmitter {
         
         // Define bullet based on natural properties and skills
         if (this.shootRandom !== null) {
-            let arrayPos = Math.floor(Math.random() * this.shootRandom.length);
-            if (arrayPos == this.shootRandom.length) this.arrayPos--;
-            this.h = this.shootRandom[arrayPos];
+            this.arrayPos = Math.floor(Math.random() * this.shootRandom.length);
+            if (this.arrayPos == this.shootRandom.length) this.arrayPos--;
+            this.h = this.shootRandom[this.arrayPos];
             this.setBulletType(this.h);
-        }
-        if (this.alternateFire !== null) {
-            let arrayPos = Math.floor(Math.random() * this.alternateFire.length);
-            if (arrayPos == this.alternateFire.length) this.arrayPos--;
-            this.h = this.alternateFire[arrayPos];
+        } else if (this.alternateFire !== null) {
+            this.arrayPos = (this.arrayPos + 1) % this.alternateFire.legth;
+            this.h = this.alternateFire[this.arrayPos];
             this.setBulletType(this.h);
         }
         this.bulletType.SIZE = (this.body.size * this.width * this.shootSettings.size) / 2;

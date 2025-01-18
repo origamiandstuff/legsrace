@@ -1780,7 +1780,7 @@ Class.weirdAssTank = {
             PROPERTIES: {
                 SHOOT_SETTINGS: combineStats([g.basic]),
                 TYPE: "bullet",
-                SHOOT_RANDOM: ["bullet", "missile", "minimissile", "hive"]
+                ALTERNATE_FIRE: ["bullet", "missile", "minimissile", "hive"]
             }
         }
     ]
