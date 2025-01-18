@@ -1785,13 +1785,17 @@ Class.hhhhh = {
         }
     ]
 }
+Class.hurricaneSatl = {
+    PARENT: "satellite",
+    SHAPE: "https://cdn.discordapp.com/avatars/1207892663223844865/f744f7e81407253bef857a367b38f747.webp?"
+}
 Class.dc_hurricane = {
     PARENT: "genericTank",
     LABEL: "Hurricane",
     DANGER: 6,
     ANGLE: 45,
     SHAPE: "https://cdn.discordapp.com/avatars/1207892663223844865/f744f7e81407253bef857a367b38f747.webp?",
-    FACING_TYPE: ["spin", {speed: 2}],
+    FACING_TYPE: ["spin", {speed: 0.5}],
     CONTROLLERS: ["whirlwind"],
     HAS_NO_RECOIL: true,
     STAT_NAMES: statnames.whirlwind,
@@ -1805,7 +1809,7 @@ Class.dc_hurricane = {
                 POSITION: {WIDTH: 8, LENGTH: 1, DELAY: i * 0.25},
                 PROPERTIES: {
                     SHOOT_SETTINGS: combineStats([g.satellite]), 
-                    TYPE: ["satellite", {ANGLE: i * 45}], 
+                    TYPE: ["hurricaneSatl", {ANGLE: i * 45}], 
                     MAX_CHILDREN: 1,   
                     AUTOFIRE: true,  
                     SYNCS_SKILLS: false,
