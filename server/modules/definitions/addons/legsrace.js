@@ -1520,6 +1520,9 @@ Class.ori_melody = {
         {
             POSITION: [11.5, 12, -1.2, 0, 0, 0, 0],
         },
+        {
+            POSITION: [9.5, 10, -1.2, 0, 0, 0, 0],
+        },
     ],
 }
 
@@ -1551,6 +1554,42 @@ Class.ori_symphony = {
         },
         {
             POSITION: [12, 14, -1.2, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [10, 12, -1.2, 0, 0, 0, 0],
+        },
+    ],
+}
+Class.ori_cacophony = {
+    PARENT: "genericTank",
+    LABEL: "Cacophony",
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 3,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {reload: 0.6}]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                SHOOT_RANDOM: ["ori_dancerMinion", "ori_symphonyTwin", "ori_symphonySniper", "ori_symphonyPounder", "ori_symphonyTrapper", "ori_symphonySingle"]
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1.2, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [9.5, 10, 1.2, 0, 0, 0, 0],
         },
     ],
 }
@@ -1933,7 +1972,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout"]
-      Class.ori_melody.UPGRDAES_TIER_3 = ["ori_symphony"]
+      Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony"]
 // Pounder Branch
 
 // Trapper Branch
