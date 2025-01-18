@@ -1853,6 +1853,86 @@ Class.ori_pianist = makeCoordinator("ori_dancer", "Pianist")
 Class.ori_hideout = makeHangar("ori_coordinator", "Hideout")
 Class.ori_opera = makeHangar("ori_melody", "Opera")
 Class.ori_dissonance = makeHangar("ori_din", "Dissonance")
+Class.ori_band0 = {
+    PARENT: "genericTank",
+    LABEL: "Band",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [8, 7, 0.6, 3.5, 6, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [8, 7, 0.6, 3.5, -6, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+        },
+    ],
+}
+for ( let ii = 1; ii < 30; ii++ ) {
+    let R1 = Math.floor((255 / 30) * ii)
+    let R = R1.toString(16)
+    let B1 = Math.floor((255 / 30) * (30 - ii))
+    let B = B1.toString(16)
+    Class["ori_band" + ii] = {
+    PARENT: "genericTank",
+    LABEL: "Band",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [8 - (4/15) * ii, 7, 0.6, 3.5 - (3.5/30) * ii, 6, 0, 0],
+        },
+        {
+            POSITION: [8 - (4/15) * ii, 7, 0.6, 3.5 - (3.5/30) * ii, -6, 0, 0.5],
+        },
+        {
+            POSITION: [4.5 + (1.5 / 30) * ii, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [(15.5/30) * ii, 8 - (5/30) * ii, 1, 0, 0, 0, 0],
+        },
+    ],
+}
 
 // Coordinator Upgrades
 Class.ori_conductor = makeCoordinator("ori_melody", "Conductor")
