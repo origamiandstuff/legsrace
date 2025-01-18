@@ -289,6 +289,7 @@ class Gun extends EventEmitter {
             let arrayPos = Math.floor(Math.random() * this.shootRandom.length);
             if (arrayPos == this.shootRandom.length) this.arrayPos--;
             this.bulletType = this.shootRandom[arrayPos];
+            this.setBulletType(bulletType);
         }
         bullet.define(this.bulletType);
 
