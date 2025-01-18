@@ -68,6 +68,7 @@ class Gun extends EventEmitter {
             this.stack = info.PROPERTIES.STACK_GUN ?? true ;
             this.identifier = info.PROPERTIES.IDENTIFIER ?? null;
             this.shootRandom = info.PROPERTIES.SHOOT_RANDOM ?? null;
+            this.alternateFire = info.PROPERTIES.ALTERNATE_FIRE ?? null;
             if (info.PROPERTIES.TYPE != null) {
                 this.canShoot = true;
                 this.label = info.PROPERTIES.LABEL ?? "";
