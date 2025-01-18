@@ -311,6 +311,26 @@ const addThrusters = (front = false, booster = false, onlyFront = false) => {
         )
         return guns;
 }
+
+const animate = (me, baseName, frames, reverse, delay) => {
+    if (reverse) {
+            me.destroyAllChildren();
+            for ( let i = frames - 1; i > -1; i-- ) {
+                let multiplier = frames - i;
+                setTimeout(() => {
+                    me.define(Class[`${baseName}${i}`]);
+                }, (multiplier - 1) * delay);
+            }
+    } else {
+            me.destroyAllChildren();
+            for ( let i = 1; i < frames + 1; i++ ) {
+                setTimeout(() => {
+                    me.define(Class[`${baseName}${i}`]);
+                }, i * delay);
+            }
+        }
+}
+
 const easyGun = (POSITION = [18, 8, 1, 0, 0, 0, 0], TYPE = "bullet", SHOOT_SETTINGS = [g.basic], LABEL = null, ALT_FIRE = false) => {
     return {
         POSITION: POSITION,
