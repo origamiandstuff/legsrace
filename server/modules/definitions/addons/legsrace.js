@@ -2071,7 +2071,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera"]
-      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor"]
+      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor"]
       Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance"]
 // Pounder Branch
