@@ -1833,9 +1833,10 @@ Class.ori_pianist = makeCoordinator("ori_dancer", "Pianist")
 Class.ori_hideout = makeHangar("ori_coordinator", "Hideout")
 Class.ori_opera = makeHangar("ori_melody", "Opera")
 Class.ori_dissonance = makeHangar("ori_din", "Dissonance")
-Class.ori_headquarter = makeCoordinator("ori_hangar", "Headquarter")
 
 // Coordinator Upgrades
+Class.ori_conductor = makeCoordinator("ori_melody", "Conductor")
+Class.ori_disturbance = makeCoordinator("ori_din", "Disturbance")
 
 // Melody Upgrades
 Class.ori_cacophony = {
@@ -2069,10 +2070,10 @@ Class.basic.UPGRADES_TIER_2 = []
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
       Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
-      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance"]
-      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout"]
-      Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera"]
-      Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance"]
+      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera"]
+      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor"]
+      Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor"]
+      Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance"]
 // Pounder Branch
 
 // Trapper Branch
