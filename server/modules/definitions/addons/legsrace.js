@@ -403,8 +403,11 @@ let output = {
 }
   stats.push(g.minionGun)
   for (let i = 0; i < base.GUNS.length; i++) {
-      if (output.GUNS[i].PROPERTIES !== null) 
-      output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
+      if ('PROPERTIES' in base.GUNS[i]) {
+          if ('SHOOT_SETTINGS' in base.GUNS[i].PROPERTIES) {
+              output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
+          }
+      }
   }
 return output;
 }
@@ -1929,7 +1932,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout"]
-      Class.ori_meloody.UPGRDAES_TIER_3 = ["ori_symphony"]
+      Class.ori_melody.UPGRDAES_TIER_3 = ["ori_symphony"]
 // Pounder Branch
 
 // Trapper Branch
