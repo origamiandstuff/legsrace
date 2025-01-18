@@ -67,12 +67,12 @@ class Gun extends EventEmitter {
             this.shootOnDeath = info.PROPERTIES.SHOOT_ON_DEATH ?? false;
             this.stack = info.PROPERTIES.STACK_GUN ?? true ;
             this.identifier = info.PROPERTIES.IDENTIFIER ?? null;
+            this.shootRandom = info.PROPERTIES.SHOOT_RANDOM ?? null;
             if (info.PROPERTIES.TYPE != null) {
                 this.canShoot = true;
                 this.label = info.PROPERTIES.LABEL ?? "";
                 this.setBulletType(info.PROPERTIES.TYPE);
             }
-            this.shootRandom = info.PROPERTIES.SHOOT_RANDOM ?? [info.PROPERTIES.TYPE];
         }
         let position = info.POSITION;
         if (Array.isArray(position)) {
@@ -285,6 +285,7 @@ class Gun extends EventEmitter {
         
         // Define bullet based on natural properties and skills
         this.bulletType.SIZE = (this.body.size * this.width * this.shootSettings.size) / 2;
+        if (this.shootRandom !== null) 
         bullet.define(this.bulletType);
 
         // Fix color
