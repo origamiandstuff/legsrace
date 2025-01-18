@@ -488,6 +488,11 @@ Class.ori_playwriteMinion = {
         }
     ]
 }
+Class.ori_symphonyTwin = makeMinion("twin", "Twin Minion", [g.basic, g.twin]);
+Class.ori_symphonySniper = makeMinion("sniper", "Sniper Guard Minion", [g.basic, g.sniper]);
+Class.ori_symphonyPounder = makeMinion("pounder", "Pounder Guard Minion", [g.basic, g.pounder]);
+Class.ori_symphonyTrapper = makeMinion("trapper", "Trapper Minion", [g.trap]);
+Class.ori_symphonySingle = makeMinion("single", "Single Minion", [g.basic, g.single]);
 
 // TANKS
 
@@ -1482,7 +1487,38 @@ Class.ori_dancer = {
 }
 Class.ori_hangar = makeHangar("spawner", "Hangar")
 Class.ori_coordinator = makeCoordinator("spawner", "Coordinator")
+Class.ori_symphony = {
+    PARENT: "genericTank",
+    LABEL: "Symphony",
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 6,
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                ALTERNATE_FIRE: ["ori_dancerMinion", "ori_symphonyTwin", "ori_symphonySniper", "ori_symphonyPounder", "ori_symphonyTrapper", "ori_symphonySingle"]
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+        },
+    ],
+}
 
+// Factory Upgrades
 // Dancer Upgrades
 Class.ori_performer = {
     PARENT: "genericTank",
