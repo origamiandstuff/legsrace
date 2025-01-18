@@ -364,6 +364,7 @@ const sts = (type = null) => {
   }
 }
 const makeMinion = (type = "basic", label = "Minion", stats = [g.basic]) => {
+console.log(type)
 let base = dereference(type);
 let output = {
     PARENT: "genericTank",
@@ -402,6 +403,7 @@ let output = {
 }
   stats.push(g.minionGun)
   for (let i = 0; i < base.GUNS.length; i++) {
+      if (output.GUNS[i].PROPERTIES !== null) 
       output.GUNS[i].PROPERTIES.SHOOT_SETTINGS = combineStats(stats)
   }
 return output;
@@ -489,8 +491,8 @@ Class.ori_playwriteMinion = {
     ]
 }
 Class.ori_symphonyTwin = makeMinion("twin", "Twin Minion", [g.basic, g.twin]);
-Class.ori_symphonySniper = makeMinion("sniper", "Sniper Guard Minion", [g.basic, g.sniper]);
-Class.ori_symphonyPounder = makeMinion("pounder", "Pounder Guard Minion", [g.basic, g.pounder]);
+Class.ori_symphonySniper = makeMinion("sniper", "Sniper Minion", [g.basic, g.sniper]);
+Class.ori_symphonyPounder = makeMinion("pounder", "Pounder Minion", [g.basic, g.pounder]);
 Class.ori_symphonyTrapper = makeMinion("trapper", "Trapper Minion", [g.trap]);
 Class.ori_symphonySingle = makeMinion("single", "Single Minion", [g.basic, g.single]);
 
@@ -1487,9 +1489,9 @@ Class.ori_dancer = {
 }
 Class.ori_hangar = makeHangar("spawner", "Hangar")
 Class.ori_coordinator = makeCoordinator("spawner", "Coordinator")
-Class.ori_symphony = {
+Class.ori_melody = {
     PARENT: "genericTank",
-    LABEL: "Symphony",
+    LABEL: "Melody",
     DANGER: 6,
     STAT_NAMES: statnames.drone,
     BODY: {
@@ -1504,7 +1506,7 @@ Class.ori_symphony = {
             POSITION: [1, 12, 1, 15, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 6,
-                SHOOT_SETTINGS: combineStats([g.factory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
                 TYPE: "minion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -1513,12 +1515,43 @@ Class.ori_symphony = {
             },
         },
         {
-            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+            POSITION: [11.5, 12, -1.2, 0, 0, 0, 0],
         },
     ],
 }
 
 // Factory Upgrades
+Class.ori_symphony = {
+    PARENT: "genericTank",
+    LABEL: "Symphony",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1, 15.5, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "minion",
+                MAX_CHILDREN: 6,
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                ALTERNATE_FIRE: ["ori_dancerMinion", "ori_symphonyTwin", "ori_symphonySniper", "ori_symphonyPounder", "ori_symphonyTrapper", "ori_symphonySingle"]
+            },
+        },
+        {
+            POSITION: [12, 14, -1.2, 0, 0, 0, 0],
+        },
+    ],
+}
+
 // Dancer Upgrades
 Class.ori_performer = {
     PARENT: "genericTank",
@@ -1892,10 +1925,11 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer", "ori_jet", "ori_advocate", "ori_exhaust", "ori_autoBooster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
-    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator")
+    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody")
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout"]
+      Class.ori_meloody.UPGRDAES_TIER_3 = ["ori_symphony"]
 // Pounder Branch
 
 // Trapper Branch

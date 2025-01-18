@@ -184,7 +184,7 @@ Class.trapper = {
             POSITION: {
                 LENGTH: 15,
                 WIDTH: 7
-            }
+            },
         },
         {
             POSITION: {
