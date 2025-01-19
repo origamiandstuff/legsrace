@@ -2568,6 +2568,36 @@ Class.ori_military = {
         },
     ], 2)
 }
+Class.ori_advisor = {
+    PARENT: "genericTank",
+    LABEL: "Advisor",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        easyGun([19.5, 8, 1, 0, 0, 90, 0], "bullet", [g.basic, g.flankGuard]),
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 90, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 90, 0],
+        },
+    ], 2)
+}
 
 
 
@@ -2741,13 +2771,14 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer", "ori_jet", "ori_advocate", "ori_exhaust", "ori_autoBooster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
-    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
+    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din", "ori_captain")
       Class.factory.UPGRADES_TIER_3 = ["ori_impresario", "ori_aerodome", "ori_organiser", "ori_symphony", "ori_autoFactory"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_impresario", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_aerodome", "ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0", "ori_autoHangar"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_organiser", "ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance", "ori_autoCoordinator"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor", "ori_autoMelody"]
       Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus", "ori_autoDin"]
+      Class.ori_captain.UPGRADES_TIER_3 = ["ori_supervisor", "ori_mandarin", "ori_captaindrive", "ori_military", "ori_advisor"]
 // Pounder Branch
 
 // Trapper Branch
