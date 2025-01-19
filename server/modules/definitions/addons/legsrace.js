@@ -433,7 +433,7 @@ return output;
 }
 
 // TURRETS
-Class.sniperAutoTankGun = makeTurret({
+Class.ori_sniperAutoTankGun = makeTurret({
     GUNS: [
         {
             POSITION: [28, 10, 1, 0, 0, 0, 0],
@@ -444,7 +444,7 @@ Class.sniperAutoTankGun = makeTurret({
         },
     ],
 }, {canRepel: true, limitFov: true, fov: 3})
-Class.stormAutoTurret = makeTurret({
+Class.ori_stormAutoTurret = makeTurret({
     GUNS: [
         easyGun([7, 7.5, 0.6, 7, 4, 0, 0], "swarm", [g.swarm, g.pelleter, g.power]),
         easyGun([7, 7.5, 0.6, 7, -4, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
@@ -1522,11 +1522,11 @@ Class.ori_waster = {
     TURRETS: [
         {
             POSITION: [9, 8, 0, 45, 190, 0],
-            TYPE: ["sniperAutoTankGun", {INDEPENDENT: true}]
+            TYPE: ["ori_sniperAutoTankGun", {INDEPENDENT: true}]
         },
         {
             POSITION: [9, 8, 0, -45, 190, 0],
-            TYPE: ["sniperAutoTankGun", {INDEPENDENT: true}]
+            TYPE: ["ori_sniperAutoTankGun", {INDEPENDENT: true}]
         },
     ]
 }
