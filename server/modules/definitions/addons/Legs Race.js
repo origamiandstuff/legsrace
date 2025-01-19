@@ -1837,6 +1837,81 @@ Class.ori_impresario = {
         },
     ],
 }
+Class.ori_aerodome = {
+    PARENT: "genericTank",
+    LABEL: "Aerodome",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [8.5, 6, 0.65, 3.5, 6.5, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [8.5, 6, 0.65, 3.5, -6.5, 0, 0.5],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.swarm]),
+                TYPE: "swarm",
+                STAT_CALCULATOR: "swarm",
+            },
+        },
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1, 15.5, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "minion",
+                MAX_CHILDREN: 6,
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [12, 14, 1, 0, 0, 0, 0],
+        },
+    ],
+}
+Class.ori_leader = {
+    PARENT: "genericTank",
+    LABEL: "Leader",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        easyGun()
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [2, 14, 1, 15.5, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "minion",
+                MAX_CHILDREN: 6,
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [12, 14, 1, 0, 0, 0, 0],
+        },
+    ],
+}
 Class.ori_racket = {
     PARENT: "genericTank",
     LABEL: "Racket",
@@ -2490,9 +2565,9 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
-      Class.factory.UPGRADES_TIER_3 = ["ori_impresario", "ori_symphony", "ori_autoFactory"]
+      Class.factory.UPGRADES_TIER_3 = ["ori_impresario", "ori_aerodome", "ori_symphony", "ori_autoFactory"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_impresario", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
-      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0", "ori_autoHangar"]
+      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_aerodome", "ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0", "ori_autoHangar"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance", "ori_autoCoordinator"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor", "ori_autoMelody"]
       Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus", "ori_autoDin"]
