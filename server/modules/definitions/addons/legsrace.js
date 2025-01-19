@@ -1828,7 +1828,12 @@ Class.ori_racket = {
 
 // Auto-Spawner Upgrades
 defineAutoUpgrades("spawner", "Spawner", "autoSpawner")
+pushMakeAuto("factory", "Factory", "Auto-Factory", "autoSpawner")
 pushMakeAuto("ori_dancer", "Dancer", "Auto-Dancer", "autoSpawner")
+pushMakeAuto("ori_hangar", "Hangar", "Auto-Hangar", "autoSpawner")
+pushMakeAuto("ori_coordinator", "Coordinator", "Auto-Coordinator", "autoSpawner")
+pushMakeAuto("ori_melody", "Melody", "Auto-Melody", "autoSpawner")
+pushMakeAuto("ori_din", "Din", "Auto-Din", "autoSpawner")
 
 // Dancer Upgrades
 Class.ori_performer = {
@@ -2444,12 +2449,12 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
-      Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
+      Class.factory.UPGRADES_TIER_3 = ["ori_symphony", "ori_autoFactory"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
-      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0"]
-      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance"]
-      Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor"]
-      Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus"]
+      Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0", "ori_autoHangar"]
+      Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance", "ori_autoCoordinator"]
+      Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor", "ori_autoMelody"]
+      Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus", "ori_autoDin"]
 // Pounder Branch
 
 // Trapper Branch
