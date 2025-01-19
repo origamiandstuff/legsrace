@@ -1169,6 +1169,7 @@ Class.ori_iconoclast0 = {
         SPEED: 0.8 * base.SPEED,
         FOV: 1.5 * base.FOV,
     },
+    ON_ALT: (body) => animate(body, "ori_iconoclast", 30, false, 21),
     GUNS: [
         {
             POSITION: [32, 8, 1, 0, 0, 0, 0],
@@ -1183,7 +1184,7 @@ Class.ori_iconoclast0 = {
         {
             POSITION: [14, 4, 1, 0, 0, 0, 0],
             PROPERTIES: {
-                COLOR: `#${R}00${B}`
+                COLOR: `#0000FF`
             }
         },
     ],
@@ -1199,15 +1200,15 @@ for ( let ii = 1; ii < 30; ii++ ) {
     DANGER: 7,
     STAT_NAMES: statnames.drone,
     BODY: {
-        SPEED: base.SPEED * 0.8,
-        FOV: 1.1,
+        SPEED: base.SPEED * (0.8 + (0.2 / 30) * ii),
+        FOV: base.FOV * (1.5 - (0.5 / 30) * ii),
     },
     GUNS: [
         {
             POSITION: [32 - ((32 - 20.5) / 30) * ii, 8 + ((19.5 - 8) / 30) * ii, 1, 0, 0, 0, 0],
         },
         {
-            POSITION: [5 - (1/6) * ii, 8 + ((19.5 - 8) / 30) * ii, -1.4 + (2/15) * ii, 8 - (2/15) * ii, 0, 0, 0],
+            POSITION: [5 - (1/6) * ii, 8 + ((19.5 - 8) / 30) * ii, -1.4 + (0.4/30) * ii, 8 - (2/15) * ii, 0, 0, 0],
         },
         {
             POSITION: [14, 4, 1, 0, 0, 0, 0],
@@ -1217,6 +1218,27 @@ for ( let ii = 1; ii < 30; ii++ ) {
         },
     ],
 }
+}
+Class.ori_iconoclast30 = {
+    PARENT: "genericTank",
+    LABEL: "Iconoclast",
+    DANGER: 7,
+    ON_ALT: (body) => animate(body, "ori_iconoclast", 30, true, 21),
+    GUNS: [
+        {
+            POSITION: [20.5, 19.5, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.pounder, g.destroyer, g.annihilator]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [14, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: `#FF0000`
+            }
+        },
+    ],
 }
 
 // Rifle Upgrades
@@ -2385,7 +2407,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.bentDouble.UPGRADES_TIER_3 = ["ori_warpedDouble", "ori_dentedDouble", "ori_disfiguredDouble", "ori_mutilatedDouble", "ori_mutatedDouble"]
       Class.ori_doubleGunner.UPGRADES_TIER_3 = ["ori_tripleGunner"]
 // Sniper Branch
-
+  
 // Machine Gun Branch
 
 // Flank Guard Branch
