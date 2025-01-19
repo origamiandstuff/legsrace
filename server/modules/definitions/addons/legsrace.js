@@ -1803,6 +1803,9 @@ Class.ori_racket = {
     ],
 }
 
+// Auto-Spawner Upgrades
+Class.ori_stormAutoSpawner = makeAuto("spawner")
+
 // Dancer Upgrades
 Class.ori_performer = {
     PARENT: "genericTank",
