@@ -435,12 +435,13 @@ return output;
 const turretTypes = ["ori_stormAutoTurret", "ori_machineAutoTurret", "ori_sniperAutoTurret", "ori_twinAutoTurret", "ori_pounderAutoTurret"]
 const turretNames = ["Storm", "Machine", "Sniper", "Twin", "Pounder"]
 const turretClassNames = ["storm", "machine", "sniper", "twin", "pounder"]
-const defineAutoUpgrades = (type) => {
-	let className = type;
+const defineAutoUpgrades = (type, className, upgradeType) => {
 	type = ensureIsClass(type);
 	let output = dereference(type);
+  if (!"UPGRADES_TIER_3" in Class)
 	for (let i = 0; i < turretNames.length; i++) {
-      Class[turretClassNames[i] + "Auto" + output.LABEL] = makeAuto(className, `${turretNames[i]}-Auto-${type.LABEL}`, {type: turretTypes[i]})
+      Class[turretClassNames[i] + "Auto" + className] = makeAuto(className, `${turretNames[i]}-Auto-${type.LABEL}`, {type: turretTypes[i]})
+      Class[upgradeType].UPGRADES_TIER_3.push(`${turretClassNames[i]}Auto${className}`)
   }
 }
 // TURRETS
@@ -1818,7 +1819,8 @@ Class.ori_racket = {
 }
 
 // Auto-Spawner Upgrades
-Class.ori_stormAutoSpawner = makeAuto("spawner", "Storm-Auto-Spawner", {type: "ori_stormAutoTurret"})
+//Class.ori_stormAutoSpawner = makeAuto("spawner", "Storm-Auto-Spawner", {type: "ori_stormAutoTurret"})
+defineAutoUpgrades("spawner", "Spawner", "autoSpawner")
 
 // Dancer Upgrades
 Class.ori_performer = {
@@ -2434,7 +2436,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
-      Class.autoSpawner.UPGRADES_TIER_3 = ["ori_stormAutoSpawner"]
+   //   Class.autoSpawner.UPGRADES_TIER_3 = ["ori_stormAutoSpawner"]
       Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0"]
