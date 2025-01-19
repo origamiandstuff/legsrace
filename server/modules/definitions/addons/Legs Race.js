@@ -1816,10 +1816,10 @@ Class.ori_impresario = {
     },
     GUNS: [
         {
-            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+            POSITION: [6.5, 11, 1, 10.5, 0, 0, 0],
         },
         {
-            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            POSITION: [2, 12.6, 10/9, 17, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 6,
                 SHOOT_SETTINGS: combineStats([g.factory]),
@@ -2490,8 +2490,8 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
-      Class.factory.UPGRADES_TIER_3 = ["ori_symphony", "ori_autoFactory"]
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
+      Class.factory.UPGRADES_TIER_3 = ["ori_impresario", "ori_symphony", "ori_autoFactory"]
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_impresario", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0", "ori_autoHangar"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance", "ori_autoCoordinator"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor", "ori_autoMelody"]
