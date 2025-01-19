@@ -1160,6 +1160,65 @@ Class.ori_rainmaker = {
 
 // Sniper Upgrades
 
+// Ranger Upgrades
+Class.ori_iconoclast0 = {
+    PARENT: "genericTank",
+    LABEL: "Iconoclast",
+    DANGER: 7,
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+        FOV: 1.5 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [32, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.assassin]),
+                TYPE: "bullet",
+            },
+        },
+        {
+            POSITION: [5, 8, -1.4, 8, 0, 0, 0],
+        },
+        {
+            POSITION: [14, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: `#${R}00${B}`
+            }
+        },
+    ],
+}
+for ( let ii = 1; ii < 30; ii++ ) {
+    let R1 = Math.floor((255 / 30) * ii)
+    let R = R1.toString(16)
+    let B1 = Math.floor((255 / 30) * (30 - ii))
+    let B = B1.toString(16)
+    Class["ori_iconoclast" + ii] = {
+    PARENT: "genericTank",
+    LABEL: "Iconoclast",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [32 - ((32 - 20.5) / 30) * ii, 8 + ((19.5 - 8) / 30) * ii, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [5 - (1/6) * ii, 8 + ((19.5 - 8) / 30) * ii, -1.4 + (2/15) * ii, 8 - (2/15) * ii, 0, 0, 0],
+        },
+        {
+            POSITION: [14, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: `#${R}00${B}`
+            }
+        },
+    ],
+}
+}
+
 // Rifle Upgrades
 Class.ori_ritual0 = {
     PARENT: "genericTank",
