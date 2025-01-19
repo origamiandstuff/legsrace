@@ -1183,6 +1183,11 @@ Class.ori_rainmaker = {
 
 // Sniper Upgrades
 
+// Assassin Upgrades
+
+// Auto-Assassin Upgrades
+defineAutoUpgrades("assassin", "Assassin", "autoAssassin")
+
 // Ranger Upgrades
 Class.ori_iconoclast0 = {
     PARENT: "genericTank",
@@ -1666,7 +1671,7 @@ Class.ori_hexaAngle = {
 // Overseer Upgrades
 
 // Auto-Overseer Upgrades
-
+defineAutoUpgrades("overseer", "Overseer", "autoOverseer")
 
 // Spawner Upgrades
 Class.ori_dancer = {
