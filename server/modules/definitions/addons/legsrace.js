@@ -1663,6 +1663,10 @@ Class.ori_hexaAngle = {
 
 // Director Upgrades
 
+// Overseer Upgrades
+
+// Auto-Overseer Upgrades
+
 
 // Spawner Upgrades
 Class.ori_dancer = {
