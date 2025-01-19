@@ -432,9 +432,9 @@ let output = {
 return output;
 }
 
-const turretTypes = ["ori_stormAutoTurret", "ori_machineAutoTurret", "ori_sniperAutoTurret", "ori_twinAutoTurret", "ori_pounderAutoTurret"]
-const turretNames = ["Storm", "Machine", "Sniper", "Twin", "Pounder"]
-const turretClassNames = ["storm", "machine", "sniper", "twin", "pounder"]
+const turretTypes = ["ori_stormAutoTurret", "ori_machineAutoTurret", "ori_sniperAutoTurret", "ori_twinAutoTurret", "ori_pounderAutoTurret", "ori_FlankAutoTurret"]
+const turretNames = ["Storm", "Machine", "Sniper", "Twin", "Pounder", "Flank"]
+const turretClassNames = ["storm", "machine", "sniper", "twin", "pounder", "flank"]
 const defineAutoUpgrades = (type, className, upgradeType) => {
   let hhh = type
 	type = ensureIsClass(type);
@@ -466,6 +466,7 @@ Class.ori_machineAutoTurret = makeTurret("machineGun", {label: "Machine Auto Tur
 Class.ori_sniperAutoTurret = makeTurret("sniper", {label: "Sniper Auto Turret", fov: 1, extraStats: [g.pelleter, g.power]})
 Class.ori_twinAutoTurret = makeTurret("twin", {label: "Twin Auto Turret", fov: 0.8, extraStats: [g.pelleter, g.power]})
 Class.ori_pounderAutoTurret = makeTurret("pounder", {label: "Sniper Auto Turret", fov: 1, extraStats: [g.pelleter, g.power]})
+Class.ori_FlankAutoTurret = makeTurret("flankGuard", {label: "Flank Auto Turret", fov: 1, extraStats: [g.pelleter, g.power]})
 Class.ori_autoMinionGun = makeTurret({
     GUNS: [
         {
