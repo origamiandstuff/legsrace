@@ -433,9 +433,16 @@ return output;
 }
 
 const turretTypes = ["ori_stormAutoTurret", "ori_machineAutoTurret", "ori_sniperAutoTurret", "ori_twinAutoTurret", "ori_pounderAutoTurret"]
-const turretNames = []
-const defineAutoUpgrades = ()
-
+const turretNames = ["Storm", "Machine", "Sniper", "Twin", "Pounder"]
+const turretClassNames = ["storm", "machine", "sniper", "twin", "pounder"]
+const defineAutoUpgrades = (type) => {
+	let className = type;
+	type = ensureIsClass(type);
+	let output = dereference(type);
+	for (let i = 0; i < turretNames.length; i++) {
+      Class[turretClassNames[i] + "Auto" + output.LABEL] = makeAuto(className, `${turretNames[i]}-Auto-${type.LABEL}`, {type: turretTypes[i]})
+  }
+}
 // TURRETS
 Class.ori_sniperAutoTankGun = makeTurret({
     GUNS: [
