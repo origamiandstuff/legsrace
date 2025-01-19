@@ -432,6 +432,10 @@ let output = {
 return output;
 }
 
+const turretTypes = ["ori_stormAutoTurret", "ori_machineAutoTurret", "ori_sniperAutoTurret", "ori_twinAutoTurret", "ori_pounderAutoTurret"]
+const turretNames = []
+const defineAutoUpgrades = ()
+
 // TURRETS
 Class.ori_sniperAutoTankGun = makeTurret({
     GUNS: [
@@ -446,10 +450,13 @@ Class.ori_sniperAutoTankGun = makeTurret({
 }, {canRepel: true, limitFov: true, fov: 3})
 Class.ori_stormAutoTurret = makeTurret({
     GUNS: [
-        easyGun([7, 7.5, 0.6, 7, 4, 0, 0], "swarm", [g.swarm, g.pelleter, g.power]),
-        easyGun([7, 7.5, 0.6, 7, -4, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
+        easyGun([7, 7.5, 0.6, 7, 0, 0, 0.5], "swarm", [g.swarm, g.pelleter, g.power]),
     ],
-}, {label: "Storm Suto Turret", fov: 0.8, extraStats: []})
+}, {label: "Storm Auto Turret", fov: 0.8, extraStats: []})
+Class.ori_machineAutoTurret = makeTurret("machineGun", {label: "Machine Auto Turret", fov: 0.8, extraStats: [g.pelleter, g.power]})
+Class.ori_sniperAutoTurret = makeTurret("sniper", {label: "Sniper Auto Turret", fov: 1, extraStats: [g.pelleter, g.power]})
+Class.ori_twinAutoTurret = makeTurret("twin", {label: "Twin Auto Turret", fov: 0.8, extraStats: [g.pelleter, g.power]})
+Class.ori_pounderAutoTurret = makeTurret("pounder", {label: "Sniper Auto Turret", fov: 1, extraStats: [g.pelleter, g.power]})
 Class.ori_autoMinionGun = makeTurret({
     GUNS: [
         {
@@ -1804,7 +1811,7 @@ Class.ori_racket = {
 }
 
 // Auto-Spawner Upgrades
-Class.ori_stormAutoSpawner = makeAuto("spawner")
+Class.ori_stormAutoSpawner = makeAuto("spawner", "Storm-Auto-Spawner", {type: "ori_stormAutoTurret"})
 
 // Dancer Upgrades
 Class.ori_performer = {
@@ -2420,6 +2427,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
+      Class.autoSpawner.UPGRADES_TIER_3 = ["ori_stormAutoSpawner"]
       Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0"]
