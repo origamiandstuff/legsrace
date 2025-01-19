@@ -436,11 +436,12 @@ const turretTypes = ["ori_stormAutoTurret", "ori_machineAutoTurret", "ori_sniper
 const turretNames = ["Storm", "Machine", "Sniper", "Twin", "Pounder"]
 const turretClassNames = ["storm", "machine", "sniper", "twin", "pounder"]
 const defineAutoUpgrades = (type, className, upgradeType) => {
+  let hhh = type
 	type = ensureIsClass(type);
 	let output = dereference(type);
-  if (!"UPGRADES_TIER_3" in Class)
+  if ("UPGRADES_TIER_3" in Class[upgradeType]) {} else Class[upgradeType].UPGRADES_TIER_3 = []
 	for (let i = 0; i < turretNames.length; i++) {
-      Class[turretClassNames[i] + "Auto" + className] = makeAuto(className, `${turretNames[i]}-Auto-${type.LABEL}`, {type: turretTypes[i]})
+      Class[turretClassNames[i] + "Auto" + className] = makeAuto(hhh, `${turretNames[i]}-Auto-${type.LABEL}`, {type: turretTypes[i]})
       Class[upgradeType].UPGRADES_TIER_3.push(`${turretClassNames[i]}Auto${className}`)
   }
 }
