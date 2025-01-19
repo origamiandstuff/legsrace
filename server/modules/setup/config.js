@@ -22,6 +22,7 @@ const nameMap = {
     //clanwars: "Clan Wars",
     trainwars: "Train Wars",
     old_dreadnoughts: `Old Dreadnoughts ${output.TEAMS}TDM`,
+    legsrace: "Legs Race"
 };
 
 module.exports.gameModeName = output.GAMEMODE_NAME_PREFIXES.join('') + '' + output.GAME_MODES.map(x => nameMap[x] || (x[0].toUpperCase() + x.slice(1))).join(' ');
