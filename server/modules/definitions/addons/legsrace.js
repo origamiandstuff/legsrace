@@ -445,7 +445,11 @@ const defineAutoUpgrades = (type, className, upgradeType) => {
       Class[upgradeType].UPGRADES_TIER_3.push(`ori_${turretClassNames[i]}Auto${className}`)
   }
 }
-const pushMakeAuto = ()
+const pushMakeAuto = (type, h, name = "", path, opts = {}) => {
+    Class["ori_auto" + h] = makeAuto(type, name, opts)
+        if ("UPGRADES_TIER_3" in Class[path]) {} else Class[path].UPGRADES_TIER_3 = []
+        Class[path].UPGRADES_TIER_3.push(`ori_auto${h}`)
+}
 // TURRETS
 Class.ori_sniperAutoTankGun = makeTurret({
     GUNS: [
@@ -1824,7 +1828,7 @@ Class.ori_racket = {
 
 // Auto-Spawner Upgrades
 defineAutoUpgrades("spawner", "Spawner", "autoSpawner")
-Class.ori_autoDancer = makeAuto("dancer")
+pushMakeAuto("ori_dancer", "Dancer", "Auto-Dancer", "autoSpawner")
 
 // Dancer Upgrades
 Class.ori_performer = {
@@ -2441,7 +2445,7 @@ Class.basic.UPGRADES_TIER_2 = []
 // Director Branch
     Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din")
       Class.factory.UPGRADES_TIER_3 = ["ori_symphony"]
-      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30"]
+      Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0"]
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor"]
