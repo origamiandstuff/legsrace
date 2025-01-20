@@ -1008,6 +1008,21 @@ class io_scaleWithMaster extends IO {
         }
     }
 }
+class io_minionPOV extends IO {
+
+    think(input) {
+        if (this.permanent || (input.alt && input.target)) {
+            if (this.dynamic || this.body.cameraOverrideX === null) {
+                let direction = Math.atan2(input.target.y, input.target.x);
+                this.body.cameraOverrideX = this.body.x + this.distance * Math.cos(direction);
+                this.body.cameraOverrideY = this.body.y + this.distance * Math.sin(direction);
+            }
+        } else {
+            this.body.cameraOverrideX = null;
+            this.body.cameraOverrideY = null;
+        }
+    }
+}
 
 let ioTypes = {
     //misc
