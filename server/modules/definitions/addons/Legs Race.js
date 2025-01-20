@@ -551,10 +551,8 @@ Class.ori_leadingMinion = {
     MOTION_TYPE: "chase",
     FACING_TYPE: "smoothToTarget",
     CONTROLLERS: [
-        "nearestDifferentMaster",
         "canRepel",
         "mapTargetToGoal",
-        "hangOutNearMaster",
         "overrideMasterPOV",
     ],
     AI: {
@@ -1854,7 +1852,8 @@ Class.ori_airtag = {
         event: "altFire",
         handler: ({body}) => {
             body.destroyAllChildren();
-            setTimeout(( => body.helicoptah = false);
+            body.minionX = null;
+            body.minionY = null;
         }
         
     }],
@@ -1868,7 +1867,7 @@ Class.ori_airtag = {
             POSITION: [1, 12, 1, 15, 0, 180, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 1,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2}]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2, maxSpeed: 0.75}]),
                 TYPE: "ori_leadingMinion",
                 STAT_CALCULATOR: "drone",
                 SYNCS_SKILLS: true,
