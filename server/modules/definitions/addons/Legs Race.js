@@ -612,10 +612,7 @@ Class.ori_triLeadingMinion = {
     DRAW_HEALTH: false,
     CLEAR_ON_MASTER_UPGRADE: true,
     BUFF_VS_FOOD: true,
-    TURRETS: [{
-        POSITION: [9, 0, 0, 0, 360, 1],
-        TYPE: "autoTurret"
-    }],
+    TURRETS: Class.auto3.TURRETS,
 };
 
 // TANKS
@@ -2899,7 +2896,7 @@ Class.ori_chaser = {
     ],
     PROPS: [{
         POSITION: [9, 0, 0, 0, 1],
-        TYPE: ["ori_tagDeco", {COLOR: "red"}]
+        TYPE: ["ori_tagDeco", {COLOR: "orange"}]
     }]
 }
 Class.ori_runner = {
@@ -2932,7 +2929,7 @@ Class.ori_runner = {
             PROPERTIES: {
                 MAX_CHILDREN: 1,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2, maxSpeed: 0.75}]),
-                TYPE: "ori_leadingMinion",
+                TYPE: "ori_triLeadingMinion",
                 STAT_CALCULATOR: "drone",
                 SYNCS_SKILLS: true,
             },
@@ -3133,6 +3130,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor", "ori_autoMelody"]
       Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus", "ori_autoDin"]
       Class.ori_captain.UPGRADES_TIER_3 = ["ori_supervisor", "ori_mandarin", "ori_captaindrive", "ori_tumbler", "ori_military", "ori_advisor", "ori_accompaniment", "ori_noise", "ori_autoCaptain"]
+      Class.ori_tag.UPGRADES_TIER_3 = ["ori_airtag", "ori_chaser", "ori_runner"]
 // Pounder Branch
 
 // Trapper Branch
