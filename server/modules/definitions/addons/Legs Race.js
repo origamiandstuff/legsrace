@@ -578,7 +578,8 @@ Class.ori_leadingMinion = {
     CLEAR_ON_MASTER_UPGRADE: true,
     BUFF_VS_FOOD: true,
     TURRETS: [{
-        POSITION: [9, 0, 0, 0, 360, 1]
+        POSITION: [9, 0, 0, 0, 360, 1],
+        TYPE: "autoTurret"
     }],
 };
 
@@ -1849,23 +1850,32 @@ Class.ori_airtag = {
         SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
+    ON: [{
+        event: "altFire",
+        handler: ({body}) => {
+            body.destroyAllChildren();
+            setTimeout(( => body.helicoptah = false);
+        }
+        
+    }],
+    SHAPE: 8,
     GUNS: [
+        easyGun([20, 8, 1, 0, 0, 0, 0], "bullet", [g.basic], null, true),
         {
-            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+            POSITION: [4.5, 10, 1, 10.5, 0, 180, 0],
         },
         {
-            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            POSITION: [1, 12, 1, 15, 0, 180, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 1,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2}]),
                 TYPE: "ori_leadingMinion",
                 STAT_CALCULATOR: "drone",
-                AUTOFIRE: true,
                 SYNCS_SKILLS: true,
             },
         },
         {
-            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+            POSITION: [11.5, 12, 1, 0, 0, 180, 0],
         },
     ],
 }
