@@ -1013,17 +1013,18 @@ class io_followMinionPOV extends IO {
         super(body);
     }
     think(input) {
-        //if (this.body.children >= 1) {
-        if ("minionY" in this.body) {} else this.body.minionX = 0
-        if ("minionY" in this.body) {} else this.body.minionX = 0
-            //if (this.body.cameraOverrideX === null) {
-                this.body.cameraOverrideX = this.body.minionX;
-                this.body.cameraOverrideY = this.body.minionY;
-            //}
-        //} else {
-        //    this.body.cameraOverrideX = null;
-        //    this.body.cameraOverrideY = null;
-        //}
+        console.log(this.body.children)
+        if (this.body.children >= 1) {
+        if ("minionX" in this.body) {} else this.minionX = 0
+        if ("minionY" in this.body) {} else this.minionY = 0
+            if (this.body.cameraOverrideX === null) {
+                this.body.cameraOverrideX = this.minionX;
+                this.body.cameraOverrideY = this.minionY;
+            }
+        } else {
+            this.body.cameraOverrideX = null;
+            this.body.cameraOverrideY = null;
+        }
     }
 }
 class io_overrideMasterPov extends IO {
@@ -1031,8 +1032,8 @@ class io_overrideMasterPov extends IO {
         super(body);
     }
     think(input) {
-        this.body.master.body.minionX = this.body.x
-        this.body.master.body.minionY = this.body.y
+        this.body.master.minionX = this.body.x
+        this.body.master.minionY = this.body.y
     }
 }
 
