@@ -1987,7 +1987,7 @@ Class.ori_mandarin = {
         {
             POSITION: [2, 14, 1, 15.5, 0, 90, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.factory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.flankGuard]),
                 TYPE: "minion",
                 MAX_CHILDREN: 5,
                 STAT_CALCULATOR: "drone",
@@ -2160,7 +2160,7 @@ Class.ori_actor = {
         SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
-    MAX_CHILDREN: 4,
+    MAX_CHILDREN: 5,
     GUNS: weaponArray([
         {
             POSITION: [6, 8, 1, 10.5, 0, 0, 0],
@@ -2479,7 +2479,7 @@ Class.ori_supervisor = {
             POSITION: [1, 12, 1, 15, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 2,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "minion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -2508,7 +2508,7 @@ Class.ori_captaindrive = {
             POSITION: [1, 12, 1, 15, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "ori_autoMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -2541,7 +2541,7 @@ Class.ori_tumbler = {
             POSITION: [1, 10.8, 10/9, 16.5, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "ori_dancerMinion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -2569,7 +2569,7 @@ Class.ori_military = {
         {
             POSITION: [8, 7, 0.6, 3.5, 6, 90, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.flankGuard]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
             },
@@ -2577,7 +2577,7 @@ Class.ori_military = {
         {
             POSITION: [8, 7, 0.6, 3.5, -6, 90, 0.5],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship]),
+                SHOOT_SETTINGS: combineStats([g.swarm, g.battleship, g.flankGuard]),
                 TYPE: "swarm",
                 STAT_CALCULATOR: "swarm",
             },
@@ -2589,7 +2589,7 @@ Class.ori_military = {
             POSITION: [1, 12, 1, 15, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "minion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -2611,7 +2611,7 @@ Class.ori_advisor = {
         FOV: 1.1,
     },
     GUNS: weaponArray([
-        easyGun([19.5, 8, 1, 0, 0, 90, 0], "bullet", [g.basic, g.flankGuard]),
+        easyGun([19.5, 8, 1, 0, 0, 90, 0], "bullet", [g.basic, g.flankGuard, g.flankGuard]),
         {
             POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
         },
@@ -2619,7 +2619,7 @@ Class.ori_advisor = {
             POSITION: [1, 12, 1, 15, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "minion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -2648,7 +2648,7 @@ Class.ori_accompaniment = {
             POSITION: [1, 12, 1, 15, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, g.flankGuard]),
                 TYPE: "minion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
