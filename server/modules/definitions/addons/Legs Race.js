@@ -498,6 +498,7 @@ Class.ori_fakeAutoTankGun = makeTurret({
 
 // PROPS
 Class.ori_roundDeco = makeDeco(0)
+Class.ori_airtagDeco = makeDeco(8)
 Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun", {isTurret: true, danger: 6, label: ""})
 Class.ori_divaDeco.COLOR = "grey"
 
@@ -551,7 +552,6 @@ Class.ori_leadingMinion = {
     MOTION_TYPE: "chase",
     FACING_TYPE: "smoothToTarget",
     CONTROLLERS: [
-        "canRepel",
         "mapTargetToGoal",
         "overrideMasterPOV",
     ],
@@ -1877,6 +1877,10 @@ Class.ori_airtag = {
             POSITION: [11.5, 12, 1, 0, 0, 180, 0],
         },
     ],
+    PROPS: [{
+        POSITION: [9, 0, 0, 0, 1],
+        TYPE: ["ori_airtagDeco", {COLOR: "red"}]
+    }]
 }
 
 // Factory Upgrades
