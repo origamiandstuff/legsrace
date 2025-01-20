@@ -719,6 +719,8 @@ class Entity extends EventEmitter {
     constructor(position, master) {
         super();
         if (!master) master = this;
+        this.minionX = null;
+        this.minionY = null;
         this.isGhost = false;
         this.killCount = {
             solo: 0,

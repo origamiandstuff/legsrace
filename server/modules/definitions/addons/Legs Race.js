@@ -542,11 +542,45 @@ Class.ori_symphonyPounder = makeMinion("pounder", "Pounder Minion", [g.basic, g.
 Class.ori_symphonyTrapper = makeMinion("trapper", "Trapper Minion", [g.trap]);
 Class.ori_symphonySingle = makeMinion("single", "Single Minion", [g.basic, g.single]);
 Class.ori_autoMinion = makeAuto("minion", "Auto-Flank Guard Minion", {type: "droneAutoTurret"})
-Class.ori_leadingMinion = makeAuto({
-    PARENT: "drone",
+Class.ori_leadingMinion = {
+    LABEL: "Airtag Minion",
+    TYPE: "drone",
+    ACCEPTS_SCORE: false,
+    CONTROL_RANGE: 0,
     SHAPE: 0,
-}, "Airtag Minion")
-Class.ori_leadingMinion.CONTROLLERS.push("overrideMasterPOV")
+    MOTION_TYPE: "chase",
+    FACING_TYPE: "smoothToTarget",
+    CONTROLLERS: [
+        "nearestDifferentMaster",
+        "canRepel",
+        "mapTargetToGoal",
+        "hangOutNearMaster",
+        "overrideMasterPOV",
+    ],
+    AI: {
+        BLIND: true,
+    },
+    COLOR: 'mirror',
+    BODY: {
+        PENETRATION: 1.2,
+        PUSHABILITY: 0.6,
+        ACCELERATION: 0.085,
+        HEALTH: 0.3,
+        DAMAGE: 3.375,
+        SPEED: 3.8,
+        RANGE: 200,
+        DENSITY: 0.03,
+        RESIST: 1.5,
+        FOV: 0.5,
+    },
+    HITS_OWN_TYPE: "hard",
+    DRAW_HEALTH: false,
+    CLEAR_ON_MASTER_UPGRADE: true,
+    BUFF_VS_FOOD: true,
+    TURRETS: [{
+        POSITION: [9, 0, 0, 0, 360, 1]
+    }],
+};
 
 // TANKS
 

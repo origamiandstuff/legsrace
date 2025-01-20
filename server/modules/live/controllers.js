@@ -1009,11 +1009,14 @@ class io_scaleWithMaster extends IO {
     }
 }
 class io_followMinionPOV extends IO {
+    constructor(body) {
+        super(body);
+    }
     think(input) {
         if (this.children >= 1) {
             if (this.body.cameraOverrideX === null) {
-                this.body.cameraOverrideX = this.minionX;
-                this.body.cameraOverrideY = this.minionY;
+                this.body.cameraOverrideX = this.children[0].x;
+                this.body.cameraOverrideY = this.children[0].y;
             }
         } else {
             this.body.cameraOverrideX = null;
@@ -1022,9 +1025,12 @@ class io_followMinionPOV extends IO {
     }
 }
 class io_overrideMasterPov extends IO {
+    constructor(body) {
+        super(body);
+    }
     think(input) {
-        this.master.master.minionX = this.body.x
-        this.master.master.minionY = this.body.y
+        //this.master.body.minionX = this.body.x
+        //this.master.body.minionY = this.body.y
     }
 }
 
