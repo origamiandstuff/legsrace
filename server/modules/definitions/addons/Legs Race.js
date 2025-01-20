@@ -498,7 +498,7 @@ Class.ori_fakeAutoTankGun = makeTurret({
 
 // PROPS
 Class.ori_roundDeco = makeDeco(0)
-Class.ori_airtagDeco = makeDeco(8)
+Class.ori_tagDeco = makeDeco(8)
 Class.ori_divaDeco = makeRadialAuto("ori_fakeAutoTankGun", {isTurret: true, danger: 6, label: ""})
 Class.ori_divaDeco.COLOR = "grey"
 
@@ -544,6 +544,43 @@ Class.ori_symphonyTrapper = makeMinion("trapper", "Trapper Minion", [g.trap]);
 Class.ori_symphonySingle = makeMinion("single", "Single Minion", [g.basic, g.single]);
 Class.ori_autoMinion = makeAuto("minion", "Auto-Flank Guard Minion", {type: "droneAutoTurret"})
 Class.ori_leadingMinion = {
+    LABEL: "Tag Minion",
+    TYPE: "drone",
+    ACCEPTS_SCORE: false,
+    CONTROL_RANGE: 0,
+    SHAPE: 0,
+    MOTION_TYPE: "chase",
+    FACING_TYPE: "smoothToTarget",
+    CONTROLLERS: [
+        "mapTargetToGoal",
+        "overrideMasterPOV",
+    ],
+    AI: {
+        BLIND: true,
+    },
+    COLOR: 'mirror',
+    BODY: {
+        PENETRATION: 1.2,
+        PUSHABILITY: 0.6,
+        ACCELERATION: 0.085,
+        HEALTH: 0.3,
+        DAMAGE: 3.375,
+        SPEED: 3.8,
+        RANGE: 200,
+        DENSITY: 0.03,
+        RESIST: 1.5,
+        FOV: 0.5,
+    },
+    HITS_OWN_TYPE: "hard",
+    DRAW_HEALTH: false,
+    CLEAR_ON_MASTER_UPGRADE: true,
+    BUFF_VS_FOOD: true,
+    TURRETS: [{
+        POSITION: [9, 0, 0, 0, 360, 1],
+        TYPE: "autoTurret"
+    }],
+};
+Class.ori_triLeadingMinion = {
     LABEL: "Airtag Minion",
     TYPE: "drone",
     ACCEPTS_SCORE: false,
@@ -1838,9 +1875,9 @@ Class.ori_captain = {
         },
     ], 2)
 }
-Class.ori_airtag = {
+Class.ori_tag = {
     PARENT: "genericTank",
-    LABEL: "Airtag",
+    LABEL: "Tag",
     CONTROLLERS: ["followMinionPOV"],
     DANGER: 6,
     STAT_NAMES: statnames.drone,
@@ -1879,7 +1916,7 @@ Class.ori_airtag = {
     ],
     PROPS: [{
         POSITION: [9, 0, 0, 0, 1],
-        TYPE: ["ori_airtagDeco", {COLOR: "red"}]
+        TYPE: ["ori_tagDeco", {COLOR: "red"}]
     }]
 }
 
@@ -2776,6 +2813,146 @@ Class.ori_noise = {
     ], 2)
 }
 
+// Tag Upgrades
+Class.ori_airtag = {
+    PARENT: "genericTank",
+    LABEL: "Airtag",
+    CONTROLLERS: ["followMinionPOV"],
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.25,
+    },
+    ON: [{
+        event: "altFire",
+        handler: ({body}) => {
+            body.destroyAllChildren();
+            body.minionX = null;
+            body.minionY = null;
+        }
+        
+    }],
+    SHAPE: 8,
+    GUNS: [
+        easyGun([24, 8, 1, 0, 0, 0, 0], "bullet", [g.basic, g.sniper], null, true),
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 180, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 180, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 1,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2, maxSpeed: 0.75}]),
+                TYPE: "ori_leadingMinion",
+                STAT_CALCULATOR: "drone",
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 180, 0],
+        },
+    ],
+    PROPS: [{
+        POSITION: [9, 0, 0, 0, 1],
+        TYPE: ["ori_tagDeco", {COLOR: "red"}]
+    }]
+}
+Class.ori_chaser = {
+    PARENT: "genericTank",
+    LABEL: "Chaser",
+    CONTROLLERS: ["followMinionPOV"],
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    ON: [{
+        event: "altFire",
+        handler: ({body}) => {
+            body.destroyAllChildren();
+            body.minionX = null;
+            body.minionY = null;
+        }
+        
+    }],
+    SHAPE: 8,
+    GUNS: [
+        easyGun([20, 8, 1, 0, 0, 0, 0], "bullet", [g.basic], null, true),
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 180, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 180, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 1,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2, damage: 1.5}]),
+                TYPE: "ori_leadingMinion",
+                STAT_CALCULATOR: "drone",
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 180, 0],
+        },
+    ],
+    PROPS: [{
+        POSITION: [9, 0, 0, 0, 1],
+        TYPE: ["ori_tagDeco", {COLOR: "red"}]
+    }]
+}
+Class.ori_runner = {
+    PARENT: "genericTank",
+    LABEL: "Runner",
+    CONTROLLERS: ["followMinionPOV"],
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    ON: [{
+        event: "altFire",
+        handler: ({body}) => {
+            body.destroyAllChildren();
+            body.minionX = null;
+            body.minionY = null;
+        }
+        
+    }],
+    SHAPE: 8,
+    GUNS: [
+        easyGun([20, 8, 1, 0, 0, 0, 0], "bullet", [g.basic], null, true),
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 180, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 180, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 1,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {health: 5, reload: 2, maxSpeed: 0.75}]),
+                TYPE: "ori_leadingMinion",
+                STAT_CALCULATOR: "drone",
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 180, 0],
+        },
+    ],
+    PROPS: [
+        {
+            POSITION: [9, 0, 0, 0, 1],
+            TYPE: ["ori_tagDeco", {COLOR: "red"}]
+        },
+        {
+            POSITION: [4, 0, 0, 0, 1],
+            TYPE: ["ori_tagDeco", {COLOR: "red"}]
+        },
+    ]
+}
+
 
 
 
@@ -2927,7 +3104,7 @@ Class.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin",
 Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "single", "desmos"]
 
 //Throw smasher into the abyss i hate rammers
-Class.basic.UPGRADES_TIER_2 = ["ori_airtag"]
+Class.basic.UPGRADES_TIER_2 = []
   
   
 // Twin Branch
@@ -2948,7 +3125,7 @@ Class.basic.UPGRADES_TIER_2 = ["ori_airtag"]
       Class.booster.UPGRADES_TIER_3 = ["ori_rocket", "ori_gangster", "ori_minelayer", "ori_browser", "ori_trinitrotoluene", "ori_aspirer", "ori_jet", "ori_advocate", "ori_exhaust", "ori_autoBooster"]
       Class.ori_quadAngle.UPGRADES_TIER_3 = ["ori_hexaAngle", "ori_scrimmer", "ori_aspirer", "ori_fleeter", "ori_autoQuadAngle", "ori_glider", "ori_conformer", "ori_spoiler", "ori_mandible", "ori_waster", "ori_drifter", "ori_hoverer"]
 // Director Branch
-    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din", "ori_captain")
+    Class.spawner.UPGRADES_TIER_3.push("ori_dancer", "ori_hangar", "ori_coordinator", "ori_melody", "ori_din", "ori_captain", "ori_tag")
       Class.factory.UPGRADES_TIER_3 = ["ori_impresario", "ori_aerodome", "ori_organiser", "ori_symphony", "ori_autoFactory"]
       Class.ori_dancer.UPGRADES_TIER_3 = ["ori_performer", "ori_impresario", "ori_ballerina", "ori_showperson", "ori_diva", "ori_actor", "ori_playwrite", "ori_musician", "ori_pianist", "ori_ruckus", "ori_band30", "ori_autoDancer"]
       Class.ori_hangar.UPGRADES_TIER_3 = ["ori_aerodome", "ori_musician", "ori_hideout", "ori_dissonance", "ori_opera", "ori_band0", "ori_autoHangar"]
