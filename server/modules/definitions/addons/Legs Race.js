@@ -2009,6 +2009,7 @@ pushMakeAuto("ori_hangar", "Hangar", "Auto-Hangar", "autoSpawner")
 pushMakeAuto("ori_coordinator", "Coordinator", "Auto-Coordinator", "autoSpawner")
 pushMakeAuto("ori_melody", "Melody", "Auto-Melody", "autoSpawner")
 pushMakeAuto("ori_din", "Din", "Auto-Din", "autoSpawner")
+pushMakeAuto("ori_captain", "Captain", "Auto-Captain", "autoSpawner")
 
 // Dancer Upgrades
 Class.ori_performer = {
@@ -2415,7 +2416,7 @@ Class.ori_discord = {
             POSITION: [1, 12, 1.2, 15, 0, 0, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 2,
-                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {reload: 0.3}]),
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {reload: 0.2}]),
                 TYPE: "minion",
                 STAT_CALCULATOR: "drone",
                 AUTOFIRE: true,
@@ -2423,7 +2424,7 @@ Class.ori_discord = {
             },
         },
         {
-            POSITION: [11.5, 12, 1.4, 0, 0, 0, 0],
+            POSITION: [11.5, 12, 1.3, 0, 0, 0, 0],
         },
     ],
 }
@@ -2534,10 +2535,10 @@ Class.ori_tumbler = {
     },
     GUNS: weaponArray([
         {
-            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+            POSITION: [6, 8, 1, 10.5, 0, 90, 0],
         },
         {
-            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
@@ -2548,10 +2549,10 @@ Class.ori_tumbler = {
             },
         },
         {
-            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+            POSITION: [11.5, 12, 0.9, 0, 0, 90, 0],
         },
         {
-            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+            POSITION: [15.5, 3, 1, 0, 0, 90, 0],
         },
     ], 2)
 }
@@ -2639,12 +2640,12 @@ Class.ori_accompaniment = {
         SPEED: base.SPEED * 0.8,
         FOV: 1.1,
     },
-    GUNS: [
+    GUNS: weaponArray([
         {
-            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+            POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
         },
         {
-            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            POSITION: [1, 12, 1, 15, 0, 90, 0],
             PROPERTIES: {
                 MAX_CHILDREN: 4,
                 SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
@@ -2656,12 +2657,41 @@ Class.ori_accompaniment = {
             },
         },
         {
-            POSITION: [11.5, 12, -1.2, 0, 0, 0, 0],
+            POSITION: [11.5, 12, -1.2, 0, 0, 90, 0],
         },
         {
-            POSITION: [9.5, 10, -1.2, 0, 0, 0, 0],
+            POSITION: [9.5, 10, -1.2, 0, 0, 90, 0],
         },
-    ],
+    ], 2)
+}
+Class.ori_noise = {
+    PARENT: "genericTank",
+    LABEL: "Noise",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 90, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 90, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 3,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory, {reload: 0.6}]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1.2, 0, 0, 90, 0],
+        },
+    ], 2)
 }
 
 
@@ -2843,7 +2873,7 @@ Class.basic.UPGRADES_TIER_2 = []
       Class.ori_coordinator.UPGRADES_TIER_3 = ["ori_organiser", "ori_pianist", "ori_hideout", "ori_conductor", "ori_disturbance", "ori_autoCoordinator"]
       Class.ori_melody.UPGRADES_TIER_3 = ["ori_symphony", "ori_cacophony", "ori_opera", "ori_conductor", "ori_autoMelody"]
       Class.ori_din.UPGRADES_TIER_3 = ["ori_discord", "ori_racket", "ori_dissonance", "ori_disturbance", "ori_ruckus", "ori_autoDin"]
-      Class.ori_captain.UPGRADES_TIER_3 = ["ori_supervisor", "ori_mandarin", "ori_captaindrive", "ori_military", "ori_advisor"]
+      Class.ori_captain.UPGRADES_TIER_3 = ["ori_supervisor", "ori_mandarin", "ori_captaindrive", "ori_tumbler", "ori_military", "ori_advisor", "ori_accompaniment", "ori_noise", "ori_autoCaptain"]
 // Pounder Branch
 
 // Trapper Branch
