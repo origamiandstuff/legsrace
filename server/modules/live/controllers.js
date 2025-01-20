@@ -1012,19 +1012,11 @@ class io_followMinionPOV extends IO {
     constructor(body) {
         super(body);
     }
-    think(input) {
-        console.log(this.body.children)
-        if (this.body.children >= 1) {
+    think(input) {/*
         if ("minionX" in this.body) {} else this.minionX = 0
-        if ("minionY" in this.body) {} else this.minionY = 0
-            if (this.body.cameraOverrideX === null) {
-                this.body.cameraOverrideX = this.minionX;
-                this.body.cameraOverrideY = this.minionY;
-            }
-        } else {
-            this.body.cameraOverrideX = null;
-            this.body.cameraOverrideY = null;
-        }
+        if ("minionY" in this.body) {} else this.minionY = 0*/
+                this.body.cameraOverrideX = this.body.minionX;
+                this.body.cameraOverrideY = this.body.minionY;
     }
 }
 class io_overrideMasterPov extends IO {

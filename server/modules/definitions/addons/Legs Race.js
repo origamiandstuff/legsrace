@@ -2914,7 +2914,7 @@ Class.assassin.UPGRADES_TIER_3 = ["ranger", "falcon", "stalker", "autoAssassin",
 Class.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "single", "desmos"]
 
 //Throw smasher into the abyss i hate rammers
-Class.basic.UPGRADES_TIER_2 = []
+Class.basic.UPGRADES_TIER_2 = ["ori_airtag"]
   
   
 // Twin Branch
