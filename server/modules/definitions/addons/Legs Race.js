@@ -1971,6 +1971,35 @@ Class.ori_racket = {
         },
     ],
 }
+Class.ori_mandarin = {
+    PARENT: "genericTank",
+    LABEL: "Mandarin",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        {
+            POSITION: [5, 11, 1, 10.5, 0, 90, 0],
+        },
+        {
+            POSITION: [2, 14, 1, 15.5, 0, 90, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.factory]),
+                TYPE: "minion",
+                MAX_CHILDREN: 5,
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [12, 14, 1, 0, 0, 90, 0],
+        },
+    ], 2)
+}
 
 // Auto-Spawner Upgrades
 defineAutoUpgrades("spawner", "Spawner", "autoSpawner")
@@ -2461,35 +2490,6 @@ Class.ori_supervisor = {
         },
     ], 4)
 }
-Class.ori_mandarin = {
-    PARENT: "genericTank",
-    LABEL: "Mandarin",
-    DANGER: 7,
-    STAT_NAMES: statnames.drone,
-    BODY: {
-        SPEED: base.SPEED * 0.8,
-        FOV: 1.1,
-    },
-    GUNS: weaponArray([
-        {
-            POSITION: [5, 11, 1, 10.5, 0, 90, 0],
-        },
-        {
-            POSITION: [2, 14, 1, 15.5, 0, 90, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.factory]),
-                TYPE: "minion",
-                MAX_CHILDREN: 5,
-                STAT_CALCULATOR: "drone",
-                AUTOFIRE: true,
-                SYNCS_SKILLS: true,
-            },
-        },
-        {
-            POSITION: [12, 14, 1, 0, 0, 90, 0],
-        },
-    ], 2)
-}
 Class.ori_captaindrive = {
     PARENT: "genericTank",
     LABEL: "Captaindrive",
@@ -2522,6 +2522,38 @@ Class.ori_captaindrive = {
         POSITION: [9, 0, 0, 0, 360, 1],
         TYPE: "overdriveDeco"
     }]
+}
+Class.ori_tumbler = {
+    PARENT: "genericTank",
+    LABEL: "Tumbler",
+    DANGER: 7,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: weaponArray([
+        {
+            POSITION: [6, 8, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 10.8, 10/9, 16.5, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_dancerMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 0.9, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [15.5, 3, 1, 0, 0, 0, 0],
+        },
+    ], 2)
 }
 Class.ori_military = {
     PARENT: "genericTank",
@@ -2597,6 +2629,39 @@ Class.ori_advisor = {
             POSITION: [11.5, 12, 1, 0, 0, 90, 0],
         },
     ], 2)
+}
+Class.ori_accompaniment = {
+    PARENT: "genericTank",
+    LABEL: "Accompaniment",
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 4,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "minion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+                ALTERNATE_FIRE: ["ori_dancerMinion", "ori_symphonyTwin", "ori_symphonySniper", "ori_symphonyPounder", "ori_symphonyTrapper", "ori_symphonySingle"]
+            },
+        },
+        {
+            POSITION: [11.5, 12, -1.2, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [9.5, 10, -1.2, 0, 0, 0, 0],
+        },
+    ],
 }
 
 
