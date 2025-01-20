@@ -542,6 +542,11 @@ Class.ori_symphonyPounder = makeMinion("pounder", "Pounder Minion", [g.basic, g.
 Class.ori_symphonyTrapper = makeMinion("trapper", "Trapper Minion", [g.trap]);
 Class.ori_symphonySingle = makeMinion("single", "Single Minion", [g.basic, g.single]);
 Class.ori_autoMinion = makeAuto("minion", "Auto-Flank Guard Minion", {type: "droneAutoTurret"})
+Class.ori_leadingMinion = makeAuto({
+    PARENT: "drone",
+    SHAPE: 0,
+}, "Airtag Minion")
+Class.ori_leadingMinion.CONTROLLERS.push("overrideMasterPOV")
 
 // TANKS
 
@@ -1799,6 +1804,36 @@ Class.ori_captain = {
             POSITION: [11.5, 12, 1, 0, 0, 90, 0],
         },
     ], 2)
+}
+Class.ori_airtag = {
+    PARENT: "genericTank",
+    LABEL: "Airtag",
+    CONTROLLERS: ["followMinionPOV"],
+    DANGER: 6,
+    STAT_NAMES: statnames.drone,
+    BODY: {
+        SPEED: base.SPEED * 0.8,
+        FOV: 1.1,
+    },
+    GUNS: [
+        {
+            POSITION: [4.5, 10, 1, 10.5, 0, 0, 0],
+        },
+        {
+            POSITION: [1, 12, 1, 15, 0, 0, 0],
+            PROPERTIES: {
+                MAX_CHILDREN: 1,
+                SHOOT_SETTINGS: combineStats([g.factory, g.babyfactory]),
+                TYPE: "ori_leadingMinion",
+                STAT_CALCULATOR: "drone",
+                AUTOFIRE: true,
+                SYNCS_SKILLS: true,
+            },
+        },
+        {
+            POSITION: [11.5, 12, 1, 0, 0, 0, 0],
+        },
+    ],
 }
 
 // Factory Upgrades

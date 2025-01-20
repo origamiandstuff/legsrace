@@ -1008,19 +1008,23 @@ class io_scaleWithMaster extends IO {
         }
     }
 }
-class io_minionPOV extends IO {
-
+class io_followMinionPOV extends IO {
     think(input) {
-        if (this.permanent || (input.alt && input.target)) {
-            if (this.dynamic || this.body.cameraOverrideX === null) {
-                let direction = Math.atan2(input.target.y, input.target.x);
-                this.body.cameraOverrideX = this.body.x + this.distance * Math.cos(direction);
-                this.body.cameraOverrideY = this.body.y + this.distance * Math.sin(direction);
+        if (this.children >= 1) {
+            if (this.body.cameraOverrideX === null) {
+                this.body.cameraOverrideX = this.minionX;
+                this.body.cameraOverrideY = this.minionY;
             }
         } else {
             this.body.cameraOverrideX = null;
             this.body.cameraOverrideY = null;
         }
+    }
+}
+class io_overrideMasterPov extends IO {
+    think(input) {
+        this.master.master.minionX = this.body.x
+        this.master.master.minionY = this.body.y
     }
 }
 
@@ -1035,6 +1039,8 @@ let ioTypes = {
     whirlwind: io_whirlwind,
     disableOnOverride: io_disableOnOverride,
     scaleWithMaster: io_scaleWithMaster,
+    followMinionPOV: io_followMinionPOV,
+    overrideMasterPOV: io_overrideMasterPov,
 
     //aiming related
     stackGuns: io_stackGuns,
