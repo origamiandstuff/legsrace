@@ -1015,8 +1015,8 @@ class io_followMinionPOV extends IO {
     think(input) {
         if (this.children >= 1) {
             if (this.body.cameraOverrideX === null) {
-                this.body.cameraOverrideX = this.children[0].x;
-                this.body.cameraOverrideY = this.children[0].y;
+                this.body.cameraOverrideX = this.minionX;
+                this.body.cameraOverrideY = this.minionY;
             }
         } else {
             this.body.cameraOverrideX = null;
@@ -1029,8 +1029,8 @@ class io_overrideMasterPov extends IO {
         super(body);
     }
     think(input) {
-        //this.master.body.minionX = this.body.x
-        //this.master.body.minionY = this.body.y
+        //this.master.minionX = this.body.x
+        //this.master.minionY = this.body.y
     }
 }
 
