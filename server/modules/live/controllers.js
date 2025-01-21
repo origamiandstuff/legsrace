@@ -256,22 +256,6 @@ class io_mapTargetToGoal extends IO {
         }
     }
 }
-class io_alwaysMapTargetToGoal extends IO {
-    constructor(b) {
-        super(b)
-    }
-    think(input) {
-        if (input.main || input.alt) {
-            return {
-                goal: {
-                    x: input.target.x + this.body.x,
-                    y: input.target.y + this.body.y,
-                },
-                power: 1,
-            }
-        }
-    }
-}
 class io_boomerang extends IO {
     constructor(b) {
         super(b)
