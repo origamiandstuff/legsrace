@@ -571,10 +571,20 @@ Class.ori_leadingMinion = {
         RESIST: 1.5,
         FOV: 0.5,
     },
+    ON: [
+        {
+            event: "death",
+            handler: ({ body }) => {
+                 body.master.minionX = null;
+                 body.master.minionY = null;
+            }
+        }
+    ],
     HITS_OWN_TYPE: "hard",
     DRAW_HEALTH: false,
     CLEAR_ON_MASTER_UPGRADE: true,
     BUFF_VS_FOOD: true,
+    GUNS: [{POSITION: [20, 8, 1, 0, 0, 0, 0], PROPERTIES: {TYPE: "bullet", SHOOT_SETTINGS: combineStats([g.basic, {recoil: 0}]), AUTOFIRE: true}}],
     TURRETS: [{
         POSITION: [9, 0, 0, 0, 360, 1],
         TYPE: "autoTurret"
@@ -608,11 +618,20 @@ Class.ori_triLeadingMinion = {
         RESIST: 1.5,
         FOV: 0.5,
     },
+    ON: [
+        {
+            event: "death",
+            handler: ({ body }) => {
+                 body.master.minionX = null;
+                 body.master.minionY = null;
+            }
+        }
+    ],
     HITS_OWN_TYPE: "hard",
     DRAW_HEALTH: false,
     CLEAR_ON_MASTER_UPGRADE: true,
     BUFF_VS_FOOD: true,
-    TURRETS: Class.auto3.TURRETS,
+    TURRETS: Class.auto3.TURRETS.concat([{ POSITION: [9, 0, 0, 0, 360, 1], TYPE: "autoTurret" }]),
 };
 
 // TANKS
@@ -2825,8 +2844,6 @@ Class.ori_airtag = {
         event: "altFire",
         handler: ({body}) => {
             body.destroyAllChildren();
-            body.minionX = null;
-            body.minionY = null;
         }
         
     }],
@@ -2869,8 +2886,6 @@ Class.ori_chaser = {
         event: "altFire",
         handler: ({body}) => {
             body.destroyAllChildren();
-            body.minionX = null;
-            body.minionY = null;
         }
         
     }],
@@ -2913,8 +2928,6 @@ Class.ori_runner = {
         event: "altFire",
         handler: ({body}) => {
             body.destroyAllChildren();
-            body.minionX = null;
-            body.minionY = null;
         }
         
     }],
